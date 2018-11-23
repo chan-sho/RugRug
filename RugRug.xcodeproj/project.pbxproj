@@ -12,6 +12,14 @@
 		31DB92EA21A7EC9000A2B6AF /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 31DB92E821A7EC9000A2B6AF /* Main.storyboard */; };
 		31DB92EC21A7EC9200A2B6AF /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 31DB92EB21A7EC9200A2B6AF /* Assets.xcassets */; };
 		31DB92EF21A7EC9200A2B6AF /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 31DB92ED21A7EC9200A2B6AF /* LaunchScreen.storyboard */; };
+		31DB92F721A7F23C00A2B6AF /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 31DB92F621A7F23C00A2B6AF /* GoogleService-Info.plist */; };
+		31DB92F921A7F62D00A2B6AF /* Home.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31DB92F821A7F62D00A2B6AF /* Home.swift */; };
+		31DB92FB21A7F64C00A2B6AF /* Login.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31DB92FA21A7F64C00A2B6AF /* Login.swift */; };
+		31DB92FD21A7F66600A2B6AF /* Setting.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31DB92FC21A7F66600A2B6AF /* Setting.swift */; };
+		31DB92FF21A7F6C800A2B6AF /* Post.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31DB92FE21A7F6C800A2B6AF /* Post.swift */; };
+		31DB930121A7F6EC00A2B6AF /* Request.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31DB930021A7F6EC00A2B6AF /* Request.swift */; };
+		31DB930321A8388800A2B6AF /* Initial.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31DB930221A8388800A2B6AF /* Initial.swift */; };
+		9ED7BC96C7D7B2B31556E273 /* Pods_RugRug.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B622C86550B85A948A5E0674 /* Pods_RugRug.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -22,6 +30,16 @@
 		31DB92EB21A7EC9200A2B6AF /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		31DB92EE21A7EC9200A2B6AF /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		31DB92F021A7EC9200A2B6AF /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		31DB92F621A7F23C00A2B6AF /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		31DB92F821A7F62D00A2B6AF /* Home.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Home.swift; sourceTree = "<group>"; };
+		31DB92FA21A7F64C00A2B6AF /* Login.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Login.swift; sourceTree = "<group>"; };
+		31DB92FC21A7F66600A2B6AF /* Setting.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Setting.swift; sourceTree = "<group>"; };
+		31DB92FE21A7F6C800A2B6AF /* Post.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Post.swift; sourceTree = "<group>"; };
+		31DB930021A7F6EC00A2B6AF /* Request.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Request.swift; sourceTree = "<group>"; };
+		31DB930221A8388800A2B6AF /* Initial.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Initial.swift; sourceTree = "<group>"; };
+		9748BEB0414ED82A1AF84D38 /* Pods-RugRug.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RugRug.debug.xcconfig"; path = "Pods/Target Support Files/Pods-RugRug/Pods-RugRug.debug.xcconfig"; sourceTree = "<group>"; };
+		B622C86550B85A948A5E0674 /* Pods_RugRug.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_RugRug.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		DE05979B1B0E08B6203B8B5C /* Pods-RugRug.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RugRug.release.xcconfig"; path = "Pods/Target Support Files/Pods-RugRug/Pods-RugRug.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -29,6 +47,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9ED7BC96C7D7B2B31556E273 /* Pods_RugRug.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -40,6 +59,8 @@
 			children = (
 				31DB92E321A7EC9000A2B6AF /* RugRug */,
 				31DB92E221A7EC9000A2B6AF /* Products */,
+				7521879043381D58DAA6892E /* Pods */,
+				7FE57CA4F2B8362FC454BCD8 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -56,12 +77,36 @@
 			children = (
 				31DB92E421A7EC9000A2B6AF /* AppDelegate.swift */,
 				31DB92E621A7EC9000A2B6AF /* ViewController.swift */,
+				31DB930221A8388800A2B6AF /* Initial.swift */,
+				31DB92FA21A7F64C00A2B6AF /* Login.swift */,
+				31DB92F821A7F62D00A2B6AF /* Home.swift */,
+				31DB92FE21A7F6C800A2B6AF /* Post.swift */,
+				31DB930021A7F6EC00A2B6AF /* Request.swift */,
+				31DB92FC21A7F66600A2B6AF /* Setting.swift */,
 				31DB92E821A7EC9000A2B6AF /* Main.storyboard */,
 				31DB92EB21A7EC9200A2B6AF /* Assets.xcassets */,
 				31DB92ED21A7EC9200A2B6AF /* LaunchScreen.storyboard */,
 				31DB92F021A7EC9200A2B6AF /* Info.plist */,
+				31DB92F621A7F23C00A2B6AF /* GoogleService-Info.plist */,
 			);
 			path = RugRug;
+			sourceTree = "<group>";
+		};
+		7521879043381D58DAA6892E /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				9748BEB0414ED82A1AF84D38 /* Pods-RugRug.debug.xcconfig */,
+				DE05979B1B0E08B6203B8B5C /* Pods-RugRug.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+		7FE57CA4F2B8362FC454BCD8 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				B622C86550B85A948A5E0674 /* Pods_RugRug.framework */,
+			);
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -71,9 +116,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 31DB92F321A7EC9200A2B6AF /* Build configuration list for PBXNativeTarget "RugRug" */;
 			buildPhases = (
+				C4058501B68678964865EB13 /* [CP] Check Pods Manifest.lock */,
 				31DB92DD21A7EC9000A2B6AF /* Sources */,
 				31DB92DE21A7EC9000A2B6AF /* Frameworks */,
 				31DB92DF21A7EC9000A2B6AF /* Resources */,
+				336A6F065B080CCCC25DAAB7 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -123,6 +170,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				31DB92EF21A7EC9200A2B6AF /* LaunchScreen.storyboard in Resources */,
+				31DB92F721A7F23C00A2B6AF /* GoogleService-Info.plist in Resources */,
 				31DB92EC21A7EC9200A2B6AF /* Assets.xcassets in Resources */,
 				31DB92EA21A7EC9000A2B6AF /* Main.storyboard in Resources */,
 			);
@@ -130,13 +178,76 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		336A6F065B080CCCC25DAAB7 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${SRCROOT}/Pods/Target Support Files/Pods-RugRug/Pods-RugRug-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/Bolts/Bolts.framework",
+				"${BUILT_PRODUCTS_DIR}/ESTabBarController/ESTabBarController.framework",
+				"${BUILT_PRODUCTS_DIR}/FBSDKCoreKit/FBSDKCoreKit.framework",
+				"${BUILT_PRODUCTS_DIR}/FBSDKLoginKit/FBSDKLoginKit.framework",
+				"${BUILT_PRODUCTS_DIR}/FBSDKShareKit/FBSDKShareKit.framework",
+				"${BUILT_PRODUCTS_DIR}/GTMSessionFetcher/GTMSessionFetcher.framework",
+				"${BUILT_PRODUCTS_DIR}/GoogleUtilities/GoogleUtilities.framework",
+				"${BUILT_PRODUCTS_DIR}/SVProgressHUD/SVProgressHUD.framework",
+				"${BUILT_PRODUCTS_DIR}/leveldb-library/leveldb.framework",
+				"${BUILT_PRODUCTS_DIR}/nanopb/nanopb.framework",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Bolts.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/ESTabBarController.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/FBSDKCoreKit.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/FBSDKLoginKit.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/FBSDKShareKit.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GTMSessionFetcher.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GoogleUtilities.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SVProgressHUD.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/leveldb.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/nanopb.framework",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-RugRug/Pods-RugRug-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		C4058501B68678964865EB13 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-RugRug-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		31DB92DD21A7EC9000A2B6AF /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				31DB92FD21A7F66600A2B6AF /* Setting.swift in Sources */,
 				31DB92E721A7EC9000A2B6AF /* ViewController.swift in Sources */,
+				31DB930321A8388800A2B6AF /* Initial.swift in Sources */,
+				31DB92F921A7F62D00A2B6AF /* Home.swift in Sources */,
+				31DB92FF21A7F6C800A2B6AF /* Post.swift in Sources */,
+				31DB930121A7F6EC00A2B6AF /* Request.swift in Sources */,
 				31DB92E521A7EC9000A2B6AF /* AppDelegate.swift in Sources */,
+				31DB92FB21A7F64C00A2B6AF /* Login.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -278,11 +389,13 @@
 		};
 		31DB92F421A7EC9200A2B6AF /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 9748BEB0414ED82A1AF84D38 /* Pods-RugRug.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 75X3T7895K;
 				INFOPLIST_FILE = RugRug/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.4;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -290,17 +403,19 @@
 				PRODUCT_BUNDLE_IDENTIFIER = ST.RugRug;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
 		31DB92F521A7EC9200A2B6AF /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = DE05979B1B0E08B6203B8B5C /* Pods-RugRug.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 75X3T7895K;
 				INFOPLIST_FILE = RugRug/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.4;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -308,7 +423,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = ST.RugRug;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};

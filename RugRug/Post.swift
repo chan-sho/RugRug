@@ -348,6 +348,9 @@ class Post: UIViewController, UITableViewDataSource, UITableViewDelegate, UISear
             // セル内のreviseボタンを追加で管理
             cell.reviseButton.addTarget(self, action:#selector(handleReviseButton(_:forEvent:)), for: .touchUpInside)
             
+            // セル内のuserPhotoボタンを追加で管理
+            cell.userPhotoButton.addTarget(self, action:#selector(handleUserPhotoButton(_:forEvent:)), for: .touchUpInside)
+            
             return cell
         }
             
@@ -364,6 +367,9 @@ class Post: UIViewController, UITableViewDataSource, UITableViewDelegate, UISear
             
             // セル内のreviseボタンを追加で管理
             cell.reviseButton.addTarget(self, action:#selector(handleReviseButton(_:forEvent:)), for: .touchUpInside)
+            
+            // セル内のuserPhotoボタンを追加で管理
+            cell.userPhotoButton.addTarget(self, action:#selector(handleUserPhotoButton(_:forEvent:)), for: .touchUpInside)
             
             return cell
         }
@@ -529,6 +535,12 @@ class Post: UIViewController, UITableViewDataSource, UITableViewDelegate, UISear
         else {
             return
         }
+    }
+    
+    
+    //セル内のuserPhotoボタンが押された時に呼ばれるメソッド
+    @objc func handleUserPhotoButton(_ sender: UIButton, forEvent event: UIEvent) {
+        
     }
     
     

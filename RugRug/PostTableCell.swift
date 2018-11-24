@@ -26,7 +26,8 @@ class PostTableCell: UITableViewCell {
     override func awakeFromNib() {
         super.awakeFromNib()
         
-        
+        self.userPhoto.clipsToBounds = true
+        self.userPhoto.layer.cornerRadius = 35.0
     }
 
     

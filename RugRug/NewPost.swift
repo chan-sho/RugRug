@@ -7,29 +7,146 @@
 //
 
 import UIKit
+import ESTabBarController
+import Firebase
+import FirebaseDatabase
+import FirebaseAuth
+import SVProgressHUD
 
-class NewPost: UIViewController {
 
+class NewPost: UIViewController, UITextFieldDelegate, UITextViewDelegate {
+
+    
+    @IBOutlet weak var category: UITextField!
+    @IBOutlet weak var contents: UITextView!
+    @IBOutlet weak var newPostButton: UIButton!
+    @IBOutlet weak var cancelButton: UIButton!
+    
+    @IBOutlet weak var userPhoto: UIImageView!
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        // Do any additional setup after loading the view.
+        category.delegate = self
+        contents.delegate = self
+        
+        // 枠のカラー
+        category.layer.borderColor = UIColor.gray.cgColor
+        contents.layer.borderColor = UIColor.gray.cgColor
+        // 枠の幅
+        category.layer.borderWidth = 0.5
+        contents.layer.borderWidth = 0.5
+        // 枠を角丸にする場合
+        category.layer.cornerRadius = 10.0
+        category.layer.masksToBounds = true
+        contents.layer.cornerRadius = 10.0
+        contents.layer.masksToBounds = true
+        
+        //ボタン同時押しによるアプリクラッシュを防ぐ
+        newPostButton.isExclusiveTouch = true
+        cancelButton.isExclusiveTouch = true
+        
+        //ログインユーザーのプロフィール画像をロード
+        let currentUser = Auth.auth().currentUser
+        
+        if currentUser != nil {
+            let userProfileurl = Auth.auth().currentUser?.photoURL
+            
+            if userProfileurl != nil {
+                let url = URL(string: "\(userProfileurl!)")
+                URLSession.shared.dataTask(with: url!, completionHandler: { (data, response, error) in
+                    if error != nil {
+                        print(error!)
+                        return
+                    }
+                    DispatchQueue.main.async {
+                        self.userPhoto.image = UIImage(data: data!)
+                        self.userPhoto.clipsToBounds = true
+                        self.userPhoto.layer.cornerRadius = 25.0
+                    }
+                }).resume()
+            }
+        }
     }
 
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
     
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        
+        //ログインユーザーのプロフィール画像をロード
+        let currentUser = Auth.auth().currentUser
+        
+        if currentUser != nil {
+            
+            let userProfileurl = Auth.auth().currentUser?.photoURL
+            if userProfileurl != nil {
+                let url = URL(string: "\(userProfileurl!)")
+                
+                URLSession.shared.dataTask(with: url!, completionHandler: { (data, response, error) in
+                    if error != nil {
+                        print(error!)
+                        return
+                    }
+                    DispatchQueue.main.async {
+                        self.userPhoto.image = UIImage(data: data!)
+                        self.userPhoto.clipsToBounds = true
+                        self.userPhoto.layer.cornerRadius = 25
+                    }
+                }).resume()
+            }
+        }
     }
-    */
-
+    
+    
+    // Returnボタンを押した際にキーボードを消す（※TextViewには設定できない。改行できなくなる為＾＾）
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        category.resignFirstResponder()
+        return true
+    }
+    
+    
+    // テキスト以外の場所をタッチした際にキーボードを消す
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        category.resignFirstResponder()
+        contents.resignFirstResponder()
+    }
+    
+    
+    @IBAction func newPostButton(_ sender: Any) {
+        
+        // ImageViewから画像を取得する
+        let imageData = UIImageJPEGRepresentation(userPhoto.image!, 0.5)
+        let imageString = imageData!.base64EncodedString(options: .lineLength64Characters)
+        // postDataに必要な情報を取得しておく
+        let time = Date.timeIntervalSinceReferenceDate
+        let name = Auth.auth().currentUser?.displayName
+        
+        if category.text == ""{
+            category.text = "(題名なし)"
+        }
+        
+        // **重要** 辞書を作成してFirebaseに保存する
+        let postRef = Database.database().reference().child(Const.PostPath)
+        let postDic = ["userID": Auth.auth().currentUser!.uid, "category": category.text!, "contents": contents.text!, "userPhoto": imageString, "time": String(time), "name": name!, "EULAagreement": ""] as [String : Any]
+        postRef.childByAutoId().setValue(postDic)
+        
+        // HUDで投稿完了を表示する
+        SVProgressHUD.showSuccess(withStatus: "投稿しました！")
+        
+        // 画面を閉じてViewControllerに戻る
+        dismiss(animated: true, completion: nil)
+    }
+    
+    
+    @IBAction func unwind(_ segue: UIStoryboardSegue) {
+        // 他の画面から segue を使って戻ってきた時に呼ばれる
+    }
+    
 }

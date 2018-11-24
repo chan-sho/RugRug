@@ -52,7 +52,7 @@ class Post: UIViewController, UITableViewDataSource, UITableViewDelegate, UISear
         tableView.separatorInset = .zero
         
         textSearchBar.delegate = self
-        textSearchBar.placeholder = "スペース区切りで検索"
+        textSearchBar.placeholder = "ワード検索"
         //何も入力されていなくてもReturnキーを押せるようにする。
         textSearchBar.enablesReturnKeyAutomatically = false
         
@@ -479,7 +479,7 @@ class Post: UIViewController, UITableViewDataSource, UITableViewDelegate, UISear
                 }
             }
             
-            // 増えたmyMapをFirebaseに保存する
+            // 増えたmySecretをFirebaseに保存する
             let postRef = Database.database().reference().child(Const.PostPath).child(postData.id!)
             let mySecret = ["mySecret": postData.mySecret]
             postRef.updateChildValues(mySecret)
@@ -527,7 +527,6 @@ class Post: UIViewController, UITableViewDataSource, UITableViewDelegate, UISear
             self.performSegue(withIdentifier: "toRevise", sender: nil)
         }
         else {
-            SVProgressHUD.showError(withStatus: "投稿者ご本人ではない為、投稿内容の修正・削除はできません")
             return
         }
     }

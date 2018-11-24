@@ -38,7 +38,6 @@ class PostData: NSObject {
     
     init(snapshot: DataSnapshot, myId: String) {
         self.id = snapshot.key
-        
         let valueDictionary = snapshot.value as! [String: Any]
         
         self.userID = valueDictionary["userID"] as? String

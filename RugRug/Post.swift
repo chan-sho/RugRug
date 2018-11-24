@@ -19,6 +19,8 @@ class Post: UIViewController, UITableViewDataSource, UITableViewDelegate, UISear
 
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var textSearchBar: UISearchBar!
+    @IBOutlet weak var newPostButton: UIButton!
+    @IBOutlet weak var newPostButton2: UIButton!
     
     
     var postArray: [PostData] = []
@@ -30,6 +32,7 @@ class Post: UIViewController, UITableViewDataSource, UITableViewDelegate, UISear
     
     //user defaultsを使う準備
     let userDefaults:UserDefaults = UserDefaults.standard
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -49,7 +52,7 @@ class Post: UIViewController, UITableViewDataSource, UITableViewDelegate, UISear
         tableView.separatorInset = .zero
         
         textSearchBar.delegate = self
-        textSearchBar.placeholder = "スペース区切りで検索できます"
+        textSearchBar.placeholder = "スペース区切りで検索"
         //何も入力されていなくてもReturnキーを押せるようにする。
         textSearchBar.enablesReturnKeyAutomatically = false
         

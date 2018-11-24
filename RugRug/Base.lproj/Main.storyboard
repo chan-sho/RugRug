@@ -73,24 +73,51 @@
                                 <rect key="frame" x="0.0" y="76" width="375" height="591"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             </tableView>
-                            <searchBar contentMode="redraw" translatesAutoresizingMaskIntoConstraints="NO" id="ZYn-nM-55r">
+                            <stackView opaque="NO" contentMode="scaleToFill" alignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="TAc-95-xFB">
                                 <rect key="frame" x="0.0" y="20" width="375" height="56"/>
-                                <textInputTraits key="textInputTraits"/>
-                            </searchBar>
+                                <subviews>
+                                    <searchBar contentMode="redraw" translatesAutoresizingMaskIntoConstraints="NO" id="ZYn-nM-55r">
+                                        <rect key="frame" x="0.0" y="0.0" width="273" height="56"/>
+                                        <textInputTraits key="textInputTraits"/>
+                                    </searchBar>
+                                    <button opaque="NO" contentMode="scaleAspectFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ka2-Gg-Tj0">
+                                        <rect key="frame" x="273" y="8" width="40" height="40"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="40" id="iae-kV-zsf"/>
+                                            <constraint firstAttribute="width" constant="40" id="x3v-cE-JA1"/>
+                                        </constraints>
+                                        <state key="normal" backgroundImage="NewPost"/>
+                                        <connections>
+                                            <segue destination="lne-YI-jEc" kind="show" id="liS-bi-gfA"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ngv-xU-hMM">
+                                        <rect key="frame" x="313" y="13" width="62" height="30"/>
+                                        <state key="normal" title="投稿する">
+                                            <color key="titleColor" red="0.016804177310000001" green="0.19835099580000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        </state>
+                                        <connections>
+                                            <segue destination="lne-YI-jEc" kind="show" id="OvV-Ib-gOX"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                            </stackView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
-                            <constraint firstItem="2Rf-GM-EdZ" firstAttribute="top" secondItem="ZYn-nM-55r" secondAttribute="bottom" id="2AX-ue-Dn5"/>
-                            <constraint firstItem="K6l-xE-5VW" firstAttribute="bottom" secondItem="2Rf-GM-EdZ" secondAttribute="bottom" id="3HO-Hy-gBu"/>
-                            <constraint firstItem="2Rf-GM-EdZ" firstAttribute="leading" secondItem="K6l-xE-5VW" secondAttribute="leading" id="7KE-mB-A2B"/>
-                            <constraint firstItem="ZYn-nM-55r" firstAttribute="leading" secondItem="K6l-xE-5VW" secondAttribute="leading" id="Bao-Kz-a5l"/>
-                            <constraint firstItem="ZYn-nM-55r" firstAttribute="top" secondItem="K6l-xE-5VW" secondAttribute="top" id="IZH-lS-lYH"/>
-                            <constraint firstAttribute="trailing" secondItem="ZYn-nM-55r" secondAttribute="trailing" id="dTJ-Nz-4Es"/>
-                            <constraint firstItem="K6l-xE-5VW" firstAttribute="trailing" secondItem="2Rf-GM-EdZ" secondAttribute="trailing" id="hlQ-4W-ndw"/>
+                            <constraint firstItem="TAc-95-xFB" firstAttribute="top" secondItem="K6l-xE-5VW" secondAttribute="top" id="DVO-3c-VlS"/>
+                            <constraint firstItem="2Rf-GM-EdZ" firstAttribute="top" secondItem="TAc-95-xFB" secondAttribute="bottom" id="VeV-Zp-bEh"/>
+                            <constraint firstItem="K6l-xE-5VW" firstAttribute="trailing" secondItem="TAc-95-xFB" secondAttribute="trailing" id="YrT-E9-bVB"/>
+                            <constraint firstItem="2Rf-GM-EdZ" firstAttribute="leading" secondItem="K6l-xE-5VW" secondAttribute="leading" id="ciZ-MD-eN5"/>
+                            <constraint firstItem="2Rf-GM-EdZ" firstAttribute="bottom" secondItem="K6l-xE-5VW" secondAttribute="bottom" id="pKX-pC-gTa"/>
+                            <constraint firstItem="2Rf-GM-EdZ" firstAttribute="trailing" secondItem="K6l-xE-5VW" secondAttribute="trailing" id="so1-TJ-rKO"/>
+                            <constraint firstItem="TAc-95-xFB" firstAttribute="leading" secondItem="K6l-xE-5VW" secondAttribute="leading" id="v4C-87-P3g"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="K6l-xE-5VW"/>
                     </view>
                     <connections>
+                        <outlet property="newPostButton" destination="ka2-Gg-Tj0" id="8Q2-VL-ljg"/>
+                        <outlet property="newPostButton2" destination="Ngv-xU-hMM" id="267-rA-RZm"/>
                         <outlet property="tableView" destination="2Rf-GM-EdZ" id="mn3-Qd-nZ8"/>
                         <outlet property="textSearchBar" destination="ZYn-nM-55r" id="qDE-p6-foQ"/>
                         <segue destination="NzF-Kh-2DL" kind="show" identifier="toRevise" id="UWf-Zb-fzt"/>
@@ -98,7 +125,22 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="55m-1x-Ug0" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1756" y="569"/>
+            <point key="canvasLocation" x="1756" y="568.06596701649175"/>
+        </scene>
+        <!--New Post-->
+        <scene sceneID="CE0-ab-Iqi">
+            <objects>
+                <viewController id="lne-YI-jEc" customClass="NewPost" customModule="RugRug" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="XRE-ks-Zru">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <viewLayoutGuide key="safeArea" id="Fea-bB-ght"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="e5o-6K-KVC" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2604" y="572"/>
         </scene>
         <!--Revise-->
         <scene sceneID="Kjn-6j-EY0">
@@ -113,7 +155,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="5Jc-gx-LBW" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2623" y="572"/>
+            <point key="canvasLocation" x="3412" y="572"/>
         </scene>
         <!--Request-->
         <scene sceneID="YHQ-DP-edX">
@@ -262,5 +304,9 @@
         <image name="Btn2" width="300" height="40"/>
         <image name="Initial(ver1.0)" width="400" height="995"/>
         <image name="Logo" width="512" height="425"/>
+        <image name="NewPost" width="40" height="40"/>
     </resources>
+    <inferredMetricsTieBreakers>
+        <segue reference="OvV-Ib-gOX"/>
+    </inferredMetricsTieBreakers>
 </document>

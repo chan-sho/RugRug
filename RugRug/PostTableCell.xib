@@ -82,7 +82,7 @@
                                             <constraint firstAttribute="height" constant="40" id="Op4-Xe-lnB"/>
                                             <constraint firstAttribute="width" constant="40" id="tSn-f7-kQC"/>
                                         </constraints>
-                                        <state key="normal" backgroundImage="Secret"/>
+                                        <state key="normal" backgroundImage="mySecret_no"/>
                                     </button>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="非公開" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lPQ-ht-2P7">
                                         <rect key="frame" x="0.0" y="40" width="40" height="16"/>
@@ -149,8 +149,8 @@
         </tableViewCell>
     </objects>
     <resources>
-        <image name="Secret" width="40" height="40"/>
         <image name="like_none" width="40" height="40"/>
+        <image name="mySecret_no" width="40" height="40"/>
         <image name="setting-1" width="40" height="40"/>
     </resources>
 </document>

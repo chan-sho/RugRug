@@ -122,7 +122,7 @@ class Revise: UIViewController, UITextFieldDelegate, UITextViewDelegate {
         reviseData = userDefaults.string(forKey: "reviseDataId")
         
         if categoryRevised.text == ""{
-            let Data = ["category": "(カテゴリーなし)", "contents": "\(contentsRevised.text ?? "")"]
+            let Data = ["category": "(題名なし)", "contents": "\(contentsRevised.text ?? "")"]
             
             //Firebaseから該当データを選択し、データの各項目をアップデート
             let refToReviseData = Database.database().reference().child("posts").child("\(reviseData!)")

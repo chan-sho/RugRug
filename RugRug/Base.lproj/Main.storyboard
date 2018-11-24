@@ -6,6 +6,7 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14088"/>
+        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -34,11 +35,11 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bfP-rZ-bnx">
-                                <rect key="frame" x="47" y="313.5" width="280" height="40"/>
+                                <rect key="frame" x="37" y="313.5" width="300" height="40"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="280" id="DmY-nr-cvU"/>
+                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="280" id="DmY-nr-cvU"/>
                                 </constraints>
-                                <fontDescription key="fontDescription" name="DINAlternate-Bold" family="DIN Alternate" pointSize="15"/>
+                                <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="15"/>
                                 <state key="normal" title="ログアウト" backgroundImage="Btn2"/>
                                 <connections>
                                     <action selector="logOutButton:" destination="jM7-c5-yyO" eventType="touchUpInside" id="Kql-HX-R4u"/>
@@ -67,13 +68,52 @@
                     <view key="view" contentMode="scaleToFill" id="vLc-kN-Qrt">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="2Rf-GM-EdZ">
+                                <rect key="frame" x="0.0" y="76" width="375" height="591"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            </tableView>
+                            <searchBar contentMode="redraw" translatesAutoresizingMaskIntoConstraints="NO" id="ZYn-nM-55r">
+                                <rect key="frame" x="0.0" y="20" width="375" height="56"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </searchBar>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="2Rf-GM-EdZ" firstAttribute="top" secondItem="ZYn-nM-55r" secondAttribute="bottom" id="2AX-ue-Dn5"/>
+                            <constraint firstItem="K6l-xE-5VW" firstAttribute="bottom" secondItem="2Rf-GM-EdZ" secondAttribute="bottom" id="3HO-Hy-gBu"/>
+                            <constraint firstItem="2Rf-GM-EdZ" firstAttribute="leading" secondItem="K6l-xE-5VW" secondAttribute="leading" id="7KE-mB-A2B"/>
+                            <constraint firstItem="ZYn-nM-55r" firstAttribute="leading" secondItem="K6l-xE-5VW" secondAttribute="leading" id="Bao-Kz-a5l"/>
+                            <constraint firstItem="ZYn-nM-55r" firstAttribute="top" secondItem="K6l-xE-5VW" secondAttribute="top" id="IZH-lS-lYH"/>
+                            <constraint firstAttribute="trailing" secondItem="ZYn-nM-55r" secondAttribute="trailing" id="dTJ-Nz-4Es"/>
+                            <constraint firstItem="K6l-xE-5VW" firstAttribute="trailing" secondItem="2Rf-GM-EdZ" secondAttribute="trailing" id="hlQ-4W-ndw"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="K6l-xE-5VW"/>
                     </view>
+                    <connections>
+                        <outlet property="tableView" destination="2Rf-GM-EdZ" id="mn3-Qd-nZ8"/>
+                        <outlet property="textSearchBar" destination="ZYn-nM-55r" id="qDE-p6-foQ"/>
+                        <segue destination="NzF-Kh-2DL" kind="show" identifier="toRevise" id="UWf-Zb-fzt"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="55m-1x-Ug0" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1756" y="569"/>
+        </scene>
+        <!--Revise-->
+        <scene sceneID="Kjn-6j-EY0">
+            <objects>
+                <viewController id="NzF-Kh-2DL" customClass="Revise" customModule="RugRug" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="ofS-Ul-Ztz">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <viewLayoutGuide key="safeArea" id="ePW-ce-IhB"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="5Jc-gx-LBW" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2623" y="572"/>
         </scene>
         <!--Request-->
         <scene sceneID="YHQ-DP-edX">
@@ -108,24 +148,38 @@
                                         </constraints>
                                     </imageView>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="s4o-aU-Feu">
-                                        <rect key="frame" x="47.5" y="1730" width="280" height="40"/>
+                                        <rect key="frame" x="37.5" y="1730" width="300" height="40"/>
                                         <constraints>
-                                            <constraint firstAttribute="width" constant="280" id="5EZ-82-1zc"/>
+                                            <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="280" id="5EZ-82-1zc"/>
                                         </constraints>
-                                        <fontDescription key="fontDescription" name="DINAlternate-Bold" family="DIN Alternate" pointSize="15"/>
+                                        <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="15"/>
                                         <state key="normal" title="利用規約を確認後「ログイン画面」へ" backgroundImage="Btn2"/>
                                         <connections>
                                             <action selector="goToLoginButton:" destination="ydD-LB-bFt" eventType="touchUpInside" id="XyF-TS-ANx"/>
                                         </connections>
                                     </button>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ThO-Yo-NHN">
+                                        <rect key="frame" x="37.5" y="5" width="300" height="55"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="55" id="EhU-NS-bRe"/>
+                                            <constraint firstAttribute="width" constant="300" id="tfu-kL-enJ"/>
+                                        </constraints>
+                                        <string key="text">新メンバー
+オリエンテーション！</string>
+                                        <fontDescription key="fontDescription" type="system" weight="black" pointSize="23"/>
+                                        <color key="textColor" red="0.99999600649999998" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
                                 </subviews>
                                 <constraints>
+                                    <constraint firstItem="ThO-Yo-NHN" firstAttribute="top" secondItem="iwD-H2-ZMc" secondAttribute="top" constant="5" id="0nl-h6-2Gc"/>
                                     <constraint firstAttribute="bottom" secondItem="Tbg-hb-Sds" secondAttribute="bottom" id="2cn-I0-F6D"/>
                                     <constraint firstItem="s4o-aU-Feu" firstAttribute="centerX" secondItem="iwD-H2-ZMc" secondAttribute="centerX" id="Kkl-hF-Glr"/>
                                     <constraint firstAttribute="trailing" secondItem="Tbg-hb-Sds" secondAttribute="trailing" id="REG-MB-ShQ"/>
                                     <constraint firstAttribute="bottom" secondItem="s4o-aU-Feu" secondAttribute="bottom" constant="30" id="Yfh-TA-pXr"/>
                                     <constraint firstItem="Tbg-hb-Sds" firstAttribute="top" secondItem="iwD-H2-ZMc" secondAttribute="top" id="dxZ-Db-nZP"/>
                                     <constraint firstItem="Tbg-hb-Sds" firstAttribute="leading" secondItem="iwD-H2-ZMc" secondAttribute="leading" id="rOA-4V-DuM"/>
+                                    <constraint firstItem="ThO-Yo-NHN" firstAttribute="centerX" secondItem="iwD-H2-ZMc" secondAttribute="centerX" id="xRf-Zd-DKx"/>
                                 </constraints>
                             </scrollView>
                         </subviews>
@@ -156,7 +210,31 @@
                     <view key="view" contentMode="scaleToFill" id="E4K-zU-TET">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Logo" translatesAutoresizingMaskIntoConstraints="NO" id="W0N-pU-EQC">
+                                <rect key="frame" x="40" y="115.5" width="295" height="236"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="W0N-pU-EQC" secondAttribute="height" multiplier="5:4" id="3Qk-FT-S92"/>
+                                </constraints>
+                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8te-hx-tLI">
+                                <rect key="frame" x="90" y="419.5" width="196.5" height="29"/>
+                                <string key="text">ラグビーファンの、
+ファンによる、ファンの為のアプリ</string>
+                                <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="12"/>
+                                <color key="textColor" red="0.99999600649999998" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="W0N-pU-EQC" firstAttribute="centerY" secondItem="E4K-zU-TET" secondAttribute="centerY" constant="-100" id="GYg-XD-dhv"/>
+                            <constraint firstItem="W0N-pU-EQC" firstAttribute="centerX" secondItem="E4K-zU-TET" secondAttribute="centerX" id="HSS-7s-vqB"/>
+                            <constraint firstItem="W0N-pU-EQC" firstAttribute="leading" secondItem="E4K-zU-TET" secondAttribute="leading" constant="40" id="WcB-aF-fxY"/>
+                            <constraint firstItem="8te-hx-tLI" firstAttribute="centerY" secondItem="E4K-zU-TET" secondAttribute="centerY" constant="100" id="YdY-jb-11c"/>
+                            <constraint firstAttribute="trailing" secondItem="W0N-pU-EQC" secondAttribute="trailing" constant="40" id="Zcq-qK-z17"/>
+                            <constraint firstItem="8te-hx-tLI" firstAttribute="centerX" secondItem="E4K-zU-TET" secondAttribute="centerX" id="kOB-cF-eVo"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="UyF-jW-Cag"/>
                     </view>
                 </viewController>
@@ -183,5 +261,6 @@
     <resources>
         <image name="Btn2" width="300" height="40"/>
         <image name="Initial(ver1.0)" width="400" height="995"/>
+        <image name="Logo" width="512" height="425"/>
     </resources>
 </document>

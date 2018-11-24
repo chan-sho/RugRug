@@ -1,0 +1,14 @@
+//
+//  Const.swift
+//  RugRug
+//
+//  Created by 高野翔 on 2018/11/24.
+//  Copyright © 2018 高野翔. All rights reserved.
+//
+
+import Foundation
+
+
+struct Const {
+    static let PostPath = "posts"
+}

@@ -19,6 +19,11 @@
 		31DB92FF21A7F6C800A2B6AF /* Post.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31DB92FE21A7F6C800A2B6AF /* Post.swift */; };
 		31DB930121A7F6EC00A2B6AF /* Request.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31DB930021A7F6EC00A2B6AF /* Request.swift */; };
 		31DB930321A8388800A2B6AF /* Initial.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31DB930221A8388800A2B6AF /* Initial.swift */; };
+		31DB930521A8D94900A2B6AF /* PostData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31DB930421A8D94900A2B6AF /* PostData.swift */; };
+		31DB930821A8DB4400A2B6AF /* PostTableCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31DB930621A8DB4400A2B6AF /* PostTableCell.swift */; };
+		31DB930921A8DB4400A2B6AF /* PostTableCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 31DB930721A8DB4400A2B6AF /* PostTableCell.xib */; };
+		31DB930B21A8E97500A2B6AF /* Const.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31DB930A21A8E97500A2B6AF /* Const.swift */; };
+		31DB930D21A8FE0500A2B6AF /* Revise.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31DB930C21A8FE0500A2B6AF /* Revise.swift */; };
 		9ED7BC96C7D7B2B31556E273 /* Pods_RugRug.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B622C86550B85A948A5E0674 /* Pods_RugRug.framework */; };
 /* End PBXBuildFile section */
 
@@ -37,6 +42,11 @@
 		31DB92FE21A7F6C800A2B6AF /* Post.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Post.swift; sourceTree = "<group>"; };
 		31DB930021A7F6EC00A2B6AF /* Request.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Request.swift; sourceTree = "<group>"; };
 		31DB930221A8388800A2B6AF /* Initial.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Initial.swift; sourceTree = "<group>"; };
+		31DB930421A8D94900A2B6AF /* PostData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostData.swift; sourceTree = "<group>"; };
+		31DB930621A8DB4400A2B6AF /* PostTableCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostTableCell.swift; sourceTree = "<group>"; };
+		31DB930721A8DB4400A2B6AF /* PostTableCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PostTableCell.xib; sourceTree = "<group>"; };
+		31DB930A21A8E97500A2B6AF /* Const.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Const.swift; sourceTree = "<group>"; };
+		31DB930C21A8FE0500A2B6AF /* Revise.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Revise.swift; sourceTree = "<group>"; };
 		9748BEB0414ED82A1AF84D38 /* Pods-RugRug.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RugRug.debug.xcconfig"; path = "Pods/Target Support Files/Pods-RugRug/Pods-RugRug.debug.xcconfig"; sourceTree = "<group>"; };
 		B622C86550B85A948A5E0674 /* Pods_RugRug.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_RugRug.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		DE05979B1B0E08B6203B8B5C /* Pods-RugRug.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RugRug.release.xcconfig"; path = "Pods/Target Support Files/Pods-RugRug/Pods-RugRug.release.xcconfig"; sourceTree = "<group>"; };
@@ -75,15 +85,20 @@
 		31DB92E321A7EC9000A2B6AF /* RugRug */ = {
 			isa = PBXGroup;
 			children = (
+				31DB92E821A7EC9000A2B6AF /* Main.storyboard */,
 				31DB92E421A7EC9000A2B6AF /* AppDelegate.swift */,
 				31DB92E621A7EC9000A2B6AF /* ViewController.swift */,
 				31DB930221A8388800A2B6AF /* Initial.swift */,
 				31DB92FA21A7F64C00A2B6AF /* Login.swift */,
 				31DB92F821A7F62D00A2B6AF /* Home.swift */,
 				31DB92FE21A7F6C800A2B6AF /* Post.swift */,
+				31DB930C21A8FE0500A2B6AF /* Revise.swift */,
 				31DB930021A7F6EC00A2B6AF /* Request.swift */,
 				31DB92FC21A7F66600A2B6AF /* Setting.swift */,
-				31DB92E821A7EC9000A2B6AF /* Main.storyboard */,
+				31DB930421A8D94900A2B6AF /* PostData.swift */,
+				31DB930621A8DB4400A2B6AF /* PostTableCell.swift */,
+				31DB930721A8DB4400A2B6AF /* PostTableCell.xib */,
+				31DB930A21A8E97500A2B6AF /* Const.swift */,
 				31DB92EB21A7EC9200A2B6AF /* Assets.xcassets */,
 				31DB92ED21A7EC9200A2B6AF /* LaunchScreen.storyboard */,
 				31DB92F021A7EC9200A2B6AF /* Info.plist */,
@@ -173,6 +188,7 @@
 				31DB92F721A7F23C00A2B6AF /* GoogleService-Info.plist in Resources */,
 				31DB92EC21A7EC9200A2B6AF /* Assets.xcassets in Resources */,
 				31DB92EA21A7EC9000A2B6AF /* Main.storyboard in Resources */,
+				31DB930921A8DB4400A2B6AF /* PostTableCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -240,7 +256,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				31DB930821A8DB4400A2B6AF /* PostTableCell.swift in Sources */,
+				31DB930D21A8FE0500A2B6AF /* Revise.swift in Sources */,
 				31DB92FD21A7F66600A2B6AF /* Setting.swift in Sources */,
+				31DB930521A8D94900A2B6AF /* PostData.swift in Sources */,
 				31DB92E721A7EC9000A2B6AF /* ViewController.swift in Sources */,
 				31DB930321A8388800A2B6AF /* Initial.swift in Sources */,
 				31DB92F921A7F62D00A2B6AF /* Home.swift in Sources */,
@@ -248,6 +267,7 @@
 				31DB930121A7F6EC00A2B6AF /* Request.swift in Sources */,
 				31DB92E521A7EC9000A2B6AF /* AppDelegate.swift in Sources */,
 				31DB92FB21A7F64C00A2B6AF /* Login.swift in Sources */,
+				31DB930B21A8E97500A2B6AF /* Const.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

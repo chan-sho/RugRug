@@ -25,10 +25,19 @@ class Login: UIViewController, FBSDKLoginButtonDelegate {
 
         //facebookサインインボタン
         fbLoginBtn.readPermissions = ["public_profile", "email"]
-        fbLoginBtn.frame = CGRect(x: self.view.frame.size.width * 1/6, y: self.view.frame.size.height * 3/4, width: self.view.frame.size.width * 4/6, height: self.view.frame.size.width * 1/9)
+        fbLoginBtn.frame = CGRect(x: self.view.frame.size.width * 1/8, y: self.view.frame.size.height * 1/2, width: self.view.frame.size.width * 6/8, height: self.view.frame.size.width * 1/8)
         fbLoginBtn.delegate = self
         self.view.addSubview(fbLoginBtn)
+        
+        //背景の設定
+        let bg = UIImageView(frame: CGRect(x: 0, y: 0, width: self.view.frame.size.width, height: self.view.frame.size.height))
+        bg.image = UIImage(named: "Login(ver1.0)")
+        bg.contentMode = UIViewContentMode.scaleAspectFill
+        bg.clipsToBounds = true
+        bg.layer.zPosition = -1
+        self.view.addSubview(bg)
     }
+    
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
@@ -40,12 +49,12 @@ class Login: UIViewController, FBSDKLoginButtonDelegate {
     func loginButton(_ loginButton: FBSDKLoginButton!, didCompleteWith result: FBSDKLoginManagerLoginResult!, error: Error?) {
         if let error = error {
             print("DEBUG_PRINT: " + error.localizedDescription)
-            SVProgressHUD.showError(withStatus: "facebookサインインに失敗しました。")
+            SVProgressHUD.showError(withStatus: "facebookサインインに\n失敗しました。")
             return
         }
         
         if result.isCancelled {
-            SVProgressHUD.showError(withStatus: "facebookサインインをキャンセルしました。")
+            SVProgressHUD.showError(withStatus: "facebookサインインを\nキャンセルしました。")
             return
         }
         
@@ -54,7 +63,7 @@ class Login: UIViewController, FBSDKLoginButtonDelegate {
         Auth.auth().signInAndRetrieveData(with: credential) { (user, error) in
             if let error = error {
                 print("DEBUG_PRINT: " + error.localizedDescription)
-                SVProgressHUD.showError(withStatus: "facebookサインインに失敗しました。")
+                SVProgressHUD.showError(withStatus: "facebookサインインに\n失敗しました。")
                 return
             }
             // HUDを消す

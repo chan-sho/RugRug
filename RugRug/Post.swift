@@ -52,7 +52,7 @@ class Post: UIViewController, UITableViewDataSource, UITableViewDelegate, UISear
         tableView.separatorInset = .zero
         
         textSearchBar.delegate = self
-        textSearchBar.placeholder = "ワード検索"
+        textSearchBar.placeholder = "キーワードで検索"
         //何も入力されていなくてもReturnキーを押せるようにする。
         textSearchBar.enablesReturnKeyAutomatically = false
         
@@ -342,9 +342,6 @@ class Post: UIViewController, UITableViewDataSource, UITableViewDelegate, UISear
             // セル内のボタンのアクションをソースコードで設定する
             cell.likeButton.addTarget(self, action:#selector(handleButton(_:forEvent:)), for: .touchUpInside)
             
-            // セル内のmySecretボタンを追加で管理
-            cell.mySecretButton.addTarget(self, action:#selector(handleMySecretButton(_:forEvent:)), for: .touchUpInside)
-            
             // セル内のreviseボタンを追加で管理
             cell.reviseButton.addTarget(self, action:#selector(handleReviseButton(_:forEvent:)), for: .touchUpInside)
             
@@ -361,9 +358,6 @@ class Post: UIViewController, UITableViewDataSource, UITableViewDelegate, UISear
             
             // セル内のボタンのアクションをソースコードで設定する
             cell.likeButton.addTarget(self, action:#selector(handleButton(_:forEvent:)), for: .touchUpInside)
-            
-            // セル内のmySecretボタンを追加で管理
-            cell.mySecretButton.addTarget(self, action:#selector(handleMySecretButton(_:forEvent:)), for: .touchUpInside)
             
             // セル内のreviseボタンを追加で管理
             cell.reviseButton.addTarget(self, action:#selector(handleReviseButton(_:forEvent:)), for: .touchUpInside)
@@ -425,70 +419,6 @@ class Post: UIViewController, UITableViewDataSource, UITableViewDelegate, UISear
             let postRef = Database.database().reference().child(Const.PostPath).child(postData.id!)
             let likes = ["likes": postData.likes]
             postRef.updateChildValues(likes)
-        }
-    }
-    
-    
-    // セル内のMySecretボタンがタップされた時に呼ばれるメソッド
-    @objc func handleMySecretButton(_ sender: UIButton, forEvent event: UIEvent) {
-        
-        // タップされたセルのインデックスを求める
-        let touch = event.allTouches?.first
-        let point = touch!.location(in: self.tableView)
-        let indexPath = tableView.indexPathForRow(at: point)
-        
-        let postData : PostData
-        
-        if textSearchBar.text == "" {
-            // 配列からタップされたインデックスのデータを取り出す
-            postData = postArray[indexPath!.row]
-        }
-        
-        else {
-            // 検索バーに入力された単語をスペースで分けて配列に入れる
-            let searchWords = textSearchBar.text!
-            let array = searchWords.components(separatedBy: NSCharacterSet.whitespaces)
-            // 検索バーのテキストを一部でも含むものをAND検索する！
-            var tempFilteredArray = postArrayAll
-            for n in array {
-                tempFilteredArray = tempFilteredArray.filter({ ($0.category?.localizedCaseInsensitiveContains(n))! || ($0.contents?.localizedCaseInsensitiveContains(n))! ||  ($0.name?.localizedCaseInsensitiveContains(n))!})
-            }
-            postArrayBySearch = tempFilteredArray
-            postData = postArrayBySearch[indexPath!.row]
-        }
-        
-        // Firebaseに保存するデータの準備
-        if let uid = Auth.auth().currentUser?.uid {
-            if postData.mySecretSelected {
-                // すでにタップをしていた場合
-                for mySecretId in postData.mySecret {
-                    if mySecretId == uid {
-                        postData.mySecret.removeAll()
-                        SVProgressHUD.showSuccess(withStatus: "非公開を「解除」しました\n\n※この投稿は他のユーザーにも表示されます")
-                        SVProgressHUD.dismiss(withDelay: 3.0)
-                        break
-                    }
-                    if mySecretId != uid {
-                        break
-                    }
-                }
-                // まだタップされていない場合
-            }
-            else {
-                if postData.userID == uid {
-                    postData.mySecret.append(uid)
-                    SVProgressHUD.showSuccess(withStatus: "「非公開」に設定しました\n\n※この投稿は他のユーザーからは見えなくなります")
-                    SVProgressHUD.dismiss(withDelay: 3.0)
-                }
-                else {
-                    return
-                }
-            }
-            
-            // 増えたmySecretをFirebaseに保存する
-            let postRef = Database.database().reference().child(Const.PostPath).child(postData.id!)
-            let mySecret = ["mySecret": postData.mySecret]
-            postRef.updateChildValues(mySecret)
         }
     }
     

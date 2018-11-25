@@ -19,7 +19,6 @@ class PostTableCell: UITableViewCell {
     @IBOutlet weak var userPhoto: UIImageView!
     @IBOutlet weak var like: UILabel!
     @IBOutlet weak var likeButton: UIButton!
-    @IBOutlet weak var mySecretButton: UIButton!
     @IBOutlet weak var reviseButton: UIButton!
     @IBOutlet weak var userPhotoButton: UIButton!
     
@@ -44,7 +43,6 @@ class PostTableCell: UITableViewCell {
         
         //ボタン同時押しによるアプリクラッシュを防ぐ
         likeButton.isExclusiveTouch = true
-        mySecretButton.isExclusiveTouch = true
         reviseButton.isExclusiveTouch = true
     }
 
@@ -91,14 +89,6 @@ class PostTableCell: UITableViewCell {
         } else {
             let buttonImage = UIImage(named:"like_none")
             self.likeButton.setImage(buttonImage, for: .normal)
-        }
-        
-        if postData.mySecretSelected {
-            let buttonImage = UIImage(named:"mySecret_yes")
-            self.mySecretButton.setImage(buttonImage, for: .normal)
-        } else {
-            let buttonImage = UIImage(named:"mySecret_no")
-            self.mySecretButton.setImage(buttonImage, for: .normal)
         }
         
     }

@@ -541,6 +541,57 @@ class Post: UIViewController, UITableViewDataSource, UITableViewDelegate, UISear
     //セル内のuserPhotoボタンが押された時に呼ばれるメソッド
     @objc func handleUserPhotoButton(_ sender: UIButton, forEvent event: UIEvent) {
         
+        if let facebookUid = Auth.auth().currentUser?.providerData
+            .filter({ (userInfo: UserInfo) in return userInfo.providerID == FacebookAuthProviderID})
+            .map({ (userInfo: UserInfo) in return userInfo.uid})
+            .first {
+            print ("FaceBookのユーザーID = \(facebookUid)")
+            }
+        
+        // タップされたセルのインデックスを求める
+        let touch = event.allTouches?.first
+        let point = touch!.location(in: self.tableView)
+        let indexPath = tableView.indexPathForRow(at: point)
+        
+        let postData : PostData
+        
+        if textSearchBar.text == "" {
+            // 配列からタップされたインデックスのデータを取り出す
+            postData = postArray[indexPath!.row]
+        }
+            
+        else {
+            // 検索バーに入力された単語をスペースで分けて配列に入れる
+            let searchWords = textSearchBar.text!
+            let array = searchWords.components(separatedBy: NSCharacterSet.whitespaces)
+            // 検索バーのテキストを一部でも含むものをAND検索する！
+            var tempFilteredArray = postArrayAll
+            for n in array {
+                tempFilteredArray = tempFilteredArray.filter({ ($0.category?.localizedCaseInsensitiveContains(n))! || ($0.contents?.localizedCaseInsensitiveContains(n))! ||  ($0.name?.localizedCaseInsensitiveContains(n))!})
+            }
+            postArrayBySearch = tempFilteredArray
+            postData = postArrayBySearch[indexPath!.row]
+        }
+        
+        //タップを検知されたpostDataからnameを抽出する
+        let userPhotoName = postData.name
+        let userURL : String = "https://www.facebook.com/search/str/\(userPhotoName!)/keywords_search"
+        print("\(userURL)")
+        let userPhotoURL = userURL.replacingOccurrences(of: " ", with: "", options: .regularExpression)
+        print("\(userPhotoURL)")
+        
+        //Facebookの検索ページをSafariで開くアクション
+        let url = URL(string: "\(userPhotoURL)")
+        if url == nil {
+            print("NG")
+            return
+        }
+        else {
+            if UIApplication.shared.canOpenURL(url!) {
+                UIApplication.shared.open(url!)
+        }
+        }
+
     }
     
     

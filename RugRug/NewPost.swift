@@ -51,10 +51,10 @@ class NewPost: UIViewController, UITextFieldDelegate, UITextViewDelegate {
         let currentUser = Auth.auth().currentUser
         
         if currentUser != nil {
-            let userProfileurl = Auth.auth().currentUser?.photoURL
+            let userProfileurl = (Auth.auth().currentUser?.photoURL?.absoluteString)! + "?width=140&height=140"
             
-            if userProfileurl != nil {
-                let url = URL(string: "\(userProfileurl!)")
+            if userProfileurl != "" {
+                let url = URL(string: "\(userProfileurl)")
                 URLSession.shared.dataTask(with: url!, completionHandler: { (data, response, error) in
                     if error != nil {
                         print(error!)
@@ -63,7 +63,7 @@ class NewPost: UIViewController, UITextFieldDelegate, UITextViewDelegate {
                     DispatchQueue.main.async {
                         self.userPhoto.image = UIImage(data: data!)
                         self.userPhoto.clipsToBounds = true
-                        self.userPhoto.layer.cornerRadius = 25.0
+                        self.userPhoto.layer.cornerRadius = 35.0
                     }
                 }).resume()
             }
@@ -77,6 +77,7 @@ class NewPost: UIViewController, UITextFieldDelegate, UITextViewDelegate {
     }
     
     
+    //※念の為WillAppearでもプロフィール画像をロード
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         
@@ -84,10 +85,10 @@ class NewPost: UIViewController, UITextFieldDelegate, UITextViewDelegate {
         let currentUser = Auth.auth().currentUser
         
         if currentUser != nil {
+            let userProfileurl = (Auth.auth().currentUser?.photoURL?.absoluteString)! + "?width=140&height=140"
             
-            let userProfileurl = Auth.auth().currentUser?.photoURL
-            if userProfileurl != nil {
-                let url = URL(string: "\(userProfileurl!)")
+            if userProfileurl != "" {
+                let url = URL(string: "\(userProfileurl)")
                 
                 URLSession.shared.dataTask(with: url!, completionHandler: { (data, response, error) in
                     if error != nil {
@@ -97,7 +98,7 @@ class NewPost: UIViewController, UITextFieldDelegate, UITextViewDelegate {
                     DispatchQueue.main.async {
                         self.userPhoto.image = UIImage(data: data!)
                         self.userPhoto.clipsToBounds = true
-                        self.userPhoto.layer.cornerRadius = 25
+                        self.userPhoto.layer.cornerRadius = 35.0
                     }
                 }).resume()
             }

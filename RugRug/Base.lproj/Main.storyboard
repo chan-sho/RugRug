@@ -151,13 +151,13 @@
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="題名" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="BV6-R2-zEK">
-                                <rect key="frame" x="40" y="136" width="29" height="17"/>
-                                <fontDescription key="fontDescription" type="system" weight="medium" pointSize="14"/>
+                                <rect key="frame" x="40" y="133.5" width="33" height="19.5"/>
+                                <fontDescription key="fontDescription" type="system" weight="medium" pointSize="16"/>
                                 <color key="textColor" red="0.26051741839999998" green="0.2605243921" blue="0.260520637" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="（シンプル＆キャッチーに！）" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fAV-Tb-jdn">
-                                <rect key="frame" x="84" y="136.5" width="186" height="16"/>
+                                <rect key="frame" x="74" y="135.5" width="186" height="16"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="13"/>
                                 <color key="textColor" red="0.26051741839999998" green="0.2605243921" blue="0.260520637" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
@@ -181,14 +181,14 @@
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="※ラグビーに関係ない投稿だと管理人が泣きます" textAlignment="right" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="deE-sl-m8t">
                                 <rect key="frame" x="44.5" y="463" width="286.5" height="16"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="13"/>
-                                <color key="textColor" red="1" green="0.1857388616" blue="0.57339501380000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <color key="textColor" red="1" green="0.14913141730000001" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="onU-90-42C">
-                                <rect key="frame" x="163" y="71.5" width="50" height="50"/>
+                                <rect key="frame" x="153" y="55.5" width="70" height="70"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="50" id="BRN-7o-wYb"/>
-                                    <constraint firstAttribute="width" constant="50" id="nYp-Lv-96u"/>
+                                    <constraint firstAttribute="height" constant="70" id="7L2-JE-scv"/>
+                                    <constraint firstAttribute="width" constant="70" id="b0W-Jy-EeG"/>
                                 </constraints>
                             </imageView>
                         </subviews>
@@ -198,8 +198,7 @@
                             <constraint firstItem="Fea-bB-ght" firstAttribute="trailing" secondItem="vY3-qo-c9e" secondAttribute="trailing" constant="40" id="1ON-fw-HFi"/>
                             <constraint firstItem="vY3-qo-c9e" firstAttribute="top" secondItem="2G1-Lh-F63" secondAttribute="bottom" constant="20" id="3WJ-bY-1BS"/>
                             <constraint firstItem="vY3-qo-c9e" firstAttribute="leading" secondItem="Fea-bB-ght" secondAttribute="leading" constant="40" id="520-P1-uRF"/>
-                            <constraint firstItem="fAV-Tb-jdn" firstAttribute="top" secondItem="onU-90-42C" secondAttribute="bottom" constant="15" id="7Jj-vJ-zFT"/>
-                            <constraint firstItem="fAV-Tb-jdn" firstAttribute="leading" secondItem="BV6-R2-zEK" secondAttribute="trailing" constant="15" id="8lr-G4-dJH"/>
+                            <constraint firstItem="fAV-Tb-jdn" firstAttribute="leading" secondItem="BV6-R2-zEK" secondAttribute="trailing" constant="1" id="A6C-BP-in9"/>
                             <constraint firstItem="vY3-qo-c9e" firstAttribute="centerX" secondItem="XRE-ks-Zru" secondAttribute="centerX" id="I2e-6n-Cz6"/>
                             <constraint firstItem="2K0-T5-SpF" firstAttribute="top" secondItem="noY-9i-TFo" secondAttribute="bottom" constant="20" id="M06-7f-e2c"/>
                             <constraint firstItem="noY-9i-TFo" firstAttribute="centerX" secondItem="XRE-ks-Zru" secondAttribute="centerX" id="Pkj-bF-igc"/>
@@ -216,6 +215,7 @@
                             <constraint firstItem="Fea-bB-ght" firstAttribute="trailing" secondItem="noY-9i-TFo" secondAttribute="trailing" constant="40" id="rI3-aa-TyY"/>
                             <constraint firstItem="2K0-T5-SpF" firstAttribute="leading" secondItem="Fea-bB-ght" secondAttribute="leading" constant="40" id="vO0-MQ-hX9"/>
                             <constraint firstItem="deE-sl-m8t" firstAttribute="centerX" secondItem="XRE-ks-Zru" secondAttribute="centerX" id="wQh-Qe-o2s"/>
+                            <constraint firstItem="fAV-Tb-jdn" firstAttribute="top" secondItem="onU-90-42C" secondAttribute="bottom" constant="10" id="wjI-TF-L9m"/>
                             <constraint firstItem="noY-9i-TFo" firstAttribute="leading" secondItem="Fea-bB-ght" secondAttribute="leading" constant="40" id="xgU-XA-Ed0"/>
                             <constraint firstItem="noY-9i-TFo" firstAttribute="leading" secondItem="BV6-R2-zEK" secondAttribute="leading" id="zQ1-wZ-n04"/>
                         </constraints>
@@ -258,8 +258,8 @@
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="題名" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Sxv-Rg-Uyv">
-                                <rect key="frame" x="40" y="121.5" width="29" height="17"/>
-                                <fontDescription key="fontDescription" type="system" weight="medium" pointSize="14"/>
+                                <rect key="frame" x="40" y="119" width="33" height="19.5"/>
+                                <fontDescription key="fontDescription" type="system" weight="medium" pointSize="16"/>
                                 <color key="textColor" red="0.26051741839999998" green="0.2605243921" blue="0.260520637" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>

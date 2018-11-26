@@ -55,6 +55,7 @@ class Post: UIViewController, UITableViewDataSource, UITableViewDelegate, UISear
         textSearchBar.placeholder = "キーワードで検索"
         //何も入力されていなくてもReturnキーを押せるようにする。
         textSearchBar.enablesReturnKeyAutomatically = false
+        
         //searchBarの背景をカスタマイズ
         let barImageView = textSearchBar.value(forKey: "_background") as! UIImageView
         barImageView.removeFromSuperview()

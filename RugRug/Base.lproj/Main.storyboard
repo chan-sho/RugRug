@@ -476,9 +476,30 @@
                     <view key="view" contentMode="scaleToFill" id="x2g-XT-Qd6">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vTL-pF-lTp">
+                                <rect key="frame" x="5" y="618" width="365" height="29"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <state key="normal" title="【アプリの使い方ガイドを見る】">
+                                    <color key="titleColor" red="1" green="0.14913141730000001" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                </state>
+                                <connections>
+                                    <segue destination="ydD-LB-bFt" kind="show" id="y0B-Mp-Z0r"/>
+                                </connections>
+                            </button>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="vTL-pF-lTp" firstAttribute="centerX" secondItem="x2g-XT-Qd6" secondAttribute="centerX" id="A7T-5a-uIa"/>
+                            <constraint firstItem="TA2-mB-cgw" firstAttribute="bottom" secondItem="vTL-pF-lTp" secondAttribute="bottom" constant="20" id="bcg-zl-yDZ"/>
+                            <constraint firstItem="TA2-mB-cgw" firstAttribute="trailing" secondItem="vTL-pF-lTp" secondAttribute="trailing" constant="5" id="fPg-Yv-rRw"/>
+                            <constraint firstItem="vTL-pF-lTp" firstAttribute="leading" secondItem="TA2-mB-cgw" secondAttribute="leading" constant="5" id="zHp-a1-bXy"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="TA2-mB-cgw"/>
                     </view>
+                    <connections>
+                        <outlet property="guideButton" destination="vTL-pF-lTp" id="PDR-oY-6o1"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="HwX-ZP-HMQ" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

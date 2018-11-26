@@ -55,6 +55,12 @@ class Post: UIViewController, UITableViewDataSource, UITableViewDelegate, UISear
         textSearchBar.placeholder = "キーワードで検索"
         //何も入力されていなくてもReturnキーを押せるようにする。
         textSearchBar.enablesReturnKeyAutomatically = false
+        //searchBarの背景をカスタマイズ
+        let barImageView = textSearchBar.value(forKey: "_background") as! UIImageView
+        barImageView.removeFromSuperview()
+        textSearchBar.backgroundColor = UIColor.white
+        let textField = textSearchBar.value(forKey: "_searchField") as! UITextField
+        textField.backgroundColor = UIColor(red: 0.1, green: 0.1, blue: 0.1, alpha: 0.1)
         
         let nib = UINib(nibName: "PostTableCell", bundle: nil)
         tableView.register(nib, forCellReuseIdentifier: "Cell")

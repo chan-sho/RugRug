@@ -6,6 +6,10 @@
 //  Copyright © 2018 高野翔. All rights reserved.
 //
 // 【UserDefaults管理】"InitialFlag"= Initial画面表示判定
+// 【UserDefaults管理】"EULAagreement"= 利用規約に同意したかどうかの判定
+// 【UserDefaults管理】"EULACheckFlag"= プライバシーポリシー・利用規約のページをきちんと開いた事を確認するFlag
+// 【UserDefaults管理】"FinalCheckFlag"= EULAページ確認＆合意ボタン押印の両方がYESできたかどうかを確認するFlag
+// 【UserDefaults管理】"AccountDeleteFlag"= アカウント削除ボタンを押した後の同意確認をするFlag
 
 import UIKit
 import ESTabBarController
@@ -24,7 +28,7 @@ class ViewController: UIViewController {
         setupTab()
         
         //userDefauktsの初期値設定
-        userDefaults.register(defaults: ["InitialFlag" : "NO"])
+        userDefaults.register(defaults: ["InitialFlag" : "NO", "EULAagreement" : "NO", "EULACheckFlag" : "NO", "AccountDeleteFlag" : "NO", "FinalCheckFlag" : "NO"])
     }
     
     

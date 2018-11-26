@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		318C1DE021ABB0B200D618B8 /* AJAlertController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 318C1DDE21ABB0B200D618B8 /* AJAlertController.xib */; };
+		318C1DE121ABB0B200D618B8 /* AJAlertController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 318C1DDF21ABB0B200D618B8 /* AJAlertController.swift */; };
 		31DB92E521A7EC9000A2B6AF /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31DB92E421A7EC9000A2B6AF /* AppDelegate.swift */; };
 		31DB92E721A7EC9000A2B6AF /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31DB92E621A7EC9000A2B6AF /* ViewController.swift */; };
 		31DB92EA21A7EC9000A2B6AF /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 31DB92E821A7EC9000A2B6AF /* Main.storyboard */; };
@@ -30,6 +32,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		318C1DDE21ABB0B200D618B8 /* AJAlertController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AJAlertController.xib; sourceTree = "<group>"; };
+		318C1DDF21ABB0B200D618B8 /* AJAlertController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AJAlertController.swift; sourceTree = "<group>"; };
 		31DB92E121A7EC9000A2B6AF /* RugRug.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = RugRug.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		31DB92E421A7EC9000A2B6AF /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		31DB92E621A7EC9000A2B6AF /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -68,6 +72,16 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		318C1DDD21ABB0B200D618B8 /* AJAlertController */ = {
+			isa = PBXGroup;
+			children = (
+				318C1DDE21ABB0B200D618B8 /* AJAlertController.xib */,
+				318C1DDF21ABB0B200D618B8 /* AJAlertController.swift */,
+			);
+			name = AJAlertController;
+			path = "../../../AJAlertController-master/AJAlertController/AJAlertController/AJAlertController";
+			sourceTree = "<group>";
+		};
 		31DB92D821A7EC9000A2B6AF = {
 			isa = PBXGroup;
 			children = (
@@ -90,6 +104,7 @@
 			isa = PBXGroup;
 			children = (
 				31DB92E821A7EC9000A2B6AF /* Main.storyboard */,
+				31DB92ED21A7EC9200A2B6AF /* LaunchScreen.storyboard */,
 				31DB92E421A7EC9000A2B6AF /* AppDelegate.swift */,
 				31DB92E621A7EC9000A2B6AF /* ViewController.swift */,
 				31DB930221A8388800A2B6AF /* Initial.swift */,
@@ -104,11 +119,11 @@
 				31DB930621A8DB4400A2B6AF /* PostTableCell.swift */,
 				31DB930721A8DB4400A2B6AF /* PostTableCell.xib */,
 				31DB930A21A8E97500A2B6AF /* Const.swift */,
-				31DB92ED21A7EC9200A2B6AF /* LaunchScreen.storyboard */,
 				31DB931221A916A100A2B6AF /* Assets.xcassets */,
 				31DB931421A916B300A2B6AF /* Images.xcassets */,
 				31DB92F021A7EC9200A2B6AF /* Info.plist */,
 				31DB92F621A7F23C00A2B6AF /* GoogleService-Info.plist */,
+				318C1DDD21ABB0B200D618B8 /* AJAlertController */,
 			);
 			path = RugRug;
 			sourceTree = "<group>";
@@ -196,6 +211,7 @@
 				31DB931521A916B400A2B6AF /* Images.xcassets in Resources */,
 				31DB930921A8DB4400A2B6AF /* PostTableCell.xib in Resources */,
 				31DB931321A916A100A2B6AF /* Assets.xcassets in Resources */,
+				318C1DE021ABB0B200D618B8 /* AJAlertController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -274,6 +290,7 @@
 				31DB92FF21A7F6C800A2B6AF /* Post.swift in Sources */,
 				31DB930121A7F6EC00A2B6AF /* Request.swift in Sources */,
 				31DB92E521A7EC9000A2B6AF /* AppDelegate.swift in Sources */,
+				318C1DE121ABB0B200D618B8 /* AJAlertController.swift in Sources */,
 				31DB92FB21A7F64C00A2B6AF /* Login.swift in Sources */,
 				31DB930B21A8E97500A2B6AF /* Const.swift in Sources */,
 			);

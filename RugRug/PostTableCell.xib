@@ -46,8 +46,8 @@
                         <nil key="highlightedColor"/>
                     </label>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="HAt-Ud-8Ja">
-                        <rect key="frame" x="96.5" y="144" width="37.5" height="18"/>
-                        <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                        <rect key="frame" x="111.5" y="144.5" width="35.5" height="17"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
                         <color key="textColor" red="0.0" green="0.58980089430000004" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <nil key="highlightedColor"/>
                     </label>
@@ -126,8 +126,8 @@
                     <constraint firstAttribute="trailing" secondItem="gLS-Vq-2bQ" secondAttribute="trailing" constant="30" id="DvQ-Pq-tCw"/>
                     <constraint firstItem="PFN-vu-IvE" firstAttribute="leading" secondItem="139-CB-GiK" secondAttribute="leading" id="FzC-Ip-GyF"/>
                     <constraint firstItem="vLQ-C9-soC" firstAttribute="centerY" secondItem="139-CB-GiK" secondAttribute="centerY" id="G8e-RU-rwV"/>
-                    <constraint firstItem="HAt-Ud-8Ja" firstAttribute="leading" secondItem="PFN-vu-IvE" secondAttribute="trailing" constant="15" id="IaM-Gd-T1h"/>
                     <constraint firstItem="PFN-vu-IvE" firstAttribute="top" secondItem="139-CB-GiK" secondAttribute="bottom" constant="5" id="K9c-Pu-Wbe"/>
+                    <constraint firstItem="HAt-Ud-8Ja" firstAttribute="leading" secondItem="PFN-vu-IvE" secondAttribute="trailing" constant="30" id="N2h-Oa-b63"/>
                     <constraint firstItem="139-CB-GiK" firstAttribute="top" secondItem="wor-Wc-Tzo" secondAttribute="bottom" constant="15" id="OqM-44-S1D"/>
                     <constraint firstAttribute="trailingMargin" secondItem="wor-Wc-Tzo" secondAttribute="trailing" constant="20" id="PmV-YL-PWB"/>
                     <constraint firstItem="139-CB-GiK" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leadingMargin" constant="20" id="Sgb-LF-hwf"/>

@@ -23,6 +23,7 @@ class Request: UIViewController, UITextFieldDelegate, UITextViewDelegate  {
     @IBOutlet weak var userMail: UITextField!
     @IBOutlet weak var submitButton: UIButton!
     @IBOutlet weak var referenceButton: UIButton!
+    @IBOutlet weak var userName: UILabel!
     
     
     override func viewDidLoad() {
@@ -56,6 +57,8 @@ class Request: UIViewController, UITextFieldDelegate, UITextViewDelegate  {
         let currentUser = Auth.auth().currentUser
         
         if currentUser != nil {
+            userName.text = "\(currentUser!.displayName ?? "")さん"
+            
             let userProfileurl = (Auth.auth().currentUser?.photoURL?.absoluteString)! + "?width=140&height=140"
             
             if userProfileurl != "" {

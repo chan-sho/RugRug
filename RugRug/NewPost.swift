@@ -47,6 +47,8 @@ class NewPost: UIViewController, UITextFieldDelegate, UITextViewDelegate {
         newPostButton.isExclusiveTouch = true
         cancelButton.isExclusiveTouch = true
         
+        
+        
         //ログインユーザーのプロフィール画像をロード
         let currentUser = Auth.auth().currentUser
         
@@ -64,6 +66,8 @@ class NewPost: UIViewController, UITextFieldDelegate, UITextViewDelegate {
                         self.userPhoto.image = UIImage(data: data!)
                         self.userPhoto.clipsToBounds = true
                         self.userPhoto.layer.cornerRadius = 35.0
+                        self.userPhoto.layer.borderColor = UIColor.gray.cgColor
+                        self.userPhoto.layer.borderWidth = 0.5
                     }
                 }).resume()
             }
@@ -74,35 +78,6 @@ class NewPost: UIViewController, UITextFieldDelegate, UITextViewDelegate {
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
-    }
-    
-    
-    //※念の為WillAppearでもプロフィール画像をロード
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
-        
-        //ログインユーザーのプロフィール画像をロード
-        let currentUser = Auth.auth().currentUser
-        
-        if currentUser != nil {
-            let userProfileurl = (Auth.auth().currentUser?.photoURL?.absoluteString)! + "?width=140&height=140"
-            
-            if userProfileurl != "" {
-                let url = URL(string: "\(userProfileurl)")
-                
-                URLSession.shared.dataTask(with: url!, completionHandler: { (data, response, error) in
-                    if error != nil {
-                        print(error!)
-                        return
-                    }
-                    DispatchQueue.main.async {
-                        self.userPhoto.image = UIImage(data: data!)
-                        self.userPhoto.clipsToBounds = true
-                        self.userPhoto.layer.cornerRadius = 35.0
-                    }
-                }).resume()
-            }
-        }
     }
     
     
@@ -122,6 +97,10 @@ class NewPost: UIViewController, UITextFieldDelegate, UITextViewDelegate {
     
     @IBAction func newPostButton(_ sender: Any) {
         
+        if contents.text == "" {
+            SVProgressHUD.showError(withStatus: "投稿内容の記載が空白です。\nご確認下さい。")
+        }
+        else {
         // ImageViewから画像を取得する
         let imageData = UIImageJPEGRepresentation(userPhoto.image!, 0.5)
         let imageString = imageData!.base64EncodedString(options: .lineLength64Characters)
@@ -143,6 +122,7 @@ class NewPost: UIViewController, UITextFieldDelegate, UITextViewDelegate {
         
         // 画面を閉じてViewControllerに戻る
         dismiss(animated: true, completion: nil)
+        }
     }
     
     

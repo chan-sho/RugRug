@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14113" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14088"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="146" id="KGk-i7-Jjw" customClass="FAQTableCell" customModule="RugRug" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="342" height="146"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
+                <rect key="frame" x="0.0" y="0.0" width="342" height="145.5"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="VjU-oI-Dkz">
+                        <rect key="frame" x="10" y="10" width="43" height="20.5"/>
+                        <fontDescription key="fontDescription" type="system" weight="medium" pointSize="17"/>
+                        <nil key="textColor"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="f21-Im-LcV">
+                        <rect key="frame" x="20" y="40.5" width="302" height="18"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                        <nil key="textColor"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5iF-9y-JyK">
+                        <rect key="frame" x="68" y="12.5" width="33" height="16"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                        <color key="textColor" red="0.37055522200000002" green="0.37056469920000001" blue="0.37055957319999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Logo" translatesAutoresizingMaskIntoConstraints="NO" id="GkO-Pj-frW">
+                        <rect key="frame" x="35" y="68.5" width="40" height="40"/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="40" id="SLq-hF-LAF"/>
+                            <constraint firstAttribute="height" constant="40" id="fcr-Mb-xTd"/>
+                        </constraints>
+                    </imageView>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="KQ7-za-20o">
+                        <rect key="frame" x="35" y="118" width="287" height="18"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                        <color key="textColor" red="0.0" green="0.56284224989999998" blue="0.31881666180000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                </subviews>
+                <constraints>
+                    <constraint firstItem="5iF-9y-JyK" firstAttribute="leading" secondItem="VjU-oI-Dkz" secondAttribute="trailing" constant="15" id="4Ek-m7-qrH"/>
+                    <constraint firstItem="VjU-oI-Dkz" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="10" id="5wA-dx-KPn"/>
+                    <constraint firstItem="5iF-9y-JyK" firstAttribute="centerY" secondItem="VjU-oI-Dkz" secondAttribute="centerY" id="72e-cD-nZM"/>
+                    <constraint firstItem="KQ7-za-20o" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="35" id="8UT-nG-06j"/>
+                    <constraint firstAttribute="trailing" secondItem="KQ7-za-20o" secondAttribute="trailing" constant="20" id="BHQ-pQ-pWy"/>
+                    <constraint firstItem="f21-Im-LcV" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="20" id="IYf-RV-2KQ"/>
+                    <constraint firstItem="VjU-oI-Dkz" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="10" id="N1U-HS-SaS"/>
+                    <constraint firstItem="GkO-Pj-frW" firstAttribute="top" secondItem="f21-Im-LcV" secondAttribute="bottom" constant="10" id="RRd-oQ-CaN"/>
+                    <constraint firstAttribute="trailing" secondItem="f21-Im-LcV" secondAttribute="trailing" constant="20" id="Vnd-Et-7ae"/>
+                    <constraint firstItem="GkO-Pj-frW" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="35" id="eVV-6B-fTd"/>
+                    <constraint firstAttribute="bottom" secondItem="KQ7-za-20o" secondAttribute="bottom" constant="9.5" id="rhT-Mp-BGM"/>
+                    <constraint firstItem="KQ7-za-20o" firstAttribute="top" secondItem="GkO-Pj-frW" secondAttribute="bottom" constant="10" id="sSj-xT-y5I"/>
+                    <constraint firstItem="f21-Im-LcV" firstAttribute="top" secondItem="VjU-oI-Dkz" secondAttribute="bottom" constant="10" id="u8U-62-owD"/>
+                </constraints>
+            </tableViewCellContentView>
+            <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
+            <connections>
+                <outlet property="RugRugPhoto" destination="GkO-Pj-frW" id="jEv-Oa-oSe"/>
+                <outlet property="answerCategory" destination="VjU-oI-Dkz" id="Kpw-s7-OnR"/>
+                <outlet property="answerTextField" destination="KQ7-za-20o" id="yTC-yZ-XxO"/>
+                <outlet property="requestTextField" destination="f21-Im-LcV" id="U0i-RY-0vk"/>
+                <outlet property="time" destination="5iF-9y-JyK" id="w04-c8-udM"/>
+            </connections>
+            <point key="canvasLocation" x="38" y="15"/>
+        </tableViewCell>
+    </objects>
+    <resources>
+        <image name="Logo" width="512" height="425"/>
+    </resources>
+</document>

@@ -51,6 +51,8 @@ class Revise: UIViewController, UITextFieldDelegate, UITextViewDelegate {
         reviseDoneButton.isExclusiveTouch = true
         cancelButton.isExclusiveTouch = true
         
+        
+        
     }
 
     override func didReceiveMemoryWarning() {

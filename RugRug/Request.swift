@@ -53,6 +53,8 @@ class Request: UIViewController, UITextFieldDelegate, UITextViewDelegate  {
         self.RugRugPhoto.layer.borderColor = UIColor.gray.cgColor
         self.RugRugPhoto.layer.borderWidth = 0.5
         
+        
+        
         //ログインユーザーのプロフィール画像をロード
         let currentUser = Auth.auth().currentUser
         
@@ -72,6 +74,8 @@ class Request: UIViewController, UITextFieldDelegate, UITextViewDelegate  {
                         self.userPhoto.image = UIImage(data: data!)
                         self.userPhoto.clipsToBounds = true
                         self.userPhoto.layer.cornerRadius = 35.0
+                        self.userPhoto.layer.borderColor = UIColor.gray.cgColor
+                        self.userPhoto.layer.borderWidth = 0.5
                     }
                 }).resume()
             }
@@ -99,6 +103,31 @@ class Request: UIViewController, UITextFieldDelegate, UITextViewDelegate  {
     
 
     @IBAction func submitButton(_ sender: Any) {
+        if contents.text == "" {
+            SVProgressHUD.showError(withStatus: "ご意見・ご要望の記載が空白です。\nご確認下さい。")
+        }
+        else {
+            //FireBase上に辞書型データで残す処理
+            //postDataに必要な情報を取得しておく
+            let time = Date.timeIntervalSinceReferenceDate
+            let name = Auth.auth().currentUser?.displayName
+            
+            //メールアドレスが空白だった際のデータ準備
+            if userMail.text == "" {
+                userMail.text = "e-mail記載なし"
+            }
+            
+            //**重要** 辞書を作成してFirebaseに保存する
+            let postRef = Database.database().reference().child(Const2.PostPath2)
+            let postDic = ["userID": Auth.auth().currentUser!.uid, "time": String(time), "name": name!, "requestTextField": String(contents.text!), "requestUserEmail": userMail.text!, "answerTextField": "", "answerCategory": "", "answerFlag": ""] as [String : Any]
+            postRef.childByAutoId().setValue(postDic)
+            
+            //各テキストデータの初期化
+            contents.text = ""
+            userMail.text = ""
+            
+            SVProgressHUD.showSuccess(withStatus: "\(name!)さん\n\n貴重なご意見、本当にありがとうございました！\nこれからも頑張ってより良いRugRugにしていきますので、どうか宜しくお願い致します！")
+        }
     }
     
     

@@ -9,6 +9,9 @@
 /* Begin PBXBuildFile section */
 		31280E9921AD3322008FDDEF /* AJAlertController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 31280E9521AD3321008FDDEF /* AJAlertController.xib */; };
 		31280E9C21AD3322008FDDEF /* AJAlertController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31280E9821AD3321008FDDEF /* AJAlertController.swift */; };
+		3169FE1621AE785C000E01A4 /* FAQ.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3169FE1521AE785C000E01A4 /* FAQ.swift */; };
+		3169FE1921AE79E6000E01A4 /* FAQTableCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3169FE1721AE79E6000E01A4 /* FAQTableCell.swift */; };
+		3169FE1A21AE79E6000E01A4 /* FAQTableCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3169FE1821AE79E6000E01A4 /* FAQTableCell.xib */; };
 		31DB92E521A7EC9000A2B6AF /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31DB92E421A7EC9000A2B6AF /* AppDelegate.swift */; };
 		31DB92E721A7EC9000A2B6AF /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31DB92E621A7EC9000A2B6AF /* ViewController.swift */; };
 		31DB92EA21A7EC9000A2B6AF /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 31DB92E821A7EC9000A2B6AF /* Main.storyboard */; };
@@ -28,12 +31,16 @@
 		31DB930F21A903DB00A2B6AF /* NewPost.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31DB930E21A903DB00A2B6AF /* NewPost.swift */; };
 		31DB931321A916A100A2B6AF /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 31DB931221A916A100A2B6AF /* Assets.xcassets */; };
 		31DB931521A916B400A2B6AF /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 31DB931421A916B300A2B6AF /* Images.xcassets */; };
+		31EC171321AE43A70033E1F1 /* Const2.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31EC171221AE43A70033E1F1 /* Const2.swift */; };
 		9ED7BC96C7D7B2B31556E273 /* Pods_RugRug.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B622C86550B85A948A5E0674 /* Pods_RugRug.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		31280E9521AD3321008FDDEF /* AJAlertController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AJAlertController.xib; sourceTree = "<group>"; };
 		31280E9821AD3321008FDDEF /* AJAlertController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AJAlertController.swift; sourceTree = "<group>"; };
+		3169FE1521AE785C000E01A4 /* FAQ.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FAQ.swift; sourceTree = "<group>"; };
+		3169FE1721AE79E6000E01A4 /* FAQTableCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FAQTableCell.swift; sourceTree = "<group>"; };
+		3169FE1821AE79E6000E01A4 /* FAQTableCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = FAQTableCell.xib; sourceTree = "<group>"; };
 		31DB92E121A7EC9000A2B6AF /* RugRug.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = RugRug.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		31DB92E421A7EC9000A2B6AF /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		31DB92E621A7EC9000A2B6AF /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -55,6 +62,7 @@
 		31DB930E21A903DB00A2B6AF /* NewPost.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewPost.swift; sourceTree = "<group>"; };
 		31DB931221A916A100A2B6AF /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		31DB931421A916B300A2B6AF /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
+		31EC171221AE43A70033E1F1 /* Const2.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Const2.swift; sourceTree = "<group>"; };
 		9748BEB0414ED82A1AF84D38 /* Pods-RugRug.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RugRug.debug.xcconfig"; path = "Pods/Target Support Files/Pods-RugRug/Pods-RugRug.debug.xcconfig"; sourceTree = "<group>"; };
 		B622C86550B85A948A5E0674 /* Pods_RugRug.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_RugRug.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		DE05979B1B0E08B6203B8B5C /* Pods-RugRug.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RugRug.release.xcconfig"; path = "Pods/Target Support Files/Pods-RugRug/Pods-RugRug.release.xcconfig"; sourceTree = "<group>"; };
@@ -110,14 +118,18 @@
 				31DB92FA21A7F64C00A2B6AF /* Login.swift */,
 				31DB92F821A7F62D00A2B6AF /* Home.swift */,
 				31DB92FE21A7F6C800A2B6AF /* Post.swift */,
+				31DB930621A8DB4400A2B6AF /* PostTableCell.swift */,
+				31DB930721A8DB4400A2B6AF /* PostTableCell.xib */,
 				31DB930E21A903DB00A2B6AF /* NewPost.swift */,
 				31DB930C21A8FE0500A2B6AF /* Revise.swift */,
 				31DB930021A7F6EC00A2B6AF /* Request.swift */,
+				3169FE1521AE785C000E01A4 /* FAQ.swift */,
+				3169FE1721AE79E6000E01A4 /* FAQTableCell.swift */,
+				3169FE1821AE79E6000E01A4 /* FAQTableCell.xib */,
 				31DB92FC21A7F66600A2B6AF /* Setting.swift */,
 				31DB930421A8D94900A2B6AF /* PostData.swift */,
-				31DB930621A8DB4400A2B6AF /* PostTableCell.swift */,
-				31DB930721A8DB4400A2B6AF /* PostTableCell.xib */,
 				31DB930A21A8E97500A2B6AF /* Const.swift */,
+				31EC171221AE43A70033E1F1 /* Const2.swift */,
 				31280E9421AD3321008FDDEF /* AJAlertController */,
 				31DB931221A916A100A2B6AF /* Assets.xcassets */,
 				31DB931421A916B300A2B6AF /* Images.xcassets */,
@@ -205,6 +217,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				31DB92EF21A7EC9200A2B6AF /* LaunchScreen.storyboard in Resources */,
+				3169FE1A21AE79E6000E01A4 /* FAQTableCell.xib in Resources */,
 				31DB92F721A7F23C00A2B6AF /* GoogleService-Info.plist in Resources */,
 				31DB92EA21A7EC9000A2B6AF /* Main.storyboard in Resources */,
 				31DB931521A916B400A2B6AF /* Images.xcassets in Resources */,
@@ -279,6 +292,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				31DB930821A8DB4400A2B6AF /* PostTableCell.swift in Sources */,
+				31EC171321AE43A70033E1F1 /* Const2.swift in Sources */,
 				31280E9C21AD3322008FDDEF /* AJAlertController.swift in Sources */,
 				31DB930D21A8FE0500A2B6AF /* Revise.swift in Sources */,
 				31DB92FD21A7F66600A2B6AF /* Setting.swift in Sources */,
@@ -289,8 +303,10 @@
 				31DB92F921A7F62D00A2B6AF /* Home.swift in Sources */,
 				31DB92FF21A7F6C800A2B6AF /* Post.swift in Sources */,
 				31DB930121A7F6EC00A2B6AF /* Request.swift in Sources */,
+				3169FE1621AE785C000E01A4 /* FAQ.swift in Sources */,
 				31DB92E521A7EC9000A2B6AF /* AppDelegate.swift in Sources */,
 				31DB92FB21A7F64C00A2B6AF /* Login.swift in Sources */,
+				3169FE1921AE79E6000E01A4 /* FAQTableCell.swift in Sources */,
 				31DB930B21A8E97500A2B6AF /* Const.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

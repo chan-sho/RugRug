@@ -12,6 +12,7 @@
 		3169FE1621AE785C000E01A4 /* FAQ.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3169FE1521AE785C000E01A4 /* FAQ.swift */; };
 		3169FE1921AE79E6000E01A4 /* FAQTableCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3169FE1721AE79E6000E01A4 /* FAQTableCell.swift */; };
 		3169FE1A21AE79E6000E01A4 /* FAQTableCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3169FE1821AE79E6000E01A4 /* FAQTableCell.xib */; };
+		3169FE1D21AFBBBD000E01A4 /* Manager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3169FE1C21AFBBBD000E01A4 /* Manager.swift */; };
 		31DB92E521A7EC9000A2B6AF /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31DB92E421A7EC9000A2B6AF /* AppDelegate.swift */; };
 		31DB92E721A7EC9000A2B6AF /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31DB92E621A7EC9000A2B6AF /* ViewController.swift */; };
 		31DB92EA21A7EC9000A2B6AF /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 31DB92E821A7EC9000A2B6AF /* Main.storyboard */; };
@@ -41,6 +42,8 @@
 		3169FE1521AE785C000E01A4 /* FAQ.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FAQ.swift; sourceTree = "<group>"; };
 		3169FE1721AE79E6000E01A4 /* FAQTableCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FAQTableCell.swift; sourceTree = "<group>"; };
 		3169FE1821AE79E6000E01A4 /* FAQTableCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = FAQTableCell.xib; sourceTree = "<group>"; };
+		3169FE1B21AF5CD9000E01A4 /* RugRug-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "RugRug-Bridging-Header.h"; sourceTree = "<group>"; };
+		3169FE1C21AFBBBD000E01A4 /* Manager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Manager.swift; sourceTree = "<group>"; };
 		31DB92E121A7EC9000A2B6AF /* RugRug.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = RugRug.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		31DB92E421A7EC9000A2B6AF /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		31DB92E621A7EC9000A2B6AF /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -127,9 +130,11 @@
 				3169FE1721AE79E6000E01A4 /* FAQTableCell.swift */,
 				3169FE1821AE79E6000E01A4 /* FAQTableCell.xib */,
 				31DB92FC21A7F66600A2B6AF /* Setting.swift */,
+				3169FE1C21AFBBBD000E01A4 /* Manager.swift */,
 				31DB930421A8D94900A2B6AF /* PostData.swift */,
 				31DB930A21A8E97500A2B6AF /* Const.swift */,
 				31EC171221AE43A70033E1F1 /* Const2.swift */,
+				3169FE1B21AF5CD9000E01A4 /* RugRug-Bridging-Header.h */,
 				31280E9421AD3321008FDDEF /* AJAlertController */,
 				31DB931221A916A100A2B6AF /* Assets.xcassets */,
 				31DB931421A916B300A2B6AF /* Images.xcassets */,
@@ -298,6 +303,7 @@
 				31DB92FD21A7F66600A2B6AF /* Setting.swift in Sources */,
 				31DB930F21A903DB00A2B6AF /* NewPost.swift in Sources */,
 				31DB930521A8D94900A2B6AF /* PostData.swift in Sources */,
+				3169FE1D21AFBBBD000E01A4 /* Manager.swift in Sources */,
 				31DB92E721A7EC9000A2B6AF /* ViewController.swift in Sources */,
 				31DB930321A8388800A2B6AF /* Initial.swift in Sources */,
 				31DB92F921A7F62D00A2B6AF /* Home.swift in Sources */,
@@ -463,6 +469,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = ST.RugRug;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "RugRug/RugRug-Bridging-Header.h";
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = 1;
 			};
@@ -484,6 +491,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = ST.RugRug;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "RugRug/RugRug-Bridging-Header.h";
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = 1;
 			};

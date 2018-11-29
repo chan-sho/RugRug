@@ -20,6 +20,8 @@ class Setting: UIViewController {
     
     @IBOutlet weak var logOutButton: UIButton!
     @IBOutlet weak var acconutDeleteButton: UIButton!
+    @IBOutlet weak var RugRugPhoto: UIImageView!
+    
     
     //user defaultsを使う準備
     let userDefaults:UserDefaults = UserDefaults.standard
@@ -28,8 +30,14 @@ class Setting: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-       
+        self.RugRugPhoto.clipsToBounds = true
+        self.RugRugPhoto.layer.cornerRadius = 20.0
+        self.RugRugPhoto.layer.borderColor = UIColor.gray.cgColor
+        self.RugRugPhoto.layer.borderWidth = 0.5
         
+        //ボタン同時押しによるアプリクラッシュを防ぐ
+        logOutButton.isExclusiveTouch = true
+        acconutDeleteButton.isExclusiveTouch = true
     }
 
     override func didReceiveMemoryWarning() {

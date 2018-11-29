@@ -44,6 +44,7 @@ class Home: UIViewController, UITextViewDelegate {
         RugRugComment.layer.cornerRadius = 10.0
         RugRugComment.layer.masksToBounds = true
         
+        news1Photo.isUserInteractionEnabled = true
         
         //Newsの情報取得
         var refNews: DatabaseReference!
@@ -53,6 +54,11 @@ class Home: UIViewController, UITextViewDelegate {
             var value = snapshot.value as? [ String : AnyObject ]
             //中身の確認
             if value != nil{
+                let news1PhotoString = "\(value!["News1Photo"] ?? "" as AnyObject)"
+                if news1PhotoString != "" {
+                    self.news1Photo.image = UIImage(data: Data(base64Encoded: news1PhotoString, options: .ignoreUnknownCharacters)!)
+                }
+                
                 self.news1Title.text = "\(value!["News1Title"] ?? "1位:（※データ読み込みエラー）" as AnyObject)"
                 self.news2Title.setTitle("\(value!["News2Title"] ?? "2位:（※データ読み込みエラー）" as AnyObject)", for: .normal)
                 self.news3Title.setTitle("\(value!["News3Title"] ?? "3位:（※データ読み込みエラー）" as AnyObject)", for: .normal)
@@ -125,6 +131,20 @@ class Home: UIViewController, UITextViewDelegate {
         }
     }
     
+    
+    @IBAction func news1PhotoTapped(_ sender: Any) {
+        print("Tap!!")
+        let urlNews1 = news1URL
+        let url = URL(string: "\(urlNews1!)")
+        if url == nil {
+            return
+        }
+        else {
+            if UIApplication.shared.canOpenURL(url!) {
+                UIApplication.shared.open(url!)
+            }
+        }
+    }
     
     
     @IBAction func news2Title(_ sender: Any) {

@@ -37,6 +37,8 @@ class PostData: NSObject {
     var answerTextField: String?
     var answerCategory: String?
     var answerFlag: String?
+    var news1Photo: UIImage?
+    var news1PhotoString: String?
     
     
     init(snapshot: DataSnapshot, myId: String) {
@@ -51,6 +53,11 @@ class PostData: NSObject {
         userPhotoString = valueDictionary["userPhoto"] as? String
         if userPhotoString != nil {
             userPhoto = UIImage(data: Data(base64Encoded: userPhotoString!, options: .ignoreUnknownCharacters)!)
+        }
+        
+        news1PhotoString = valueDictionary["News1Photo"] as? String
+        if news1PhotoString != nil {
+            news1Photo = UIImage(data: Data(base64Encoded: news1PhotoString!, options: .ignoreUnknownCharacters)!)
         }
         
         self.EULAagreement = valueDictionary["EULAagreement"] as? String

@@ -1139,14 +1139,14 @@
                                 </constraints>
                             </stackView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="気まぐれ。Newsピックアップ" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="H89-fh-bHY">
-                                <rect key="frame" x="0.0" y="95.5" width="375" height="21.5"/>
+                                <rect key="frame" x="0.0" y="92" width="375" height="24"/>
                                 <color key="backgroundColor" red="0.016804177310000001" green="0.19835099580000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                <fontDescription key="fontDescription" type="system" weight="medium" pointSize="18"/>
+                                <fontDescription key="fontDescription" type="system" weight="medium" pointSize="20"/>
                                 <color key="textColor" red="0.99999600649999998" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="NLm-fA-xbl">
-                                <rect key="frame" x="37.5" y="132" width="300" height="100"/>
+                                <rect key="frame" x="37.5" y="131" width="300" height="100"/>
                                 <gestureRecognizers/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="100" id="6fk-QL-d8f"/>
@@ -1157,14 +1157,14 @@
                                 </connections>
                             </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="1位： ニュースタイトル" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1hE-O6-bFk">
-                                <rect key="frame" x="37.5" y="132" width="300" height="20.5"/>
+                                <rect key="frame" x="37.5" y="131" width="300" height="20.5"/>
                                 <color key="backgroundColor" red="0.99999600649999998" green="1" blue="1" alpha="0.7950824058219178" colorSpace="custom" customColorSpace="sRGB"/>
                                 <fontDescription key="fontDescription" type="system" weight="medium" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="eAN-DJ-lwY">
-                                <rect key="frame" x="37.5" y="242" width="300" height="25"/>
+                                <rect key="frame" x="37.5" y="241" width="300" height="25"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="25" id="hhf-Gr-3fI"/>
                                 </constraints>
@@ -1177,7 +1177,7 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="S45-Yo-Z9p">
-                                <rect key="frame" x="37.5" y="277.5" width="300" height="25"/>
+                                <rect key="frame" x="37.5" y="276.5" width="300" height="25"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="25" id="DD6-hm-HST"/>
                                 </constraints>
@@ -1190,14 +1190,14 @@
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="勝手に。Eventピックアップ" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="BMf-zl-2pY">
-                                <rect key="frame" x="0.0" y="323" width="375" height="21.5"/>
+                                <rect key="frame" x="0.0" y="322" width="375" height="24"/>
                                 <color key="backgroundColor" red="0.0" green="0.58980089430000004" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                <fontDescription key="fontDescription" type="system" weight="medium" pointSize="18"/>
+                                <fontDescription key="fontDescription" type="system" weight="medium" pointSize="20"/>
                                 <color key="textColor" red="0.99999600649999998" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="atW-1Q-hMN">
-                                <rect key="frame" x="37.5" y="349.5" width="300" height="27"/>
+                                <rect key="frame" x="37.5" y="351" width="300" height="27"/>
                                 <constraints>
                                     <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="300" id="aPW-nE-XoE"/>
                                     <constraint firstAttribute="height" constant="27" id="wll-OS-EsO"/>
@@ -1211,7 +1211,7 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="DYG-14-zR6">
-                                <rect key="frame" x="37.5" y="387" width="300" height="25"/>
+                                <rect key="frame" x="37.5" y="388.5" width="300" height="25"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="25" id="ePN-Z4-nG3"/>
                                 </constraints>
@@ -1224,7 +1224,7 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="BZQ-t9-1ig">
-                                <rect key="frame" x="37.5" y="422.5" width="300" height="25"/>
+                                <rect key="frame" x="37.5" y="424" width="300" height="25"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="25" id="koE-0O-9kl"/>
                                 </constraints>
@@ -1257,7 +1257,7 @@
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Iuk-lc-c6d">
-                                <rect key="frame" x="0.0" y="237" width="375" height="0.0"/>
+                                <rect key="frame" x="0.0" y="236" width="375" height="0.0"/>
                                 <color key="backgroundColor" red="0.37055522200000002" green="0.37056469920000001" blue="0.37055957319999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="0.5" id="cI8-DV-GrA"/>
@@ -1267,7 +1267,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Gdz-0v-U8o">
-                                <rect key="frame" x="0.0" y="272" width="375" height="0.5"/>
+                                <rect key="frame" x="0.0" y="271" width="375" height="0.5"/>
                                 <color key="backgroundColor" red="0.37055522200000002" green="0.37056469920000001" blue="0.37055957319999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="0.5" id="gU2-i8-z9o"/>
@@ -1277,7 +1277,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="54q-NP-Pbr">
-                                <rect key="frame" x="0.0" y="307.5" width="375" height="0.5"/>
+                                <rect key="frame" x="0.0" y="306.5" width="375" height="0.5"/>
                                 <color key="backgroundColor" red="0.37055522200000002" green="0.37056469920000001" blue="0.37055957319999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="0.5" id="FJI-ov-Jyn"/>
@@ -1287,7 +1287,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5fk-6c-fwB">
-                                <rect key="frame" x="0.0" y="381.5" width="375" height="0.5"/>
+                                <rect key="frame" x="0.0" y="383" width="375" height="0.5"/>
                                 <color key="backgroundColor" red="0.37055522200000002" green="0.37056469920000001" blue="0.37055957319999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="0.5" id="rbY-ey-TAa"/>
@@ -1297,7 +1297,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="oiD-Bc-DNX">
-                                <rect key="frame" x="0.0" y="417" width="375" height="0.5"/>
+                                <rect key="frame" x="0.0" y="418.5" width="375" height="0.5"/>
                                 <color key="backgroundColor" red="0.37055522200000002" green="0.37056469920000001" blue="0.37055957319999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="0.5" id="IdY-CD-PxJ"/>
@@ -1307,7 +1307,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="GLa-sb-pNK">
-                                <rect key="frame" x="0.0" y="453" width="375" height="0.5"/>
+                                <rect key="frame" x="0.0" y="454.5" width="375" height="0.5"/>
                                 <color key="backgroundColor" red="0.37055522200000002" green="0.37056469920000001" blue="0.37055957319999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="0.5" id="PSY-2T-RIw"/>
@@ -1317,7 +1317,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Logo" translatesAutoresizingMaskIntoConstraints="NO" id="ilj-he-jtK">
-                                <rect key="frame" x="137.5" y="13.5" width="100" height="50"/>
+                                <rect key="frame" x="137.5" y="10" width="100" height="50"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="50" id="5BZ-Co-pDG"/>
                                     <constraint firstAttribute="width" constant="100" id="Q3T-t3-CHI"/>
@@ -1416,7 +1416,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="news1Photo(1129)" translatesAutoresizingMaskIntoConstraints="NO" id="tKt-HE-Q03">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="news1Photo(1201)" translatesAutoresizingMaskIntoConstraints="NO" id="tKt-HE-Q03">
                                 <rect key="frame" x="37" y="283.5" width="300" height="100"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="300" id="ddz-Cb-UWs"/>
@@ -1494,7 +1494,7 @@
         <image name="Stance" width="50" height="50"/>
         <image name="Target" width="50" height="50"/>
         <image name="like_exist" width="40" height="40"/>
-        <image name="news1Photo(1129)" width="540" height="180"/>
+        <image name="news1Photo(1201)" width="1200" height="400"/>
         <image name="背景_Home" width="400" height="689"/>
         <image name="背景_New&amp;Request" width="400" height="689"/>
         <image name="背景_Revise" width="400" height="689"/>

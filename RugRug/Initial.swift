@@ -15,6 +15,12 @@ class Initial: UIViewController {
     
     @IBOutlet weak var initialBackGround: UIImageView!
     @IBOutlet weak var goToLoginButton: UIButton!
+    @IBOutlet weak var label1: UILabel!
+    @IBOutlet weak var label2: UILabel!
+    @IBOutlet weak var label3: UILabel!
+    @IBOutlet weak var label4: UILabel!
+    @IBOutlet weak var label5: UILabel!
+    
     
     //user defaultsを使う準備
     let userDefaults:UserDefaults = UserDefaults.standard
@@ -23,6 +29,30 @@ class Initial: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        // 枠のカラー
+        label1.layer.borderColor = UIColor.gray.cgColor
+        label2.layer.borderColor = UIColor.gray.cgColor
+        label3.layer.borderColor = UIColor.gray.cgColor
+        label4.layer.borderColor = UIColor.gray.cgColor
+        label5.layer.borderColor = UIColor.gray.cgColor
+        // 枠の幅
+        label1.layer.borderWidth = 0.5
+        label2.layer.borderWidth = 0.5
+        label3.layer.borderWidth = 0.5
+        label4.layer.borderWidth = 0.5
+        label5.layer.borderWidth = 0.5
+        // 枠を角丸にする場合
+        label1.layer.cornerRadius = 10.0
+        label1.layer.masksToBounds = true
+        label2.layer.cornerRadius = 10.0
+        label2.layer.masksToBounds = true
+        label3.layer.cornerRadius = 10.0
+        label3.layer.masksToBounds = true
+        label4.layer.cornerRadius = 10.0
+        label4.layer.masksToBounds = true
+        label5.layer.cornerRadius = 10.0
+        label5.layer.masksToBounds = true
         
         //利用規約同意の判別要素
         EULAagreement = userDefaults.string(forKey: "EULAagreement")

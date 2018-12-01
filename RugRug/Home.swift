@@ -108,6 +108,68 @@ class Home: UIViewController, UITextViewDelegate {
     }
 
     
+    override func viewWillAppear(_ animated: Bool) {
+        //Newsの情報取得
+        var refNews: DatabaseReference!
+        refNews = Database.database().reference().child("News")
+        //  Firebaseからobserveでデータ抽出
+        refNews.observe(DataEventType.value, with: { (snapshot) in
+            var value = snapshot.value as? [ String : AnyObject ]
+            //中身の確認
+            if value != nil{
+                let news1PhotoString = "\(value!["News1Photo"] ?? "" as AnyObject)"
+                if news1PhotoString != "" {
+                    self.news1Photo.image = UIImage(data: Data(base64Encoded: news1PhotoString, options: .ignoreUnknownCharacters)!)
+                }
+                
+                self.news1Title.text = "\(value!["News1Title"] ?? "1位:（※データ読み込みエラー）" as AnyObject)"
+                self.news2Title.setTitle("\(value!["News2Title"] ?? "2位:（※データ読み込みエラー）" as AnyObject)", for: .normal)
+                self.news3Title.setTitle("\(value!["News3Title"] ?? "3位:（※データ読み込みエラー）" as AnyObject)", for: .normal)
+                
+                self.news1URL = "\(value!["News1URL"] ?? "" as AnyObject)"
+                self.news2URL = "\(value!["News2URL"] ?? "" as AnyObject)"
+                self.news3URL = "\(value!["News3URL"] ?? "" as AnyObject)"
+            }
+            else {
+                SVProgressHUD.showError(withStatus: "申し訳ありません！\nホーム画面の読み込みにエラーが発生しました。\nお手数ですが、アプリの再起動をお願い致します。")
+                return
+            }
+        })
+        
+        
+        //Eventの情報取得
+        var refEvent: DatabaseReference!
+        refEvent = Database.database().reference().child("Event")
+        //  Firebaseからobserveでデータ抽出
+        refEvent.observe(DataEventType.value, with: { (snapshot) in
+            var value = snapshot.value as? [ String : AnyObject ]
+            //中身の確認
+            if value != nil{
+                self.event1Title.setTitle("\(value!["Event1Title"] ?? "1位:（※データ読み込みエラー）" as AnyObject)", for: .normal)
+                self.event2Title.setTitle("\(value!["Event2Title"] ?? "2位:（※データ読み込みエラー）" as AnyObject)", for: .normal)
+                self.event3Title.setTitle("\(value!["Event3Title"] ?? "3位:（※データ読み込みエラー）" as AnyObject)", for: .normal)
+                
+                self.event1URL = "\(value!["Event1URL"] ?? "" as AnyObject)"
+                self.event2URL = "\(value!["Event2URL"] ?? "" as AnyObject)"
+                self.event3URL = "\(value!["Event3URL"] ?? "" as AnyObject)"
+            }
+            else {
+                SVProgressHUD.showError(withStatus: "申し訳ありません！\nホーム画面の読み込みにエラーが発生しました。\nお手数ですが、アプリの再起動をお願い致します。")
+                return
+            }
+        })
+        
+        
+        //RugRug管理人からのご連絡
+        var ref: DatabaseReference!
+        ref = Database.database().reference().child("RugRug")
+        //  Firebaseからobserveでデータ検索
+        ref.observe(DataEventType.value, with: { (snapshot) in
+            let value = snapshot.value as? String
+            self.RugRugComment.text = value
+        })
+    }
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.

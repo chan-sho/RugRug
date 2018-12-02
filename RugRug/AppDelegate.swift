@@ -25,7 +25,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         FBSDKApplicationDelegate.sharedInstance().application(application, didFinishLaunchingWithOptions: launchOptions)
         
         //LaunchScreenの起動時間延長
-        sleep(3)
+        sleep(2)
         
         return true
     }

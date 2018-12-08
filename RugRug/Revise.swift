@@ -50,9 +50,6 @@ class Revise: UIViewController, UITextFieldDelegate, UITextViewDelegate {
         //ボタン同時押しによるアプリクラッシュを防ぐ
         reviseDoneButton.isExclusiveTouch = true
         cancelButton.isExclusiveTouch = true
-        
-        
-        
     }
 
     override func didReceiveMemoryWarning() {

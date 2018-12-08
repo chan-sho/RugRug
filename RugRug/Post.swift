@@ -6,6 +6,12 @@
 //  Copyright © 2018 高野翔. All rights reserved.
 //
 // 【UserDefaults管理】"reviseDataId"= 投稿画面で「編集」を押した投稿のID
+// 【UserDefaults管理】"RejectDataFlag"= 「リジェクト／管理」ボタンを押した後の同意確認をするFlag
+// 【UserDefaults管理】"RejectDataId"= 投稿画面で「リジェクト／管理」を押した投稿のID
+// 【UserDefaults管理】"RejectIdArray"= 投稿画面で「リジェクト／管理」を押した投稿のIDをまとめた配列
+// 【UserDefaults管理】"CautionDataFlag"= 報告ボタンを押した後の同意確認をするFlag
+// 【UserDefaults管理】"CautionDataId"= 投稿画面で「報告」を押した投稿のID
+
 
 import UIKit
 import Firebase
@@ -15,7 +21,7 @@ import SVProgressHUD
 import ESTabBarController
 
 
-class Post: UIViewController, UITableViewDataSource, UITableViewDelegate, UISearchBarDelegate  {
+class Post: UIViewController, UITableViewDataSource, UITableViewDelegate, UISearchBarDelegate {
 
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var textSearchBar: UISearchBar!
@@ -48,8 +54,9 @@ class Post: UIViewController, UITableViewDataSource, UITableViewDelegate, UISear
         tableView.allowsSelection = false
         
         //separatorを左端始まりにして、黒色にする
-        tableView.separatorColor = UIColor.black
+        tableView.separatorColor = UIColor.white
         tableView.separatorInset = .zero
+        
         
         textSearchBar.delegate = self
         textSearchBar.placeholder = "キーワードで検索"
@@ -69,7 +76,10 @@ class Post: UIViewController, UITableViewDataSource, UITableViewDelegate, UISear
         // テーブル行の高さをAutoLayoutで自動調整する
         tableView.rowHeight = UITableViewAutomaticDimension
         // テーブル行の高さの概算値を設定しておく
-        tableView.estimatedRowHeight = 220
+        tableView.estimatedRowHeight = 250
+        
+        //userDefaultsの初期値設定（念の為）
+        userDefaults.register(defaults: ["RejectIdArray" : []])
         
         // TableViewを再表示する
         self.tableView.reloadData()
@@ -102,6 +112,29 @@ class Post: UIViewController, UITableViewDataSource, UITableViewDelegate, UISear
                         self.postArray.insert(postData, at: 0)
                         // 念のため同じデータをpostArrayAllに入れておく
                         self.postArrayAll.insert(postData, at: 0)
+                        
+                        let rejectIdArray = self.userDefaults.array(forKey: "RejectIdArray") as! [String]
+                        // 【※追加アクション】RejectIdArrayに含まれるリジェクト対象の投稿IDから該当のpostDataを削除する（postArray用）
+                        if rejectIdArray != [] {
+                            // RejectIdArrayの投稿IDを含まないデータのみpostArrayに入れ直す
+                            var rejectedArray1 = self.postArray
+                            for n in rejectIdArray {
+                                //filterの後の「!」が結果を反転している→含まない！！！
+                                rejectedArray1 = rejectedArray1.filter({ (!($0.id?.localizedCaseInsensitiveContains(n))!) })
+                            }
+                            self.postArray = rejectedArray1
+                        }
+                        
+                        // 【※追加アクション】RejectIdArrayに含まれるリジェクト対象の投稿IDから該当のpostDataを削除する（postArray用）
+                        if rejectIdArray != [] {
+                            // RejectIdArrayの投稿IDを含まないデータのみpostArrayに入れ直す
+                            var rejectedArray2 = self.postArrayAll
+                            for n in rejectIdArray {
+                                //filterの後の「!」が結果を反転している→含まない！！！
+                                rejectedArray2 = rejectedArray2.filter({ (!($0.id?.localizedCaseInsensitiveContains(n))!) })
+                            }
+                            self.postArrayAll = rejectedArray2
+                        }
                         
                         // TableViewを再表示する
                         self.tableView.reloadData()
@@ -141,6 +174,29 @@ class Post: UIViewController, UITableViewDataSource, UITableViewDelegate, UISear
                             // 削除したところに更新済みのデータを追加する
                             self.postArray.insert(postData, at: index)
                             self.postArrayAll.insert(postData, at: indexAll)
+                            
+                            let rejectIdArray = self.userDefaults.array(forKey: "RejectIdArray") as! [String]
+                            // 【※追加アクション】RejectIdArrayに含まれるリジェクト対象の投稿IDから該当のpostDataを削除する（postArray用）
+                            if rejectIdArray != [] {
+                                // RejectIdArrayの投稿IDを含まないデータのみpostArrayに入れ直す
+                                var rejectedArray1 = self.postArray
+                                for n in rejectIdArray {
+                                    //filterの後の「!」が結果を反転している→含まない！！！
+                                    rejectedArray1 = rejectedArray1.filter({ (!($0.id?.localizedCaseInsensitiveContains(n))!) })
+                                }
+                                self.postArray = rejectedArray1
+                            }
+                            
+                            // 【※追加アクション】RejectIdArrayに含まれるリジェクト対象の投稿IDから該当のpostDataを削除する（postArray用）
+                            if rejectIdArray != [] {
+                                // RejectIdArrayの投稿IDを含まないデータのみpostArrayに入れ直す
+                                var rejectedArray2 = self.postArrayAll
+                                for n in rejectIdArray {
+                                    //filterの後の「!」が結果を反転している→含まない！！！
+                                    rejectedArray2 = rejectedArray2.filter({ (!($0.id?.localizedCaseInsensitiveContains(n))!) })
+                                }
+                                self.postArrayAll = rejectedArray2
+                            }
                             
                             // TableViewを再表示する
                             self.tableView.reloadData()
@@ -184,6 +240,40 @@ class Post: UIViewController, UITableViewDataSource, UITableViewDelegate, UISear
                             self.postArray.insert(postData, at: index)
                             self.postArrayAll.insert(postData, at: indexAll)
                             
+                            let rejectIdArray = self.userDefaults.array(forKey: "RejectIdArray") as! [String]
+                            // 【※追加アクション】RejectIdArrayに含まれるリジェクト対象の投稿IDから該当のpostDataを削除する（postArray用）
+                            if rejectIdArray != [] {
+                                // RejectIdArrayの投稿IDを含まないデータのみpostArrayに入れ直す
+                                var rejectedArray1 = self.postArray
+                                for n in rejectIdArray {
+                                    //filterの後の「!」が結果を反転している→含まない！！！
+                                    rejectedArray1 = rejectedArray1.filter({ (!($0.id?.localizedCaseInsensitiveContains(n))!) })
+                                }
+                                self.postArray = rejectedArray1
+                            }
+                            
+                            // 【※追加アクション】RejectIdArrayに含まれるリジェクト対象の投稿IDから該当のpostDataを削除する（postArray用）
+                            if rejectIdArray != [] {
+                                // RejectIdArrayの投稿IDを含まないデータのみpostArrayに入れ直す
+                                var rejectedArray2 = self.postArrayAll
+                                for n in rejectIdArray {
+                                    //filterの後の「!」が結果を反転している→含まない！！！
+                                    rejectedArray2 = rejectedArray2.filter({ (!($0.id?.localizedCaseInsensitiveContains(n))!) })
+                                }
+                                self.postArrayAll = rejectedArray2
+                            }
+                            
+                            // 【※追加アクション】RejectIdArrayに含まれるリジェクト対象の投稿IDから該当のpostDataを削除する（postArrayBySearch用）
+                            if rejectIdArray != [] {
+                                // RejectIdArrayの投稿IDを含まないデータのみpostArrayに入れ直す
+                                var rejectedArray3 = self.postArrayBySearch
+                                for n in rejectIdArray {
+                                    //filterの後の「!」が結果を反転している→含まない！！！
+                                    rejectedArray3 = rejectedArray3.filter({ (!($0.id?.localizedCaseInsensitiveContains(n))!) })
+                                }
+                                self.postArrayAll = rejectedArray3
+                            }
+                            
                             // TableViewを再表示する
                             self.tableView.reloadData()
                         }
@@ -220,6 +310,29 @@ class Post: UIViewController, UITableViewDataSource, UITableViewDelegate, UISear
                             // 削除する
                             self.postArray.remove(at: index)
                             self.postArrayAll.remove(at: indexAll)
+                            
+                            let rejectIdArray = self.userDefaults.array(forKey: "RejectIdArray") as! [String]
+                            // 【※追加アクション】RejectIdArrayに含まれるリジェクト対象の投稿IDから該当のpostDataを削除する（postArray用）
+                            if rejectIdArray != [] {
+                                // RejectIdArrayの投稿IDを含まないデータのみpostArrayに入れ直す
+                                var rejectedArray1 = self.postArray
+                                for n in rejectIdArray {
+                                    //filterの後の「!」が結果を反転している→含まない！！！
+                                    rejectedArray1 = rejectedArray1.filter({ (!($0.id?.localizedCaseInsensitiveContains(n))!) })
+                                }
+                                self.postArray = rejectedArray1
+                            }
+                            
+                            // 【※追加アクション】RejectIdArrayに含まれるリジェクト対象の投稿IDから該当のpostDataを削除する（postArray用）
+                            if rejectIdArray != [] {
+                                // RejectIdArrayの投稿IDを含まないデータのみpostArrayに入れ直す
+                                var rejectedArray2 = self.postArrayAll
+                                for n in rejectIdArray {
+                                    //filterの後の「!」が結果を反転している→含まない！！！
+                                    rejectedArray2 = rejectedArray2.filter({ (!($0.id?.localizedCaseInsensitiveContains(n))!) })
+                                }
+                                self.postArrayAll = rejectedArray2
+                            }
                             
                             // TableViewを再表示する
                             self.tableView.reloadData()
@@ -258,6 +371,40 @@ class Post: UIViewController, UITableViewDataSource, UITableViewDelegate, UISear
                             self.postArrayBySearch.remove(at: indexBySearch)
                             self.postArray.remove(at: index)
                             self.postArrayAll.remove(at: indexAll)
+                            
+                            let rejectIdArray = self.userDefaults.array(forKey: "RejectIdArray") as! [String]
+                            // 【※追加アクション】RejectIdArrayに含まれるリジェクト対象の投稿IDから該当のpostDataを削除する（postArray用）
+                            if rejectIdArray != [] {
+                                // RejectIdArrayの投稿IDを含まないデータのみpostArrayに入れ直す
+                                var rejectedArray1 = self.postArray
+                                for n in rejectIdArray {
+                                    //filterの後の「!」が結果を反転している→含まない！！！
+                                    rejectedArray1 = rejectedArray1.filter({ (!($0.id?.localizedCaseInsensitiveContains(n))!) })
+                                }
+                                self.postArray = rejectedArray1
+                            }
+                            
+                            // 【※追加アクション】RejectIdArrayに含まれるリジェクト対象の投稿IDから該当のpostDataを削除する（postArray用）
+                            if rejectIdArray != [] {
+                                // RejectIdArrayの投稿IDを含まないデータのみpostArrayに入れ直す
+                                var rejectedArray2 = self.postArrayAll
+                                for n in rejectIdArray {
+                                    //filterの後の「!」が結果を反転している→含まない！！！
+                                    rejectedArray2 = rejectedArray2.filter({ (!($0.id?.localizedCaseInsensitiveContains(n))!) })
+                                }
+                                self.postArrayAll = rejectedArray2
+                            }
+                            
+                            // 【※追加アクション】RejectIdArrayに含まれるリジェクト対象の投稿IDから該当のpostDataを削除する（postArrayBySearch用）
+                            if rejectIdArray != [] {
+                                // RejectIdArrayの投稿IDを含まないデータのみpostArrayに入れ直す
+                                var rejectedArray3 = self.postArrayBySearch
+                                for n in rejectIdArray {
+                                    //filterの後の「!」が結果を反転している→含まない！！！
+                                    rejectedArray3 = rejectedArray3.filter({ (!($0.id?.localizedCaseInsensitiveContains(n))!) })
+                                }
+                                self.postArrayAll = rejectedArray3
+                            }
                             
                             // TableViewを再表示する
                             self.tableView.reloadData()
@@ -352,6 +499,9 @@ class Post: UIViewController, UITableViewDataSource, UITableViewDelegate, UISear
             // セル内のuserPhotoボタンを追加で管理
             cell.userPhotoButton.addTarget(self, action:#selector(handleUserPhotoButton(_:forEvent:)), for: .touchUpInside)
             
+            // セル内のcautionPhotoボタンを追加で管理
+            cell.cautionButton.addTarget(self, action:#selector(handleCautionButton(_:forEvent:)), for: .touchUpInside)
+            
             return cell
         }
             
@@ -368,6 +518,9 @@ class Post: UIViewController, UITableViewDataSource, UITableViewDelegate, UISear
             
             // セル内のuserPhotoボタンを追加で管理
             cell.userPhotoButton.addTarget(self, action:#selector(handleUserPhotoButton(_:forEvent:)), for: .touchUpInside)
+            
+            // セル内のcautionPhotoボタンを追加で管理
+            cell.cautionButton.addTarget(self, action:#selector(handleCautionButton(_:forEvent:)), for: .touchUpInside)
             
             return cell
         }
@@ -467,6 +620,11 @@ class Post: UIViewController, UITableViewDataSource, UITableViewDelegate, UISear
             self.performSegue(withIdentifier: "toRevise", sender: nil)
         }
         else {
+            //rejectの意思がある投稿のID
+            userDefaults.set("YES", forKey: "RejectDataFlag")
+            userDefaults.set(reviseDataId, forKey: "RejectDataId")
+            userDefaults.synchronize()
+            showAlertWithVC()
             return
         }
     }
@@ -526,6 +684,72 @@ class Post: UIViewController, UITableViewDataSource, UITableViewDelegate, UISear
         }
         }
 
+    }
+    
+    
+    //セル内のCautionボタンが押された時に呼ばれるメソッド
+    @objc func handleCautionButton(_ sender: UIButton, forEvent event: UIEvent) {
+        
+        // タップされたセルのインデックスを求める
+        let touch = event.allTouches?.first
+        let point = touch!.location(in: self.tableView)
+        let indexPath = tableView.indexPathForRow(at: point)
+        
+        let postData : PostData
+        
+        if textSearchBar.text == "" {
+            // 配列からタップされたインデックスのデータを取り出す
+            postData = postArray[indexPath!.row]
+        }
+            
+        else {
+            // 検索バーに入力された単語をスペースで分けて配列に入れる
+            let searchWords = textSearchBar.text!
+            let array = searchWords.components(separatedBy: NSCharacterSet.whitespaces)
+            // 検索バーのテキストを一部でも含むものをAND検索する！
+            var tempFilteredArray = postArrayAll
+            for n in array {
+                tempFilteredArray = tempFilteredArray.filter({ ($0.category?.localizedCaseInsensitiveContains(n))! || ($0.contents?.localizedCaseInsensitiveContains(n))! ||  ($0.name?.localizedCaseInsensitiveContains(n))!})
+            }
+            postArrayBySearch = tempFilteredArray
+            postData = postArrayBySearch[indexPath!.row]
+        }
+        
+        //タップを検知されたpostDataから投稿ナンバーを抽出する
+        let cautionDataId = postData.id
+        
+        //Cautionボタンを押したユーザーが投稿者本人かどうかの判断
+        let uid = Auth.auth().currentUser?.uid
+        let userID = postData.userID
+        if userID != uid {
+            userDefaults.set("YES", forKey: "CautionDataFlag")
+            userDefaults.set(cautionDataId, forKey: "CautionDataId")
+            userDefaults.synchronize()
+            showAlertWithVC()
+            return
+        }
+        else {
+            return
+        }
+    }
+    
+    
+    //最終確認ポップアップページを出す
+    func showAlertWithVC(){
+        let CautionFlag :String = userDefaults.string(forKey: "CautionDataFlag")!
+        if CautionFlag == "YES" {
+        AJAlertController.initialization().showAlert(aStrMessage: "この投稿が好ましくない内容を含む事を管理人に報告しますか？", aCancelBtnTitle: "キャンセル", aOtherBtnTitle: "管理人に報告") { (index, title) in
+            print(index,title)
+        }
+        }
+        
+        let RejectFlag :String = userDefaults.string(forKey: "RejectDataFlag")!
+        if RejectFlag == "YES" {
+            AJAlertController.initialization().showAlert(aStrMessage: "今後、この投稿を貴方の投稿一覧に表示しない様にしますか？", aCancelBtnTitle: "キャンセル", aOtherBtnTitle: "今後表示しない") { (index, title) in
+                print(index,title)
+            }
+        }
+        
     }
     
     

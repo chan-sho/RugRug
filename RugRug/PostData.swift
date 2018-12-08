@@ -10,6 +10,11 @@
 // 【UserDefaults管理】"EULAagreement"= 利用規約に同意したかどうかの判定
 // 【UserDefaults管理】"EULACheckFlag"= プライバシーポリシー・利用規約のページをきちんと開いた事を確認するFlag
 // 【UserDefaults管理】"AccountDeleteFlag"= アカウント削除ボタンを押した後の同意確認をするFlag
+// 【UserDefaults管理】"RejectDataFlag"= 「リジェクト／管理」ボタンを押した後の同意確認をするFlag
+// 【UserDefaults管理】"RejectDataId"= 投稿画面で「リジェクト／管理」を押した投稿のID
+// 【UserDefaults管理】"RejectIdArray"= 投稿画面で「リジェクト／管理」を押した投稿のIDをまとめた配列
+// 【UserDefaults管理】"CautionDataFlag"= 報告ボタンを押した後の同意確認をするFlag
+// 【UserDefaults管理】"CautionDataId"= 投稿画面で「報告」を押した投稿のID
 
 
 import UIKit
@@ -29,8 +34,8 @@ class PostData: NSObject {
     var date: Date?
     var likes: [String] = []
     var isLiked: Bool = false
-    var mySecret: [String] = []
-    var mySecretSelected: Bool = false
+    var rejects: [String] = []
+    var isRejected: Bool = false
     var EULAagreement: String?
     var requestTextField: String?
     var requestUserEmail: String?
@@ -82,17 +87,17 @@ class PostData: NSObject {
             }
         }
         
-        if let mySecret = valueDictionary["mySecret"] as? [String] {
-            self.mySecret = mySecret
+        if let rejects = valueDictionary["rejects"] as? [String] {
+            self.rejects = rejects
         }
         
-        for mySecretId in self.mySecret {
-            if mySecretId == myId {
-                self.mySecretSelected = true
+        for rejectId in self.rejects {
+            if rejectId == myId {
+                self.isRejected = true
                 break
             }
             else {
-                self.mySecretSelected = false
+                self.isRejected = false
                 break
             }
         }

@@ -8,6 +8,11 @@
 // 【UserDefaults管理】"EULACheckFlag"= プライバシーポリシー・利用規約のページをきちんと開いた事を確認するFlag
 // 【UserDefaults管理】"EULAagreement"= 利用規約に同意したかどうかの判定
 // 【UserDefaults管理】"AccountDeleteFlag"= アカウント削除ボタンを押した後の同意確認をするFlag
+// 【UserDefaults管理】"RejectDataFlag"= 「リジェクト／管理」ボタンを押した後の同意確認をするFlag
+// 【UserDefaults管理】"RejectDataId"= 投稿画面で「リジェクト／管理」を押した投稿のID
+// 【UserDefaults管理】"RejectIdArray"= 投稿画面で「リジェクト／管理」を押した投稿のIDをまとめた配列
+// 【UserDefaults管理】"CautionDataFlag"= 報告ボタンを押した後の同意確認をするFlag
+// 【UserDefaults管理】"CautionDataId"= 投稿画面で「報告」を押した投稿のID
 
 
 import UIKit
@@ -15,6 +20,7 @@ import Foundation
 import SVProgressHUD
 import Firebase
 import FirebaseAuth
+import ESTabBarController
 
 
 class AJAlertController: UIViewController {
@@ -63,10 +69,16 @@ class AJAlertController: UIViewController {
     //user defaultsを使う準備
     let userDefaults:UserDefaults = UserDefaults.standard
     
+    //RejectIdArrayの配列初期設定
+    var rejectIdArray : [String] = []
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
         setupAJAlertController()
+        
+        //userDefaultsの初期値設定
+        userDefaults.register(defaults: ["RejectIdArray" : []])
     }
     
     // MARK:- AJAlertController Private Functions
@@ -209,6 +221,30 @@ class AJAlertController: UIViewController {
         }
         
         
+        //リジェクトボタンを押された上で、「キャンセル」を選択した際のアクション
+        let RejectFlag :String = userDefaults.string(forKey: "RejectDataFlag")!
+        if RejectFlag == "YES" {
+            //報告の2重チェックに使うFlagの再初期化
+            userDefaults.set("NO", forKey: "RejectDataFlag")
+            userDefaults.synchronize()
+            print("再初期化：RejectDataFlag = 「NO」")
+            hide()
+            return
+        }
+        
+        
+        //報告ボタンを押された上で、「キャンセル」を選択した際のアクション
+        let CautionFlag :String = userDefaults.string(forKey: "CautionDataFlag")!
+        if CautionFlag == "YES" {
+            //報告の2重チェックに使うFlagの再初期化
+            userDefaults.set("NO", forKey: "CautionDataFlag")
+            userDefaults.synchronize()
+            print("再初期化：CautionDataFlag = 「NO」")
+            hide()
+            return
+        }
+        
+        
         //プライバシーポリシー・利用規約のページをSafariで開くアクション
         let url = URL(string: "https://chan-sho.github.io/")!
         if UIApplication.shared.canOpenURL(url) {
@@ -247,6 +283,63 @@ class AJAlertController: UIViewController {
             }
             return
         }
+        
+        
+        //リジェクトボタンを押された上で、「今後表示しない」を選択した際のアクション
+        let RejectFlag :String = userDefaults.string(forKey: "RejectDataFlag")!
+        if RejectFlag == "YES" {
+            
+            let rejectDataId :String = userDefaults.string(forKey: "RejectDataId")!
+            rejectIdArray = userDefaults.array(forKey: "RejectIdArray") as! [String]
+            rejectIdArray.append(rejectDataId)
+            //確認
+            print("\(rejectIdArray)")
+            
+            //追加した"RejectDataId"を"RejectIdArray"の配列要素に追加
+            userDefaults.set(rejectIdArray, forKey: "RejectIdArray")
+            userDefaults.synchronize()
+            
+            //Firebaseに保存する
+            let uid = Auth.auth().currentUser?.uid
+            let postRef = Database.database().reference().child(Const.PostPath).child(rejectDataId)
+            let rejects = ["Reject-By-(\(uid!))": uid]
+            postRef.updateChildValues(rejects)
+            
+            hide()
+            
+            //報告の2重チェックに使うFlagの再初期化
+            userDefaults.set("NO", forKey: "RejectDataFlag")
+            userDefaults.synchronize()
+            print("再初期化：RejectDataFlag = 「NO」")
+            
+            SVProgressHUD.showSuccess(withStatus: "対象の投稿は、貴方の投稿一覧に表示されなくなりました。")
+        }
+        
+        
+        //報告ボタンを押された上で、「管理人に報告」を選択した際のアクション
+        let CautionFlag :String = userDefaults.string(forKey: "CautionDataFlag")!
+        if CautionFlag == "YES" {
+            hide()
+            
+            let cautionPostId :String = userDefaults.string(forKey: "CautionDataId")!
+            //FireBase上に辞書型データで残す処理
+            //postDataに必要な情報を取得しておく
+            let time = Date.timeIntervalSinceReferenceDate
+            let name = Auth.auth().currentUser?.displayName
+            
+            //**重要** 辞書を作成してFirebaseに保存する
+            let postRef = Database.database().reference().child(Const4.PostPath4)
+            let postDic = ["userID": Auth.auth().currentUser!.uid, "time": String(time), "name": name!, "cautionPostId": cautionPostId, "checkFlag": ""] as [String : Any]
+            postRef.childByAutoId().setValue(postDic)
+            
+            //報告の2重チェックに使うFlagの再初期化
+            userDefaults.set("NO", forKey: "CautionDataFlag")
+            userDefaults.synchronize()
+            print("再初期化：CautionDataFlag = 「NO」")
+            
+            SVProgressHUD.showSuccess(withStatus: "\(name!)さん\n\n好ましくない投稿のご報告、ありがとうございました！\n24時間以内に精査し、適切な処置（削除／警告）をします。")
+        }
+        
         
         let EULACheckFlag :String = userDefaults.string(forKey: "EULACheckFlag")!
         if EULACheckFlag == "NO" {

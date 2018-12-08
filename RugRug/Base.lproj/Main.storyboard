@@ -177,6 +177,7 @@
                         <outlet property="tableView" destination="2Rf-GM-EdZ" id="mn3-Qd-nZ8"/>
                         <outlet property="textSearchBar" destination="ZYn-nM-55r" id="qDE-p6-foQ"/>
                         <segue destination="NzF-Kh-2DL" kind="show" identifier="toRevise" id="UWf-Zb-fzt"/>
+                        <segue destination="Fst-Uc-2Dd" kind="show" identifier="toReject" id="kGc-cD-hxO"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="55m-1x-Ug0" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -410,6 +411,96 @@
                 <exit id="EAE-b3-e7I" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
             <point key="canvasLocation" x="3412" y="572"/>
+        </scene>
+        <!--Reject-->
+        <scene sceneID="WmW-6j-qoa">
+            <objects>
+                <viewController id="Fst-Uc-2Dd" customClass="Reject" customModule="RugRug" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="Ohh-WJ-X1N">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="背景_Revise" translatesAutoresizingMaskIntoConstraints="NO" id="Tdc-YE-Yz0">
+                                <rect key="frame" x="0.0" y="20" width="375" height="647"/>
+                            </imageView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Syf-VO-8o2">
+                                <rect key="frame" x="0.0" y="20" width="65" height="30"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="65" id="jlN-0j-QX6"/>
+                                </constraints>
+                                <state key="normal" title=" ＜ 戻る"/>
+                                <connections>
+                                    <segue destination="TID-28-3gD" kind="unwind" unwindAction="unwind:" id="0Cn-A0-Zb0"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="VHm-Ru-8vL">
+                                <rect key="frame" x="40" y="213.5" width="295" height="40"/>
+                                <fontDescription key="fontDescription" type="system" weight="medium" pointSize="15"/>
+                                <state key="normal" title="この投稿を【今後表示しない】" backgroundImage="Btn3"/>
+                                <connections>
+                                    <action selector="rejectButton:" destination="Fst-Uc-2Dd" eventType="touchUpInside" id="B54-IQ-Fk0"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Zir-w0-jKN">
+                                <rect key="frame" x="40" y="413.5" width="295" height="40"/>
+                                <fontDescription key="fontDescription" type="system" weight="medium" pointSize="15"/>
+                                <state key="normal" title="好ましくない投稿として【報告】" backgroundImage="Btn4"/>
+                                <connections>
+                                    <action selector="reportButton:" destination="Fst-Uc-2Dd" eventType="touchUpInside" id="CDd-18-Tb0"/>
+                                </connections>
+                            </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="※今後この投稿は一覧に表示されません" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Wbn-cX-ShI">
+                                <rect key="frame" x="40" y="258.5" width="295" height="17"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="acx-gN-taz">
+                                <rect key="frame" x="40" y="458.5" width="295" height="33.5"/>
+                                <string key="text">※管理人が24時間以内に確認し、
+  適切な処置（削除／警告）をします</string>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <color key="textColor" red="1" green="0.14913141730000001" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="VHm-Ru-8vL" firstAttribute="centerY" secondItem="Ohh-WJ-X1N" secondAttribute="centerY" constant="-100" id="0HW-WZ-96D"/>
+                            <constraint firstItem="Tdc-YE-Yz0" firstAttribute="leading" secondItem="CzL-Sn-uC5" secondAttribute="leading" id="5TK-FS-LY9"/>
+                            <constraint firstItem="VHm-Ru-8vL" firstAttribute="centerX" secondItem="Ohh-WJ-X1N" secondAttribute="centerX" id="DmA-wZ-6A3"/>
+                            <constraint firstItem="Syf-VO-8o2" firstAttribute="leading" secondItem="CzL-Sn-uC5" secondAttribute="leading" id="Dpz-IF-uvb"/>
+                            <constraint firstItem="VHm-Ru-8vL" firstAttribute="leading" secondItem="CzL-Sn-uC5" secondAttribute="leading" constant="40" id="F1h-Lr-sbO"/>
+                            <constraint firstItem="CzL-Sn-uC5" firstAttribute="bottom" secondItem="Tdc-YE-Yz0" secondAttribute="bottom" id="FFC-A1-awq"/>
+                            <constraint firstItem="CzL-Sn-uC5" firstAttribute="trailing" secondItem="acx-gN-taz" secondAttribute="trailing" constant="40" id="KXw-JX-b1M"/>
+                            <constraint firstItem="Zir-w0-jKN" firstAttribute="leading" secondItem="CzL-Sn-uC5" secondAttribute="leading" constant="40" id="LG6-Z0-p9Z"/>
+                            <constraint firstItem="Zir-w0-jKN" firstAttribute="centerY" secondItem="Ohh-WJ-X1N" secondAttribute="centerY" constant="100" id="RxI-lQ-fXc"/>
+                            <constraint firstItem="Wbn-cX-ShI" firstAttribute="centerX" secondItem="Ohh-WJ-X1N" secondAttribute="centerX" id="e0e-Af-aDQ"/>
+                            <constraint firstItem="Tdc-YE-Yz0" firstAttribute="top" secondItem="CzL-Sn-uC5" secondAttribute="top" id="eJo-Ec-Kbg"/>
+                            <constraint firstItem="CzL-Sn-uC5" firstAttribute="trailing" secondItem="Wbn-cX-ShI" secondAttribute="trailing" constant="40" id="hkg-uO-I9i"/>
+                            <constraint firstItem="acx-gN-taz" firstAttribute="top" secondItem="Zir-w0-jKN" secondAttribute="bottom" constant="5" id="i6i-ws-wSu"/>
+                            <constraint firstItem="Wbn-cX-ShI" firstAttribute="leading" secondItem="CzL-Sn-uC5" secondAttribute="leading" constant="40" id="jgX-jL-P6Y"/>
+                            <constraint firstItem="CzL-Sn-uC5" firstAttribute="trailing" secondItem="Tdc-YE-Yz0" secondAttribute="trailing" id="ju8-Yu-T43"/>
+                            <constraint firstItem="CzL-Sn-uC5" firstAttribute="trailing" secondItem="Zir-w0-jKN" secondAttribute="trailing" constant="40" id="k0I-SA-Tdp"/>
+                            <constraint firstItem="Syf-VO-8o2" firstAttribute="top" secondItem="CzL-Sn-uC5" secondAttribute="top" id="kRw-FL-V4x"/>
+                            <constraint firstItem="Wbn-cX-ShI" firstAttribute="top" secondItem="VHm-Ru-8vL" secondAttribute="bottom" constant="5" id="o45-c3-muh"/>
+                            <constraint firstItem="acx-gN-taz" firstAttribute="centerX" secondItem="Ohh-WJ-X1N" secondAttribute="centerX" id="oJ2-BE-dXJ"/>
+                            <constraint firstItem="acx-gN-taz" firstAttribute="leading" secondItem="CzL-Sn-uC5" secondAttribute="leading" constant="40" id="oTb-LW-bwI"/>
+                            <constraint firstItem="CzL-Sn-uC5" firstAttribute="trailing" secondItem="VHm-Ru-8vL" secondAttribute="trailing" constant="40" id="pRi-2n-cR7"/>
+                            <constraint firstItem="Zir-w0-jKN" firstAttribute="centerX" secondItem="Ohh-WJ-X1N" secondAttribute="centerX" id="zqf-Kc-orw"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="CzL-Sn-uC5"/>
+                    </view>
+                    <connections>
+                        <outlet property="backButton" destination="Syf-VO-8o2" id="NNL-UK-2nm"/>
+                        <outlet property="rejectButton" destination="VHm-Ru-8vL" id="ngA-Vj-vKt"/>
+                        <outlet property="reportButton" destination="Zir-w0-jKN" id="Una-bG-SGK"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="9GA-ML-9r4" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <exit id="TID-28-3gD" userLabel="Exit" sceneMemberID="exit"/>
+            </objects>
+            <point key="canvasLocation" x="4241" y="572"/>
         </scene>
         <!--Request-->
         <scene sceneID="YHQ-DP-edX">
@@ -862,7 +953,7 @@
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="・気になる投稿には直接コンタクト！" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="YeB-2d-LQ1">
-                                        <rect key="frame" x="47.5" y="1253.5" width="280" height="19.5"/>
+                                        <rect key="frame" x="47.5" y="1238" width="280" height="19.5"/>
                                         <constraints>
                                             <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="280" id="3Tw-ij-GFR"/>
                                         </constraints>
@@ -871,19 +962,19 @@
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="1) プロフィール画像をクリック" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="PIj-qL-Nqd">
-                                        <rect key="frame" x="68" y="1274" width="215.5" height="18"/>
+                                        <rect key="frame" x="68" y="1258.5" width="215.5" height="18"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                         <color key="textColor" red="0.37055522200000002" green="0.37056469920000001" blue="0.37055957319999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="2) 投稿者名でFacebook検索" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="B3J-K0-d51">
-                                        <rect key="frame" x="67" y="1293" width="192" height="18"/>
+                                        <rect key="frame" x="67" y="1277.5" width="192" height="18"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                         <color key="textColor" red="0.37055522200000002" green="0.37056469920000001" blue="0.37055957319999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="SkL-5g-wd5">
-                                        <rect key="frame" x="68" y="1465" width="230" height="36"/>
+                                        <rect key="frame" x="68" y="1449.5" width="230" height="36"/>
                                         <string key="text">のいずれかの方法でコンタクト
 （まずは「メッセンジャー」で）</string>
                                         <fontDescription key="fontDescription" type="system" pointSize="15"/>
@@ -891,23 +982,22 @@
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="04N-xo-IpH">
-                                        <rect key="frame" x="68" y="1506" width="254.5" height="47"/>
-                                        <string key="text">※RugRugにチャット機能はありません
-※RugRugで「きっかけ」を作ってからは、
+                                        <rect key="frame" x="68" y="1490.5" width="254.5" height="31.5"/>
+                                        <string key="text">※RugRugで「きっかけ」を作ってからは、
   Facebookで良い交流を作って下さい！</string>
                                         <fontDescription key="fontDescription" type="system" pointSize="13"/>
                                         <color key="textColor" red="0.0" green="0.58980089430000004" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Guide1" translatesAutoresizingMaskIntoConstraints="NO" id="uZ3-R7-nnE">
-                                        <rect key="frame" x="72.5" y="1313" width="230" height="150"/>
+                                        <rect key="frame" x="72.5" y="1297.5" width="230" height="150"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="150" id="50l-KR-NIO"/>
                                             <constraint firstAttribute="width" constant="230" id="EgZ-tZ-d4f"/>
                                         </constraints>
                                     </imageView>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="・皆様のご意見でより良いRugRugに！" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="D0r-Hx-cKX">
-                                        <rect key="frame" x="43.5" y="1598" width="287.5" height="19.5"/>
+                                        <rect key="frame" x="43.5" y="1567" width="287.5" height="19.5"/>
                                         <constraints>
                                             <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="280" id="0Lo-Hg-Vtg"/>
                                         </constraints>
@@ -916,20 +1006,20 @@
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="ボタンで「管理人にお願い」" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="TW3-3z-b1p">
-                                        <rect key="frame" x="94.5" y="1625" width="199" height="18"/>
+                                        <rect key="frame" x="94.5" y="1594" width="199" height="18"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                         <color key="textColor" red="0.37055522200000002" green="0.37056469920000001" blue="0.37055957319999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Request" translatesAutoresizingMaskIntoConstraints="NO" id="x67-wx-qVW">
-                                        <rect key="frame" x="63.5" y="1618.5" width="30" height="30"/>
+                                        <rect key="frame" x="63.5" y="1587.5" width="30" height="30"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="30" id="ZDj-Li-2FJ"/>
                                             <constraint firstAttribute="height" constant="30" id="tw7-LP-weH"/>
                                         </constraints>
                                     </imageView>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="XgW-za-U1h">
-                                        <rect key="frame" x="63.5" y="1650.5" width="233" height="31.5"/>
+                                        <rect key="frame" x="63.5" y="1619.5" width="233" height="31.5"/>
                                         <string key="text">※ユーザーの皆様のご意見に対して、
   可能な限りお応えしたいと思います！</string>
                                         <fontDescription key="fontDescription" type="system" pointSize="13"/>
@@ -937,12 +1027,11 @@
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="YyQ-le-nLC">
-                                        <rect key="frame" x="67.5" y="1115" width="233.5" height="93.5"/>
+                                        <rect key="frame" x="67.5" y="1115" width="252" height="78"/>
                                         <string key="text">※好ましくないと判断された投稿は
   削除される事があります
 ※好ましくない投稿を発見した際には、
-「管理人にお願い」ページよりご報告
-  をお願いします
+「報告」ボタンよりご報告をお願いします
   (24時間以内に対応致します)</string>
                                         <fontDescription key="fontDescription" type="system" pointSize="13"/>
                                         <color key="textColor" red="1" green="0.14913141730000001" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>

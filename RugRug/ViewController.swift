@@ -9,6 +9,9 @@
 // 【UserDefaults管理】"EULAagreement"= 利用規約に同意したかどうかの判定
 // 【UserDefaults管理】"EULACheckFlag"= プライバシーポリシー・利用規約のページをきちんと開いた事を確認するFlag
 // 【UserDefaults管理】"AccountDeleteFlag"= アカウント削除ボタンを押した後の同意確認をするFlag
+// 【UserDefaults管理】"RejectDataFlag"= 「リジェクト／管理」ボタンを押した後の同意確認をするFlag
+// 【UserDefaults管理】"CautionDataFlag"= 報告ボタンを押した後の同意確認をするFlag
+
 
 import UIKit
 import ESTabBarController
@@ -26,8 +29,8 @@ class ViewController: UIViewController {
         super.viewDidLoad()
         setupTab()
         
-        //userDefauktsの初期値設定
-        userDefaults.register(defaults: ["InitialFlag" : "NO", "EULAagreement" : "NO", "EULACheckFlag" : "NO", "AccountDeleteFlag" : "NO"])
+        //userDefaultsの初期値設定
+        userDefaults.register(defaults: ["InitialFlag" : "NO", "EULAagreement" : "NO", "EULACheckFlag" : "NO", "AccountDeleteFlag" : "NO", "RejectDataFlag" : "NO", "CautionDataFlag" : "NO", "RejectIdArray" : []])
     }
     
     

@@ -20,6 +20,7 @@ class PostTableCell: UITableViewCell {
     @IBOutlet weak var like: UILabel!
     @IBOutlet weak var likeButton: UIButton!
     @IBOutlet weak var reviseButton: UIButton!
+    @IBOutlet weak var cautionButton: UIButton!
     @IBOutlet weak var userPhotoButton: UIButton!
     
     

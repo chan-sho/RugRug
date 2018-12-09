@@ -13,6 +13,8 @@
 // 【UserDefaults管理】"RejectIdArray"= 投稿画面で「リジェクト／管理」を押した投稿のIDをまとめた配列
 // 【UserDefaults管理】"CautionDataFlag"= 報告ボタンを押した後の同意確認をするFlag
 // 【UserDefaults管理】"CautionDataId"= 投稿画面で「報告」を押した投稿のID
+// 【UserDefaults管理】"UserPhotoURLFlag"= 投稿者プロフィール画像を押した事を確認するFlag
+// 【UserDefaults管理】"UserPhotoURL"= 投稿者のFacebookページを検索するためのURL
 
 
 import UIKit
@@ -245,6 +247,31 @@ class AJAlertController: UIViewController {
         }
         
         
+        //投稿者プロフィール画像を押された上で、「Facebook検索」を選択した際のアクション
+        let UserPhotoURLFlag :String = userDefaults.string(forKey: "UserPhotoURLFlag")!
+        if UserPhotoURLFlag == "YES" {
+            let UserPhotoURL :String = userDefaults.string(forKey: "UserPhotoURL")!
+            
+            //Facebookの検索ページをSafariで開くアクション
+            let url = URL(string: "\(UserPhotoURL)")
+            if url == nil {
+                print("NG")
+                return
+            }
+            else {
+                if UIApplication.shared.canOpenURL(url!) {
+                    UIApplication.shared.open(url!)
+                }
+            }
+            
+            //チェックFlagの再初期化
+            userDefaults.set("NO", forKey: "UserPhotoURLFlag")
+            userDefaults.synchronize()
+            print("再初期化：UserPhotoURLFlag = 「NO」")
+            hide()
+            return
+        }
+        
         //プライバシーポリシー・利用規約のページをSafariで開くアクション
         let url = URL(string: "https://chan-sho.github.io/")!
         if UIApplication.shared.canOpenURL(url) {
@@ -340,6 +367,31 @@ class AJAlertController: UIViewController {
             SVProgressHUD.showSuccess(withStatus: "\(name!)さん\n\n好ましくない投稿のご報告、ありがとうございました！\n24時間以内に精査し、適切な処置（削除／警告）をします。")
         }
         
+        
+        //投稿者プロフィール画像を押された上で、「Facebook検索」を選択した際のアクション
+        let UserPhotoURLFlag :String = userDefaults.string(forKey: "UserPhotoURLFlag")!
+        if UserPhotoURLFlag == "YES" {
+            let UserPhotoURL :String = userDefaults.string(forKey: "UserPhotoURL")!
+            
+            //Facebookの検索ページをSafariで開くアクション
+            let url = URL(string: "\(UserPhotoURL)")
+            if url == nil {
+                print("NG")
+                return
+            }
+            else {
+                if UIApplication.shared.canOpenURL(url!) {
+                    UIApplication.shared.open(url!)
+                }
+            }
+            
+            //チェックFlagの再初期化
+            userDefaults.set("NO", forKey: "UserPhotoURLFlag")
+            userDefaults.synchronize()
+            print("再初期化：UserPhotoURLFlag = 「NO」")
+            hide()
+            return
+        }
         
         let EULACheckFlag :String = userDefaults.string(forKey: "EULACheckFlag")!
         if EULACheckFlag == "NO" {

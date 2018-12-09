@@ -15,6 +15,8 @@
 // 【UserDefaults管理】"RejectIdArray"= 投稿画面で「リジェクト／管理」を押した投稿のIDをまとめた配列
 // 【UserDefaults管理】"CautionDataFlag"= 報告ボタンを押した後の同意確認をするFlag
 // 【UserDefaults管理】"CautionDataId"= 投稿画面で「報告」を押した投稿のID
+// 【UserDefaults管理】"UserPhotoURLFlag"= 投稿者プロフィール画像を押した事を確認するFlag
+// 【UserDefaults管理】"UserPhotoURL"= 投稿者のFacebookページを検索するためのURL
 
 
 import UIKit

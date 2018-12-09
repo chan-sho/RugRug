@@ -11,6 +11,8 @@
 // 【UserDefaults管理】"RejectIdArray"= 投稿画面で「リジェクト／管理」を押した投稿のIDをまとめた配列
 // 【UserDefaults管理】"CautionDataFlag"= 報告ボタンを押した後の同意確認をするFlag
 // 【UserDefaults管理】"CautionDataId"= 投稿画面で「報告」を押した投稿のID
+// 【UserDefaults管理】"UserPhotoURLFlag"= 投稿者プロフィール画像を押した事を確認するFlag
+// 【UserDefaults管理】"UserPhotoURL"= 投稿者のFacebookページを検索するためのURL
 
 
 import UIKit
@@ -79,7 +81,7 @@ class Post: UIViewController, UITableViewDataSource, UITableViewDelegate, UISear
         tableView.estimatedRowHeight = 250
         
         //userDefaultsの初期値設定（念の為）
-        userDefaults.register(defaults: ["RejectIdArray" : []])
+        userDefaults.register(defaults: ["RejectIdArray" : [], "UserPhotoURLFlag" : "NO"])
         
         // TableViewを再表示する
         self.tableView.reloadData()
@@ -633,6 +635,7 @@ class Post: UIViewController, UITableViewDataSource, UITableViewDelegate, UISear
     //セル内のuserPhotoボタンが押された時に呼ばれるメソッド
     @objc func handleUserPhotoButton(_ sender: UIButton, forEvent event: UIEvent) {
         
+        //使っていないコード（今後のために保存）
         if let facebookUid = Auth.auth().currentUser?.providerData
             .filter({ (userInfo: UserInfo) in return userInfo.providerID == FacebookAuthProviderID})
             .map({ (userInfo: UserInfo) in return userInfo.uid})
@@ -672,17 +675,12 @@ class Post: UIViewController, UITableViewDataSource, UITableViewDelegate, UISear
         let userPhotoURL = userURL.replacingOccurrences(of: " ", with: "", options: .regularExpression)
         print("\(userPhotoURL)")
         
-        //Facebookの検索ページをSafariで開くアクション
-        let url = URL(string: "\(userPhotoURL)")
-        if url == nil {
-            print("NG")
-            return
-        }
-        else {
-            if UIApplication.shared.canOpenURL(url!) {
-                UIApplication.shared.open(url!)
-        }
-        }
+        //userDefaultsに必要なデータを保存
+        userDefaults.set("YES", forKey: "UserPhotoURLFlag")
+        userDefaults.set(userPhotoURL, forKey: "UserPhotoURL")
+        userDefaults.synchronize()
+        showAlertWithVC()
+        return
 
     }
     
@@ -736,17 +734,27 @@ class Post: UIViewController, UITableViewDataSource, UITableViewDelegate, UISear
     
     //最終確認ポップアップページを出す
     func showAlertWithVC(){
+        
         let CautionFlag :String = userDefaults.string(forKey: "CautionDataFlag")!
         if CautionFlag == "YES" {
-        AJAlertController.initialization().showAlert(aStrMessage: "この投稿が好ましくない内容を含む事を管理人に報告しますか？", aCancelBtnTitle: "キャンセル", aOtherBtnTitle: "管理人に報告") { (index, title) in
+            AJAlertController.initialization().showAlert(aStrMessage: "この投稿が好ましくない内容を含む事を管理人に報告しますか？", aCancelBtnTitle: "キャンセル", aOtherBtnTitle: "管理人に報告") { (index, title) in
             print(index,title)
-        }
+                
+            }
         }
         
         let RejectFlag :String = userDefaults.string(forKey: "RejectDataFlag")!
         if RejectFlag == "YES" {
             AJAlertController.initialization().showAlert(aStrMessage: "今後、この投稿を貴方の投稿一覧に表示しない様にしますか？", aCancelBtnTitle: "キャンセル", aOtherBtnTitle: "今後表示しない") { (index, title) in
                 print(index,title)
+            }
+        }
+        
+        let UserPhotoURLFlag :String = userDefaults.string(forKey: "UserPhotoURLFlag")!
+        if UserPhotoURLFlag == "YES" {
+            AJAlertController.initialization().showAlert(aStrMessage: "今からFacebookでこのユーザーを検索します！\n\nコンタクトする事を事前に「通知」しておきますか？\n\n※通知を選択すると、貴方から後程コンタクトがある旨をこのユーザーにお知らせします。", aCancelBtnTitle: "検索のみ", aOtherBtnTitle: "「通知」＋検索") { (index, title) in
+                print(index,title)
+                
             }
         }
         

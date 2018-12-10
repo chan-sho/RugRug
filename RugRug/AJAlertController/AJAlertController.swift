@@ -15,6 +15,9 @@
 // 【UserDefaults管理】"CautionDataId"= 投稿画面で「報告」を押した投稿のID
 // 【UserDefaults管理】"UserPhotoURLFlag"= 投稿者プロフィール画像を押した事を確認するFlag
 // 【UserDefaults管理】"UserPhotoURL"= 投稿者のFacebookページを検索するためのURL
+// 【UserDefaults管理】"UserPhotoName"= 投稿者のFacebookページを検索するためのName
+// 【UserDefaults管理】"ContactRequestPost"= コンタクト通知をした対象の投稿ID
+// 【UserDefaults管理】"ContactRequestUserID"= コンタクト通知をした相手のユーザーID
 
 
 import UIKit
@@ -368,10 +371,23 @@ class AJAlertController: UIViewController {
         }
         
         
-        //投稿者プロフィール画像を押された上で、「Facebook検索」を選択した際のアクション
+        //投稿者プロフィール画像を押された上で、「通知＋Facebook検索」を選択した際のアクション
         let UserPhotoURLFlag :String = userDefaults.string(forKey: "UserPhotoURLFlag")!
         if UserPhotoURLFlag == "YES" {
+            let UserPhotoName :String = userDefaults.string(forKey: "UserPhotoName")!
             let UserPhotoURL :String = userDefaults.string(forKey: "UserPhotoURL")!
+            let ContactRequestPost :String = userDefaults.string(forKey: "ContactRequestPost")!
+            let ContactRequestUserID :String = userDefaults.string(forKey: "ContactRequestUserID")!
+            
+            //FireBase上に辞書型データで残す処理
+            //postDataに必要な情報を取得しておく
+            let time = Date.timeIntervalSinceReferenceDate
+            let name = Auth.auth().currentUser?.displayName
+            
+            //**重要** 辞書を作成してFirebaseに保存する
+            let postRef = Database.database().reference().child(Const5.PostPath5)
+            let postDic = ["AskUserID": Auth.auth().currentUser!.uid, "time": String(time), "AskUserName": name!, "RequestedUserID": ContactRequestUserID, "RequestedUserName": UserPhotoName, "RequestedPostID": ContactRequestPost,"checkFlag": ""] as [String : Any]
+            postRef.childByAutoId().setValue(postDic)
             
             //Facebookの検索ページをSafariで開くアクション
             let url = URL(string: "\(UserPhotoURL)")
@@ -392,6 +408,7 @@ class AJAlertController: UIViewController {
             hide()
             return
         }
+        
         
         let EULACheckFlag :String = userDefaults.string(forKey: "EULACheckFlag")!
         if EULACheckFlag == "NO" {

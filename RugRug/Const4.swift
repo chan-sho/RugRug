@@ -8,6 +8,7 @@
 
 import Foundation
 
+
 struct Const4 {
     static let PostPath4 = "Caution"
 }

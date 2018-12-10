@@ -9,6 +9,8 @@
 /* Begin PBXBuildFile section */
 		31280E9921AD3322008FDDEF /* AJAlertController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 31280E9521AD3321008FDDEF /* AJAlertController.xib */; };
 		31280E9C21AD3322008FDDEF /* AJAlertController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31280E9821AD3321008FDDEF /* AJAlertController.swift */; };
+		312A2DDB21BE2C8600C16EA1 /* Info.swift in Sources */ = {isa = PBXBuildFile; fileRef = 312A2DDA21BE2C8600C16EA1 /* Info.swift */; };
+		312A2DDD21BE38C900C16EA1 /* Const5.swift in Sources */ = {isa = PBXBuildFile; fileRef = 312A2DDC21BE38C900C16EA1 /* Const5.swift */; };
 		3169FE1621AE785C000E01A4 /* FAQ.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3169FE1521AE785C000E01A4 /* FAQ.swift */; };
 		3169FE1921AE79E6000E01A4 /* FAQTableCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3169FE1721AE79E6000E01A4 /* FAQTableCell.swift */; };
 		3169FE1A21AE79E6000E01A4 /* FAQTableCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3169FE1821AE79E6000E01A4 /* FAQTableCell.xib */; };
@@ -41,6 +43,8 @@
 /* Begin PBXFileReference section */
 		31280E9521AD3321008FDDEF /* AJAlertController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AJAlertController.xib; sourceTree = "<group>"; };
 		31280E9821AD3321008FDDEF /* AJAlertController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AJAlertController.swift; sourceTree = "<group>"; };
+		312A2DDA21BE2C8600C16EA1 /* Info.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Info.swift; sourceTree = "<group>"; };
+		312A2DDC21BE38C900C16EA1 /* Const5.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Const5.swift; sourceTree = "<group>"; };
 		3169FE1521AE785C000E01A4 /* FAQ.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FAQ.swift; sourceTree = "<group>"; };
 		3169FE1721AE79E6000E01A4 /* FAQTableCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FAQTableCell.swift; sourceTree = "<group>"; };
 		3169FE1821AE79E6000E01A4 /* FAQTableCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = FAQTableCell.xib; sourceTree = "<group>"; };
@@ -129,6 +133,7 @@
 				31DB930721A8DB4400A2B6AF /* PostTableCell.xib */,
 				31DB930E21A903DB00A2B6AF /* NewPost.swift */,
 				31DB930C21A8FE0500A2B6AF /* Revise.swift */,
+				312A2DDA21BE2C8600C16EA1 /* Info.swift */,
 				31DB930021A7F6EC00A2B6AF /* Request.swift */,
 				3169FE1521AE785C000E01A4 /* FAQ.swift */,
 				3169FE1721AE79E6000E01A4 /* FAQTableCell.swift */,
@@ -140,6 +145,7 @@
 				31EC171221AE43A70033E1F1 /* Const2.swift */,
 				3169FE1E21AFDB0E000E01A4 /* Const3.swift */,
 				31A5F49E21BB5DF700488A1D /* Const4.swift */,
+				312A2DDC21BE38C900C16EA1 /* Const5.swift */,
 				3169FE1B21AF5CD9000E01A4 /* RugRug-Bridging-Header.h */,
 				31280E9421AD3321008FDDEF /* AJAlertController */,
 				31DB931221A916A100A2B6AF /* Assets.xcassets */,
@@ -308,6 +314,8 @@
 				31A5F49F21BB5DF700488A1D /* Const4.swift in Sources */,
 				31DB930D21A8FE0500A2B6AF /* Revise.swift in Sources */,
 				31DB92FD21A7F66600A2B6AF /* Setting.swift in Sources */,
+				312A2DDB21BE2C8600C16EA1 /* Info.swift in Sources */,
+				312A2DDD21BE38C900C16EA1 /* Const5.swift in Sources */,
 				31DB930F21A903DB00A2B6AF /* NewPost.swift in Sources */,
 				31DB930521A8D94900A2B6AF /* PostData.swift in Sources */,
 				3169FE1D21AFBBBD000E01A4 /* Manager.swift in Sources */,

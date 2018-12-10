@@ -24,6 +24,9 @@ class NewPost: UIViewController, UITextFieldDelegate, UITextViewDelegate {
     
     @IBOutlet weak var userPhoto: UIImageView!
     
+    //user defaultsを使う準備
+    let userDefaults:UserDefaults = UserDefaults.standard
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -107,6 +110,7 @@ class NewPost: UIViewController, UITextFieldDelegate, UITextViewDelegate {
         // postDataに必要な情報を取得しておく
         let time = Date.timeIntervalSinceReferenceDate
         let name = Auth.auth().currentUser?.displayName
+        let EULAagreement :String = userDefaults.string(forKey: "EULAagreement")!
         
         if category.text == ""{
             category.text = "(題名なし)"
@@ -114,7 +118,7 @@ class NewPost: UIViewController, UITextFieldDelegate, UITextViewDelegate {
         
         // **重要** 辞書を作成してFirebaseに保存する
         let postRef = Database.database().reference().child(Const.PostPath)
-        let postDic = ["userID": Auth.auth().currentUser!.uid, "category": category.text!, "contents": contents.text!, "userPhoto": imageString, "time": String(time), "name": name!, "EULAagreement": ""] as [String : Any]
+        let postDic = ["userID": Auth.auth().currentUser!.uid, "category": category.text!, "contents": contents.text!, "userPhoto": imageString, "time": String(time), "name": name!, "EULAagreement": EULAagreement] as [String : Any]
         postRef.childByAutoId().setValue(postDic)
         
         // HUDで投稿完了を表示する

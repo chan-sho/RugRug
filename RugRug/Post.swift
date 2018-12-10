@@ -13,6 +13,9 @@
 // 【UserDefaults管理】"CautionDataId"= 投稿画面で「報告」を押した投稿のID
 // 【UserDefaults管理】"UserPhotoURLFlag"= 投稿者プロフィール画像を押した事を確認するFlag
 // 【UserDefaults管理】"UserPhotoURL"= 投稿者のFacebookページを検索するためのURL
+// 【UserDefaults管理】"UserPhotoName"= 投稿者のFacebookページを検索するためのName
+// 【UserDefaults管理】"ContactRequestPost"= コンタクト通知をした対象の投稿ID
+// 【UserDefaults管理】"ContactRequestUserID"= コンタクト通知をした相手のユーザーID
 
 
 import UIKit
@@ -47,7 +50,7 @@ class Post: UIViewController, UITableViewDataSource, UITableViewDelegate, UISear
 
         // HUDで投稿完了を表示する
         SVProgressHUD.show(withStatus: "データ読み込み中です。\n※一番最初のデータ読み込みには時間がかかる事があります。")
-        SVProgressHUD.dismiss(withDelay: 3.0)
+        SVProgressHUD.dismiss(withDelay: 2.0)
         
         tableView.delegate = self
         tableView.dataSource = self
@@ -465,7 +468,7 @@ class Post: UIViewController, UITableViewDataSource, UITableViewDelegate, UISear
             // 検索バーのテキストを一部でも含むものをAND検索する！
             var tempFilteredArray = postArrayAll
             for n in array {
-                tempFilteredArray = tempFilteredArray.filter({ ($0.category?.localizedCaseInsensitiveContains(n))! || ($0.contents?.localizedCaseInsensitiveContains(n))! ||  ($0.name?.localizedCaseInsensitiveContains(n))!})
+                tempFilteredArray = tempFilteredArray.filter({ ($0.category?.localizedCaseInsensitiveContains(n))! || ($0.contents?.localizedCaseInsensitiveContains(n))! ||  ($0.name?.localizedCaseInsensitiveContains(n))! ||  ($0.id?.localizedCaseInsensitiveContains(n))!})
             }
             postArrayBySearch = tempFilteredArray
             
@@ -552,7 +555,7 @@ class Post: UIViewController, UITableViewDataSource, UITableViewDelegate, UISear
             // 検索バーのテキストを一部でも含むものをAND検索する！
             var tempFilteredArray = postArrayAll
             for n in array {
-                tempFilteredArray = tempFilteredArray.filter({ ($0.category?.localizedCaseInsensitiveContains(n))! || ($0.contents?.localizedCaseInsensitiveContains(n))! ||  ($0.name?.localizedCaseInsensitiveContains(n))!})
+                tempFilteredArray = tempFilteredArray.filter({ ($0.category?.localizedCaseInsensitiveContains(n))! || ($0.contents?.localizedCaseInsensitiveContains(n))! ||  ($0.name?.localizedCaseInsensitiveContains(n))! ||  ($0.id?.localizedCaseInsensitiveContains(n))!})
             }
             postArrayBySearch = tempFilteredArray
             postData = postArrayBySearch[indexPath!.row]
@@ -604,7 +607,7 @@ class Post: UIViewController, UITableViewDataSource, UITableViewDelegate, UISear
             // 検索バーのテキストを一部でも含むものをAND検索する！
             var tempFilteredArray = postArrayAll
             for n in array {
-                tempFilteredArray = tempFilteredArray.filter({ ($0.category?.localizedCaseInsensitiveContains(n))! || ($0.contents?.localizedCaseInsensitiveContains(n))! ||  ($0.name?.localizedCaseInsensitiveContains(n))!})
+                tempFilteredArray = tempFilteredArray.filter({ ($0.category?.localizedCaseInsensitiveContains(n))! || ($0.contents?.localizedCaseInsensitiveContains(n))! ||  ($0.name?.localizedCaseInsensitiveContains(n))! ||  ($0.id?.localizedCaseInsensitiveContains(n))!})
             }
             postArrayBySearch = tempFilteredArray
             postData = postArrayBySearch[indexPath!.row]
@@ -662,11 +665,15 @@ class Post: UIViewController, UITableViewDataSource, UITableViewDelegate, UISear
             // 検索バーのテキストを一部でも含むものをAND検索する！
             var tempFilteredArray = postArrayAll
             for n in array {
-                tempFilteredArray = tempFilteredArray.filter({ ($0.category?.localizedCaseInsensitiveContains(n))! || ($0.contents?.localizedCaseInsensitiveContains(n))! ||  ($0.name?.localizedCaseInsensitiveContains(n))!})
+                tempFilteredArray = tempFilteredArray.filter({ ($0.category?.localizedCaseInsensitiveContains(n))! || ($0.contents?.localizedCaseInsensitiveContains(n))! ||  ($0.name?.localizedCaseInsensitiveContains(n))! ||  ($0.id?.localizedCaseInsensitiveContains(n))!})
             }
             postArrayBySearch = tempFilteredArray
             postData = postArrayBySearch[indexPath!.row]
         }
+        
+        let ContactRequestPost = postData.id!
+        let ContactRequestUserID = postData.userID!
+        
         
         //タップを検知されたpostDataからnameを抽出する
         let userPhotoName = postData.name
@@ -677,7 +684,10 @@ class Post: UIViewController, UITableViewDataSource, UITableViewDelegate, UISear
         
         //userDefaultsに必要なデータを保存
         userDefaults.set("YES", forKey: "UserPhotoURLFlag")
+        userDefaults.set(userPhotoName, forKey: "UserPhotoName")
         userDefaults.set(userPhotoURL, forKey: "UserPhotoURL")
+        userDefaults.set(ContactRequestPost, forKey: "ContactRequestPost")
+        userDefaults.set(ContactRequestUserID, forKey: "ContactRequestUserID")
         userDefaults.synchronize()
         showAlertWithVC()
         return
@@ -707,7 +717,7 @@ class Post: UIViewController, UITableViewDataSource, UITableViewDelegate, UISear
             // 検索バーのテキストを一部でも含むものをAND検索する！
             var tempFilteredArray = postArrayAll
             for n in array {
-                tempFilteredArray = tempFilteredArray.filter({ ($0.category?.localizedCaseInsensitiveContains(n))! || ($0.contents?.localizedCaseInsensitiveContains(n))! ||  ($0.name?.localizedCaseInsensitiveContains(n))!})
+                tempFilteredArray = tempFilteredArray.filter({ ($0.category?.localizedCaseInsensitiveContains(n))! || ($0.contents?.localizedCaseInsensitiveContains(n))! ||  ($0.name?.localizedCaseInsensitiveContains(n))! ||  ($0.id?.localizedCaseInsensitiveContains(n))!})
             }
             postArrayBySearch = tempFilteredArray
             postData = postArrayBySearch[indexPath!.row]
@@ -752,7 +762,7 @@ class Post: UIViewController, UITableViewDataSource, UITableViewDelegate, UISear
         
         let UserPhotoURLFlag :String = userDefaults.string(forKey: "UserPhotoURLFlag")!
         if UserPhotoURLFlag == "YES" {
-            AJAlertController.initialization().showAlert(aStrMessage: "今からFacebookでこのユーザーを検索します！\n\nコンタクトする事を事前に「通知」しておきますか？\n\n※通知を選択すると、貴方から後程コンタクトがある旨をこのユーザーにお知らせします。", aCancelBtnTitle: "検索のみ", aOtherBtnTitle: "「通知」＋検索") { (index, title) in
+            AJAlertController.initialization().showAlert(aStrMessage: "今からFacebookでこのユーザーを検索します！\n\nコンタクトする事を事前に「通知」しておきますか？\n\n※通知を選択すると、貴方から後程コンタクトがある旨をこのユーザーにお知らせします。", aCancelBtnTitle: "まずは検索のみ", aOtherBtnTitle: "「通知」＋検索") { (index, title) in
                 print(index,title)
                 
             }

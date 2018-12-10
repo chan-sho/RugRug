@@ -49,6 +49,12 @@ class PostData: NSObject {
     var answerFlag: String?
     var news1Photo: UIImage?
     var news1PhotoString: String?
+    var AskUserID: String?
+    var AskUserName: String?
+    var AskUserURL: String?
+    var RequestedUserID: String?
+    var RequestedName: String?
+    var RequestedPostID: String?
     
     
     init(snapshot: DataSnapshot, myId: String) {
@@ -77,6 +83,13 @@ class PostData: NSObject {
         self.answerTextField = valueDictionary["answerTextField"] as? String
         self.answerCategory = valueDictionary["answerCategory"] as? String
         self.answerFlag = valueDictionary["answerFlag"] as? String
+        
+        self.AskUserID = valueDictionary["AskUserID"] as? String
+        self.AskUserName = valueDictionary["AskUserName"] as? String
+        self.AskUserURL = valueDictionary["AskUserURL"] as? String
+        self.RequestedUserID = valueDictionary["RequestedUserID"] as? String
+        self.RequestedName = valueDictionary["RequestedName"] as? String
+        self.RequestedPostID = valueDictionary["RequestedPostID"] as? String
         
         let time = valueDictionary["time"] as? String
         self.date = Date(timeIntervalSinceReferenceDate: TimeInterval(time!)!)

@@ -7,29 +7,172 @@
 //
 
 import UIKit
+import Firebase
+import FirebaseAuth
+import FirebaseDatabase
+import SVProgressHUD
+import ESTabBarController
 
-class Info: UIViewController {
 
+class Info: UIViewController, UITableViewDataSource, UITableViewDelegate {
+
+    @IBOutlet weak var tableView: UITableView!
+    
+    var postArray: [PostData] = []
+    // DatabaseのobserveEventの登録状態を表す
+    var observing = false
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        // Do any additional setup after loading the view.
+        tableView.delegate = self
+        tableView.dataSource = self
+        
+        // テーブルセルのタップを【無効】にする
+        tableView.allowsSelection = false
+        
+        //separatorを左端始まりにして、黒色にする
+        tableView.separatorColor = UIColor.black
+        tableView.separatorInset = .zero
+        
+        let nib = UINib(nibName: "InfoTableCell", bundle: nil)
+        tableView.register(nib, forCellReuseIdentifier: "Cell-3")
+        
+        // テーブル行の高さをAutoLayoutで自動調整する
+        tableView.rowHeight = UITableViewAutomaticDimension
+        // テーブル行の高さの概算値を設定しておく
+        tableView.estimatedRowHeight = 200
+        
+        // TableViewを再表示する
+        self.tableView.reloadData()
+    }
+    
+    
+    override func viewWillAppear(_ animated: Bool) {
+        // TableViewを再表示する（※superの前に入れておくのが大事！！）
+        self.tableView.dataSource = self
+        self.tableView.reloadData()
+        
+        super.viewWillAppear(animated)
+        
+        if Auth.auth().currentUser != nil {
+            if self.observing == false {
+                // 要素が【追加】されたらpostArrayに追加してTableViewを再表示する
+                let postsRef = Database.database().reference().child(Const5.PostPath5)
+                postsRef.observe(.childAdded, with: { snapshot in
+                    
+                    // PostDataクラスを生成して受け取ったデータを設定する
+                    if let uid = Auth.auth().currentUser?.uid {
+                        let postData = PostData(snapshot: snapshot, myId: uid)
+                        
+                        // 始めのinsertの段階でuidと異なるRequestedUserIDの投稿データを除いておく
+                        if postData.RequestedUserID == uid ||  (postData.RequestedUserID?.contains(uid))! {
+                            self.postArray.insert(postData, at: 0)
+                        }
+                        
+                        // TableViewを再表示する
+                        self.tableView.reloadData()
+                    }
+                })
+                // 要素が【変更】されたら該当のデータをpostArrayから一度削除した後に新しいデータを追加してTableViewを再表示する
+                postsRef.observe(.childChanged, with: { snapshot in
+                    
+                    if let uid = Auth.auth().currentUser?.uid {
+                        // PostDataクラスを生成して受け取ったデータを設定する
+                        let postData = PostData(snapshot: snapshot, myId: uid)
+                    
+                        // 保持している配列からidが同じものを探す
+                        var index: Int = 0
+                        for post in self.postArray {
+                            if post.id == postData.id {
+                                index = self.postArray.index(of: post)!
+                                break
+                            }
+                        }
+                        // 差し替えるため一度削除する
+                        self.postArray.remove(at: index)
+                        // 削除したところに更新済みのデータを追加する
+                        self.postArray.insert(postData, at: index)
+                        // TableViewを再表示する
+                        self.tableView.reloadData()
+                    }
+                })
+                
+                // 要素が【削除】されたら該当のデータをpostArrayから一度削除した後に新しいデータを追加してTableViewを再表示する
+                postsRef.observe(.childRemoved, with: { snapshot in
+                    
+                    if let uid = Auth.auth().currentUser?.uid {
+                        // PostDataクラスを生成して受け取ったデータを設定する
+                        let postData = PostData(snapshot: snapshot, myId: uid)
+                    
+                        // 保持している配列からidが同じものを探す
+                        var index: Int = 0
+                        for post in self.postArray {
+                            if post.id == postData.id {
+                                index = self.postArray.index(of: post)!
+                                break
+                            }
+                        }
+
+                        // 削除する
+                        self.postArray.remove(at: index)
+                        
+                        // TableViewを再表示する
+                        self.tableView.reloadData()
+                    }
+                })
+                // DatabaseのobserveEventが上記コードにより登録されたため
+                // trueとする
+                observing = true
+            }
+        } else {
+            if observing == true {
+                // ログアウトを検出したら、一旦テーブルをクリアしてオブザーバーを削除する。
+                // テーブルをクリアする
+                postArray = []
+                tableView.reloadData()
+                // オブザーバーを削除する
+                Database.database().reference().removeAllObservers()
+                // DatabaseのobserveEventが上記コードにより解除されたため
+                // falseとする
+                observing = false
+            }
+        }
+    }
+    
+    
+    override func viewDidAppear(_ animated: Bool) {
+        self.tableView.dataSource = self
+        // TableViewを再表示する
+        self.tableView.reloadData()
     }
 
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
     
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
+    
+    // tableviewの行数をカウント
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return postArray.count
     }
-    */
+
+    
+    // tablewviewのcellにデータを受け渡すfunc
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        // セルを取得してデータを設定する
+        let cell = tableView.dequeueReusableCell(withIdentifier: "Cell-3", for: indexPath) as! InfoTableCell
+        cell.setPostData3(postArray[indexPath.row])
+            
+        return cell
+    }
+    
+    
+    @IBAction func unwind(_ segue: UIStoryboardSegue) {
+        // 他の画面から segue を使って戻ってきた時に呼ばれる
+    }
 
 }

@@ -384,9 +384,12 @@ class AJAlertController: UIViewController {
             let time = Date.timeIntervalSinceReferenceDate
             let name = Auth.auth().currentUser?.displayName
             
+            //ログインユーザーのプロフィール画像をロード
+            let UserProfileURL = (Auth.auth().currentUser?.photoURL?.absoluteString)! + "?width=140&height=140"
+            
             //**重要** 辞書を作成してFirebaseに保存する
             let postRef = Database.database().reference().child(Const5.PostPath5)
-            let postDic = ["AskUserID": Auth.auth().currentUser!.uid, "time": String(time), "AskUserName": name!, "RequestedUserID": ContactRequestUserID, "RequestedUserName": UserPhotoName, "RequestedPostID": ContactRequestPost,"checkFlag": ""] as [String : Any]
+            let postDic = ["AskUserID": Auth.auth().currentUser!.uid, "time": String(time), "AskUserName": name!, "AskUserURL": UserProfileURL, "RequestedUserID": ContactRequestUserID, "RequestedUserName": UserPhotoName, "RequestedPostID": ContactRequestPost,"checkFlag": ""] as [String : Any]
             postRef.childByAutoId().setValue(postDic)
             
             //Facebookの検索ページをSafariで開くアクション

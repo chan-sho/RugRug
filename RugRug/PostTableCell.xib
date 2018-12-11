@@ -1,12 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14113" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14088"/>
-        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14460.20"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -40,19 +39,19 @@
                         </constraints>
                     </imageView>
                     <label opaque="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label1" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="PFN-vu-IvE">
-                        <rect key="frame" x="36" y="159" width="45.5" height="18"/>
+                        <rect key="frame" x="36" y="158.5" width="45.5" height="18"/>
                         <fontDescription key="fontDescription" type="system" weight="medium" pointSize="15"/>
                         <color key="textColor" red="0.0" green="0.58980089430000004" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <nil key="highlightedColor"/>
                     </label>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="HAt-Ud-8Ja">
-                        <rect key="frame" x="111.5" y="159.5" width="35.5" height="17"/>
+                        <rect key="frame" x="111.5" y="159" width="35.5" height="17"/>
                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                         <color key="textColor" red="0.0" green="0.58980089430000004" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <nil key="highlightedColor"/>
                     </label>
                     <stackView opaque="NO" contentMode="scaleToFill" distribution="equalSpacing" alignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="gLS-Vq-2bQ">
-                        <rect key="frame" x="136" y="96.5" width="201" height="56.5"/>
+                        <rect key="frame" x="136" y="97" width="201" height="56.5"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="Mm2-sp-TvP">
                                 <rect key="frame" x="0.0" y="6.5" width="30" height="43.5"/>
@@ -115,7 +114,7 @@
                         </subviews>
                     </stackView>
                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vLQ-C9-soC">
-                        <rect key="frame" x="36" y="83" width="70" height="70"/>
+                        <rect key="frame" x="36" y="83.5" width="70" height="70"/>
                         <constraints>
                             <constraint firstAttribute="width" constant="70" id="Sun-bn-gSo"/>
                             <constraint firstAttribute="height" constant="70" id="hLr-CU-cka"/>
@@ -157,10 +156,10 @@
                     <constraint firstAttribute="trailingMargin" secondItem="wor-Wc-Tzo" secondAttribute="trailing" constant="20" id="PmV-YL-PWB"/>
                     <constraint firstItem="139-CB-GiK" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leadingMargin" constant="20" id="Sgb-LF-hwf"/>
                     <constraint firstAttribute="trailing" secondItem="i4s-QF-rhf" secondAttribute="trailing" id="Sgf-V2-Uzo"/>
-                    <constraint firstItem="i4s-QF-rhf" firstAttribute="top" secondItem="PFN-vu-IvE" secondAttribute="bottom" constant="15.5" id="VDd-oN-XdR"/>
                     <constraint firstItem="gLS-Vq-2bQ" firstAttribute="bottom" secondItem="vLQ-C9-soC" secondAttribute="bottom" id="VXc-Y8-dA8"/>
                     <constraint firstItem="wor-Wc-Tzo" firstAttribute="top" secondItem="FV1-iO-yHa" secondAttribute="bottom" constant="10" id="VpJ-ZN-OqG"/>
                     <constraint firstAttribute="bottom" secondItem="i4s-QF-rhf" secondAttribute="bottom" id="WCB-XN-XVK"/>
+                    <constraint firstItem="i4s-QF-rhf" firstAttribute="top" secondItem="PFN-vu-IvE" secondAttribute="bottom" constant="16" id="gGj-8C-eyQ"/>
                     <constraint firstItem="i4s-QF-rhf" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" id="qam-N4-C98"/>
                     <constraint firstItem="FV1-iO-yHa" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="10" id="r84-Vh-nah"/>
                     <constraint firstAttribute="trailing" secondItem="FV1-iO-yHa" secondAttribute="trailing" constant="10" id="wVq-D1-FbP"/>
@@ -186,7 +185,7 @@
         </tableViewCell>
     </objects>
     <resources>
-        <image name="caution" width="50" height="50"/>
-        <image name="setting-1" width="40" height="40"/>
+        <image name="caution" width="75" height="75"/>
+        <image name="setting-1" width="60" height="60"/>
     </resources>
 </document>

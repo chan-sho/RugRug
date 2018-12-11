@@ -223,41 +223,25 @@ class Info: UIViewController, UITableViewDataSource, UITableViewDelegate {
         // 配列からタップされたインデックスのデータを取り出す
         postData = postArray[indexPath!.row]
         
-        //ボタンを押したユーザーが投稿者本人かどうかの判断
-        let uid = Auth.auth().currentUser?.uid
-        let userID = postData.userID
-        if userID != uid {
-            let ContactRequestPost = postData.id!
-            let ContactRequestUserID = postData.userID!
+        //タップを検知されたpostDataからnameを抽出する
+        let userPhotoName = postData.AskUserName
+        if userPhotoName != nil {
+        let userURL : String = "https://www.facebook.com/search/str/\(userPhotoName!)/keywords_search"
+        print("\(userURL)")
+        let userPhotoURL = userURL.replacingOccurrences(of: " ", with: "", options: .regularExpression)
+        print("\(userPhotoURL)")
             
-            //タップを検知されたpostDataからnameを抽出する
-            let userPhotoName = postData.name
-            let userURL : String = "https://www.facebook.com/search/str/\(userPhotoName!)/keywords_search"
-            print("\(userURL)")
-            let userPhotoURL = userURL.replacingOccurrences(of: " ", with: "", options: .regularExpression)
-            print("\(userPhotoURL)")
-            
-            //userDefaultsに必要なデータを保存
-            userDefaults.set("YES", forKey: "UserPhotoURLFlag")
-            userDefaults.set(userPhotoName, forKey: "UserPhotoName")
-            userDefaults.set(userPhotoURL, forKey: "UserPhotoURL")
-            userDefaults.set(ContactRequestPost, forKey: "ContactRequestPost")
-            userDefaults.set(ContactRequestUserID, forKey: "ContactRequestUserID")
-            userDefaults.synchronize()
-            showAlertWithVC()
+        //Facebookの検索ページをSafariで開くアクション
+        let url = URL(string: "\(userPhotoURL)")
+        if url == nil {
+            print("NG")
             return
         }
-    }
-    
-    
-    //最終確認ポップアップページを出す
-    func showAlertWithVC(){
-    
-        let UserPhotoURLFlag :String = userDefaults.string(forKey: "UserPhotoURLFlag")!
-        if UserPhotoURLFlag == "YES" {
-            AJAlertController.initialization().showAlert(aStrMessage: "今からFacebookでこのユーザーを検索します！\n\nコンタクトする事を事前に「通知」しておきますか？\n\n※通知を選択すると、貴方から後程コンタクトがある旨をこのユーザーにお知らせします。", aCancelBtnTitle: "まずは検索のみ", aOtherBtnTitle: "「通知」＋検索") { (index, title) in
-                print(index,title)
+        else {
+            if UIApplication.shared.canOpenURL(url!) {
+                UIApplication.shared.open(url!)
             }
+        }
         }
     }
     

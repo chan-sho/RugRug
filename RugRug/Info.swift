@@ -5,6 +5,8 @@
 //  Created by 高野翔 on 2018/12/10.
 //  Copyright © 2018 高野翔. All rights reserved.
 //
+// 【UserDefaults管理】"RequestedPostID"= Info画面の「この時チェックされた投稿」ボタンに紐づく投稿ID
+
 
 import UIKit
 import Firebase
@@ -21,6 +23,9 @@ class Info: UIViewController, UITableViewDataSource, UITableViewDelegate {
     var postArray: [PostData] = []
     // DatabaseのobserveEventの登録状態を表す
     var observing = false
+    
+    //user defaultsを使う準備
+    let userDefaults:UserDefaults = UserDefaults.standard
     
     
     override func viewDidLoad() {
@@ -166,8 +171,49 @@ class Info: UIViewController, UITableViewDataSource, UITableViewDelegate {
         // セルを取得してデータを設定する
         let cell = tableView.dequeueReusableCell(withIdentifier: "Cell-3", for: indexPath) as! InfoTableCell
         cell.setPostData3(postArray[indexPath.row])
+        
+        // セル内のボタンのアクションをソースコードで設定する
+        cell.checkedPostButton.addTarget(self, action:#selector(handleCheckedPostButton(_:forEvent:)), for: .touchUpInside)
+        
+        // セル内のreviseボタンを追加で管理
+        cell.askUserPhotoButton.addTarget(self, action:#selector(handleAskUserPhotoButton(_:forEvent:)), for: .touchUpInside)
             
         return cell
+    }
+    
+    
+    //セル内のcheckedPostButtonが押された時に呼ばれるメソッド
+    @objc func handleCheckedPostButton(_ sender: UIButton, forEvent event: UIEvent) {
+        
+        // タップされたセルのインデックスを求める
+        let touch = event.allTouches?.first
+        let point = touch!.location(in: self.tableView)
+        let indexPath = tableView.indexPathForRow(at: point)
+        
+        let postData : PostData
+        // 配列からタップされたインデックスのデータを取り出す
+        postData = postArray[indexPath!.row]
+        
+        let RequestedPostID = postData.RequestedPostID!
+        
+        userDefaults.set(RequestedPostID, forKey: "RequestedPostID")
+        userDefaults.synchronize()
+        
+        let tabBarController = parent as! ESTabBarController
+        tabBarController.setSelectedIndex(1, animated: false)
+        for viewController in tabBarController.childViewControllers {
+            if viewController is Post {
+                let post = viewController as! Post
+                post.handleCheckedPost()
+                break
+            }
+        }
+        
+    }
+    
+    
+    //セル内のAskUserPhotoButtonが押された時に呼ばれるメソッド
+    @objc func handleAskUserPhotoButton(_ sender: UIButton, forEvent event: UIEvent) {
     }
     
     

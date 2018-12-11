@@ -37,6 +37,7 @@ class Post: UIViewController, UITableViewDataSource, UITableViewDelegate, UISear
     var postArray: [PostData] = []
     var postArrayBySearch: [PostData] = []
     var postArrayAll: [PostData] = []
+    var postArrayOfCheckedPost: [PostData] = []
     
     // DatabaseのobserveEventの登録状態を表す
     var observing = false
@@ -206,6 +207,79 @@ class Post: UIViewController, UITableViewDataSource, UITableViewDelegate, UISear
                             // TableViewを再表示する
                             self.tableView.reloadData()
                         }
+                        
+                        else if self.textSearchBar.text == "【※抽出中】" {
+                            // 保持している配列からidが同じものを探す
+                            var indexOfCheckedPost: Int = 0
+                            for post in self.postArrayOfCheckedPost {
+                                if post.id == postData.id {
+                                    indexOfCheckedPost = self.postArrayOfCheckedPost.index(of: post)!
+                                    break
+                                }
+                            }
+                            // 保持している配列からidが同じものを探す（※postArray用）
+                            var index: Int = 0
+                            for post in self.postArray {
+                                if post.id == postData.id {
+                                    index = self.postArray.index(of: post)!
+                                    break
+                                }
+                            }
+                            // 保持している配列からidが同じものを探す（※postArrayAll用）
+                            var indexAll: Int = 0
+                            for post in self.postArrayAll {
+                                if post.id == postData.id {
+                                    indexAll = self.postArrayAll.index(of: post)!
+                                    break
+                                }
+                            }
+                            // 差し替えるため一度削除する
+                            self.postArrayOfCheckedPost.remove(at: indexOfCheckedPost)
+                            self.postArray.remove(at: index)
+                            self.postArrayAll.remove(at: indexAll)
+                            
+                            // 削除したところに更新済みのデータを追加する
+                            self.postArrayOfCheckedPost.insert(postData, at: indexOfCheckedPost)
+                            self.postArray.insert(postData, at: index)
+                            self.postArrayAll.insert(postData, at: indexAll)
+                            
+                            let rejectIdArray = self.userDefaults.array(forKey: "RejectIdArray") as! [String]
+                            // 【※追加アクション】RejectIdArrayに含まれるリジェクト対象の投稿IDから該当のpostDataを削除する（postArrayOfCheckedPost用）
+                            if rejectIdArray != [] {
+                                // RejectIdArrayの投稿IDを含まないデータのみpostArrayに入れ直す
+                                var rejectedArray3 = self.postArrayOfCheckedPost
+                                for n in rejectIdArray {
+                                    //filterの後の「!」が結果を反転している→含まない！！！
+                                    rejectedArray3 = rejectedArray3.filter({ (!($0.id?.localizedCaseInsensitiveContains(n))!) })
+                                }
+                                self.postArrayOfCheckedPost = rejectedArray3
+                            }
+                            
+                            // 【※追加アクション】RejectIdArrayに含まれるリジェクト対象の投稿IDから該当のpostDataを削除する（postArray用）
+                            if rejectIdArray != [] {
+                                // RejectIdArrayの投稿IDを含まないデータのみpostArrayに入れ直す
+                                var rejectedArray1 = self.postArray
+                                for n in rejectIdArray {
+                                    //filterの後の「!」が結果を反転している→含まない！！！
+                                    rejectedArray1 = rejectedArray1.filter({ (!($0.id?.localizedCaseInsensitiveContains(n))!) })
+                                }
+                                self.postArray = rejectedArray1
+                            }
+                            
+                            // 【※追加アクション】RejectIdArrayに含まれるリジェクト対象の投稿IDから該当のpostDataを削除する（postArray用）
+                            if rejectIdArray != [] {
+                                // RejectIdArrayの投稿IDを含まないデータのみpostArrayに入れ直す
+                                var rejectedArray2 = self.postArrayAll
+                                for n in rejectIdArray {
+                                    //filterの後の「!」が結果を反転している→含まない！！！
+                                    rejectedArray2 = rejectedArray2.filter({ (!($0.id?.localizedCaseInsensitiveContains(n))!) })
+                                }
+                                self.postArrayAll = rejectedArray2
+                            }
+                            // TableViewを再表示する
+                            self.tableView.reloadData()
+                        }
+                            
                         // 検索バーにテキストが打たれている場合
                         else {
                             // 保持している配列からidが同じものを探す
@@ -276,7 +350,7 @@ class Post: UIViewController, UITableViewDataSource, UITableViewDelegate, UISear
                                     //filterの後の「!」が結果を反転している→含まない！！！
                                     rejectedArray3 = rejectedArray3.filter({ (!($0.id?.localizedCaseInsensitiveContains(n))!) })
                                 }
-                                self.postArrayAll = rejectedArray3
+                                self.postArrayBySearch = rejectedArray3
                             }
                             
                             // TableViewを再表示する
@@ -339,6 +413,72 @@ class Post: UIViewController, UITableViewDataSource, UITableViewDelegate, UISear
                                 self.postArrayAll = rejectedArray2
                             }
                             
+                            // TableViewを再表示する
+                            self.tableView.reloadData()
+                        }
+                        else if self.textSearchBar.text == "【※抽出中】" {
+                            // 保持している配列からidが同じものを探す
+                            var indexOfCheckedPost: Int = 0
+                            for post in self.postArrayOfCheckedPost {
+                                if post.id == postData.id {
+                                    indexOfCheckedPost = self.postArrayOfCheckedPost.index(of: post)!
+                                    break
+                                }
+                            }
+                            // 保持している配列からidが同じものを探す（※postArray用）
+                            var index: Int = 0
+                            for post in self.postArray {
+                                if post.id == postData.id {
+                                    index = self.postArray.index(of: post)!
+                                    break
+                                }
+                            }
+                            // 保持している配列からidが同じものを探す（※postArrayAll用）
+                            var indexAll: Int = 0
+                            for post in self.postArrayAll {
+                                if post.id == postData.id {
+                                    indexAll = self.postArrayAll.index(of: post)!
+                                    break
+                                }
+                            }
+                            // 差し替えるため一度削除する
+                            self.postArrayOfCheckedPost.remove(at: indexOfCheckedPost)
+                            self.postArray.remove(at: index)
+                            self.postArrayAll.remove(at: indexAll)
+                            
+                            let rejectIdArray = self.userDefaults.array(forKey: "RejectIdArray") as! [String]
+                            // 【※追加アクション】RejectIdArrayに含まれるリジェクト対象の投稿IDから該当のpostDataを削除する（postArrayOfCheckedPost用）
+                            if rejectIdArray != [] {
+                                // RejectIdArrayの投稿IDを含まないデータのみpostArrayに入れ直す
+                                var rejectedArray3 = self.postArrayOfCheckedPost
+                                for n in rejectIdArray {
+                                    //filterの後の「!」が結果を反転している→含まない！！！
+                                    rejectedArray3 = rejectedArray3.filter({ (!($0.id?.localizedCaseInsensitiveContains(n))!) })
+                                }
+                                self.postArrayOfCheckedPost = rejectedArray3
+                            }
+                            
+                            // 【※追加アクション】RejectIdArrayに含まれるリジェクト対象の投稿IDから該当のpostDataを削除する（postArray用）
+                            if rejectIdArray != [] {
+                                // RejectIdArrayの投稿IDを含まないデータのみpostArrayに入れ直す
+                                var rejectedArray1 = self.postArray
+                                for n in rejectIdArray {
+                                    //filterの後の「!」が結果を反転している→含まない！！！
+                                    rejectedArray1 = rejectedArray1.filter({ (!($0.id?.localizedCaseInsensitiveContains(n))!) })
+                                }
+                                self.postArray = rejectedArray1
+                            }
+                            
+                            // 【※追加アクション】RejectIdArrayに含まれるリジェクト対象の投稿IDから該当のpostDataを削除する（postArray用）
+                            if rejectIdArray != [] {
+                                // RejectIdArrayの投稿IDを含まないデータのみpostArrayに入れ直す
+                                var rejectedArray2 = self.postArrayAll
+                                for n in rejectIdArray {
+                                    //filterの後の「!」が結果を反転している→含まない！！！
+                                    rejectedArray2 = rejectedArray2.filter({ (!($0.id?.localizedCaseInsensitiveContains(n))!) })
+                                }
+                                self.postArrayAll = rejectedArray2
+                            }
                             // TableViewを再表示する
                             self.tableView.reloadData()
                         }
@@ -408,7 +548,7 @@ class Post: UIViewController, UITableViewDataSource, UITableViewDelegate, UISear
                                     //filterの後の「!」が結果を反転している→含まない！！！
                                     rejectedArray3 = rejectedArray3.filter({ (!($0.id?.localizedCaseInsensitiveContains(n))!) })
                                 }
-                                self.postArrayAll = rejectedArray3
+                                self.postArrayBySearch = rejectedArray3
                             }
                             
                             // TableViewを再表示する
@@ -428,6 +568,7 @@ class Post: UIViewController, UITableViewDataSource, UITableViewDelegate, UISear
                 postArray = []
                 postArrayAll = []
                 postArrayBySearch = []
+                postArrayOfCheckedPost = []
                 tableView.reloadData()
                 // オブザーバーを削除する
                 Database.database().reference().removeAllObservers()
@@ -460,7 +601,18 @@ class Post: UIViewController, UITableViewDataSource, UITableViewDelegate, UISear
         if textSearchBar.text == "" {
             self.tableView.reloadData()
         }
+        else if self.textSearchBar.text == "【※抽出中】" {
+            let RequestedPostID :String = userDefaults.string(forKey: "RequestedPostID")!
             
+            let array = RequestedPostID.components(separatedBy: NSCharacterSet.whitespaces)
+            var tempFilteredArray = postArrayAll
+            for n in array {
+                tempFilteredArray = tempFilteredArray.filter{($0.id?.contains(n))!}
+            }
+            postArrayOfCheckedPost = tempFilteredArray
+            
+            self.tableView.reloadData()
+        }
         else {
             // 検索バーに入力された単語をスペースで分けて配列に入れる
             let searchWords = textSearchBar.text!
@@ -481,6 +633,9 @@ class Post: UIViewController, UITableViewDataSource, UITableViewDelegate, UISear
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         if textSearchBar.text == "" {
             return postArray.count
+        }
+        else if self.textSearchBar.text == "【※抽出中】" {
+            return postArrayOfCheckedPost.count
         }
         else {
             return postArrayBySearch.count
@@ -509,7 +664,25 @@ class Post: UIViewController, UITableViewDataSource, UITableViewDelegate, UISear
             
             return cell
         }
+        else if self.textSearchBar.text == "【※抽出中】" {
+            // セルを取得してデータを設定する
+            let cell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath) as! PostTableCell
+            cell.setPostData(postArrayOfCheckedPost[indexPath.row])
             
+            // セル内のボタンのアクションをソースコードで設定する
+            cell.likeButton.addTarget(self, action:#selector(handleButton(_:forEvent:)), for: .touchUpInside)
+            
+            // セル内のreviseボタンを追加で管理
+            cell.reviseButton.addTarget(self, action:#selector(handleReviseButton(_:forEvent:)), for: .touchUpInside)
+            
+            // セル内のuserPhotoボタンを追加で管理
+            cell.userPhotoButton.addTarget(self, action:#selector(handleUserPhotoButton(_:forEvent:)), for: .touchUpInside)
+            
+            // セル内のcautionPhotoボタンを追加で管理
+            cell.cautionButton.addTarget(self, action:#selector(handleCautionButton(_:forEvent:)), for: .touchUpInside)
+            
+            return cell
+        }
         else {
             // セルを取得してデータを設定する
             let cell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath) as! PostTableCell
@@ -529,7 +702,6 @@ class Post: UIViewController, UITableViewDataSource, UITableViewDelegate, UISear
             
             return cell
         }
-        
     }
     
     
@@ -547,7 +719,10 @@ class Post: UIViewController, UITableViewDataSource, UITableViewDelegate, UISear
             // 配列からタップされたインデックスのデータを取り出す
             postData = postArray[indexPath!.row]
         }
-        
+        else if self.textSearchBar.text == "【※抽出中】" {
+            // 配列からタップされたインデックスのデータを取り出す
+            postData = postArrayOfCheckedPost[indexPath!.row]
+        }
         else {
             // 検索バーに入力された単語をスペースで分けて配列に入れる
             let searchWords = textSearchBar.text!
@@ -599,7 +774,10 @@ class Post: UIViewController, UITableViewDataSource, UITableViewDelegate, UISear
             // 配列からタップされたインデックスのデータを取り出す
             postData = postArray[indexPath!.row]
         }
-        
+        else if self.textSearchBar.text == "【※抽出中】" {
+            // 配列からタップされたインデックスのデータを取り出す
+            postData = postArrayOfCheckedPost[indexPath!.row]
+        }
         else {
             // 検索バーに入力された単語をスペースで分けて配列に入れる
             let searchWords = textSearchBar.text!
@@ -657,7 +835,10 @@ class Post: UIViewController, UITableViewDataSource, UITableViewDelegate, UISear
             // 配列からタップされたインデックスのデータを取り出す
             postData = postArray[indexPath!.row]
         }
-            
+        else if self.textSearchBar.text == "【※抽出中】" {
+            // 配列からタップされたインデックスのデータを取り出す
+            postData = postArrayOfCheckedPost[indexPath!.row]
+        }
         else {
             // 検索バーに入力された単語をスペースで分けて配列に入れる
             let searchWords = textSearchBar.text!
@@ -670,28 +851,30 @@ class Post: UIViewController, UITableViewDataSource, UITableViewDelegate, UISear
             postArrayBySearch = tempFilteredArray
             postData = postArrayBySearch[indexPath!.row]
         }
+        //ボタンを押したユーザーが投稿者本人かどうかの判断
+        let uid = Auth.auth().currentUser?.uid
+        let userID = postData.userID
+        if userID != uid {
+            let ContactRequestPost = postData.id!
+            let ContactRequestUserID = postData.userID!
         
-        let ContactRequestPost = postData.id!
-        let ContactRequestUserID = postData.userID!
+            //タップを検知されたpostDataからnameを抽出する
+            let userPhotoName = postData.name
+            let userURL : String = "https://www.facebook.com/search/str/\(userPhotoName!)/keywords_search"
+            print("\(userURL)")
+            let userPhotoURL = userURL.replacingOccurrences(of: " ", with: "", options: .regularExpression)
+            print("\(userPhotoURL)")
         
-        
-        //タップを検知されたpostDataからnameを抽出する
-        let userPhotoName = postData.name
-        let userURL : String = "https://www.facebook.com/search/str/\(userPhotoName!)/keywords_search"
-        print("\(userURL)")
-        let userPhotoURL = userURL.replacingOccurrences(of: " ", with: "", options: .regularExpression)
-        print("\(userPhotoURL)")
-        
-        //userDefaultsに必要なデータを保存
-        userDefaults.set("YES", forKey: "UserPhotoURLFlag")
-        userDefaults.set(userPhotoName, forKey: "UserPhotoName")
-        userDefaults.set(userPhotoURL, forKey: "UserPhotoURL")
-        userDefaults.set(ContactRequestPost, forKey: "ContactRequestPost")
-        userDefaults.set(ContactRequestUserID, forKey: "ContactRequestUserID")
-        userDefaults.synchronize()
-        showAlertWithVC()
-        return
-
+            //userDefaultsに必要なデータを保存
+            userDefaults.set("YES", forKey: "UserPhotoURLFlag")
+            userDefaults.set(userPhotoName, forKey: "UserPhotoName")
+            userDefaults.set(userPhotoURL, forKey: "UserPhotoURL")
+            userDefaults.set(ContactRequestPost, forKey: "ContactRequestPost")
+            userDefaults.set(ContactRequestUserID, forKey: "ContactRequestUserID")
+            userDefaults.synchronize()
+            showAlertWithVC()
+            return
+        }
     }
     
     
@@ -709,7 +892,10 @@ class Post: UIViewController, UITableViewDataSource, UITableViewDelegate, UISear
             // 配列からタップされたインデックスのデータを取り出す
             postData = postArray[indexPath!.row]
         }
-            
+        else if self.textSearchBar.text == "【※抽出中】" {
+            // 配列からタップされたインデックスのデータを取り出す
+            postData = postArrayOfCheckedPost[indexPath!.row]
+        }
         else {
             // 検索バーに入力された単語をスペースで分けて配列に入れる
             let searchWords = textSearchBar.text!
@@ -768,6 +954,24 @@ class Post: UIViewController, UITableViewDataSource, UITableViewDelegate, UISear
             }
         }
         
+    }
+    
+    
+    //Infoで「この時チェックされた投稿」を押された際の処理
+    func handleCheckedPost() {
+        self.tableView.reloadData()
+        self.textSearchBar.text = "【※抽出中】"
+        
+       let RequestedPostID :String = userDefaults.string(forKey: "RequestedPostID")!
+        
+        let array = RequestedPostID.components(separatedBy: NSCharacterSet.whitespaces)
+        var tempFilteredArray = postArrayAll
+        for n in array {
+            tempFilteredArray = tempFilteredArray.filter{($0.id?.contains(n))!}
+        }
+        postArrayOfCheckedPost = tempFilteredArray
+        
+        self.tableView.reloadData()
     }
     
     

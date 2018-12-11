@@ -20,6 +20,7 @@
 // 【UserDefaults管理】"UserPhotoName"= 投稿者のFacebookページを検索するためのName
 // 【UserDefaults管理】"ContactRequestPost"= コンタクト通知をした対象の投稿ID
 // 【UserDefaults管理】"ContactRequestUserID"= コンタクト通知をした相手のユーザーID
+// 【UserDefaults管理】"RequestedPostID"= Info画面の「この時チェックされた投稿」ボタンに紐づく投稿ID
 
 
 import UIKit

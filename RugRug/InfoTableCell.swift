@@ -52,7 +52,7 @@ class InfoTableCell: UITableViewCell {
             }).resume()
         }
         
-        self.askUserName.text = "【\(postData.AskUserName ?? "")】"
+        self.askUserName.text = "\(postData.AskUserName ?? "")"
         
         let formatter = DateFormatter()
         formatter.dateFormat = "yyyy/MM/dd"

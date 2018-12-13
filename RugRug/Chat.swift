@@ -249,6 +249,9 @@ class Chat: UIViewController, UITextViewDelegate, UITableViewDataSource, UITable
             let postRef = Database.database().reference().child(Const6.PostPath6).child("\(chatDataId)")
             let postDic = ["userID": Auth.auth().currentUser!.uid, "contents": text.text!, "userPhoto": imageString, "time": String(time), "name": name!] as [String : Any]
             postRef.childByAutoId().setValue(postDic)
+            
+            //textを空白にする（初期化）
+            text.text = ""
         }
     }
     

@@ -6,8 +6,8 @@
 //  Copyright © 2018 高野翔. All rights reserved.
 //
 // 【UserDefaults管理】"reviseDataId"= 投稿画面で「編集」を押した投稿のID
-// 【UserDefaults管理】"RejectDataFlag"= 「リジェクト／管理」ボタンを押した後の同意確認をするFlag
 // 【UserDefaults管理】"RejectDataId"= 投稿画面で「リジェクト／管理」を押した投稿のID
+// 【UserDefaults管理】"RejectUserId"= 投稿画面で「リジェクト／管理」を押した投稿者のID
 // 【UserDefaults管理】"RejectIdArray"= 投稿画面で「リジェクト／管理」を押した投稿のIDをまとめた配列
 // 【UserDefaults管理】"CautionDataFlag"= 報告ボタンを押した後の同意確認をするFlag
 // 【UserDefaults管理】"CautionDataId"= 投稿画面で「報告」を押した投稿のID
@@ -16,6 +16,7 @@
 // 【UserDefaults管理】"UserPhotoName"= 投稿者のFacebookページを検索するためのName
 // 【UserDefaults管理】"ContactRequestPost"= コンタクト通知をした対象の投稿ID
 // 【UserDefaults管理】"ContactRequestUserID"= コンタクト通知をした相手のユーザーID
+// 【UserDefaults管理】"ChatDataId"= チャットをしたい対象の投稿ID
 
 
 import UIKit
@@ -85,7 +86,7 @@ class Post: UIViewController, UITableViewDataSource, UITableViewDelegate, UISear
         tableView.estimatedRowHeight = 250
         
         //userDefaultsの初期値設定（念の為）
-        userDefaults.register(defaults: ["RejectIdArray" : [], "UserPhotoURLFlag" : "NO"])
+        userDefaults.register(defaults: ["RejectIdArray" : [], "UserPhotoURLFlag" : "NO", "RejectUserArray" : []])
         
         // TableViewを再表示する
         self.tableView.reloadData()
@@ -120,6 +121,7 @@ class Post: UIViewController, UITableViewDataSource, UITableViewDelegate, UISear
                         self.postArrayAll.insert(postData, at: 0)
                         
                         let rejectIdArray = self.userDefaults.array(forKey: "RejectIdArray") as! [String]
+                        let rejectUserArray = self.userDefaults.array(forKey: "RejectUserArray") as! [String]
                         // 【※追加アクション】RejectIdArrayに含まれるリジェクト対象の投稿IDから該当のpostDataを削除する（postArray用）
                         if rejectIdArray != [] {
                             // RejectIdArrayの投稿IDを含まないデータのみpostArrayに入れ直す
@@ -131,6 +133,16 @@ class Post: UIViewController, UITableViewDataSource, UITableViewDelegate, UISear
                             self.postArray = rejectedArray1
                         }
                         
+                        if rejectUserArray != [] {
+                            // RejectUserArrayの投稿IDを含まないデータのみpostArrayに入れ直す
+                            var rejectedArray1R = self.postArray
+                            for n in rejectUserArray {
+                                //filterの後の「!」が結果を反転している→含まない！！！
+                                rejectedArray1R = rejectedArray1R.filter({ (!($0.userID?.localizedCaseInsensitiveContains(n))!) })
+                            }
+                            self.postArray = rejectedArray1R
+                        }
+                        
                         // 【※追加アクション】RejectIdArrayに含まれるリジェクト対象の投稿IDから該当のpostDataを削除する（postArray用）
                         if rejectIdArray != [] {
                             // RejectIdArrayの投稿IDを含まないデータのみpostArrayに入れ直す
@@ -140,6 +152,16 @@ class Post: UIViewController, UITableViewDataSource, UITableViewDelegate, UISear
                                 rejectedArray2 = rejectedArray2.filter({ (!($0.id?.localizedCaseInsensitiveContains(n))!) })
                             }
                             self.postArrayAll = rejectedArray2
+                        }
+                        
+                        if rejectUserArray != [] {
+                            // RejectUserArrayの投稿IDを含まないデータのみpostArrayに入れ直す
+                            var rejectedArray2R = self.postArrayAll
+                            for n in rejectUserArray {
+                                //filterの後の「!」が結果を反転している→含まない！！！
+                                rejectedArray2R = rejectedArray2R.filter({ (!($0.userID?.localizedCaseInsensitiveContains(n))!) })
+                            }
+                            self.postArrayAll = rejectedArray2R
                         }
                         
                         // TableViewを再表示する
@@ -182,6 +204,7 @@ class Post: UIViewController, UITableViewDataSource, UITableViewDelegate, UISear
                             self.postArrayAll.insert(postData, at: indexAll)
                             
                             let rejectIdArray = self.userDefaults.array(forKey: "RejectIdArray") as! [String]
+                            let rejectUserArray = self.userDefaults.array(forKey: "RejectUserArray") as! [String]
                             // 【※追加アクション】RejectIdArrayに含まれるリジェクト対象の投稿IDから該当のpostDataを削除する（postArray用）
                             if rejectIdArray != [] {
                                 // RejectIdArrayの投稿IDを含まないデータのみpostArrayに入れ直す
@@ -193,6 +216,16 @@ class Post: UIViewController, UITableViewDataSource, UITableViewDelegate, UISear
                                 self.postArray = rejectedArray1
                             }
                             
+                            if rejectUserArray != [] {
+                                // RejectUserArrayの投稿IDを含まないデータのみpostArrayに入れ直す
+                                var rejectedArray1R = self.postArray
+                                for n in rejectUserArray {
+                                    //filterの後の「!」が結果を反転している→含まない！！！
+                                    rejectedArray1R = rejectedArray1R.filter({ (!($0.userID?.localizedCaseInsensitiveContains(n))!) })
+                                }
+                                self.postArray = rejectedArray1R
+                            }
+                            
                             // 【※追加アクション】RejectIdArrayに含まれるリジェクト対象の投稿IDから該当のpostDataを削除する（postArray用）
                             if rejectIdArray != [] {
                                 // RejectIdArrayの投稿IDを含まないデータのみpostArrayに入れ直す
@@ -202,6 +235,16 @@ class Post: UIViewController, UITableViewDataSource, UITableViewDelegate, UISear
                                     rejectedArray2 = rejectedArray2.filter({ (!($0.id?.localizedCaseInsensitiveContains(n))!) })
                                 }
                                 self.postArrayAll = rejectedArray2
+                            }
+                            
+                            if rejectUserArray != [] {
+                                // RejectUserArrayの投稿IDを含まないデータのみpostArrayに入れ直す
+                                var rejectedArray2R = self.postArrayAll
+                                for n in rejectUserArray {
+                                    //filterの後の「!」が結果を反転している→含まない！！！
+                                    rejectedArray2R = rejectedArray2R.filter({ (!($0.userID?.localizedCaseInsensitiveContains(n))!) })
+                                }
+                                self.postArrayAll = rejectedArray2R
                             }
                             
                             // TableViewを再表示する
@@ -244,6 +287,7 @@ class Post: UIViewController, UITableViewDataSource, UITableViewDelegate, UISear
                             self.postArrayAll.insert(postData, at: indexAll)
                             
                             let rejectIdArray = self.userDefaults.array(forKey: "RejectIdArray") as! [String]
+                            let rejectUserArray = self.userDefaults.array(forKey: "RejectUserArray") as! [String]
                             // 【※追加アクション】RejectIdArrayに含まれるリジェクト対象の投稿IDから該当のpostDataを削除する（postArrayOfCheckedPost用）
                             if rejectIdArray != [] {
                                 // RejectIdArrayの投稿IDを含まないデータのみpostArrayに入れ直す
@@ -253,6 +297,16 @@ class Post: UIViewController, UITableViewDataSource, UITableViewDelegate, UISear
                                     rejectedArray3 = rejectedArray3.filter({ (!($0.id?.localizedCaseInsensitiveContains(n))!) })
                                 }
                                 self.postArrayOfCheckedPost = rejectedArray3
+                            }
+                            
+                            if rejectUserArray != [] {
+                                // RejectUserArrayの投稿IDを含まないデータのみpostArrayに入れ直す
+                                var rejectedArray3R = self.postArrayOfCheckedPost
+                                for n in rejectUserArray {
+                                    //filterの後の「!」が結果を反転している→含まない！！！
+                                    rejectedArray3R = rejectedArray3R.filter({ (!($0.userID?.localizedCaseInsensitiveContains(n))!) })
+                                }
+                                self.postArrayOfCheckedPost = rejectedArray3R
                             }
                             
                             // 【※追加アクション】RejectIdArrayに含まれるリジェクト対象の投稿IDから該当のpostDataを削除する（postArray用）
@@ -266,6 +320,16 @@ class Post: UIViewController, UITableViewDataSource, UITableViewDelegate, UISear
                                 self.postArray = rejectedArray1
                             }
                             
+                            if rejectUserArray != [] {
+                                // RejectUserArrayの投稿IDを含まないデータのみpostArrayに入れ直す
+                                var rejectedArray1R = self.postArray
+                                for n in rejectUserArray {
+                                    //filterの後の「!」が結果を反転している→含まない！！！
+                                    rejectedArray1R = rejectedArray1R.filter({ (!($0.userID?.localizedCaseInsensitiveContains(n))!) })
+                                }
+                                self.postArray = rejectedArray1R
+                            }
+                            
                             // 【※追加アクション】RejectIdArrayに含まれるリジェクト対象の投稿IDから該当のpostDataを削除する（postArray用）
                             if rejectIdArray != [] {
                                 // RejectIdArrayの投稿IDを含まないデータのみpostArrayに入れ直す
@@ -276,6 +340,17 @@ class Post: UIViewController, UITableViewDataSource, UITableViewDelegate, UISear
                                 }
                                 self.postArrayAll = rejectedArray2
                             }
+                            
+                            if rejectUserArray != [] {
+                                // RejectUserArrayの投稿IDを含まないデータのみpostArrayに入れ直す
+                                var rejectedArray2R = self.postArrayAll
+                                for n in rejectUserArray {
+                                    //filterの後の「!」が結果を反転している→含まない！！！
+                                    rejectedArray2R = rejectedArray2R.filter({ (!($0.userID?.localizedCaseInsensitiveContains(n))!) })
+                                }
+                                self.postArrayAll = rejectedArray2R
+                            }
+                            
                             // TableViewを再表示する
                             self.tableView.reloadData()
                         }
@@ -320,6 +395,7 @@ class Post: UIViewController, UITableViewDataSource, UITableViewDelegate, UISear
                             self.postArrayAll.insert(postData, at: indexAll)
                             
                             let rejectIdArray = self.userDefaults.array(forKey: "RejectIdArray") as! [String]
+                            let rejectUserArray = self.userDefaults.array(forKey: "RejectUserArray") as! [String]
                             // 【※追加アクション】RejectIdArrayに含まれるリジェクト対象の投稿IDから該当のpostDataを削除する（postArray用）
                             if rejectIdArray != [] {
                                 // RejectIdArrayの投稿IDを含まないデータのみpostArrayに入れ直す
@@ -329,6 +405,16 @@ class Post: UIViewController, UITableViewDataSource, UITableViewDelegate, UISear
                                     rejectedArray1 = rejectedArray1.filter({ (!($0.id?.localizedCaseInsensitiveContains(n))!) })
                                 }
                                 self.postArray = rejectedArray1
+                            }
+                            
+                            if rejectUserArray != [] {
+                                // RejectUserArrayの投稿IDを含まないデータのみpostArrayに入れ直す
+                                var rejectedArray1R = self.postArray
+                                for n in rejectUserArray {
+                                    //filterの後の「!」が結果を反転している→含まない！！！
+                                    rejectedArray1R = rejectedArray1R.filter({ (!($0.userID?.localizedCaseInsensitiveContains(n))!) })
+                                }
+                                self.postArray = rejectedArray1R
                             }
                             
                             // 【※追加アクション】RejectIdArrayに含まれるリジェクト対象の投稿IDから該当のpostDataを削除する（postArray用）
@@ -342,6 +428,16 @@ class Post: UIViewController, UITableViewDataSource, UITableViewDelegate, UISear
                                 self.postArrayAll = rejectedArray2
                             }
                             
+                            if rejectUserArray != [] {
+                                // RejectUserArrayの投稿IDを含まないデータのみpostArrayに入れ直す
+                                var rejectedArray2R = self.postArrayAll
+                                for n in rejectUserArray {
+                                    //filterの後の「!」が結果を反転している→含まない！！！
+                                    rejectedArray2R = rejectedArray2R.filter({ (!($0.userID?.localizedCaseInsensitiveContains(n))!) })
+                                }
+                                self.postArrayAll = rejectedArray2R
+                            }
+                            
                             // 【※追加アクション】RejectIdArrayに含まれるリジェクト対象の投稿IDから該当のpostDataを削除する（postArrayBySearch用）
                             if rejectIdArray != [] {
                                 // RejectIdArrayの投稿IDを含まないデータのみpostArrayに入れ直す
@@ -351,6 +447,16 @@ class Post: UIViewController, UITableViewDataSource, UITableViewDelegate, UISear
                                     rejectedArray3 = rejectedArray3.filter({ (!($0.id?.localizedCaseInsensitiveContains(n))!) })
                                 }
                                 self.postArrayBySearch = rejectedArray3
+                            }
+                            
+                            if rejectUserArray != [] {
+                                // RejectUserArrayの投稿IDを含まないデータのみpostArrayに入れ直す
+                                var rejectedArray3R = self.postArrayBySearch
+                                for n in rejectUserArray {
+                                    //filterの後の「!」が結果を反転している→含まない！！！
+                                    rejectedArray3R = rejectedArray3R.filter({ (!($0.userID?.localizedCaseInsensitiveContains(n))!) })
+                                }
+                                self.postArrayBySearch = rejectedArray3R
                             }
                             
                             // TableViewを再表示する
@@ -391,6 +497,7 @@ class Post: UIViewController, UITableViewDataSource, UITableViewDelegate, UISear
                             self.postArrayAll.remove(at: indexAll)
                             
                             let rejectIdArray = self.userDefaults.array(forKey: "RejectIdArray") as! [String]
+                            let rejectUserArray = self.userDefaults.array(forKey: "RejectUserArray") as! [String]
                             // 【※追加アクション】RejectIdArrayに含まれるリジェクト対象の投稿IDから該当のpostDataを削除する（postArray用）
                             if rejectIdArray != [] {
                                 // RejectIdArrayの投稿IDを含まないデータのみpostArrayに入れ直す
@@ -402,6 +509,16 @@ class Post: UIViewController, UITableViewDataSource, UITableViewDelegate, UISear
                                 self.postArray = rejectedArray1
                             }
                             
+                            if rejectUserArray != [] {
+                                // RejectUserArrayの投稿IDを含まないデータのみpostArrayに入れ直す
+                                var rejectedArray1R = self.postArray
+                                for n in rejectUserArray {
+                                    //filterの後の「!」が結果を反転している→含まない！！！
+                                    rejectedArray1R = rejectedArray1R.filter({ (!($0.userID?.localizedCaseInsensitiveContains(n))!) })
+                                }
+                                self.postArray = rejectedArray1R
+                            }
+                            
                             // 【※追加アクション】RejectIdArrayに含まれるリジェクト対象の投稿IDから該当のpostDataを削除する（postArray用）
                             if rejectIdArray != [] {
                                 // RejectIdArrayの投稿IDを含まないデータのみpostArrayに入れ直す
@@ -411,6 +528,16 @@ class Post: UIViewController, UITableViewDataSource, UITableViewDelegate, UISear
                                     rejectedArray2 = rejectedArray2.filter({ (!($0.id?.localizedCaseInsensitiveContains(n))!) })
                                 }
                                 self.postArrayAll = rejectedArray2
+                            }
+                            
+                            if rejectUserArray != [] {
+                                // RejectUserArrayの投稿IDを含まないデータのみpostArrayに入れ直す
+                                var rejectedArray2R = self.postArrayAll
+                                for n in rejectUserArray {
+                                    //filterの後の「!」が結果を反転している→含まない！！！
+                                    rejectedArray2R = rejectedArray2R.filter({ (!($0.userID?.localizedCaseInsensitiveContains(n))!) })
+                                }
+                                self.postArrayAll = rejectedArray2R
                             }
                             
                             // TableViewを再表示する
@@ -447,6 +574,7 @@ class Post: UIViewController, UITableViewDataSource, UITableViewDelegate, UISear
                             self.postArrayAll.remove(at: indexAll)
                             
                             let rejectIdArray = self.userDefaults.array(forKey: "RejectIdArray") as! [String]
+                            let rejectUserArray = self.userDefaults.array(forKey: "RejectUserArray") as! [String]
                             // 【※追加アクション】RejectIdArrayに含まれるリジェクト対象の投稿IDから該当のpostDataを削除する（postArrayOfCheckedPost用）
                             if rejectIdArray != [] {
                                 // RejectIdArrayの投稿IDを含まないデータのみpostArrayに入れ直す
@@ -456,6 +584,16 @@ class Post: UIViewController, UITableViewDataSource, UITableViewDelegate, UISear
                                     rejectedArray3 = rejectedArray3.filter({ (!($0.id?.localizedCaseInsensitiveContains(n))!) })
                                 }
                                 self.postArrayOfCheckedPost = rejectedArray3
+                            }
+                            
+                            if rejectUserArray != [] {
+                                // RejectUserArrayの投稿IDを含まないデータのみpostArrayに入れ直す
+                                var rejectedArray3R = self.postArrayOfCheckedPost
+                                for n in rejectUserArray {
+                                    //filterの後の「!」が結果を反転している→含まない！！！
+                                    rejectedArray3R = rejectedArray3R.filter({ (!($0.userID?.localizedCaseInsensitiveContains(n))!) })
+                                }
+                                self.postArrayOfCheckedPost = rejectedArray3R
                             }
                             
                             // 【※追加アクション】RejectIdArrayに含まれるリジェクト対象の投稿IDから該当のpostDataを削除する（postArray用）
@@ -469,6 +607,16 @@ class Post: UIViewController, UITableViewDataSource, UITableViewDelegate, UISear
                                 self.postArray = rejectedArray1
                             }
                             
+                            if rejectUserArray != [] {
+                                // RejectUserArrayの投稿IDを含まないデータのみpostArrayに入れ直す
+                                var rejectedArray1R = self.postArray
+                                for n in rejectUserArray {
+                                    //filterの後の「!」が結果を反転している→含まない！！！
+                                    rejectedArray1R = rejectedArray1R.filter({ (!($0.userID?.localizedCaseInsensitiveContains(n))!) })
+                                }
+                                self.postArray = rejectedArray1R
+                            }
+                            
                             // 【※追加アクション】RejectIdArrayに含まれるリジェクト対象の投稿IDから該当のpostDataを削除する（postArray用）
                             if rejectIdArray != [] {
                                 // RejectIdArrayの投稿IDを含まないデータのみpostArrayに入れ直す
@@ -479,6 +627,17 @@ class Post: UIViewController, UITableViewDataSource, UITableViewDelegate, UISear
                                 }
                                 self.postArrayAll = rejectedArray2
                             }
+                            
+                            if rejectUserArray != [] {
+                                // RejectUserArrayの投稿IDを含まないデータのみpostArrayに入れ直す
+                                var rejectedArray2R = self.postArrayAll
+                                for n in rejectUserArray {
+                                    //filterの後の「!」が結果を反転している→含まない！！！
+                                    rejectedArray2R = rejectedArray2R.filter({ (!($0.userID?.localizedCaseInsensitiveContains(n))!) })
+                                }
+                                self.postArrayAll = rejectedArray2R
+                            }
+                            
                             // TableViewを再表示する
                             self.tableView.reloadData()
                         }
@@ -518,6 +677,7 @@ class Post: UIViewController, UITableViewDataSource, UITableViewDelegate, UISear
                             self.postArrayAll.remove(at: indexAll)
                             
                             let rejectIdArray = self.userDefaults.array(forKey: "RejectIdArray") as! [String]
+                            let rejectUserArray = self.userDefaults.array(forKey: "RejectUserArray") as! [String]
                             // 【※追加アクション】RejectIdArrayに含まれるリジェクト対象の投稿IDから該当のpostDataを削除する（postArray用）
                             if rejectIdArray != [] {
                                 // RejectIdArrayの投稿IDを含まないデータのみpostArrayに入れ直す
@@ -527,6 +687,16 @@ class Post: UIViewController, UITableViewDataSource, UITableViewDelegate, UISear
                                     rejectedArray1 = rejectedArray1.filter({ (!($0.id?.localizedCaseInsensitiveContains(n))!) })
                                 }
                                 self.postArray = rejectedArray1
+                            }
+                            
+                            if rejectUserArray != [] {
+                                // RejectUserArrayの投稿IDを含まないデータのみpostArrayに入れ直す
+                                var rejectedArray1R = self.postArray
+                                for n in rejectUserArray {
+                                    //filterの後の「!」が結果を反転している→含まない！！！
+                                    rejectedArray1R = rejectedArray1R.filter({ (!($0.userID?.localizedCaseInsensitiveContains(n))!) })
+                                }
+                                self.postArray = rejectedArray1R
                             }
                             
                             // 【※追加アクション】RejectIdArrayに含まれるリジェクト対象の投稿IDから該当のpostDataを削除する（postArray用）
@@ -540,6 +710,16 @@ class Post: UIViewController, UITableViewDataSource, UITableViewDelegate, UISear
                                 self.postArrayAll = rejectedArray2
                             }
                             
+                            if rejectUserArray != [] {
+                                // RejectUserArrayの投稿IDを含まないデータのみpostArrayに入れ直す
+                                var rejectedArray2R = self.postArrayAll
+                                for n in rejectUserArray {
+                                    //filterの後の「!」が結果を反転している→含まない！！！
+                                    rejectedArray2R = rejectedArray2R.filter({ (!($0.userID?.localizedCaseInsensitiveContains(n))!) })
+                                }
+                                self.postArrayAll = rejectedArray2R
+                            }
+                            
                             // 【※追加アクション】RejectIdArrayに含まれるリジェクト対象の投稿IDから該当のpostDataを削除する（postArrayBySearch用）
                             if rejectIdArray != [] {
                                 // RejectIdArrayの投稿IDを含まないデータのみpostArrayに入れ直す
@@ -549,6 +729,16 @@ class Post: UIViewController, UITableViewDataSource, UITableViewDelegate, UISear
                                     rejectedArray3 = rejectedArray3.filter({ (!($0.id?.localizedCaseInsensitiveContains(n))!) })
                                 }
                                 self.postArrayBySearch = rejectedArray3
+                            }
+                            
+                            if rejectUserArray != [] {
+                                // RejectUserArrayの投稿IDを含まないデータのみpostArrayに入れ直す
+                                var rejectedArray3R = self.postArrayBySearch
+                                for n in rejectUserArray {
+                                    //filterの後の「!」が結果を反転している→含まない！！！
+                                    rejectedArray3R = rejectedArray3R.filter({ (!($0.userID?.localizedCaseInsensitiveContains(n))!) })
+                                }
+                                self.postArrayBySearch = rejectedArray3R
                             }
                             
                             // TableViewを再表示する
@@ -791,8 +981,9 @@ class Post: UIViewController, UITableViewDataSource, UITableViewDelegate, UISear
             postData = postArrayBySearch[indexPath!.row]
         }
         
-        //タップを検知されたpostDataから投稿ナンバーを抽出する
+        //タップを検知されたpostDataから投稿ナンバー/投稿者を抽出する
         let reviseDataId = postData.id
+        let rejectUserId = postData.userID
         
         //Reviseボタンを押したユーザーが投稿者本人かどうかの判断
         let uid = Auth.auth().currentUser?.uid
@@ -803,12 +994,12 @@ class Post: UIViewController, UITableViewDataSource, UITableViewDelegate, UISear
             self.performSegue(withIdentifier: "toRevise", sender: nil)
         }
         else {
-            //rejectの意思がある投稿のID
-            userDefaults.set("YES", forKey: "RejectDataFlag")
+            //reject、cautionの意思がある投稿のID、投稿者のID
             userDefaults.set(reviseDataId, forKey: "RejectDataId")
+            userDefaults.set(reviseDataId, forKey: "CautionDataId")
+            userDefaults.set(rejectUserId, forKey: "RejectUserId")
             userDefaults.synchronize()
-            showAlertWithVC()
-            return
+            self.performSegue(withIdentifier: "toReject", sender: nil)
         }
     }
     
@@ -878,7 +1069,7 @@ class Post: UIViewController, UITableViewDataSource, UITableViewDelegate, UISear
     }
     
     
-    //セル内のCautionボタンが押された時に呼ばれるメソッド
+    //セル内の※Cautionボタン（→途中で役割を変えたので正しくは「チャット」ボタン）が押された時に呼ばれるメソッド
     @objc func handleCautionButton(_ sender: UIButton, forEvent event: UIEvent) {
         
         // タップされたセルのインデックスを求める
@@ -916,10 +1107,8 @@ class Post: UIViewController, UITableViewDataSource, UITableViewDelegate, UISear
         let uid = Auth.auth().currentUser?.uid
         let userID = postData.userID
         if userID != uid {
-            userDefaults.set("YES", forKey: "CautionDataFlag")
-            userDefaults.set(cautionDataId, forKey: "CautionDataId")
+            userDefaults.set(cautionDataId, forKey: "ChatDataId")
             userDefaults.synchronize()
-            showAlertWithVC()
             return
         }
         else {
@@ -931,29 +1120,12 @@ class Post: UIViewController, UITableViewDataSource, UITableViewDelegate, UISear
     //最終確認ポップアップページを出す
     func showAlertWithVC(){
         
-        let CautionFlag :String = userDefaults.string(forKey: "CautionDataFlag")!
-        if CautionFlag == "YES" {
-            AJAlertController.initialization().showAlert(aStrMessage: "この投稿が好ましくない内容を含む事を管理人に報告しますか？", aCancelBtnTitle: "キャンセル", aOtherBtnTitle: "管理人に報告") { (index, title) in
-            print(index,title)
-                
-            }
-        }
-        
-        let RejectFlag :String = userDefaults.string(forKey: "RejectDataFlag")!
-        if RejectFlag == "YES" {
-            AJAlertController.initialization().showAlert(aStrMessage: "今後、この投稿を貴方の投稿一覧に表示しない様にしますか？", aCancelBtnTitle: "キャンセル", aOtherBtnTitle: "今後表示しない") { (index, title) in
-                print(index,title)
-            }
-        }
-        
         let UserPhotoURLFlag :String = userDefaults.string(forKey: "UserPhotoURLFlag")!
         if UserPhotoURLFlag == "YES" {
             AJAlertController.initialization().showAlert(aStrMessage: "今からFacebookでこのユーザーを検索します！\n\nコンタクトする事を事前に「通知」しておきますか？\n\n※通知を選択すると、貴方から後程コンタクトがある旨をこのユーザーにお知らせします。", aCancelBtnTitle: "まずは検索のみ", aOtherBtnTitle: "「通知」＋検索") { (index, title) in
                 print(index,title)
-                
             }
         }
-        
     }
     
     

@@ -30,7 +30,7 @@ class ViewController: UIViewController {
         setupTab()
         
         //userDefaultsの初期値設定
-        userDefaults.register(defaults: ["InitialFlag" : "NO", "EULAagreement" : "NO", "EULACheckFlag" : "NO", "AccountDeleteFlag" : "NO", "RejectDataFlag" : "NO", "CautionDataFlag" : "NO", "RejectIdArray" : [], "UserPhotoURLFlag" : "NO"])
+        userDefaults.register(defaults: ["InitialFlag" : "NO", "EULAagreement" : "NO", "EULACheckFlag" : "NO", "AccountDeleteFlag" : "NO", "RejectDataFlag" : "NO",  "RejectUserFlag" : "NO", "CautionDataFlag" : "NO", "RejectIdArray" : [], "UserPhotoURLFlag" : "NO", "RejectUserArray" : []])
     }
     
     

@@ -12,6 +12,8 @@
 // 【UserDefaults管理】"AccountDeleteFlag"= アカウント削除ボタンを押した後の同意確認をするFlag
 // 【UserDefaults管理】"RejectDataFlag"= 「リジェクト／管理」ボタンを押した後の同意確認をするFlag
 // 【UserDefaults管理】"RejectDataId"= 投稿画面で「リジェクト／管理」を押した投稿のID
+// 【UserDefaults管理】"RejectUserFlag"= 「リジェクト／管理」ボタンを押した後の同意確認をするFlag(Userブロック用)
+// 【UserDefaults管理】"RejectUserId"= 投稿画面で「リジェクト／管理」を押した投稿者のID
 // 【UserDefaults管理】"RejectIdArray"= 投稿画面で「リジェクト／管理」を押した投稿のIDをまとめた配列
 // 【UserDefaults管理】"CautionDataFlag"= 報告ボタンを押した後の同意確認をするFlag
 // 【UserDefaults管理】"CautionDataId"= 投稿画面で「報告」を押した投稿のID
@@ -21,6 +23,7 @@
 // 【UserDefaults管理】"ContactRequestPost"= コンタクト通知をした対象の投稿ID
 // 【UserDefaults管理】"ContactRequestUserID"= コンタクト通知をした相手のユーザーID
 // 【UserDefaults管理】"RequestedPostID"= Info画面の「この時チェックされた投稿」ボタンに紐づく投稿ID
+// 【UserDefaults管理】"ChatDataId"= チャットをしたい対象の投稿ID
 
 
 import UIKit

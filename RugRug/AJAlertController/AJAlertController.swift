@@ -73,9 +73,10 @@ class AJAlertController: UIViewController {
     
     //user defaultsを使う準備
     let userDefaults:UserDefaults = UserDefaults.standard
-    
     //RejectIdArrayの配列初期設定
     var rejectIdArray : [String] = []
+    //RejectUserArrayの配列初期設定
+    var rejectUserArray : [String] = []
     
     
     override func viewDidLoad() {
@@ -83,7 +84,7 @@ class AJAlertController: UIViewController {
         setupAJAlertController()
         
         //userDefaultsの初期値設定
-        userDefaults.register(defaults: ["RejectIdArray" : []])
+        userDefaults.register(defaults: ["RejectIdArray" : [], "RejectUserArray" : []])
     }
     
     // MARK:- AJAlertController Private Functions
@@ -250,6 +251,18 @@ class AJAlertController: UIViewController {
         }
         
         
+        //投稿者ブロックボタンを押された上で、「キャンセル」を選択した際のアクション
+        let RejectUserFlag :String = userDefaults.string(forKey: "RejectUserFlag")!
+        if RejectUserFlag == "YES" {
+            //報告の2重チェックに使うFlagの再初期化
+            userDefaults.set("NO", forKey: "RejectUserFlag")
+            userDefaults.synchronize()
+            print("再初期化：RejectUserFlag = 「NO」")
+            hide()
+            return
+        }
+        
+        
         //投稿者プロフィール画像を押された上で、「Facebook検索」を選択した際のアクション
         let UserPhotoURLFlag :String = userDefaults.string(forKey: "UserPhotoURLFlag")!
         if UserPhotoURLFlag == "YES" {
@@ -343,6 +356,9 @@ class AJAlertController: UIViewController {
             print("再初期化：RejectDataFlag = 「NO」")
             
             SVProgressHUD.showSuccess(withStatus: "対象の投稿は、貴方の投稿一覧に表示されなくなりました。")
+            
+            // 画面を閉じてViewControllerに戻る
+            self.dismiss(animated: false, completion: nil)
         }
         
         
@@ -368,6 +384,45 @@ class AJAlertController: UIViewController {
             print("再初期化：CautionDataFlag = 「NO」")
             
             SVProgressHUD.showSuccess(withStatus: "\(name!)さん\n\n好ましくない投稿のご報告、ありがとうございました！\n24時間以内に精査し、適切な処置（削除／警告）をします。")
+            
+            // 画面を閉じてViewControllerに戻る
+            self.dismiss(animated: false, completion: nil)
+        }
+        
+        
+        //投稿者ブロックボタンを押された上で、「投稿者ブロック」を選択した際のアクション
+        let RejectUserFlag :String = userDefaults.string(forKey: "RejectUserFlag")!
+        if RejectUserFlag == "YES" {
+            
+            let rejectDataId :String = userDefaults.string(forKey: "RejectDataId")!
+            
+            let rejectUserId :String = userDefaults.string(forKey: "RejectUserId")!
+            rejectUserArray = userDefaults.array(forKey: "RejectUserArray") as! [String]
+            rejectUserArray.append(rejectUserId)
+            //確認
+            print("\(rejectUserArray)")
+            
+            //追加した"RejectUserId"を"RejectUserArray"の配列要素に追加
+            userDefaults.set(rejectUserArray, forKey: "RejectUserArray")
+            userDefaults.synchronize()
+            
+            //Firebaseに保存する
+            let uid = Auth.auth().currentUser?.uid
+            let postRef = Database.database().reference().child(Const.PostPath).child(rejectDataId)
+            let rejects = ["User-Reject-By-(\(uid!))": uid]
+            postRef.updateChildValues(rejects)
+            
+            hide()
+            
+            //報告の2重チェックに使うFlagの再初期化
+            userDefaults.set("NO", forKey: "RejectUserFlag")
+            userDefaults.synchronize()
+            print("再初期化：RejectUserFlag = 「NO」")
+            
+            SVProgressHUD.showSuccess(withStatus: "この投稿者の全ての投稿が、今後は貴方の投稿一覧に表示されなくなりました。")
+            
+            // 画面を閉じてViewControllerに戻る
+            self.dismiss(animated: false, completion: nil)
         }
         
         

@@ -79,7 +79,7 @@ class PostTableCell: UITableViewCell {
         self.userPhoto.image = postData.userPhoto
         
         let formatter = DateFormatter()
-        formatter.dateFormat = "yyyy/MM/dd"
+        formatter.dateFormat = "yyyy/MM/dd  h:mm a"
         let dateString = formatter.string(from: postData.date!)
         self.date.text = dateString
         

@@ -18,6 +18,9 @@
 		3169FE1A21AE79E6000E01A4 /* FAQTableCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3169FE1821AE79E6000E01A4 /* FAQTableCell.xib */; };
 		3169FE1D21AFBBBD000E01A4 /* Manager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3169FE1C21AFBBBD000E01A4 /* Manager.swift */; };
 		3169FE1F21AFDB0E000E01A4 /* Const3.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3169FE1E21AFDB0E000E01A4 /* Const3.swift */; };
+		317A096421C280E400C35DAE /* ChatTableCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 317A096221C280E400C35DAE /* ChatTableCell.swift */; };
+		317A096521C280E400C35DAE /* ChatTableCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 317A096321C280E400C35DAE /* ChatTableCell.xib */; };
+		317A096721C2830F00C35DAE /* Const6.swift in Sources */ = {isa = PBXBuildFile; fileRef = 317A096621C2830F00C35DAE /* Const6.swift */; };
 		318F1CE221C245E100E53FD3 /* Chat.swift in Sources */ = {isa = PBXBuildFile; fileRef = 318F1CE121C245E100E53FD3 /* Chat.swift */; };
 		31977F0021C1F5E0000E39A4 /* Reject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31977EFF21C1F5E0000E39A4 /* Reject.swift */; };
 		31A5F49F21BB5DF700488A1D /* Const4.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31A5F49E21BB5DF700488A1D /* Const4.swift */; };
@@ -57,6 +60,9 @@
 		3169FE1B21AF5CD9000E01A4 /* RugRug-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "RugRug-Bridging-Header.h"; sourceTree = "<group>"; };
 		3169FE1C21AFBBBD000E01A4 /* Manager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Manager.swift; sourceTree = "<group>"; };
 		3169FE1E21AFDB0E000E01A4 /* Const3.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Const3.swift; sourceTree = "<group>"; };
+		317A096221C280E400C35DAE /* ChatTableCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatTableCell.swift; sourceTree = "<group>"; };
+		317A096321C280E400C35DAE /* ChatTableCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ChatTableCell.xib; sourceTree = "<group>"; };
+		317A096621C2830F00C35DAE /* Const6.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Const6.swift; sourceTree = "<group>"; };
 		318F1CE121C245E100E53FD3 /* Chat.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Chat.swift; sourceTree = "<group>"; };
 		31977EFF21C1F5E0000E39A4 /* Reject.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Reject.swift; sourceTree = "<group>"; };
 		31A5F49E21BB5DF700488A1D /* Const4.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Const4.swift; sourceTree = "<group>"; };
@@ -143,6 +149,8 @@
 				31DB930C21A8FE0500A2B6AF /* Revise.swift */,
 				31977EFF21C1F5E0000E39A4 /* Reject.swift */,
 				318F1CE121C245E100E53FD3 /* Chat.swift */,
+				317A096221C280E400C35DAE /* ChatTableCell.swift */,
+				317A096321C280E400C35DAE /* ChatTableCell.xib */,
 				312A2DDA21BE2C8600C16EA1 /* Info.swift */,
 				312A2DDE21BE648E00C16EA1 /* InfoTableCell.swift */,
 				312A2DDF21BE648E00C16EA1 /* InfoTableCell.xib */,
@@ -158,6 +166,7 @@
 				3169FE1E21AFDB0E000E01A4 /* Const3.swift */,
 				31A5F49E21BB5DF700488A1D /* Const4.swift */,
 				312A2DDC21BE38C900C16EA1 /* Const5.swift */,
+				317A096621C2830F00C35DAE /* Const6.swift */,
 				3169FE1B21AF5CD9000E01A4 /* RugRug-Bridging-Header.h */,
 				31280E9421AD3321008FDDEF /* AJAlertController */,
 				31DB931221A916A100A2B6AF /* Assets.xcassets */,
@@ -247,6 +256,7 @@
 			files = (
 				31DB92EF21A7EC9200A2B6AF /* LaunchScreen.storyboard in Resources */,
 				3169FE1A21AE79E6000E01A4 /* FAQTableCell.xib in Resources */,
+				317A096521C280E400C35DAE /* ChatTableCell.xib in Resources */,
 				31DB92F721A7F23C00A2B6AF /* GoogleService-Info.plist in Resources */,
 				31DB92EA21A7EC9000A2B6AF /* Main.storyboard in Resources */,
 				312A2DE121BE648E00C16EA1 /* InfoTableCell.xib in Resources */,
@@ -323,10 +333,12 @@
 			files = (
 				31DB930821A8DB4400A2B6AF /* PostTableCell.swift in Sources */,
 				31EC171321AE43A70033E1F1 /* Const2.swift in Sources */,
+				317A096421C280E400C35DAE /* ChatTableCell.swift in Sources */,
 				31280E9C21AD3322008FDDEF /* AJAlertController.swift in Sources */,
 				318F1CE221C245E100E53FD3 /* Chat.swift in Sources */,
 				31A5F49F21BB5DF700488A1D /* Const4.swift in Sources */,
 				31977F0021C1F5E0000E39A4 /* Reject.swift in Sources */,
+				317A096721C2830F00C35DAE /* Const6.swift in Sources */,
 				31DB930D21A8FE0500A2B6AF /* Revise.swift in Sources */,
 				31DB92FD21A7F66600A2B6AF /* Setting.swift in Sources */,
 				312A2DDB21BE2C8600C16EA1 /* Info.swift in Sources */,

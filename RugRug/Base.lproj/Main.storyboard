@@ -177,6 +177,7 @@
                         <outlet property="textSearchBar" destination="ZYn-nM-55r" id="qDE-p6-foQ"/>
                         <segue destination="NzF-Kh-2DL" kind="show" identifier="toRevise" id="UWf-Zb-fzt"/>
                         <segue destination="mam-mj-8ey" kind="show" identifier="toReject" id="GUg-ql-MUc"/>
+                        <segue destination="mR7-a3-ngd" kind="show" identifier="toChat" id="uR1-jP-wWo"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="55m-1x-Ug0" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -527,6 +528,21 @@ RugRug管理人に報告します</string>
                 <exit id="Pg5-3z-G31" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
             <point key="canvasLocation" x="4231" y="572"/>
+        </scene>
+        <!--Chat-->
+        <scene sceneID="oSS-Nv-ltk">
+            <objects>
+                <viewController id="mR7-a3-ngd" customClass="Chat" customModule="RugRug" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="Wcg-6c-TYF">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <viewLayoutGuide key="safeArea" id="FIo-lG-iDV"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="1pe-vx-w8e" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="5042" y="572"/>
         </scene>
         <!--Request-->
         <scene sceneID="YHQ-DP-edX">

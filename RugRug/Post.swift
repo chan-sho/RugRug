@@ -1101,19 +1101,13 @@ class Post: UIViewController, UITableViewDataSource, UITableViewDelegate, UISear
         }
         
         //タップを検知されたpostDataから投稿ナンバーを抽出する
-        let cautionDataId = postData.id
+        let chatDataId = postData.id
         
-        //Cautionボタンを押したユーザーが投稿者本人かどうかの判断
-        let uid = Auth.auth().currentUser?.uid
-        let userID = postData.userID
-        if userID != uid {
-            userDefaults.set(cautionDataId, forKey: "ChatDataId")
-            userDefaults.synchronize()
-            return
-        }
-        else {
-            return
-        }
+        userDefaults.set(chatDataId, forKey: "ChatDataId")
+        userDefaults.synchronize()
+        //Chatに移動
+         self.performSegue(withIdentifier: "toChat", sender: nil)
+       
     }
     
     

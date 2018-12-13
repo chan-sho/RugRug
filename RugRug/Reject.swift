@@ -78,7 +78,7 @@ class Reject: UIViewController {
         
         let RejectUserFlag :String = userDefaults.string(forKey: "RejectUserFlag")!
         if RejectUserFlag == "YES" {
-            AJAlertController.initialization().showAlert(aStrMessage: "今後、この投稿者の一切の投稿を表示しない様にしますか？\n（＝この投稿者をブロック）", aCancelBtnTitle: "キャンセル", aOtherBtnTitle: "投稿者ブロック") { (index, title) in
+            AJAlertController.initialization().showAlert(aStrMessage: "今後、この投稿者の全ての投稿をブロックしますか？\n（＝この投稿者をブロック）", aCancelBtnTitle: "キャンセル", aOtherBtnTitle: "投稿者ブロック") { (index, title) in
                 print(index,title)
             }
         }

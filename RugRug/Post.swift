@@ -25,6 +25,8 @@ import FirebaseAuth
 import FirebaseDatabase
 import SVProgressHUD
 import ESTabBarController
+import FBSDKCoreKit
+import FBSDKLoginKit
 
 
 class Post: UIViewController, UITableViewDataSource, UITableViewDelegate, UISearchBarDelegate {
@@ -86,7 +88,7 @@ class Post: UIViewController, UITableViewDataSource, UITableViewDelegate, UISear
         tableView.estimatedRowHeight = 250
         
         //userDefaultsの初期値設定（念の為）
-        userDefaults.register(defaults: ["RejectIdArray" : [], "UserPhotoURLFlag" : "NO", "RejectUserArray" : []])
+        userDefaults.register(defaults: ["RejectIdArray" : [], "UserPhotoURLFlag" : "NO", "RejectUserArray" : [], "ChatRequestFlag" : "NO"])
         
         // TableViewを再表示する
         self.tableView.reloadData()
@@ -1007,13 +1009,6 @@ class Post: UIViewController, UITableViewDataSource, UITableViewDelegate, UISear
     //セル内のuserPhotoボタンが押された時に呼ばれるメソッド
     @objc func handleUserPhotoButton(_ sender: UIButton, forEvent event: UIEvent) {
         
-        //使っていないコード（今後のために保存）
-        if let facebookUid = Auth.auth().currentUser?.providerData
-            .filter({ (userInfo: UserInfo) in return userInfo.providerID == FacebookAuthProviderID})
-            .map({ (userInfo: UserInfo) in return userInfo.uid})
-            .first {
-            print ("FaceBookのユーザーID = \(facebookUid)")
-            }
         
         // タップされたセルのインデックスを求める
         let touch = event.allTouches?.first
@@ -1045,17 +1040,19 @@ class Post: UIViewController, UITableViewDataSource, UITableViewDelegate, UISear
         //ボタンを押したユーザーが投稿者本人かどうかの判断
         let uid = Auth.auth().currentUser?.uid
         let userID = postData.userID
+        
         if userID != uid {
             let ContactRequestPost = postData.id!
             let ContactRequestUserID = postData.userID!
         
             //タップを検知されたpostDataからnameを抽出する
             let userPhotoName = postData.name
+            
             let userURL : String = "https://www.facebook.com/search/str/\(userPhotoName!)/keywords_search"
             print("\(userURL)")
             let userPhotoURL = userURL.replacingOccurrences(of: " ", with: "", options: .regularExpression)
             print("\(userPhotoURL)")
-        
+            
             //userDefaultsに必要なデータを保存
             userDefaults.set("YES", forKey: "UserPhotoURLFlag")
             userDefaults.set(userPhotoName, forKey: "UserPhotoName")

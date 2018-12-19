@@ -18,6 +18,7 @@
 // 【UserDefaults管理】"UserPhotoName"= 投稿者のFacebookページを検索するためのName
 // 【UserDefaults管理】"ContactRequestPost"= コンタクト通知をした対象の投稿ID
 // 【UserDefaults管理】"ContactRequestUserID"= コンタクト通知をした相手のユーザーID
+// 【UserDefaults管理】"ChatRequestFlag"= コンタクト通知一覧で、投稿者プロフィール画像を押した事を確認するFlag
 
 
 import UIKit
@@ -288,6 +289,33 @@ class AJAlertController: UIViewController {
             return
         }
         
+        
+        //コンタクト通知一覧で気になるユーザーのプロフィール画像を押された上で、「まずはFacebook検索」を選択した際のアクション
+        let ChatRequestFlag :String = userDefaults.string(forKey: "ChatRequestFlag")!
+        if ChatRequestFlag == "YES" {
+            let UserPhotoURL :String = userDefaults.string(forKey: "UserPhotoURL")!
+            
+            //Facebookの検索ページをSafariで開くアクション
+            let url = URL(string: "\(UserPhotoURL)")
+            if url == nil {
+                print("NG")
+                return
+            }
+            else {
+                if UIApplication.shared.canOpenURL(url!) {
+                    UIApplication.shared.open(url!)
+                }
+            }
+            
+            //チェックFlagの再初期化
+            userDefaults.set("NO", forKey: "ChatRequestFlag")
+            userDefaults.synchronize()
+            print("再初期化：ChatRequestFlag = 「NO」")
+            hide()
+            return
+        }
+        
+        
         //プライバシーポリシー・利用規約のページをSafariで開くアクション
         let url = URL(string: "https://chan-sho.github.io/")!
         if UIApplication.shared.canOpenURL(url) {
@@ -444,7 +472,7 @@ class AJAlertController: UIViewController {
             
             //**重要** 辞書を作成してFirebaseに保存する
             let postRef = Database.database().reference().child(Const5.PostPath5)
-            let postDic = ["AskUserID": Auth.auth().currentUser!.uid, "time": String(time), "AskUserName": name!, "AskUserURL": UserProfileURL, "RequestedUserID": ContactRequestUserID, "RequestedUserName": UserPhotoName, "RequestedPostID": ContactRequestPost,"checkFlag": ""] as [String : Any]
+            let postDic = ["AskUserID": Auth.auth().currentUser!.uid, "time": String(time), "AskUserName": name!, "AskUserURL": UserProfileURL, "RequestedUserID": ContactRequestUserID, "RequestedUserName": UserPhotoName, "RequestedPostID": ContactRequestPost,"checkFlag": "", "ChatRequest": ""] as [String : Any]
             postRef.childByAutoId().setValue(postDic)
             
             //Facebookの検索ページをSafariで開くアクション
@@ -464,6 +492,38 @@ class AJAlertController: UIViewController {
             userDefaults.synchronize()
             print("再初期化：UserPhotoURLFlag = 「NO」")
             hide()
+            return
+        }
+        
+        
+        //投稿者プロフィール画像を押された上で、「通知＋Facebook検索」を選択した際のアクション
+        let ChatRequestFlag :String = userDefaults.string(forKey: "ChatRequestFlag")!
+        if ChatRequestFlag == "YES" {
+            let UserPhotoName :String = userDefaults.string(forKey: "UserPhotoName")!
+            let ContactRequestPost :String = userDefaults.string(forKey: "ContactRequestPost")!
+            let ContactRequestUserID :String = userDefaults.string(forKey: "ContactRequestUserID")!
+            
+            //FireBase上に辞書型データで残す処理
+            //postDataに必要な情報を取得しておく
+            let time = Date.timeIntervalSinceReferenceDate
+            let name = Auth.auth().currentUser?.displayName
+            
+            //ログインユーザーのプロフィール画像をロード
+            let UserProfileURL = (Auth.auth().currentUser?.photoURL?.absoluteString)! + "?width=140&height=140"
+            
+            //**重要** 辞書を作成してFirebaseに保存する
+            let postRef = Database.database().reference().child(Const5.PostPath5)
+            let postDic = ["AskUserID": Auth.auth().currentUser!.uid, "time": String(time), "AskUserName": name!, "AskUserURL": UserProfileURL, "RequestedUserID": ContactRequestUserID, "RequestedUserName": UserPhotoName, "RequestedPostID": ContactRequestPost,"checkFlag": "", "ChatRequest": "まずはチャットしませんか？↓ click"] as [String : Any]
+            postRef.childByAutoId().setValue(postDic)
+            
+            //チェックFlagの再初期化
+            userDefaults.set("NO", forKey: "ChatRequestFlag")
+            userDefaults.synchronize()
+            print("再初期化：ChatRequestFlag = 「NO」")
+            hide()
+            
+            SVProgressHUD.showSuccess(withStatus: "コンタクト通知をもらったこちらユーザーに、「まずはチャットしませんか？」と通知を送りました！")
+            
             return
         }
         

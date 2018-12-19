@@ -6,6 +6,7 @@
 //  Copyright © 2018 高野翔. All rights reserved.
 //
 // 【UserDefaults管理】"RequestedPostID"= Info画面の「この時チェックされた投稿」ボタンに紐づく投稿ID
+// 【UserDefaults管理】"ChatRequestFlag"= コンタクト通知一覧で、投稿者プロフィール画像を押した事を確認するFlag
 
 
 import UIKit
@@ -48,6 +49,9 @@ class Info: UIViewController, UITableViewDataSource, UITableViewDelegate {
         tableView.rowHeight = UITableViewAutomaticDimension
         // テーブル行の高さの概算値を設定しておく
         tableView.estimatedRowHeight = 200
+        
+        //userDefaultsの初期値設定（念の為）
+        userDefaults.register(defaults: ["ChatRequestFlag" : "NO"])
         
         // TableViewを再表示する
         self.tableView.reloadData()
@@ -172,10 +176,8 @@ class Info: UIViewController, UITableViewDataSource, UITableViewDelegate {
         let cell = tableView.dequeueReusableCell(withIdentifier: "Cell-3", for: indexPath) as! InfoTableCell
         cell.setPostData3(postArray[indexPath.row])
         
-        // セル内のボタンのアクションをソースコードで設定する
         cell.checkedPostButton.addTarget(self, action:#selector(handleCheckedPostButton(_:forEvent:)), for: .touchUpInside)
         
-        // セル内のreviseボタンを追加で管理
         cell.askUserPhotoButton.addTarget(self, action:#selector(handleAskUserPhotoButton(_:forEvent:)), for: .touchUpInside)
             
         return cell
@@ -223,25 +225,39 @@ class Info: UIViewController, UITableViewDataSource, UITableViewDelegate {
         // 配列からタップされたインデックスのデータを取り出す
         postData = postArray[indexPath!.row]
         
+        let chatRequestUserID = postData.AskUserID
+        let chatRequestPostID = postData.RequestedPostID!
+        
         //タップを検知されたpostDataからnameを抽出する
         let userPhotoName = postData.AskUserName
         if userPhotoName != nil {
-        let userURL : String = "https://www.facebook.com/search/str/\(userPhotoName!)/keywords_search"
-        print("\(userURL)")
-        let userPhotoURL = userURL.replacingOccurrences(of: " ", with: "", options: .regularExpression)
-        print("\(userPhotoURL)")
+            let userURL : String = "https://www.facebook.com/search/str/\(userPhotoName!)/keywords_search"
+            print("\(userURL)")
+            let userPhotoURL = userURL.replacingOccurrences(of: " ", with: "", options: .regularExpression)
+            print("\(userPhotoURL)")
             
-        //Facebookの検索ページをSafariで開くアクション
-        let url = URL(string: "\(userPhotoURL)")
-        if url == nil {
-            print("NG")
+            //userDefaultsに必要なデータを保存
+            userDefaults.set("YES", forKey: "ChatRequestFlag")
+            userDefaults.set(userPhotoName, forKey: "UserPhotoName")
+            userDefaults.set(userPhotoURL, forKey: "UserPhotoURL")
+            userDefaults.set(chatRequestPostID, forKey: "ContactRequestPost")
+            userDefaults.set(chatRequestUserID, forKey: "ContactRequestUserID")
+            userDefaults.synchronize()
+            showAlertWithVC()
             return
+            
         }
-        else {
-            if UIApplication.shared.canOpenURL(url!) {
-                UIApplication.shared.open(url!)
+    }
+    
+    
+    //最終確認ポップアップページを出す
+    func showAlertWithVC(){
+        
+        let ChatRequestFlag :String = userDefaults.string(forKey: "ChatRequestFlag")!
+        if ChatRequestFlag == "YES" {
+            AJAlertController.initialization().showAlert(aStrMessage: "コンタクト通知をもらったユーザーからメッセージがない場合、\n貴方から「まずはチャットしませんか？」と依頼できます！\n\n「チャット依頼」をすると、相手のユーザーに通知がされます。\n\n※チャット依頼をせずに一旦Facebookで相手の情報を確認する場合は「まずは検索のみ」を押してください。", aCancelBtnTitle: "まずは検索のみ", aOtherBtnTitle: "「チャット依頼」") { (index, title) in
+                print(index,title)
             }
-        }
         }
     }
     

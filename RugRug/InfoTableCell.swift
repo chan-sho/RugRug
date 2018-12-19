@@ -16,6 +16,7 @@ class InfoTableCell: UITableViewCell {
     @IBOutlet weak var time: UILabel!
     @IBOutlet weak var checkedPostButton: UIButton!
     @IBOutlet weak var askUserPhotoButton: UIButton!
+    @IBOutlet weak var chatRequestLabel: UILabel!
     
     
     override func awakeFromNib() {
@@ -53,6 +54,8 @@ class InfoTableCell: UITableViewCell {
         }
         
         self.askUserName.text = "\(postData.AskUserName ?? "")"
+        
+        self.chatRequestLabel.text = "\(postData.ChatRequest ?? "")"
         
         let formatter = DateFormatter()
         formatter.dateFormat = "yyyy/MM/dd"

@@ -10,6 +10,7 @@ import UIKit
 import Firebase
 import FirebaseAuth
 import SVProgressHUD
+import ESTabBarController
 
 
 class Home: UIViewController, UITextViewDelegate {
@@ -32,6 +33,10 @@ class Home: UIViewController, UITextViewDelegate {
     var event1URL: String?
     var event2URL: String?
     var event3URL: String?
+    
+    //user defaultsを使う準備
+    let userDefaults:UserDefaults = UserDefaults.standard
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -196,14 +201,21 @@ class Home: UIViewController, UITextViewDelegate {
     
     @IBAction func news1PhotoTapped(_ sender: Any) {
         print("Tap!!")
+        //対象の投稿ID
         let urlNews1 = news1URL
-        let url = URL(string: "\(urlNews1!)")
-        if url == nil {
-            return
-        }
-        else {
-            if UIApplication.shared.canOpenURL(url!) {
-                UIApplication.shared.open(url!)
+        
+        if urlNews1 != "" {
+            userDefaults.set(urlNews1, forKey: "RequestedPostID")
+            userDefaults.synchronize()
+        
+            let tabBarController = parent as! ESTabBarController
+            tabBarController.setSelectedIndex(1, animated: false)
+            for viewController in tabBarController.childViewControllers {
+                if viewController is Post {
+                    let post = viewController as! Post
+                    post.handleCheckedPost()
+                    break
+                }
             }
         }
     }
@@ -211,70 +223,100 @@ class Home: UIViewController, UITextViewDelegate {
     
     @IBAction func news2Title(_ sender: Any) {
         let urlNews2 = news2URL
-        let url = URL(string: "\(urlNews2!)")
-        if url == nil {
-            return
-        }
-        else {
-            if UIApplication.shared.canOpenURL(url!) {
-                UIApplication.shared.open(url!)
-        }
+        
+        if urlNews2 != "" {
+            userDefaults.set(urlNews2, forKey: "RequestedPostID")
+            userDefaults.synchronize()
+            
+            let tabBarController = parent as! ESTabBarController
+            tabBarController.setSelectedIndex(1, animated: false)
+            for viewController in tabBarController.childViewControllers {
+                if viewController is Post {
+                    let post = viewController as! Post
+                    post.handleCheckedPost()
+                    break
+                }
+            }
         }
     }
     
     
     @IBAction func news3Title(_ sender: Any) {
         let urlNews3 = news3URL
-        let url = URL(string: "\(urlNews3!)")
-        if url == nil {
-            return
-        }
-        else {
-            if UIApplication.shared.canOpenURL(url!) {
-                UIApplication.shared.open(url!)
-        }
+        
+        if urlNews3 != "" {
+            userDefaults.set(urlNews3, forKey: "RequestedPostID")
+            userDefaults.synchronize()
+            
+            let tabBarController = parent as! ESTabBarController
+            tabBarController.setSelectedIndex(1, animated: false)
+            for viewController in tabBarController.childViewControllers {
+                if viewController is Post {
+                    let post = viewController as! Post
+                    post.handleCheckedPost()
+                    break
+                }
+            }
         }
     }
     
     
     @IBAction func event1Title(_ sender: Any) {
         let urlEvent1 = event1URL
-        let url = URL(string: "\(urlEvent1!)")
-        if url == nil {
-            return
-        }
-        else {
-            if UIApplication.shared.canOpenURL(url!) {
-                UIApplication.shared.open(url!)
-        }
+        
+        if urlEvent1 != "" {
+            userDefaults.set(urlEvent1, forKey: "RequestedPostID")
+            userDefaults.synchronize()
+            
+            let tabBarController = parent as! ESTabBarController
+            tabBarController.setSelectedIndex(1, animated: false)
+            for viewController in tabBarController.childViewControllers {
+                if viewController is Post {
+                    let post = viewController as! Post
+                    post.handleCheckedPost()
+                    break
+                }
+            }
         }
     }
     
     
     @IBAction func event2Title(_ sender: Any) {
         let urlEvent2 = event2URL
-        let url = URL(string: "\(urlEvent2!)")
-        if url == nil {
-            return
-        }
-        else {
-            if UIApplication.shared.canOpenURL(url!) {
-                UIApplication.shared.open(url!)
-        }
+        
+        if urlEvent2 != "" {
+            userDefaults.set(urlEvent2, forKey: "RequestedPostID")
+            userDefaults.synchronize()
+            
+            let tabBarController = parent as! ESTabBarController
+            tabBarController.setSelectedIndex(1, animated: false)
+            for viewController in tabBarController.childViewControllers {
+                if viewController is Post {
+                    let post = viewController as! Post
+                    post.handleCheckedPost()
+                    break
+                }
+            }
         }
     }
     
     
     @IBAction func event3Title(_ sender: Any) {
         let urlEvent3 = event3URL
-        let url = URL(string: "\(urlEvent3!)")
-        if url == nil {
-            return
-        }
-        else {
-            if UIApplication.shared.canOpenURL(url!) {
-                UIApplication.shared.open(url!)
-        }
+        
+        if urlEvent3 != "" {
+            userDefaults.set(urlEvent3, forKey: "RequestedPostID")
+            userDefaults.synchronize()
+            
+            let tabBarController = parent as! ESTabBarController
+            tabBarController.setSelectedIndex(1, animated: false)
+            for viewController in tabBarController.childViewControllers {
+                if viewController is Post {
+                    let post = viewController as! Post
+                    post.handleCheckedPost()
+                    break
+                }
+            }
         }
     }
     

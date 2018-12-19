@@ -1113,7 +1113,7 @@ class Post: UIViewController, UITableViewDataSource, UITableViewDelegate, UISear
         
         let UserPhotoURLFlag :String = userDefaults.string(forKey: "UserPhotoURLFlag")!
         if UserPhotoURLFlag == "YES" {
-            AJAlertController.initialization().showAlert(aStrMessage: "今からFacebookでこのユーザーを検索します！\n\nコンタクトする事を事前に「通知」しておきますか？\n\n※通知を選択すると、貴方から後程コンタクトがある旨をこのユーザーにお知らせします。", aCancelBtnTitle: "まずは検索のみ", aOtherBtnTitle: "「通知」＋検索") { (index, title) in
+            AJAlertController.initialization().showAlert(aStrMessage: "今からFacebookでこのユーザーを検索します！\n\nコンタクトする事を事前に\n「通知」しておきますか？\n\n※通知を選択すると、貴方から後程コンタクトがある旨を\nこのユーザーにお知らせします。", aCancelBtnTitle: "まずは検索のみ", aOtherBtnTitle: "「通知」＋検索") { (index, title) in
                 print(index,title)
             }
         }

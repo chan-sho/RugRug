@@ -58,7 +58,7 @@ class InfoTableCell: UITableViewCell {
         self.chatRequestLabel.text = "\(postData.ChatRequest ?? "")"
         
         let formatter = DateFormatter()
-        formatter.dateFormat = "yyyy/MM/dd"
+        formatter.dateFormat = "yyyy/MM/dd  h:mm a"
         let dateString = formatter.string(from: postData.date!)
         self.time.text = dateString
     }

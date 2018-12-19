@@ -496,7 +496,7 @@ class AJAlertController: UIViewController {
         }
         
         
-        //投稿者プロフィール画像を押された上で、「通知＋Facebook検索」を選択した際のアクション
+        //投稿者プロフィール画像を押された上で、「チャット依頼」を選択した際のアクション
         let ChatRequestFlag :String = userDefaults.string(forKey: "ChatRequestFlag")!
         if ChatRequestFlag == "YES" {
             let UserPhotoName :String = userDefaults.string(forKey: "UserPhotoName")!
@@ -513,7 +513,7 @@ class AJAlertController: UIViewController {
             
             //**重要** 辞書を作成してFirebaseに保存する
             let postRef = Database.database().reference().child(Const5.PostPath5)
-            let postDic = ["AskUserID": Auth.auth().currentUser!.uid, "time": String(time), "AskUserName": name!, "AskUserURL": UserProfileURL, "RequestedUserID": ContactRequestUserID, "RequestedUserName": UserPhotoName, "RequestedPostID": ContactRequestPost,"checkFlag": "", "ChatRequest": "まずはチャットしませんか？↓ click"] as [String : Any]
+            let postDic = ["AskUserID": Auth.auth().currentUser!.uid, "time": String(time), "AskUserName": name!, "AskUserURL": UserProfileURL, "RequestedUserID": ContactRequestUserID, "RequestedUserName": UserPhotoName, "RequestedPostID": ContactRequestPost,"checkFlag": "", "ChatRequest": "【貴方のコンタクト通知に返信】\n  まずはチャットしませんか？↓click"] as [String : Any]
             postRef.childByAutoId().setValue(postDic)
             
             //チェックFlagの再初期化

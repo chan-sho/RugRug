@@ -860,6 +860,7 @@ RugRug管理人に報告します</string>
                     </view>
                     <connections>
                         <outlet property="tableView" destination="Tay-MO-yoE" id="a6j-tA-HhL"/>
+                        <segue destination="mR7-a3-ngd" kind="show" identifier="toChat2" id="J3a-0x-fVJ"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="tgt-0m-TUv" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -1460,7 +1461,7 @@ RugRug管理人に報告します</string>
                                     <constraint firstAttribute="width" constant="210" id="UuL-pe-Wqt"/>
                                 </constraints>
                             </stackView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="気まぐれ。Newsピックアップ" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="H89-fh-bHY">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="気まぐれ。投稿ピックアップ" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="H89-fh-bHY">
                                 <rect key="frame" x="0.0" y="91" width="375" height="24"/>
                                 <color key="backgroundColor" red="0.016804177310000001" green="0.19835099580000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <fontDescription key="fontDescription" type="system" weight="medium" pointSize="20"/>
@@ -1511,7 +1512,7 @@ RugRug管理人に報告します</string>
                                     <action selector="news3Title:" destination="pUW-0S-H89" eventType="touchUpInside" id="oQW-QU-Oqq"/>
                                 </connections>
                             </button>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="勝手に。Eventピックアップ" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="BMf-zl-2pY">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="勝手に。イベントピックアップ" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="BMf-zl-2pY">
                                 <rect key="frame" x="0.0" y="321.5" width="375" height="24"/>
                                 <color key="backgroundColor" red="0.0" green="0.58980089430000004" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <fontDescription key="fontDescription" type="system" weight="medium" pointSize="20"/>
@@ -1738,7 +1739,7 @@ RugRug管理人に報告します</string>
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="news1Photo(1201)" translatesAutoresizingMaskIntoConstraints="NO" id="tKt-HE-Q03">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="news1Photo(1219)" translatesAutoresizingMaskIntoConstraints="NO" id="tKt-HE-Q03">
                                 <rect key="frame" x="37.5" y="283.5" width="300" height="100"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="300" id="ddz-Cb-UWs"/>
@@ -1816,13 +1817,14 @@ RugRug管理人に報告します</string>
         <image name="Stance" width="75" height="75"/>
         <image name="Target" width="75" height="75"/>
         <image name="like_exist" width="64" height="64"/>
-        <image name="news1Photo(1201)" width="600" height="200"/>
+        <image name="news1Photo(1219)" width="600" height="200"/>
         <image name="背景_Home" width="192" height="330.72000122070312"/>
         <image name="背景_New&amp;Request" width="192" height="330.72000122070312"/>
         <image name="背景_Revise" width="192" height="330.72000122070312"/>
         <image name="背景_Setting" width="192" height="330.72000122070312"/>
     </resources>
     <inferredMetricsTieBreakers>
+        <segue reference="J3a-0x-fVJ"/>
         <segue reference="OvV-Ib-gOX"/>
     </inferredMetricsTieBreakers>
 </document>

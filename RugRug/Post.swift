@@ -82,6 +82,17 @@ class Post: UIViewController, UITableViewDataSource, UITableViewDelegate, UISear
         let nib = UINib(nibName: "PostTableCell", bundle: nil)
         tableView.register(nib, forCellReuseIdentifier: "Cell")
         
+        //キーボードに「閉じる」ボタンをつける
+        let kbToolBar = UIToolbar(frame: CGRect(x: 0, y: 0, width: 320, height: 40))
+        kbToolBar.barStyle = UIBarStyle.default  // スタイルを設定
+        kbToolBar.sizeToFit()  // 画面幅に合わせてサイズを変更
+        // スペーサー
+        let spacer = UIBarButtonItem(barButtonSystemItem: UIBarButtonSystemItem.flexibleSpace, target: self, action: nil)
+        // 閉じるボタン
+        let commitButton = UIBarButtonItem(title: "キーボードを閉じる", style: .done, target: self, action: #selector(self.commitButtonTapped))
+        kbToolBar.items = [spacer, commitButton]
+        textSearchBar.inputAccessoryView = kbToolBar
+        
         // テーブル行の高さをAutoLayoutで自動調整する
         tableView.rowHeight = UITableViewAutomaticDimension
         // テーブル行の高さの概算値を設定しておく
@@ -1135,6 +1146,11 @@ class Post: UIViewController, UITableViewDataSource, UITableViewDelegate, UISear
         postArrayOfCheckedPost = tempFilteredArray
         
         self.tableView.reloadData()
+    }
+    
+    
+    @objc func commitButtonTapped() {
+        self.view.endEditing(true)
     }
     
     

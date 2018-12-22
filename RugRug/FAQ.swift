@@ -58,7 +58,7 @@ class FAQ: UIViewController, UITableViewDataSource, UITableViewDelegate, UISearc
         tableView.register(nib, forCellReuseIdentifier: "Cell-2")
         
         // テーブル行の高さをAutoLayoutで自動調整する
-        tableView.rowHeight = UITableViewAutomaticDimension
+        tableView.rowHeight = UITableView.automaticDimension
         // テーブル行の高さの概算値を設定しておく
         tableView.estimatedRowHeight = 200
         

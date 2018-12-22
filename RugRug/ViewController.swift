@@ -74,7 +74,7 @@ class ViewController: UIViewController {
         tabBarController.selectionIndicatorHeight = 2
         
         // 作成したESTabBarControllerを親のViewController（＝self）に追加する
-        addChildViewController(tabBarController)
+        addChild(tabBarController)
         let tabBarView = tabBarController.view!
         tabBarView.translatesAutoresizingMaskIntoConstraints = false
         view.addSubview(tabBarView)
@@ -85,7 +85,7 @@ class ViewController: UIViewController {
             tabBarView.leadingAnchor.constraint(equalTo: safeArea.leadingAnchor),
             tabBarView.trailingAnchor.constraint(equalTo: safeArea.trailingAnchor),
             ])
-        tabBarController.didMove(toParentViewController: self)
+        tabBarController.didMove(toParent: self)
         
         // タブをタップした時に表示するViewControllerを設定する
         let Home = storyboard?.instantiateViewController(withIdentifier: "Home")

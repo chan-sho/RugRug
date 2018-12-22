@@ -32,7 +32,7 @@ class Manager: UIViewController {
 
     @IBAction func submitButton(_ sender: Any) {
         // ImageViewから画像を取得する
-        let imageData = UIImageJPEGRepresentation(news1Photo.image!, 0.5)
+        let imageData = news1Photo.image!.jpegData(compressionQuality: 0.5)
         let imageString = imageData!.base64EncodedString(options: .lineLength64Characters)
         
         print("\(imageString)")

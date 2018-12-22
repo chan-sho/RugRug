@@ -210,7 +210,7 @@ class Home: UIViewController, UITextViewDelegate {
         
             let tabBarController = parent as! ESTabBarController
             tabBarController.setSelectedIndex(1, animated: false)
-            for viewController in tabBarController.childViewControllers {
+            for viewController in tabBarController.children {
                 if viewController is Post {
                     let post = viewController as! Post
                     post.handleCheckedPost()
@@ -230,7 +230,7 @@ class Home: UIViewController, UITextViewDelegate {
             
             let tabBarController = parent as! ESTabBarController
             tabBarController.setSelectedIndex(1, animated: false)
-            for viewController in tabBarController.childViewControllers {
+            for viewController in tabBarController.children {
                 if viewController is Post {
                     let post = viewController as! Post
                     post.handleCheckedPost()
@@ -250,7 +250,7 @@ class Home: UIViewController, UITextViewDelegate {
             
             let tabBarController = parent as! ESTabBarController
             tabBarController.setSelectedIndex(1, animated: false)
-            for viewController in tabBarController.childViewControllers {
+            for viewController in tabBarController.children {
                 if viewController is Post {
                     let post = viewController as! Post
                     post.handleCheckedPost()
@@ -270,7 +270,7 @@ class Home: UIViewController, UITextViewDelegate {
             
             let tabBarController = parent as! ESTabBarController
             tabBarController.setSelectedIndex(1, animated: false)
-            for viewController in tabBarController.childViewControllers {
+            for viewController in tabBarController.children {
                 if viewController is Post {
                     let post = viewController as! Post
                     post.handleCheckedPost()
@@ -290,7 +290,7 @@ class Home: UIViewController, UITextViewDelegate {
             
             let tabBarController = parent as! ESTabBarController
             tabBarController.setSelectedIndex(1, animated: false)
-            for viewController in tabBarController.childViewControllers {
+            for viewController in tabBarController.children {
                 if viewController is Post {
                     let post = viewController as! Post
                     post.handleCheckedPost()
@@ -310,7 +310,7 @@ class Home: UIViewController, UITextViewDelegate {
             
             let tabBarController = parent as! ESTabBarController
             tabBarController.setSelectedIndex(1, animated: false)
-            for viewController in tabBarController.childViewControllers {
+            for viewController in tabBarController.children {
                 if viewController is Post {
                     let post = viewController as! Post
                     post.handleCheckedPost()

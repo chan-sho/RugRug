@@ -105,7 +105,7 @@ class NewPost: UIViewController, UITextFieldDelegate, UITextViewDelegate {
         }
         else {
         // ImageViewから画像を取得する
-        let imageData = UIImageJPEGRepresentation(userPhoto.image!, 0.5)
+        let imageData = userPhoto.image!.jpegData(compressionQuality: 0.5)
         let imageString = imageData!.base64EncodedString(options: .lineLength64Characters)
         // postDataに必要な情報を取得しておく
         let time = Date.timeIntervalSinceReferenceDate

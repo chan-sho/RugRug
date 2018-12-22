@@ -46,7 +46,7 @@ class Info: UIViewController, UITableViewDataSource, UITableViewDelegate {
         tableView.register(nib, forCellReuseIdentifier: "Cell-3")
         
         // テーブル行の高さをAutoLayoutで自動調整する
-        tableView.rowHeight = UITableViewAutomaticDimension
+        tableView.rowHeight = UITableView.automaticDimension
         // テーブル行の高さの概算値を設定しておく
         tableView.estimatedRowHeight = 200
         
@@ -203,7 +203,7 @@ class Info: UIViewController, UITableViewDataSource, UITableViewDelegate {
         
         let tabBarController = parent as! ESTabBarController
         tabBarController.setSelectedIndex(1, animated: false)
-        for viewController in tabBarController.childViewControllers {
+        for viewController in tabBarController.children {
             if viewController is Post {
                 let post = viewController as! Post
                 post.handleCheckedPost()

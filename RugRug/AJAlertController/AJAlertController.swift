@@ -166,10 +166,10 @@ class AJAlertController: UIViewController {
                 topViewController = topViewController.presentedViewController!
             }
             
-            topViewController.addChildViewController(self)
+            topViewController.addChild(self)
             topViewController.view.addSubview(view)
             viewWillAppear(true)
-            didMove(toParentViewController: topViewController)
+            didMove(toParent: topViewController)
             view.autoresizingMask = [.flexibleWidth, .flexibleHeight]
             view.alpha = 0.0
             view.frame = topViewController.view.bounds
@@ -206,7 +206,7 @@ class AJAlertController: UIViewController {
         }) { (completed) -> Void in
             
             self.view.removeFromSuperview()
-            self.removeFromParentViewController()
+            self.removeFromParent()
         }
     }
     

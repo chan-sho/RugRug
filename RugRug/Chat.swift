@@ -47,7 +47,7 @@ class Chat: UIViewController, UITextViewDelegate, UITableViewDataSource, UITable
         kbToolBar.barStyle = UIBarStyle.default  // スタイルを設定
         kbToolBar.sizeToFit()  // 画面幅に合わせてサイズを変更
         // スペーサー
-        let spacer = UIBarButtonItem(barButtonSystemItem: UIBarButtonSystemItem.flexibleSpace, target: self, action: nil)
+        let spacer = UIBarButtonItem(barButtonSystemItem: UIBarButtonItem.SystemItem.flexibleSpace, target: self, action: nil)
         // 閉じるボタン
         let commitButton = UIBarButtonItem(title: "キーボードを閉じる", style: .done, target: self, action: #selector(self.commitButtonTapped))
         kbToolBar.items = [spacer, commitButton]
@@ -91,7 +91,7 @@ class Chat: UIViewController, UITextViewDelegate, UITableViewDataSource, UITable
         tableView.register(nib, forCellReuseIdentifier: "Cell-4")
         
         // テーブル行の高さをAutoLayoutで自動調整する
-        tableView.rowHeight = UITableViewAutomaticDimension
+        tableView.rowHeight = UITableView.automaticDimension
         // テーブル行の高さの概算値を設定しておく
         tableView.estimatedRowHeight = 200
         
@@ -237,7 +237,7 @@ class Chat: UIViewController, UITextViewDelegate, UITableViewDataSource, UITable
         }
         else {
             // ImageViewから画像を取得する
-            let imageData = UIImageJPEGRepresentation(userPhoto.image!, 0.5)
+            let imageData = userPhoto.image!.jpegData(compressionQuality: 0.5)
             let imageString = imageData!.base64EncodedString(options: .lineLength64Characters)
             // postDataに必要な情報を取得しておく
             let time = Date.timeIntervalSinceReferenceDate

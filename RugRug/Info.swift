@@ -233,7 +233,8 @@ class Info: UIViewController, UITableViewDataSource, UITableViewDelegate {
         if userPhotoName != nil {
             let userURL : String = "https://www.facebook.com/search/str/\(userPhotoName!)/keywords_search"
             print("\(userURL)")
-            let userPhotoURL = userURL.replacingOccurrences(of: " ", with: "", options: .regularExpression)
+            var userPhotoURL = userURL.replacingOccurrences(of: " ", with: "", options: .regularExpression)
+            userPhotoURL = userPhotoURL.addingPercentEncoding(withAllowedCharacters: NSCharacterSet.urlQueryAllowed)!
             print("\(userPhotoURL)")
             
             //userDefaultsに必要なデータを保存

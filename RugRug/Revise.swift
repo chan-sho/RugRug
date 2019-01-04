@@ -19,6 +19,7 @@ class Revise: UIViewController, UITextFieldDelegate, UITextViewDelegate {
     
     @IBOutlet weak var categoryRevised: UITextField!
     @IBOutlet weak var contentsRevised: UITextView!
+    @IBOutlet weak var contentsURLRevised: UITextField!
     @IBOutlet weak var reviseDoneButton: UIButton!
     @IBOutlet weak var cancelButton: UIButton!
     @IBOutlet weak var deleteButton: UIButton!
@@ -34,18 +35,23 @@ class Revise: UIViewController, UITextFieldDelegate, UITextViewDelegate {
 
         categoryRevised.delegate = self
         contentsRevised.delegate = self
+        contentsURLRevised.delegate = self
         
         // 枠のカラー
         categoryRevised.layer.borderColor = UIColor.gray.cgColor
         contentsRevised.layer.borderColor = UIColor.gray.cgColor
+        contentsURLRevised.layer.borderColor = UIColor.gray.cgColor
         // 枠の幅
         categoryRevised.layer.borderWidth = 0.5
         contentsRevised.layer.borderWidth = 0.5
+        contentsURLRevised.layer.borderWidth = 0.5
         // 枠を角丸にする場合
         categoryRevised.layer.cornerRadius = 10.0
         categoryRevised.layer.masksToBounds = true
         contentsRevised.layer.cornerRadius = 10.0
         contentsRevised.layer.masksToBounds = true
+        contentsURLRevised.layer.cornerRadius = 10.0
+        contentsURLRevised.layer.masksToBounds = true
         
         //ボタン同時押しによるアプリクラッシュを防ぐ
         reviseDoneButton.isExclusiveTouch = true
@@ -86,6 +92,7 @@ class Revise: UIViewController, UITextFieldDelegate, UITextViewDelegate {
                         //各Textに保存
                         self.categoryRevised.text = valueToRevise["category"] as? String
                         self.contentsRevised.text = valueToRevise["contents"] as? String
+                        self.contentsURLRevised.text = valueToRevise["contentsURL"] as? String
                     })
                 }
                 else {
@@ -105,6 +112,7 @@ class Revise: UIViewController, UITextFieldDelegate, UITextViewDelegate {
     // Returnボタンを押した際にキーボードを消す（※TextViewには設定できない。改行できなくなる為＾＾）
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         categoryRevised.resignFirstResponder()
+        contentsURLRevised.resignFirstResponder()
         return true
     }
     
@@ -113,6 +121,7 @@ class Revise: UIViewController, UITextFieldDelegate, UITextViewDelegate {
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         categoryRevised.resignFirstResponder()
         contentsRevised.resignFirstResponder()
+        contentsURLRevised.resignFirstResponder()
     }
 
     
@@ -121,14 +130,14 @@ class Revise: UIViewController, UITextFieldDelegate, UITextViewDelegate {
         reviseData = userDefaults.string(forKey: "reviseDataId")
         
         if categoryRevised.text == ""{
-            let Data = ["category": "(題名なし)", "contents": "\(contentsRevised.text ?? "")"]
+            let Data = ["category": "(題名なし)", "contents": "\(contentsRevised.text ?? "")", "contentsURL": "\(contentsURLRevised.text ?? "")"]
             
             //Firebaseから該当データを選択し、データの各項目をアップデート
             let refToReviseData = Database.database().reference().child("posts").child("\(reviseData!)")
             refToReviseData.updateChildValues(Data)
         }
         else{
-            let Data = ["category": "\(categoryRevised.text!)", "contents": "\(contentsRevised.text ?? "")"]
+            let Data = ["category": "\(categoryRevised.text!)", "contents": "\(contentsRevised.text ?? "")", "contentsURL": "\(contentsURLRevised.text ?? "")"]
             
             //Firebaseから該当データを選択し、データの各項目をアップデート
             let refToReviseData = Database.database().reference().child("posts").child("\(reviseData!)")

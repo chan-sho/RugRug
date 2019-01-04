@@ -96,7 +96,7 @@ class Post: UIViewController, UITableViewDataSource, UITableViewDelegate, UISear
         // テーブル行の高さをAutoLayoutで自動調整する
         tableView.rowHeight = UITableView.automaticDimension
         // テーブル行の高さの概算値を設定しておく
-        tableView.estimatedRowHeight = 250
+        tableView.estimatedRowHeight = 300
         
         //userDefaultsの初期値設定（念の為）
         userDefaults.register(defaults: ["RejectIdArray" : [], "UserPhotoURLFlag" : "NO", "RejectUserArray" : [], "ChatRequestFlag" : "NO"])
@@ -865,6 +865,9 @@ class Post: UIViewController, UITableViewDataSource, UITableViewDelegate, UISear
             // セル内のcautionPhotoボタンを追加で管理
             cell.cautionButton.addTarget(self, action:#selector(handleCautionButton(_:forEvent:)), for: .touchUpInside)
             
+            // セル内のURLボタンを追加で管理
+            cell.URLButton.addTarget(self, action:#selector(handleURLButton(_:forEvent:)), for: .touchUpInside)
+            
             return cell
         }
         else if self.textSearchBar.text == "【※抽出中】" {
@@ -884,6 +887,9 @@ class Post: UIViewController, UITableViewDataSource, UITableViewDelegate, UISear
             // セル内のcautionPhotoボタンを追加で管理
             cell.cautionButton.addTarget(self, action:#selector(handleCautionButton(_:forEvent:)), for: .touchUpInside)
             
+            // セル内のURLボタンを追加で管理
+            cell.URLButton.addTarget(self, action:#selector(handleURLButton(_:forEvent:)), for: .touchUpInside)
+            
             return cell
         }
         else {
@@ -902,6 +908,9 @@ class Post: UIViewController, UITableViewDataSource, UITableViewDelegate, UISear
             
             // セル内のcautionPhotoボタンを追加で管理
             cell.cautionButton.addTarget(self, action:#selector(handleCautionButton(_:forEvent:)), for: .touchUpInside)
+            
+            // セル内のURLボタンを追加で管理
+            cell.URLButton.addTarget(self, action:#selector(handleURLButton(_:forEvent:)), for: .touchUpInside)
             
             return cell
         }
@@ -1061,7 +1070,8 @@ class Post: UIViewController, UITableViewDataSource, UITableViewDelegate, UISear
             
             let userURL : String = "https://www.facebook.com/search/str/\(userPhotoName!)/keywords_search"
             print("\(userURL)")
-            let userPhotoURL = userURL.replacingOccurrences(of: " ", with: "", options: .regularExpression)
+            var userPhotoURL = userURL.replacingOccurrences(of: " ", with: "", options: .regularExpression)
+            userPhotoURL = userPhotoURL.addingPercentEncoding(withAllowedCharacters: NSCharacterSet.urlQueryAllowed)!
             print("\(userPhotoURL)")
             
             //userDefaultsに必要なデータを保存
@@ -1116,6 +1126,54 @@ class Post: UIViewController, UITableViewDataSource, UITableViewDelegate, UISear
         //Chatに移動
          self.performSegue(withIdentifier: "toChat", sender: nil)
        
+    }
+    
+    
+    //セル内のURLボタンが押された時に呼ばれるメソッド
+    @objc func handleURLButton(_ sender: UIButton, forEvent event: UIEvent) {
+        // タップされたセルのインデックスを求める
+        let touch = event.allTouches?.first
+        let point = touch!.location(in: self.tableView)
+        let indexPath = tableView.indexPathForRow(at: point)
+        
+        let postData : PostData
+        
+        if textSearchBar.text == "" {
+            // 配列からタップされたインデックスのデータを取り出す
+            postData = postArray[indexPath!.row]
+        }
+        else if self.textSearchBar.text == "【※抽出中】" {
+            // 配列からタップされたインデックスのデータを取り出す
+            postData = postArrayOfCheckedPost[indexPath!.row]
+        }
+        else {
+            // 検索バーに入力された単語をスペースで分けて配列に入れる
+            let searchWords = textSearchBar.text!
+            let array = searchWords.components(separatedBy: NSCharacterSet.whitespaces)
+            // 検索バーのテキストを一部でも含むものをAND検索する！
+            var tempFilteredArray = postArrayAll
+            for n in array {
+                tempFilteredArray = tempFilteredArray.filter({ ($0.category?.localizedCaseInsensitiveContains(n))! || ($0.contents?.localizedCaseInsensitiveContains(n))! ||  ($0.name?.localizedCaseInsensitiveContains(n))! ||  ($0.id?.localizedCaseInsensitiveContains(n))!})
+            }
+            postArrayBySearch = tempFilteredArray
+            postData = postArrayBySearch[indexPath!.row]
+        }
+        
+        //タップを検知されたpostDataから投稿ナンバーを抽出する
+        var contentsURL = postData.contentsURL
+        if contentsURL != nil {
+            contentsURL = contentsURL?.addingPercentEncoding(withAllowedCharacters: NSCharacterSet.urlQueryAllowed)
+            let url = URL(string: "\(contentsURL!)")
+            if url == nil {
+                print("NG")
+                return
+            }
+            else {
+                if UIApplication.shared.canOpenURL(url!) {
+                    UIApplication.shared.open(url!)
+                }
+            }
+        }
     }
     
     

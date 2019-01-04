@@ -61,6 +61,7 @@ class PostData: NSObject {
     var RequestedName: String?
     var RequestedPostID: String?
     var ChatRequest: String?
+    var contentsURL: String?
     
     
     init(snapshot: DataSnapshot, myId: String) {
@@ -71,6 +72,7 @@ class PostData: NSObject {
         self.name = valueDictionary["name"] as? String
         self.category = valueDictionary["category"] as? String
         self.contents = valueDictionary["contents"] as? String
+        self.contentsURL = valueDictionary["contentsURL"] as? String
         
         userPhotoString = valueDictionary["userPhoto"] as? String
         if userPhotoString != nil {

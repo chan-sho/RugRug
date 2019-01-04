@@ -22,6 +22,7 @@ class PostTableCell: UITableViewCell {
     @IBOutlet weak var reviseButton: UIButton!
     @IBOutlet weak var cautionButton: UIButton!
     @IBOutlet weak var userPhotoButton: UIButton!
+    @IBOutlet weak var URLButton: UIButton!
     
     
     override func awakeFromNib() {
@@ -93,6 +94,8 @@ class PostTableCell: UITableViewCell {
             let buttonImage = UIImage(named:"like_none")
             self.likeButton.setImage(buttonImage, for: .normal)
         }
+        
+        URLButton.setTitle("\(postData.contentsURL ?? "")", for: .normal)
         
     }
     

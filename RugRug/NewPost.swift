@@ -19,6 +19,7 @@ class NewPost: UIViewController, UITextFieldDelegate, UITextViewDelegate {
     
     @IBOutlet weak var category: UITextField!
     @IBOutlet weak var contents: UITextView!
+    @IBOutlet weak var contentsURL: UITextField!
     @IBOutlet weak var newPostButton: UIButton!
     @IBOutlet weak var cancelButton: UIButton!
     
@@ -33,18 +34,23 @@ class NewPost: UIViewController, UITextFieldDelegate, UITextViewDelegate {
 
         category.delegate = self
         contents.delegate = self
+        contentsURL.delegate = self
         
         // 枠のカラー
         category.layer.borderColor = UIColor.gray.cgColor
         contents.layer.borderColor = UIColor.gray.cgColor
+        contentsURL.layer.borderColor = UIColor.gray.cgColor
         // 枠の幅
         category.layer.borderWidth = 0.5
         contents.layer.borderWidth = 0.5
+        contentsURL.layer.borderWidth = 0.5
         // 枠を角丸にする場合
         category.layer.cornerRadius = 10.0
         category.layer.masksToBounds = true
         contents.layer.cornerRadius = 10.0
         contents.layer.masksToBounds = true
+        contentsURL.layer.cornerRadius = 10.0
+        contentsURL.layer.masksToBounds = true
         
         //ボタン同時押しによるアプリクラッシュを防ぐ
         newPostButton.isExclusiveTouch = true
@@ -87,6 +93,7 @@ class NewPost: UIViewController, UITextFieldDelegate, UITextViewDelegate {
     // Returnボタンを押した際にキーボードを消す（※TextViewには設定できない。改行できなくなる為＾＾）
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         category.resignFirstResponder()
+        contentsURL.resignFirstResponder()
         return true
     }
     
@@ -95,6 +102,7 @@ class NewPost: UIViewController, UITextFieldDelegate, UITextViewDelegate {
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         category.resignFirstResponder()
         contents.resignFirstResponder()
+        contentsURL.resignFirstResponder()
     }
     
     
@@ -118,7 +126,7 @@ class NewPost: UIViewController, UITextFieldDelegate, UITextViewDelegate {
         
         // **重要** 辞書を作成してFirebaseに保存する
         let postRef = Database.database().reference().child(Const.PostPath)
-        let postDic = ["userID": Auth.auth().currentUser!.uid, "category": category.text!, "contents": contents.text!, "userPhoto": imageString, "time": String(time), "name": name!, "EULAagreement": EULAagreement] as [String : Any]
+        let postDic = ["userID": Auth.auth().currentUser!.uid, "category": category.text!, "contents": contents.text!, "contentsURL": contentsURL.text!, "userPhoto": imageString, "time": String(time), "name": name!, "EULAagreement": EULAagreement] as [String : Any]
         postRef.childByAutoId().setValue(postDic)
         
         // HUDで投稿完了を表示する

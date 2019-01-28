@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		311F7A7321FEE9C20068868E /* WCup7x7.swift in Sources */ = {isa = PBXBuildFile; fileRef = 311F7A7221FEE9C10068868E /* WCup7x7.swift */; };
+		311F7A7521FEF4F00068868E /* New7x7.swift in Sources */ = {isa = PBXBuildFile; fileRef = 311F7A7421FEF4F00068868E /* New7x7.swift */; };
 		31280E9921AD3322008FDDEF /* AJAlertController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 31280E9521AD3321008FDDEF /* AJAlertController.xib */; };
 		31280E9C21AD3322008FDDEF /* AJAlertController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31280E9821AD3321008FDDEF /* AJAlertController.swift */; };
 		312A2DDB21BE2C8600C16EA1 /* Info.swift in Sources */ = {isa = PBXBuildFile; fileRef = 312A2DDA21BE2C8600C16EA1 /* Info.swift */; };
@@ -50,6 +51,7 @@
 
 /* Begin PBXFileReference section */
 		311F7A7221FEE9C10068868E /* WCup7x7.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WCup7x7.swift; sourceTree = "<group>"; };
+		311F7A7421FEF4F00068868E /* New7x7.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = New7x7.swift; sourceTree = "<group>"; };
 		31280E9521AD3321008FDDEF /* AJAlertController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AJAlertController.xib; sourceTree = "<group>"; };
 		31280E9821AD3321008FDDEF /* AJAlertController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AJAlertController.swift; sourceTree = "<group>"; };
 		312A2DDA21BE2C8600C16EA1 /* Info.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Info.swift; sourceTree = "<group>"; };
@@ -154,6 +156,7 @@
 				317A096221C280E400C35DAE /* ChatTableCell.swift */,
 				317A096321C280E400C35DAE /* ChatTableCell.xib */,
 				311F7A7221FEE9C10068868E /* WCup7x7.swift */,
+				311F7A7421FEF4F00068868E /* New7x7.swift */,
 				312A2DDA21BE2C8600C16EA1 /* Info.swift */,
 				312A2DDE21BE648E00C16EA1 /* InfoTableCell.swift */,
 				312A2DDF21BE648E00C16EA1 /* InfoTableCell.xib */,
@@ -353,6 +356,7 @@
 				31DB930F21A903DB00A2B6AF /* NewPost.swift in Sources */,
 				312A2DE021BE648E00C16EA1 /* InfoTableCell.swift in Sources */,
 				31DB930521A8D94900A2B6AF /* PostData.swift in Sources */,
+				311F7A7521FEF4F00068868E /* New7x7.swift in Sources */,
 				3169FE1D21AFBBBD000E01A4 /* Manager.swift in Sources */,
 				31DB92E721A7EC9000A2B6AF /* ViewController.swift in Sources */,
 				31DB930321A8388800A2B6AF /* Initial.swift in Sources */,

@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		311F7A7321FEE9C20068868E /* WCup7x7.swift in Sources */ = {isa = PBXBuildFile; fileRef = 311F7A7221FEE9C10068868E /* WCup7x7.swift */; };
 		31280E9921AD3322008FDDEF /* AJAlertController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 31280E9521AD3321008FDDEF /* AJAlertController.xib */; };
 		31280E9C21AD3322008FDDEF /* AJAlertController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31280E9821AD3321008FDDEF /* AJAlertController.swift */; };
 		312A2DDB21BE2C8600C16EA1 /* Info.swift in Sources */ = {isa = PBXBuildFile; fileRef = 312A2DDA21BE2C8600C16EA1 /* Info.swift */; };
@@ -48,6 +49,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		311F7A7221FEE9C10068868E /* WCup7x7.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WCup7x7.swift; sourceTree = "<group>"; };
 		31280E9521AD3321008FDDEF /* AJAlertController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AJAlertController.xib; sourceTree = "<group>"; };
 		31280E9821AD3321008FDDEF /* AJAlertController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AJAlertController.swift; sourceTree = "<group>"; };
 		312A2DDA21BE2C8600C16EA1 /* Info.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Info.swift; sourceTree = "<group>"; };
@@ -151,6 +153,7 @@
 				318F1CE121C245E100E53FD3 /* Chat.swift */,
 				317A096221C280E400C35DAE /* ChatTableCell.swift */,
 				317A096321C280E400C35DAE /* ChatTableCell.xib */,
+				311F7A7221FEE9C10068868E /* WCup7x7.swift */,
 				312A2DDA21BE2C8600C16EA1 /* Info.swift */,
 				312A2DDE21BE648E00C16EA1 /* InfoTableCell.swift */,
 				312A2DDF21BE648E00C16EA1 /* InfoTableCell.xib */,
@@ -335,6 +338,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				31DB930821A8DB4400A2B6AF /* PostTableCell.swift in Sources */,
+				311F7A7321FEE9C20068868E /* WCup7x7.swift in Sources */,
 				31EC171321AE43A70033E1F1 /* Const2.swift in Sources */,
 				317A096421C280E400C35DAE /* ChatTableCell.swift in Sources */,
 				31280E9C21AD3322008FDDEF /* AJAlertController.swift in Sources */,

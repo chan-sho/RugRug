@@ -36,6 +36,10 @@ class Post: UIViewController, UITableViewDataSource, UITableViewDelegate, UISear
     @IBOutlet weak var newPostButton: UIButton!
     @IBOutlet weak var newPostButton2: UIButton!
     
+    @IBOutlet weak var WCupButton1: UIButton!
+    @IBOutlet weak var WCupButton2: UIButton!
+    @IBOutlet weak var WCupButton3: UIButton!
+    
     
     var postArray: [PostData] = []
     var postArrayBySearch: [PostData] = []
@@ -92,6 +96,13 @@ class Post: UIViewController, UITableViewDataSource, UITableViewDelegate, UISear
         let commitButton = UIBarButtonItem(title: "キーボードを閉じる", style: .done, target: self, action: #selector(self.commitButtonTapped))
         kbToolBar.items = [spacer, commitButton]
         textSearchBar.inputAccessoryView = kbToolBar
+        
+        //ボタン同時押しによるアプリクラッシュを防ぐ
+        newPostButton.isExclusiveTouch = true
+        newPostButton2.isExclusiveTouch = true
+        WCupButton1.isExclusiveTouch = true
+        WCupButton2.isExclusiveTouch = true
+        WCupButton3.isExclusiveTouch = true
         
         // テーブル行の高さをAutoLayoutで自動調整する
         tableView.rowHeight = UITableView.automaticDimension

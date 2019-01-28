@@ -15,6 +15,7 @@
 		312A2DDD21BE38C900C16EA1 /* Const5.swift in Sources */ = {isa = PBXBuildFile; fileRef = 312A2DDC21BE38C900C16EA1 /* Const5.swift */; };
 		312A2DE021BE648E00C16EA1 /* InfoTableCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 312A2DDE21BE648E00C16EA1 /* InfoTableCell.swift */; };
 		312A2DE121BE648E00C16EA1 /* InfoTableCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 312A2DDF21BE648E00C16EA1 /* InfoTableCell.xib */; };
+		31494C0521FF17DC00EA4C85 /* Tips.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31494C0421FF17DC00EA4C85 /* Tips.swift */; };
 		3169FE1621AE785C000E01A4 /* FAQ.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3169FE1521AE785C000E01A4 /* FAQ.swift */; };
 		3169FE1921AE79E6000E01A4 /* FAQTableCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3169FE1721AE79E6000E01A4 /* FAQTableCell.swift */; };
 		3169FE1A21AE79E6000E01A4 /* FAQTableCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3169FE1821AE79E6000E01A4 /* FAQTableCell.xib */; };
@@ -58,6 +59,7 @@
 		312A2DDC21BE38C900C16EA1 /* Const5.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Const5.swift; sourceTree = "<group>"; };
 		312A2DDE21BE648E00C16EA1 /* InfoTableCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InfoTableCell.swift; sourceTree = "<group>"; };
 		312A2DDF21BE648E00C16EA1 /* InfoTableCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = InfoTableCell.xib; sourceTree = "<group>"; };
+		31494C0421FF17DC00EA4C85 /* Tips.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Tips.swift; sourceTree = "<group>"; };
 		3169FE1521AE785C000E01A4 /* FAQ.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FAQ.swift; sourceTree = "<group>"; };
 		3169FE1721AE79E6000E01A4 /* FAQTableCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FAQTableCell.swift; sourceTree = "<group>"; };
 		3169FE1821AE79E6000E01A4 /* FAQTableCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = FAQTableCell.xib; sourceTree = "<group>"; };
@@ -157,6 +159,7 @@
 				317A096321C280E400C35DAE /* ChatTableCell.xib */,
 				311F7A7221FEE9C10068868E /* WCup7x7.swift */,
 				311F7A7421FEF4F00068868E /* New7x7.swift */,
+				31494C0421FF17DC00EA4C85 /* Tips.swift */,
 				312A2DDA21BE2C8600C16EA1 /* Info.swift */,
 				312A2DDE21BE648E00C16EA1 /* InfoTableCell.swift */,
 				312A2DDF21BE648E00C16EA1 /* InfoTableCell.xib */,
@@ -351,6 +354,7 @@
 				317A096721C2830F00C35DAE /* Const6.swift in Sources */,
 				31DB930D21A8FE0500A2B6AF /* Revise.swift in Sources */,
 				31DB92FD21A7F66600A2B6AF /* Setting.swift in Sources */,
+				31494C0521FF17DC00EA4C85 /* Tips.swift in Sources */,
 				312A2DDB21BE2C8600C16EA1 /* Info.swift in Sources */,
 				312A2DDD21BE38C900C16EA1 /* Const5.swift in Sources */,
 				31DB930F21A903DB00A2B6AF /* NewPost.swift in Sources */,

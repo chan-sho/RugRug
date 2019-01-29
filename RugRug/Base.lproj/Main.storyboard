@@ -205,7 +205,7 @@
                                                     <constraint firstAttribute="height" constant="30" id="ZmT-a7-mDF"/>
                                                 </constraints>
                                                 <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="15"/>
-                                                <state key="normal" title="W Cup Anniversary ! 7 x 7 Go !!">
+                                                <state key="normal" title="W Cup Anniversary ! 7×7 Go !!">
                                                     <color key="titleColor" red="0.0" green="0.56284224989999998" blue="0.31881666180000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 </state>
                                                 <connections>
@@ -2697,7 +2697,7 @@ RugRug管理人に報告します</string>
         <image name="背景_Setting" width="192" height="330.72000122070312"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="J3a-0x-fVJ"/>
+        <segue reference="uR1-jP-wWo"/>
         <segue reference="BoB-2U-32s"/>
         <segue reference="OvV-Ib-gOX"/>
     </inferredMetricsTieBreakers>

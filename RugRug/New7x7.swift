@@ -7,6 +7,11 @@
 //
 
 import UIKit
+import Firebase
+import FirebaseDatabase
+import FirebaseAuth
+import SVProgressHUD
+
 
 class New7x7: UIViewController, UITextFieldDelegate {
     
@@ -231,7 +236,9 @@ class New7x7: UIViewController, UITextFieldDelegate {
 
     
     @IBAction func newPostButton(_ sender: Any) {
+        let new7x7 = ["\(T0.text ?? "")","\(T1.text ?? "")","\(T2.text ?? "")","\(T3.text ?? "")","\(T4.text ?? "")","\(T5.text ?? "")","\(T6.text ?? "")","\(T7.text ?? "")","\(T8.text ?? "")","\(T9.text ?? "")","\(T10.text ?? "")","\(T11.text ?? "")","\(T12.text ?? "")","\(T13.text ?? "")","\(T14.text ?? "")","\(T15.text ?? "")","\(T16.text ?? "")","\(T17.text ?? "")","\(T18.text ?? "")","\(T19.text ?? "")","\(T20.text ?? "")","\(T21.text ?? "")","\(T22.text ?? "")","\(T23.text ?? "")","\(T24.text ?? "")","\(T25.text ?? "")","\(T26.text ?? "")","\(T27.text ?? "")","\(T28.text ?? "")","\(T29.text ?? "")","\(T30.text ?? "")","\(T31.text ?? "")","\(T32.text ?? "")","\(T33.text ?? "")","\(T34.text ?? "")","\(T35.text ?? "")","\(T36.text ?? "")","\(T37.text ?? "")","\(T38.text ?? "")","\(T39.text ?? "")","\(T40.text ?? "")","\(T41.text ?? "")","\(T42.text ?? "")","\(T43.text ?? "")","\(T44.text ?? "")","\(T45.text ?? "")","\(T46.text ?? "")","\(T47.text ?? "")","\(T48.text ?? "")"]
         
+        print("\(new7x7)")
     }
     
 }

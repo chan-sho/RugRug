@@ -1026,22 +1026,42 @@
                                 </subviews>
                             </stackView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Md3-u1-8yo">
-                                <rect key="frame" x="40" y="399" width="240" height="40"/>
+                                <rect key="frame" x="40" y="469" width="240" height="40"/>
                                 <fontDescription key="fontDescription" type="system" weight="medium" pointSize="15"/>
                                 <state key="normal" title="投稿する / Post Now" backgroundImage="Btn2"/>
                                 <connections>
                                     <action selector="newPostButton:" destination="jAc-4x-fM1" eventType="touchUpInside" id="oHU-bZ-QFO"/>
                                 </connections>
                             </button>
+                            <stackView opaque="NO" contentMode="scaleToFill" alignment="center" spacing="7" translatesAutoresizingMaskIntoConstraints="NO" id="obd-oX-jtR">
+                                <rect key="frame" x="103" y="349" width="114.5" height="70"/>
+                                <subviews>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="qEM-TJ-Jsq">
+                                        <rect key="frame" x="0.0" y="0.0" width="70" height="70"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="70" id="O0R-ba-mYI"/>
+                                            <constraint firstAttribute="width" constant="70" id="aDf-7d-byI"/>
+                                        </constraints>
+                                    </imageView>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Y4C-ag-aQv">
+                                        <rect key="frame" x="77" y="26" width="37.5" height="18"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                        <color key="textColor" red="0.0" green="0.58980089430000004" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                            </stackView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="3yA-aU-s6H" firstAttribute="centerX" secondItem="ABF-ny-CaA" secondAttribute="centerX" id="04v-aO-FwX"/>
                             <constraint firstItem="3yA-aU-s6H" firstAttribute="top" secondItem="bEz-oK-EIB" secondAttribute="bottom" constant="2" id="526-p7-IkW"/>
+                            <constraint firstItem="obd-oX-jtR" firstAttribute="top" secondItem="3yA-aU-s6H" secondAttribute="bottom" constant="30" id="K8b-MQ-BeR"/>
+                            <constraint firstItem="obd-oX-jtR" firstAttribute="centerX" secondItem="ABF-ny-CaA" secondAttribute="centerX" id="KEP-I1-4h6"/>
                             <constraint firstItem="nvn-gu-Q8d" firstAttribute="leading" secondItem="fXO-vg-LGA" secondAttribute="leading" id="Pge-6r-kZo"/>
                             <constraint firstItem="VU4-Ru-IV4" firstAttribute="top" secondItem="nvn-gu-Q8d" secondAttribute="bottom" constant="10" id="QlM-Vw-6X8"/>
                             <constraint firstItem="VU4-Ru-IV4" firstAttribute="centerX" secondItem="ABF-ny-CaA" secondAttribute="centerX" id="Tyx-Fs-sFc"/>
-                            <constraint firstItem="Md3-u1-8yo" firstAttribute="top" secondItem="3yA-aU-s6H" secondAttribute="bottom" constant="80" id="X5r-uu-war"/>
+                            <constraint firstItem="Md3-u1-8yo" firstAttribute="top" secondItem="3yA-aU-s6H" secondAttribute="bottom" constant="150" id="X5r-uu-war"/>
                             <constraint firstItem="bEz-oK-EIB" firstAttribute="centerX" secondItem="ABF-ny-CaA" secondAttribute="centerX" id="XRM-GY-EUC"/>
                             <constraint firstItem="1bq-8i-ynR" firstAttribute="centerX" secondItem="ABF-ny-CaA" secondAttribute="centerX" id="cr6-pf-aLL"/>
                             <constraint firstItem="Md3-u1-8yo" firstAttribute="centerX" secondItem="ABF-ny-CaA" secondAttribute="centerX" id="ez8-Un-Hdy"/>
@@ -1110,6 +1130,8 @@
                         <outlet property="T8" destination="ma2-ys-5zP" id="iV0-az-7mA"/>
                         <outlet property="T9" destination="XtR-2W-0mr" id="zMC-ya-eLe"/>
                         <outlet property="newPostButton" destination="Md3-u1-8yo" id="ri7-gD-hnU"/>
+                        <outlet property="userName" destination="Y4C-ag-aQv" id="Ift-iM-TDv"/>
+                        <outlet property="userPhoto" destination="qEM-TJ-Jsq" id="wDf-pL-rv7"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="UC0-Pu-14i" userLabel="First Responder" sceneMemberID="firstResponder"/>

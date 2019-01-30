@@ -66,6 +66,9 @@ class New7x7: UIViewController, UITextFieldDelegate {
     @IBOutlet weak var T47: UITextField!
     @IBOutlet weak var T48: UITextField!
     
+    @IBOutlet weak var userPhoto: UIImageView!
+    @IBOutlet weak var userName: UILabel!
+    
     @IBOutlet weak var newPostButton: UIButton!
     
     
@@ -122,6 +125,31 @@ class New7x7: UIViewController, UITextFieldDelegate {
         T47.delegate = self
         T48.delegate = self
         
+        //ログインユーザーのプロフィール画像をロード
+        let currentUser = Auth.auth().currentUser
+        
+        if currentUser != nil {
+            userName.text = "\(currentUser!.displayName ?? "")-san's New 7×7 !!"
+            
+            let userProfileurl = (Auth.auth().currentUser?.photoURL?.absoluteString)! + "?width=140&height=140"
+            
+            if userProfileurl != "" {
+                let url = URL(string: "\(userProfileurl)")
+                URLSession.shared.dataTask(with: url!, completionHandler: { (data, response, error) in
+                    if error != nil {
+                        print(error!)
+                        return
+                    }
+                    DispatchQueue.main.async {
+                        self.userPhoto.image = UIImage(data: data!)
+                        self.userPhoto.clipsToBounds = true
+                        self.userPhoto.layer.cornerRadius = 35.0
+                        self.userPhoto.layer.borderColor = UIColor.gray.cgColor
+                        self.userPhoto.layer.borderWidth = 0.5
+                    }
+                }).resume()
+            }
+        }
     }
     
 
@@ -239,6 +267,29 @@ class New7x7: UIViewController, UITextFieldDelegate {
         let new7x7 = ["\(T0.text ?? "")","\(T1.text ?? "")","\(T2.text ?? "")","\(T3.text ?? "")","\(T4.text ?? "")","\(T5.text ?? "")","\(T6.text ?? "")","\(T7.text ?? "")","\(T8.text ?? "")","\(T9.text ?? "")","\(T10.text ?? "")","\(T11.text ?? "")","\(T12.text ?? "")","\(T13.text ?? "")","\(T14.text ?? "")","\(T15.text ?? "")","\(T16.text ?? "")","\(T17.text ?? "")","\(T18.text ?? "")","\(T19.text ?? "")","\(T20.text ?? "")","\(T21.text ?? "")","\(T22.text ?? "")","\(T23.text ?? "")","\(T24.text ?? "")","\(T25.text ?? "")","\(T26.text ?? "")","\(T27.text ?? "")","\(T28.text ?? "")","\(T29.text ?? "")","\(T30.text ?? "")","\(T31.text ?? "")","\(T32.text ?? "")","\(T33.text ?? "")","\(T34.text ?? "")","\(T35.text ?? "")","\(T36.text ?? "")","\(T37.text ?? "")","\(T38.text ?? "")","\(T39.text ?? "")","\(T40.text ?? "")","\(T41.text ?? "")","\(T42.text ?? "")","\(T43.text ?? "")","\(T44.text ?? "")","\(T45.text ?? "")","\(T46.text ?? "")","\(T47.text ?? "")","\(T48.text ?? "")"]
         
         print("\(new7x7)")
+        
+        if new7x7 == ["", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", ""] {
+            SVProgressHUD.showError(withStatus: "7×7の記載が空白です。ご確認下さい。\n\nYour new 7×7 is empty. Please check")
+        }
+        else {
+            // ImageViewから画像を取得する
+            let imageData = userPhoto.image!.jpegData(compressionQuality: 0.5)
+            let imageString = imageData!.base64EncodedString(options: .lineLength64Characters)
+            // postDataに必要な情報を取得しておく
+            let time = Date.timeIntervalSinceReferenceDate
+            let name = Auth.auth().currentUser?.displayName
+            
+            // **重要** 辞書を作成してFirebaseに保存する
+            let postRef = Database.database().reference().child(Const7.PostPath7)
+            let postDic = ["userID": Auth.auth().currentUser!.uid, "7×7": new7x7, "userPhoto": imageString, "time": String(time), "name": name!] as [String : Any]
+            postRef.childByAutoId().setValue(postDic)
+            
+            // HUDで投稿完了を表示する
+            SVProgressHUD.showSuccess(withStatus: "投稿しました！\nPosting complete !")
+            
+            // 画面を閉じてViewControllerに戻る
+            dismiss(animated: true, completion: nil)
+        }
     }
     
 }

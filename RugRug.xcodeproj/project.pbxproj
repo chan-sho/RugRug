@@ -27,6 +27,9 @@
 		318F1CE221C245E100E53FD3 /* Chat.swift in Sources */ = {isa = PBXBuildFile; fileRef = 318F1CE121C245E100E53FD3 /* Chat.swift */; };
 		31977F0021C1F5E0000E39A4 /* Reject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31977EFF21C1F5E0000E39A4 /* Reject.swift */; };
 		31A5F49F21BB5DF700488A1D /* Const4.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31A5F49E21BB5DF700488A1D /* Const4.swift */; };
+		31B13A5C22013DE4003953C0 /* Const7.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31B13A5B22013DE4003953C0 /* Const7.swift */; };
+		31B13A5F2201461B003953C0 /* New7x7TableCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31B13A5D2201461B003953C0 /* New7x7TableCell.swift */; };
+		31B13A602201461B003953C0 /* New7x7TableCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 31B13A5E2201461B003953C0 /* New7x7TableCell.xib */; };
 		31DB92E521A7EC9000A2B6AF /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31DB92E421A7EC9000A2B6AF /* AppDelegate.swift */; };
 		31DB92E721A7EC9000A2B6AF /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31DB92E621A7EC9000A2B6AF /* ViewController.swift */; };
 		31DB92EA21A7EC9000A2B6AF /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 31DB92E821A7EC9000A2B6AF /* Main.storyboard */; };
@@ -72,6 +75,9 @@
 		318F1CE121C245E100E53FD3 /* Chat.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Chat.swift; sourceTree = "<group>"; };
 		31977EFF21C1F5E0000E39A4 /* Reject.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Reject.swift; sourceTree = "<group>"; };
 		31A5F49E21BB5DF700488A1D /* Const4.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Const4.swift; sourceTree = "<group>"; };
+		31B13A5B22013DE4003953C0 /* Const7.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Const7.swift; sourceTree = "<group>"; };
+		31B13A5D2201461B003953C0 /* New7x7TableCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = New7x7TableCell.swift; sourceTree = "<group>"; };
+		31B13A5E2201461B003953C0 /* New7x7TableCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = New7x7TableCell.xib; sourceTree = "<group>"; };
 		31DB92E121A7EC9000A2B6AF /* RugRug.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = RugRug.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		31DB92E421A7EC9000A2B6AF /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		31DB92E621A7EC9000A2B6AF /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -159,6 +165,8 @@
 				317A096321C280E400C35DAE /* ChatTableCell.xib */,
 				311F7A7221FEE9C10068868E /* WCup7x7.swift */,
 				311F7A7421FEF4F00068868E /* New7x7.swift */,
+				31B13A5D2201461B003953C0 /* New7x7TableCell.swift */,
+				31B13A5E2201461B003953C0 /* New7x7TableCell.xib */,
 				31494C0421FF17DC00EA4C85 /* Tips.swift */,
 				312A2DDA21BE2C8600C16EA1 /* Info.swift */,
 				312A2DDE21BE648E00C16EA1 /* InfoTableCell.swift */,
@@ -176,6 +184,7 @@
 				31A5F49E21BB5DF700488A1D /* Const4.swift */,
 				312A2DDC21BE38C900C16EA1 /* Const5.swift */,
 				317A096621C2830F00C35DAE /* Const6.swift */,
+				31B13A5B22013DE4003953C0 /* Const7.swift */,
 				3169FE1B21AF5CD9000E01A4 /* RugRug-Bridging-Header.h */,
 				31280E9421AD3321008FDDEF /* AJAlertController */,
 				31DB931221A916A100A2B6AF /* Assets.xcassets */,
@@ -270,6 +279,7 @@
 				31DB92F721A7F23C00A2B6AF /* GoogleService-Info.plist in Resources */,
 				31DB92EA21A7EC9000A2B6AF /* Main.storyboard in Resources */,
 				312A2DE121BE648E00C16EA1 /* InfoTableCell.xib in Resources */,
+				31B13A602201461B003953C0 /* New7x7TableCell.xib in Resources */,
 				31DB931521A916B400A2B6AF /* Images.xcassets in Resources */,
 				31DB930921A8DB4400A2B6AF /* PostTableCell.xib in Resources */,
 				31DB931321A916A100A2B6AF /* Assets.xcassets in Resources */,
@@ -350,6 +360,8 @@
 				31280E9C21AD3322008FDDEF /* AJAlertController.swift in Sources */,
 				318F1CE221C245E100E53FD3 /* Chat.swift in Sources */,
 				31A5F49F21BB5DF700488A1D /* Const4.swift in Sources */,
+				31B13A5C22013DE4003953C0 /* Const7.swift in Sources */,
+				31B13A5F2201461B003953C0 /* New7x7TableCell.swift in Sources */,
 				31977F0021C1F5E0000E39A4 /* Reject.swift in Sources */,
 				317A096721C2830F00C35DAE /* Const6.swift in Sources */,
 				31DB930D21A8FE0500A2B6AF /* Revise.swift in Sources */,

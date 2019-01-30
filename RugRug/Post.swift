@@ -9,6 +9,7 @@
 // 【UserDefaults管理】"RejectDataId"= 投稿画面で「リジェクト／管理」を押した投稿のID
 // 【UserDefaults管理】"RejectUserId"= 投稿画面で「リジェクト／管理」を押した投稿者のID
 // 【UserDefaults管理】"RejectIdArray"= 投稿画面で「リジェクト／管理」を押した投稿のIDをまとめた配列
+// 【UserDefaults管理】"RejectUserArray"= 投稿画面で「リジェクト／管理」を押した投稿のIDをまとめた配列
 // 【UserDefaults管理】"CautionDataFlag"= 報告ボタンを押した後の同意確認をするFlag
 // 【UserDefaults管理】"CautionDataId"= 投稿画面で「報告」を押した投稿のID
 // 【UserDefaults管理】"UserPhotoURLFlag"= 投稿者プロフィール画像を押した事を確認するFlag
@@ -58,7 +59,7 @@ class Post: UIViewController, UITableViewDataSource, UITableViewDelegate, UISear
 
         // HUDで投稿完了を表示する
         SVProgressHUD.show(withStatus: "データ読み込み中です。\n※一番最初のデータ読み込みには時間がかかる事があります。")
-        SVProgressHUD.dismiss(withDelay: 2.0)
+        SVProgressHUD.dismiss(withDelay: 1.0)
         
         tableView.delegate = self
         tableView.dataSource = self

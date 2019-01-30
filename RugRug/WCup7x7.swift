@@ -12,7 +12,9 @@
 // 【UserDefaults管理】"Reject7x7Array"= 投稿画面で「リジェクト／管理」を押した7x7のIDをまとめた配列
 // 【UserDefaults管理】"Reject7x7UserArray"= 投稿画面で「リジェクト／管理」を押した7x7投稿者のIDをまとめた配列
 // 【UserDefaults管理】"UserPhotoURLFlagof7x7"= 投稿者プロフィール画像を押した事を確認するFlag
-// 【UserDefaults管理】"Chat7x7Id"= チャットをしたい対象の投稿ID
+// 【UserDefaults管理】"ChatDataId"= チャットをしたい対象の投稿ID
+// 【UserDefaults管理】"Chat7x7Flag"= 7x7でチャットボタンを押した事を確認するFlag
+
 
 import UIKit
 import Firebase
@@ -68,10 +70,10 @@ class WCup7x7: UIViewController, UITableViewDataSource, UITableViewDelegate {
         // テーブル行の高さをAutoLayoutで自動調整する
         tableView.rowHeight = UITableView.automaticDimension
         // テーブル行の高さの概算値を設定しておく
-        tableView.estimatedRowHeight = 400
+        tableView.estimatedRowHeight = 410
         
         //userDefaultsの初期値設定（念の為）
-        userDefaults.register(defaults: ["Reject7x7Array" : [], "UserPhotoURLFlag" : "NO", "Reject7x7UserArray" : [], "UserPhotoURLFlagof7x7" : "NO"])
+        userDefaults.register(defaults: ["Reject7x7Array" : [], "UserPhotoURLFlag" : "NO", "Reject7x7UserArray" : [], "UserPhotoURLFlagof7x7" : "NO", "Chat7x7Flag" : "NO"])
         
         // TableViewを再表示する
         self.tableView.reloadData()
@@ -402,16 +404,29 @@ class WCup7x7: UIViewController, UITableViewDataSource, UITableViewDelegate {
         let postData : PostData
         
         // 配列からタップされたインデックスのデータを取り出す
-            postData = postArray[indexPath!.row]
+        postData = postArray[indexPath!.row]
         
         //タップを検知されたpostDataから投稿ナンバーを抽出する
         let chatDataId = postData.id
         
-        userDefaults.set(chatDataId, forKey: "Chat7x7Id")
+        userDefaults.set(chatDataId, forKey: "ChatDataId")
+        userDefaults.set("YES", forKey: "Chat7x7Flag")
         userDefaults.synchronize()
         //Chatに移動
         self.performSegue(withIdentifier: "toChat7x7", sender: nil)
         
+    }
+    
+    
+    //最終確認ポップアップページを出す
+    func showAlertWithVC(){
+        
+        let UserPhotoURLFlagof7x7 :String = userDefaults.string(forKey: "UserPhotoURLFlagof7x7")!
+        if UserPhotoURLFlagof7x7 == "YES" {
+            AJAlertController.initialization().showAlert(aStrMessage: "今からFacebookでこのユーザーを検索します！\n\nLet's search this user on Facebook now !", aCancelBtnTitle: "いいえ / NO", aOtherBtnTitle: "はい / YES") { (index, title) in
+                print(index,title)
+            }
+        }
     }
     
     

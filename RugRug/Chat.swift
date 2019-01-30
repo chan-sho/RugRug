@@ -49,9 +49,17 @@ class Chat: UIViewController, UITextViewDelegate, UITableViewDataSource, UITable
         // スペーサー
         let spacer = UIBarButtonItem(barButtonSystemItem: UIBarButtonItem.SystemItem.flexibleSpace, target: self, action: nil)
         // 閉じるボタン
-        let commitButton = UIBarButtonItem(title: "キーボードを閉じる", style: .done, target: self, action: #selector(self.commitButtonTapped))
+        let commitButton = UIBarButtonItem(title: "キーボードを閉じる / Close Keyboard", style: .done, target: self, action: #selector(self.commitButtonTapped))
         kbToolBar.items = [spacer, commitButton]
         text.inputAccessoryView = kbToolBar
+        
+        //7x7でチャットボタンを押して画面遷移して来た際のsendButtonのテキスト変更
+        let chat7x7Flag = userDefaults.string(forKey: "Chat7x7Flag")!
+        print("chat7x7Flag = \(chat7x7Flag)")
+        
+        if chat7x7Flag == "YES" {
+            sendButton.setTitle("Send", for: .normal)
+        }
         
         //ログインユーザーのプロフィール画像をロード
         let currentUser = Auth.auth().currentUser
@@ -232,8 +240,15 @@ class Chat: UIViewController, UITextViewDelegate, UITableViewDataSource, UITable
 
     
     @IBAction func sendButton(_ sender: Any) {
+        let chat7x7Flag = userDefaults.string(forKey: "Chat7x7Flag")!
+        
         if text.text == "" {
-            SVProgressHUD.showError(withStatus: "チャット内容の記載が空白です。\nご確認下さい。")
+            if chat7x7Flag == "YES" {
+                SVProgressHUD.showError(withStatus: "チャット内容の記載が空白です。\nご確認下さい。\n\nChat text is empty.\nPlease check.")
+            }
+            else {
+                SVProgressHUD.showError(withStatus: "チャット内容の記載が空白です。\nご確認下さい。")
+            }
         }
         else {
             // ImageViewから画像を取得する
@@ -253,6 +268,14 @@ class Chat: UIViewController, UITextViewDelegate, UITableViewDataSource, UITable
             //textを空白にする（初期化）
             text.text = ""
         }
+    }
+    
+    
+    @IBAction func backButton(_ sender: Any) {
+        //Flagの再初期化
+        userDefaults.set("NO", forKey: "Chat7x7Flag")
+        userDefaults.synchronize()
+        print("再初期化：Chat7x7Flag = 「NO」")
     }
     
 }

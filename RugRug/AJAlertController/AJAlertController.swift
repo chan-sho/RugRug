@@ -316,6 +316,18 @@ class AJAlertController: UIViewController {
         }
         
         
+        //投稿者プロフィール画像を押された上で、「Facebook検索」を選択した際のアクション
+        let UserPhotoURLFlagof7x7 :String = userDefaults.string(forKey: "UserPhotoURLFlagof7x7")!
+        if UserPhotoURLFlagof7x7 == "YES" {
+            //チェックFlagの再初期化
+            userDefaults.set("NO", forKey: "UserPhotoURLFlagof7x7")
+            userDefaults.synchronize()
+            print("再初期化：UserPhotoURLFlagof7x7 = 「NO」")
+            hide()
+            return
+        }
+        
+        
         //プライバシーポリシー・利用規約のページをSafariで開くアクション
         let url = URL(string: "https://chan-sho.github.io/")!
         if UIApplication.shared.canOpenURL(url) {
@@ -524,6 +536,32 @@ class AJAlertController: UIViewController {
             
             SVProgressHUD.showSuccess(withStatus: "コンタクト通知をもらったこちらユーザーに、「まずはチャットしませんか？」と通知を送りました！")
             
+            return
+        }
+        
+        
+        //投稿者プロフィール画像を押された上で、「Facebook検索」を選択した際のアクション
+        let UserPhotoURLFlagof7x7 :String = userDefaults.string(forKey: "UserPhotoURLFlagof7x7")!
+        if UserPhotoURLFlagof7x7 == "YES" {
+            let UserPhotoURL :String = userDefaults.string(forKey: "UserPhotoURL")!
+            
+            //Facebookの検索ページをSafariで開くアクション
+            let url = URL(string: "\(UserPhotoURL)")
+            if url == nil {
+                print("NG")
+                return
+            }
+            else {
+                if UIApplication.shared.canOpenURL(url!) {
+                    UIApplication.shared.open(url!)
+                }
+            }
+            
+            //チェックFlagの再初期化
+            userDefaults.set("NO", forKey: "UserPhotoURLFlagof7x7")
+            userDefaults.synchronize()
+            print("再初期化：UserPhotoURLFlagof7x7 = 「NO」")
+            hide()
             return
         }
         

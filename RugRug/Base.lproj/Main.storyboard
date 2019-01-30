@@ -473,6 +473,7 @@
                         <outlet property="hintButton" destination="DIT-RN-NeJ" id="k6b-4g-B81"/>
                         <outlet property="newPostButton" destination="Ff7-6e-482" id="WNe-Er-Frr"/>
                         <outlet property="tableView" destination="gUt-Or-JHm" id="Eln-PA-3ra"/>
+                        <segue destination="mR7-a3-ngd" kind="show" identifier="toChat7x7" id="nuH-oy-5BM"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="gBg-2R-yrU" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -1439,6 +1440,7 @@ RugRug管理人に報告します</string>
                                 </constraints>
                                 <state key="normal" title=" ＜ 戻る"/>
                                 <connections>
+                                    <action selector="backButton:" destination="mR7-a3-ngd" eventType="touchUpInside" id="KP3-dM-SiH"/>
                                     <segue destination="a6o-OY-RGx" kind="unwind" unwindAction="unwind:" id="REP-Ew-4Lm"/>
                                 </connections>
                             </button>
@@ -2720,7 +2722,7 @@ RugRug管理人に報告します</string>
         <image name="背景_Setting" width="192" height="330.72000122070312"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="uR1-jP-wWo"/>
+        <segue reference="nuH-oy-5BM"/>
         <segue reference="BoB-2U-32s"/>
         <segue reference="OvV-Ib-gOX"/>
     </inferredMetricsTieBreakers>

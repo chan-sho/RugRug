@@ -47,7 +47,7 @@ class WCup7x7: UIViewController, UITableViewDataSource, UITableViewDelegate {
 
         // HUDで投稿完了を表示する
         SVProgressHUD.show(withStatus: "データ読み込み中です。\nData Loading")
-        SVProgressHUD.dismiss(withDelay: 1.0)
+        SVProgressHUD.dismiss(withDelay: 2.0)
         
         tableView.delegate = self
         tableView.dataSource = self

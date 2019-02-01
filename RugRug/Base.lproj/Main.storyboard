@@ -1164,11 +1164,87 @@
                                     <segue destination="Szv-2N-OU4" kind="unwind" unwindAction="unwind:" id="hht-Lz-iSx"/>
                                 </connections>
                             </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="7×7マスのスペース" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="me8-z6-03f">
+                                <rect key="frame" x="62.5" y="62" width="195.5" height="26.5"/>
+                                <fontDescription key="fontDescription" type="system" weight="medium" pointSize="22"/>
+                                <color key="textColor" red="0.0" green="0.58980089430000004" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FgQ-9N-dPc">
+                                <rect key="frame" x="30" y="93.5" width="260" height="179.5"/>
+                                <string key="text">を自由に活用して、「W杯日本開催」などラグビーに関する表現を好きなだけ発信して下さい！！
+
+例えば、
+・オリジナルの俳句（5-7-5）
+・暗号文章
+・なぞなぞ
+・記号を使ったイラスト
+等、創造力をフル活用して！</string>
+                                <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                <color key="textColor" red="0.37055522200000002" green="0.37056469920000001" blue="0.37055957319999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <stackView opaque="NO" contentMode="scaleToFill" distribution="equalSpacing" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="M5T-GT-LMA">
+                                <rect key="frame" x="22.5" y="283" width="275" height="85"/>
+                                <subviews>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="creative" translatesAutoresizingMaskIntoConstraints="NO" id="yve-TE-Vg0">
+                                        <rect key="frame" x="0.0" y="0.0" width="85" height="85"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="85" id="HK2-Nt-dl2"/>
+                                            <constraint firstAttribute="height" constant="85" id="YyV-Iq-b8e"/>
+                                        </constraints>
+                                    </imageView>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="creative2" translatesAutoresizingMaskIntoConstraints="NO" id="nzL-UT-kyK">
+                                        <rect key="frame" x="95" y="0.0" width="85" height="85"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="85" id="J7t-5Y-NPF"/>
+                                            <constraint firstAttribute="height" constant="85" id="TEz-9Z-KeW"/>
+                                        </constraints>
+                                    </imageView>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="creative3" translatesAutoresizingMaskIntoConstraints="NO" id="XN8-RY-Zbe">
+                                        <rect key="frame" x="190" y="0.0" width="85" height="85"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="85" id="Un0-Kf-lKc"/>
+                                            <constraint firstAttribute="width" constant="85" id="ocb-Wl-fWc"/>
+                                        </constraints>
+                                    </imageView>
+                                </subviews>
+                            </stackView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="7×7 Matrix Free Space" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="O0Z-kj-Jyb">
+                                <rect key="frame" x="50" y="398" width="220.5" height="26.5"/>
+                                <fontDescription key="fontDescription" type="system" weight="medium" pointSize="22"/>
+                                <color key="textColor" red="0.0" green="0.58980089430000004" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="uhe-bO-2Mo">
+                                <rect key="frame" x="30" y="429.5" width="260" height="122"/>
+                                <string key="text">Let's send your passionate and creative message freely !!
+
+Boost Rugby W Cup in Japan !
+And create your own lovely Rugby community.</string>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" red="0.37055522200000002" green="0.37056469920000001" blue="0.37055957319999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="Fvb-1b-gkX" firstAttribute="leading" secondItem="3Jf-r4-LGg" secondAttribute="leading" id="3PB-5y-RmV"/>
+                            <constraint firstItem="M5T-GT-LMA" firstAttribute="top" secondItem="FgQ-9N-dPc" secondAttribute="bottom" constant="10" id="GgS-Y0-oSW"/>
+                            <constraint firstItem="me8-z6-03f" firstAttribute="centerX" secondItem="o4K-ln-fue" secondAttribute="centerX" id="QtE-Jy-174"/>
+                            <constraint firstItem="uhe-bO-2Mo" firstAttribute="top" secondItem="O0Z-kj-Jyb" secondAttribute="bottom" constant="5" id="SlV-Tx-d1W"/>
+                            <constraint firstItem="uhe-bO-2Mo" firstAttribute="centerX" secondItem="o4K-ln-fue" secondAttribute="centerX" id="SwY-1O-Wav"/>
+                            <constraint firstItem="3Jf-r4-LGg" firstAttribute="trailing" secondItem="uhe-bO-2Mo" secondAttribute="trailing" constant="30" id="Vu4-kk-2un"/>
+                            <constraint firstAttribute="trailing" secondItem="FgQ-9N-dPc" secondAttribute="trailing" constant="30" id="aQM-ZK-lXo"/>
+                            <constraint firstItem="uhe-bO-2Mo" firstAttribute="leading" secondItem="3Jf-r4-LGg" secondAttribute="leading" constant="30" id="bpY-No-DwL"/>
+                            <constraint firstItem="FgQ-9N-dPc" firstAttribute="leading" secondItem="o4K-ln-fue" secondAttribute="leading" constant="30" id="lJO-AO-HKy"/>
+                            <constraint firstItem="FgQ-9N-dPc" firstAttribute="centerX" secondItem="o4K-ln-fue" secondAttribute="centerX" id="tOm-Hv-gyD"/>
+                            <constraint firstItem="M5T-GT-LMA" firstAttribute="centerX" secondItem="o4K-ln-fue" secondAttribute="centerX" id="txy-l6-hqb"/>
+                            <constraint firstItem="me8-z6-03f" firstAttribute="top" secondItem="Fvb-1b-gkX" secondAttribute="bottom" constant="10" id="vHh-XH-CSb"/>
+                            <constraint firstItem="O0Z-kj-Jyb" firstAttribute="top" secondItem="M5T-GT-LMA" secondAttribute="bottom" constant="30" id="vPh-GD-zPL"/>
+                            <constraint firstItem="O0Z-kj-Jyb" firstAttribute="centerX" secondItem="o4K-ln-fue" secondAttribute="centerX" id="wXP-i2-OZp"/>
                             <constraint firstItem="Fvb-1b-gkX" firstAttribute="top" secondItem="3Jf-r4-LGg" secondAttribute="top" id="xkF-Oj-p1E"/>
+                            <constraint firstItem="FgQ-9N-dPc" firstAttribute="top" secondItem="me8-z6-03f" secondAttribute="bottom" constant="5" id="y8V-Ex-u93"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="3Jf-r4-LGg"/>
                     </view>
@@ -1176,7 +1252,7 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="jvV-Ll-jCP" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <exit id="Szv-2N-OU4" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
-            <point key="canvasLocation" x="4230" y="1335"/>
+            <point key="canvasLocation" x="4230" y="1334.1549295774648"/>
         </scene>
         <!--Revise 7x7-->
         <scene sceneID="DhR-au-c1E">
@@ -3499,6 +3575,9 @@ RugRug管理人に報告します</string>
         <image name="Stance" width="75" height="75"/>
         <image name="Target" width="75" height="75"/>
         <image name="W杯(60x54)" width="53.5" height="60"/>
+        <image name="creative" width="127.5" height="127.5"/>
+        <image name="creative2" width="127.5" height="127.5"/>
+        <image name="creative3" width="136" height="136"/>
         <image name="like_exist" width="64" height="64"/>
         <image name="news1Photo(0126)" width="600" height="200"/>
         <image name="背景_Home" width="192" height="330.72000122070312"/>

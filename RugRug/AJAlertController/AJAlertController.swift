@@ -78,6 +78,10 @@ class AJAlertController: UIViewController {
     var rejectIdArray : [String] = []
     //RejectUserArrayの配列初期設定
     var rejectUserArray : [String] = []
+    //Reject7x7Arrayの配列初期設定
+    var reject7x7Array : [String] = []
+    //RejectUser7x7Arrayの配列初期設定
+    var reject7x7UserArray : [String] = []
     
     
     override func viewDidLoad() {
@@ -85,7 +89,7 @@ class AJAlertController: UIViewController {
         setupAJAlertController()
         
         //userDefaultsの初期値設定
-        userDefaults.register(defaults: ["RejectIdArray" : [], "RejectUserArray" : []])
+        userDefaults.register(defaults: ["RejectIdArray" : [], "RejectUserArray" : [], "Reject7x7Array" : [], "Reject7x7UserArray" : []])
     }
     
     // MARK:- AJAlertController Private Functions
@@ -328,6 +332,42 @@ class AJAlertController: UIViewController {
         }
         
         
+        //リジェクトボタンを押された上で、「キャンセル」を選択した際のアクション
+        let Reject7x7Flag :String = userDefaults.string(forKey: "Reject7x7Flag")!
+        if Reject7x7Flag == "YES" {
+            //報告の2重チェックに使うFlagの再初期化
+            userDefaults.set("NO", forKey: "Reject7x7Flag")
+            userDefaults.synchronize()
+            print("再初期化：Reject7x7Flag = 「NO」")
+            hide()
+            return
+        }
+        
+        
+        //報告ボタンを押された上で、「キャンセル」を選択した際のアクション
+        let Caution7x7Flag :String = userDefaults.string(forKey: "Caution7x7Flag")!
+        if Caution7x7Flag == "YES" {
+            //報告の2重チェックに使うFlagの再初期化
+            userDefaults.set("NO", forKey: "Caution7x7Flag")
+            userDefaults.synchronize()
+            print("再初期化：Caution7x7Flag = 「NO」")
+            hide()
+            return
+        }
+        
+        
+        //投稿者ブロックボタンを押された上で、「キャンセル」を選択した際のアクション
+        let RejectUser7x7Flag :String = userDefaults.string(forKey: "RejectUser7x7Flag")!
+        if RejectUser7x7Flag == "YES" {
+            //報告の2重チェックに使うFlagの再初期化
+            userDefaults.set("NO", forKey: "RejectUser7x7Flag")
+            userDefaults.synchronize()
+            print("再初期化：RejectUser7x7Flag = 「NO」")
+            hide()
+            return
+        }
+        
+        
         //プライバシーポリシー・利用規約のページをSafariで開くアクション
         let url = URL(string: "https://chan-sho.github.io/")!
         if UIApplication.shared.canOpenURL(url) {
@@ -460,6 +500,104 @@ class AJAlertController: UIViewController {
             print("再初期化：RejectUserFlag = 「NO」")
             
             SVProgressHUD.showSuccess(withStatus: "この投稿者の全ての投稿が、今後は貴方の投稿一覧に表示されなくなりました。")
+            
+            // 画面を閉じてViewControllerに戻る
+            self.dismiss(animated: false, completion: nil)
+        }
+        
+        
+        //リジェクトボタンを押された上で、「今後表示しない」を選択した際のアクション
+        let Reject7x7Flag :String = userDefaults.string(forKey: "Reject7x7Flag")!
+        if Reject7x7Flag == "YES" {
+            
+            let rejectDataId :String = userDefaults.string(forKey: "Reject7x7Id")!
+            reject7x7Array = userDefaults.array(forKey: "Reject7x7Array") as! [String]
+            reject7x7Array.append(rejectDataId)
+            //確認
+            print("\(reject7x7Array)")
+            
+            //追加した"RejectDataId"を"Reject7x7Array"の配列要素に追加
+            userDefaults.set(reject7x7Array, forKey: "Reject7x7Array")
+            userDefaults.synchronize()
+            
+            //Firebaseに保存する
+            let uid = Auth.auth().currentUser?.uid
+            let postRef = Database.database().reference().child(Const7.PostPath7).child(rejectDataId)
+            let rejects = ["Reject-By-(\(uid!))": uid]
+            postRef.updateChildValues(rejects)
+            
+            hide()
+            
+            //報告の2重チェックに使うFlagの再初期化
+            userDefaults.set("NO", forKey: "Reject7x7Flag")
+            userDefaults.synchronize()
+            print("再初期化：Reject7x7Flag = 「NO」")
+            
+            SVProgressHUD.showSuccess(withStatus: "対象の7x7は、貴方の投稿一覧に表示されなくなりました。\n\nHidding is completed !")
+            
+            // 画面を閉じてViewControllerに戻る
+            self.dismiss(animated: false, completion: nil)
+        }
+        
+        
+        //報告ボタンを押された上で、「管理人に報告」を選択した際のアクション
+        let Caution7x7Flag :String = userDefaults.string(forKey: "Caution7x7Flag")!
+        if Caution7x7Flag == "YES" {
+            hide()
+            
+            let caution7x7Id :String = userDefaults.string(forKey: "Caution7x7Id")!
+            //FireBase上に辞書型データで残す処理
+            //postDataに必要な情報を取得しておく
+            let time = Date.timeIntervalSinceReferenceDate
+            let name = Auth.auth().currentUser?.displayName
+            
+            //**重要** 辞書を作成してFirebaseに保存する
+            let postRef = Database.database().reference().child(Const4.PostPath4)
+            let postDic = ["userID": Auth.auth().currentUser!.uid, "time": String(time), "name": name!, "caution7x7Id": caution7x7Id, "checkFlag": ""] as [String : Any]
+            postRef.childByAutoId().setValue(postDic)
+            
+            //報告の2重チェックに使うFlagの再初期化
+            userDefaults.set("NO", forKey: "Caution7x7Flag")
+            userDefaults.synchronize()
+            print("再初期化：Caution7x7Flag = 「NO」")
+            
+            SVProgressHUD.showSuccess(withStatus: "\(name!)さん\n\n好ましくない投稿のご報告、ありがとうございました！\n24時間以内に精査し、適切な処置（削除／警告）をします。\n\nReporting is completed ! RugRug manager takes appropriate action within 24 hrs")
+            
+            // 画面を閉じてViewControllerに戻る
+            self.dismiss(animated: false, completion: nil)
+        }
+        
+        
+        //投稿者ブロックボタンを押された上で、「投稿者ブロック」を選択した際のアクション
+        let RejectUser7x7Flag :String = userDefaults.string(forKey: "RejectUser7x7Flag")!
+        if RejectUser7x7Flag == "YES" {
+            
+            let reject7x7Id :String = userDefaults.string(forKey: "Reject7x7Id")!
+            
+            let reject7x7UserId :String = userDefaults.string(forKey: "Reject7x7UserId")!
+            reject7x7UserArray = userDefaults.array(forKey: "Reject7x7UserArray") as! [String]
+            reject7x7UserArray.append(reject7x7UserId)
+            //確認
+            print("\(reject7x7UserArray)")
+            
+            //追加した"RejectUserId"を"RejectUserArray"の配列要素に追加
+            userDefaults.set(reject7x7UserArray, forKey: "Reject7x7UserArray")
+            userDefaults.synchronize()
+            
+            //Firebaseに保存する
+            let uid = Auth.auth().currentUser?.uid
+            let postRef = Database.database().reference().child(Const7.PostPath7).child(reject7x7Id)
+            let rejects = ["User-Reject-By-(\(uid!))": uid]
+            postRef.updateChildValues(rejects)
+            
+            hide()
+            
+            //報告の2重チェックに使うFlagの再初期化
+            userDefaults.set("NO", forKey: "RejectUser7x7Flag")
+            userDefaults.synchronize()
+            print("再初期化：RejectUser7x7Flag = 「NO」")
+            
+            SVProgressHUD.showSuccess(withStatus: "この投稿者の全ての投稿が、今後は貴方の投稿一覧に表示されなくなりました。\n\nBlocking is completed !")
             
             // 画面を閉じてViewControllerに戻る
             self.dismiss(animated: false, completion: nil)

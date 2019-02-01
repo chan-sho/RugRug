@@ -1189,7 +1189,7 @@
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="EVL-cx-8pi">
                                 <rect key="frame" x="0.0" y="20" width="70" height="32"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="70" id="gmL-Ch-evZ"/>
+                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="70" id="gmL-Ch-evZ"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" weight="medium" pointSize="16"/>
                                 <state key="normal" title="＜Back">
@@ -1862,7 +1862,7 @@ Please push Edit button</string>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qfa-QJ-wTE">
                                 <rect key="frame" x="0.0" y="20" width="70" height="32"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="70" id="Yg0-Et-bdT"/>
+                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="70" id="Yg0-Et-bdT"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" weight="medium" pointSize="16"/>
                                 <state key="normal" title="＜Back">
@@ -1872,14 +1872,89 @@ Please push Edit button</string>
                                     <segue destination="54h-SX-Du2" kind="unwind" unwindAction="unwind:" id="210-zU-PzI"/>
                                 </connections>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="OLw-WI-B2U">
+                                <rect key="frame" x="40" y="84" width="240" height="40"/>
+                                <fontDescription key="fontDescription" type="system" weight="medium" pointSize="15"/>
+                                <state key="normal" title="非表示にする / Hide" backgroundImage="Btn3"/>
+                                <connections>
+                                    <action selector="hideButton:" destination="z5C-W4-zvT" eventType="touchUpInside" id="PKg-Ed-67m"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="yU0-QP-6ez">
+                                <rect key="frame" x="40" y="264" width="240" height="40"/>
+                                <fontDescription key="fontDescription" type="system" weight="medium" pointSize="15"/>
+                                <state key="normal" title="報告する/ Report" backgroundImage="Btn3"/>
+                                <connections>
+                                    <action selector="reportButton:" destination="z5C-W4-zvT" eventType="touchUpInside" id="TY8-ZJ-IDX"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Bjl-pN-JHY">
+                                <rect key="frame" x="40" y="444" width="240" height="40"/>
+                                <fontDescription key="fontDescription" type="system" weight="medium" pointSize="15"/>
+                                <state key="normal" title="投稿者をブロック / Block poster" backgroundImage="Btn4"/>
+                                <connections>
+                                    <action selector="blockButton:" destination="z5C-W4-zvT" eventType="touchUpInside" id="xrR-40-NLI"/>
+                                </connections>
+                            </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Xow-iQ-qyf">
+                                <rect key="frame" x="23.5" y="129" width="273" height="31.5"/>
+                                <string key="text">この投稿を貴方の7x7一覧から非表示にします
+Hide this 7x7 on your screen</string>
+                                <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                                <color key="textColor" red="0.37055522200000002" green="0.37056469920000001" blue="0.37055957319999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="TMS-L2-iv3">
+                                <rect key="frame" x="52.5" y="309" width="215" height="62.5"/>
+                                <string key="text">好ましくない内容を含む事を
+RugRug管理人に報告します
+Report this 7x7 to RugRug manager
+as unfavorable posting</string>
+                                <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                                <color key="textColor" red="0.37055522200000002" green="0.37056469920000001" blue="0.37055957319999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3CF-yP-xbm">
+                                <rect key="frame" x="67" y="489" width="186" height="47"/>
+                                <string key="text">今後、この投稿者の全ての投稿
+をブロックします
+Block all 7x7s of this poster</string>
+                                <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                                <color key="textColor" red="1" green="0.14913141730000001" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
+                            <constraint firstItem="OLw-WI-B2U" firstAttribute="leading" secondItem="6M9-3y-96N" secondAttribute="leading" constant="40" id="DSG-1M-qdP"/>
+                            <constraint firstItem="Xow-iQ-qyf" firstAttribute="top" secondItem="OLw-WI-B2U" secondAttribute="bottom" constant="5" id="F52-ap-go8"/>
+                            <constraint firstItem="TMS-L2-iv3" firstAttribute="top" secondItem="yU0-QP-6ez" secondAttribute="bottom" constant="5" id="Fy7-vj-av9"/>
+                            <constraint firstItem="yU0-QP-6ez" firstAttribute="leading" secondItem="6M9-3y-96N" secondAttribute="leading" constant="40" id="G94-oQ-lKq"/>
+                            <constraint firstItem="Xow-iQ-qyf" firstAttribute="centerX" secondItem="urQ-Cx-th5" secondAttribute="centerX" id="ISz-Mq-dq8"/>
+                            <constraint firstItem="6M9-3y-96N" firstAttribute="trailing" secondItem="yU0-QP-6ez" secondAttribute="trailing" constant="40" id="J71-BY-TzI"/>
+                            <constraint firstItem="OLw-WI-B2U" firstAttribute="centerX" secondItem="urQ-Cx-th5" secondAttribute="centerX" id="Kci-4f-vBM"/>
                             <constraint firstItem="qfa-QJ-wTE" firstAttribute="leading" secondItem="6M9-3y-96N" secondAttribute="leading" id="OeM-ri-GjD"/>
+                            <constraint firstItem="Bjl-pN-JHY" firstAttribute="leading" secondItem="6M9-3y-96N" secondAttribute="leading" constant="40" id="VEm-C9-juQ"/>
                             <constraint firstItem="qfa-QJ-wTE" firstAttribute="top" secondItem="6M9-3y-96N" secondAttribute="top" id="Vjc-cb-OSc"/>
+                            <constraint firstItem="3CF-yP-xbm" firstAttribute="centerX" secondItem="urQ-Cx-th5" secondAttribute="centerX" id="Zgq-Tv-AjS"/>
+                            <constraint firstItem="yU0-QP-6ez" firstAttribute="centerX" secondItem="urQ-Cx-th5" secondAttribute="centerX" id="Zsv-AX-gQF"/>
+                            <constraint firstItem="3CF-yP-xbm" firstAttribute="top" secondItem="Bjl-pN-JHY" secondAttribute="bottom" constant="5" id="gi1-Vo-bSf"/>
+                            <constraint firstItem="6M9-3y-96N" firstAttribute="trailing" secondItem="Bjl-pN-JHY" secondAttribute="trailing" constant="40" id="oPD-ZN-bow"/>
+                            <constraint firstItem="Bjl-pN-JHY" firstAttribute="centerX" secondItem="urQ-Cx-th5" secondAttribute="centerX" id="obg-Y3-37j"/>
+                            <constraint firstItem="yU0-QP-6ez" firstAttribute="top" secondItem="OLw-WI-B2U" secondAttribute="bottom" constant="140" id="rap-dw-a5B"/>
+                            <constraint firstItem="yU0-QP-6ez" firstAttribute="centerY" secondItem="urQ-Cx-th5" secondAttribute="centerY" id="sSj-KL-wMS"/>
+                            <constraint firstItem="6M9-3y-96N" firstAttribute="trailing" secondItem="OLw-WI-B2U" secondAttribute="trailing" constant="40" id="ttM-KL-4Su"/>
+                            <constraint firstItem="Bjl-pN-JHY" firstAttribute="top" secondItem="yU0-QP-6ez" secondAttribute="bottom" constant="140" id="wmi-ts-F63"/>
+                            <constraint firstItem="TMS-L2-iv3" firstAttribute="centerX" secondItem="urQ-Cx-th5" secondAttribute="centerX" id="xo3-NV-Dg3"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6M9-3y-96N"/>
                     </view>
+                    <connections>
+                        <outlet property="backButton" destination="qfa-QJ-wTE" id="y9u-nH-2Zg"/>
+                        <outlet property="blockButton" destination="Bjl-pN-JHY" id="N2g-Ok-oax"/>
+                        <outlet property="hideButton" destination="OLw-WI-B2U" id="pvU-wk-s3l"/>
+                        <outlet property="reportButton" destination="yU0-QP-6ez" id="0gk-b3-mcU"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ucd-Tq-2Oo" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <exit id="54h-SX-Du2" userLabel="Exit" sceneMemberID="exit"/>

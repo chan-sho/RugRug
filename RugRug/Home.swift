@@ -53,6 +53,15 @@ class Home: UIViewController, UITextViewDelegate {
     var event2URL: String?
     var event3URL: String?
     
+    var ad1URL: String?
+    var ad2URL: String?
+    var ad3URL: String?
+    var ad4URL: String?
+    var ad5URL: String?
+    var ad6URL: String?
+    var ad7URL: String?
+    var ad8URL: String?
+    
     //user defaultsを使う準備
     let userDefaults:UserDefaults = UserDefaults.standard
     
@@ -90,6 +99,56 @@ class Home: UIViewController, UITextViewDelegate {
                 self.news1URL = "\(value!["News1URL"] ?? "" as AnyObject)"
                 self.news2URL = "\(value!["News2URL"] ?? "" as AnyObject)"
                 self.news3URL = "\(value!["News3URL"] ?? "" as AnyObject)"
+                
+                let ad1PhotoString = "\(value!["Ad1Photo"] ?? "" as AnyObject)"
+                if ad1PhotoString != "" {
+                    self.ad1Photo.image = UIImage(data: Data(base64Encoded: ad1PhotoString, options: .ignoreUnknownCharacters)!)
+                }
+                
+                let ad2PhotoString = "\(value!["Ad2Photo"] ?? "" as AnyObject)"
+                if ad2PhotoString != "" {
+                    self.ad2Photo.image = UIImage(data: Data(base64Encoded: ad2PhotoString, options: .ignoreUnknownCharacters)!)
+                }
+                
+                let ad3PhotoString = "\(value!["Ad3Photo"] ?? "" as AnyObject)"
+                if ad3PhotoString != "" {
+                    self.ad3Photo.image = UIImage(data: Data(base64Encoded: ad3PhotoString, options: .ignoreUnknownCharacters)!)
+                }
+                
+                let ad4PhotoString = "\(value!["Ad4Photo"] ?? "" as AnyObject)"
+                if ad4PhotoString != "" {
+                    self.ad4Photo.image = UIImage(data: Data(base64Encoded: ad4PhotoString, options: .ignoreUnknownCharacters)!)
+                }
+                
+                let ad5PhotoString = "\(value!["Ad5Photo"] ?? "" as AnyObject)"
+                if ad5PhotoString != "" {
+                    self.ad5Photo.image = UIImage(data: Data(base64Encoded: ad5PhotoString, options: .ignoreUnknownCharacters)!)
+                }
+                
+                let ad6PhotoString = "\(value!["Ad6Photo"] ?? "" as AnyObject)"
+                if ad6PhotoString != "" {
+                    self.ad6Photo.image = UIImage(data: Data(base64Encoded: ad6PhotoString, options: .ignoreUnknownCharacters)!)
+                }
+                
+                let ad7PhotoString = "\(value!["Ad7Photo"] ?? "" as AnyObject)"
+                if ad7PhotoString != "" {
+                    self.ad7Photo.image = UIImage(data: Data(base64Encoded: ad7PhotoString, options: .ignoreUnknownCharacters)!)
+                }
+                
+                let ad8PhotoString = "\(value!["Ad8Photo"] ?? "" as AnyObject)"
+                if ad8PhotoString != "" {
+                    self.ad8Photo.image = UIImage(data: Data(base64Encoded: ad8PhotoString, options: .ignoreUnknownCharacters)!)
+                }
+                
+                self.ad1URL = "\(value!["Ad1URL"] ?? "" as AnyObject)"
+                self.ad2URL = "\(value!["Ad2URL"] ?? "" as AnyObject)"
+                self.ad3URL = "\(value!["Ad3URL"] ?? "" as AnyObject)"
+                self.ad4URL = "\(value!["Ad4URL"] ?? "" as AnyObject)"
+                self.ad5URL = "\(value!["Ad5URL"] ?? "" as AnyObject)"
+                self.ad6URL = "\(value!["Ad6URL"] ?? "" as AnyObject)"
+                self.ad7URL = "\(value!["Ad7URL"] ?? "" as AnyObject)"
+                self.ad8URL = "\(value!["Ad8URL"] ?? "" as AnyObject)"
+                
             }
             else {
                 SVProgressHUD.showError(withStatus: "申し訳ありません！\nホーム画面の読み込みにエラーが発生しました。\nお手数ですが、アプリの再起動をお願い致します。")
@@ -384,34 +443,138 @@ class Home: UIViewController, UITextViewDelegate {
     
     
     @IBAction func ad1Button(_ sender: Any) {
+        if ad1URL != nil {
+            ad1URL = ad1URL?.addingPercentEncoding(withAllowedCharacters: NSCharacterSet.urlQueryAllowed)
+            let url = URL(string: "\(ad1URL!)")
+            if url == nil {
+                print("NG")
+                return
+            }
+            else {
+                if UIApplication.shared.canOpenURL(url!) {
+                    UIApplication.shared.open(url!)
+                }
+            }
+        }
     }
     
     
     @IBAction func ad2Button(_ sender: Any) {
+        if ad2URL != nil {
+            ad2URL = ad2URL?.addingPercentEncoding(withAllowedCharacters: NSCharacterSet.urlQueryAllowed)
+            let url = URL(string: "\(ad2URL!)")
+            if url == nil {
+                print("NG")
+                return
+            }
+            else {
+                if UIApplication.shared.canOpenURL(url!) {
+                    UIApplication.shared.open(url!)
+                }
+            }
+        }
     }
     
     
     @IBAction func ad3Button(_ sender: Any) {
+        if ad3URL != nil {
+            ad3URL = ad3URL?.addingPercentEncoding(withAllowedCharacters: NSCharacterSet.urlQueryAllowed)
+            let url = URL(string: "\(ad3URL!)")
+            if url == nil {
+                print("NG")
+                return
+            }
+            else {
+                if UIApplication.shared.canOpenURL(url!) {
+                    UIApplication.shared.open(url!)
+                }
+            }
+        }
     }
     
     
     @IBAction func ad4Button(_ sender: Any) {
+        if ad4URL != nil {
+            ad4URL = ad4URL?.addingPercentEncoding(withAllowedCharacters: NSCharacterSet.urlQueryAllowed)
+            let url = URL(string: "\(ad4URL!)")
+            if url == nil {
+                print("NG")
+                return
+            }
+            else {
+                if UIApplication.shared.canOpenURL(url!) {
+                    UIApplication.shared.open(url!)
+                }
+            }
+        }
     }
     
     
     @IBAction func ad5Button(_ sender: Any) {
+        if ad5URL != nil {
+            ad5URL = ad5URL?.addingPercentEncoding(withAllowedCharacters: NSCharacterSet.urlQueryAllowed)
+            let url = URL(string: "\(ad5URL!)")
+            if url == nil {
+                print("NG")
+                return
+            }
+            else {
+                if UIApplication.shared.canOpenURL(url!) {
+                    UIApplication.shared.open(url!)
+                }
+            }
+        }
     }
     
     
     @IBAction func ad6Button(_ sender: Any) {
+        if ad6URL != nil {
+            ad6URL = ad6URL?.addingPercentEncoding(withAllowedCharacters: NSCharacterSet.urlQueryAllowed)
+            let url = URL(string: "\(ad6URL!)")
+            if url == nil {
+                print("NG")
+                return
+            }
+            else {
+                if UIApplication.shared.canOpenURL(url!) {
+                    UIApplication.shared.open(url!)
+                }
+            }
+        }
     }
     
     
     @IBAction func ad7Button(_ sender: Any) {
+        if ad7URL != nil {
+            ad7URL = ad7URL?.addingPercentEncoding(withAllowedCharacters: NSCharacterSet.urlQueryAllowed)
+            let url = URL(string: "\(ad7URL!)")
+            if url == nil {
+                print("NG")
+                return
+            }
+            else {
+                if UIApplication.shared.canOpenURL(url!) {
+                    UIApplication.shared.open(url!)
+                }
+            }
+        }
     }
     
     
     @IBAction func ad8Button(_ sender: Any) {
+        if ad8URL != nil {
+            ad8URL = ad8URL?.addingPercentEncoding(withAllowedCharacters: NSCharacterSet.urlQueryAllowed)
+            let url = URL(string: "\(ad8URL!)")
+            if url == nil {
+                print("NG")
+                return
+            }
+            else {
+                if UIApplication.shared.canOpenURL(url!) {
+                    UIApplication.shared.open(url!)
+                }
+            }
+        }
     }
     
     

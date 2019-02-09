@@ -28,6 +28,24 @@ class Home: UIViewController, UITextViewDelegate {
     @IBOutlet weak var EULAButton: UIButton!
     @IBOutlet weak var managerButton: UIButton!
     
+    @IBOutlet weak var ad1Photo: UIImageView!
+    @IBOutlet weak var ad2Photo: UIImageView!
+    @IBOutlet weak var ad3Photo: UIImageView!
+    @IBOutlet weak var ad4Photo: UIImageView!
+    @IBOutlet weak var ad5Photo: UIImageView!
+    @IBOutlet weak var ad6Photo: UIImageView!
+    @IBOutlet weak var ad7Photo: UIImageView!
+    @IBOutlet weak var ad8Photo: UIImageView!
+    
+    @IBOutlet weak var ad1Button: UIButton!
+    @IBOutlet weak var ad2Button: UIButton!
+    @IBOutlet weak var ad3Button: UIButton!
+    @IBOutlet weak var ad4Button: UIButton!
+    @IBOutlet weak var ad5Button: UIButton!
+    @IBOutlet weak var ad6Button: UIButton!
+    @IBOutlet weak var ad7Button: UIButton!
+    @IBOutlet weak var ad8Button: UIButton!
+    
     var news1URL: String?
     var news2URL: String?
     var news3URL: String?
@@ -111,6 +129,28 @@ class Home: UIViewController, UITextViewDelegate {
             let value = snapshot.value as? String
             self.RugRugComment.text = value
         })
+        
+        
+        //ボタン同時押しによるアプリクラッシュを防ぐ
+        news2Title.isExclusiveTouch = true
+        news3Title.isExclusiveTouch = true
+        
+        event1Title.isExclusiveTouch = true
+        event2Title.isExclusiveTouch = true
+        event3Title.isExclusiveTouch = true
+        
+        guideButton.isExclusiveTouch = true
+        EULAButton.isExclusiveTouch = true
+        managerButton.isExclusiveTouch = true
+        
+        ad1Button.isExclusiveTouch = true
+        ad2Button.isExclusiveTouch = true
+        ad3Button.isExclusiveTouch = true
+        ad4Button.isExclusiveTouch = true
+        ad5Button.isExclusiveTouch = true
+        ad6Button.isExclusiveTouch = true
+        ad7Button.isExclusiveTouch = true
+        ad8Button.isExclusiveTouch = true
     }
 
     
@@ -340,6 +380,38 @@ class Home: UIViewController, UITextViewDelegate {
                 }
             }
         }
+    }
+    
+    
+    @IBAction func ad1Button(_ sender: Any) {
+    }
+    
+    
+    @IBAction func ad2Button(_ sender: Any) {
+    }
+    
+    
+    @IBAction func ad3Button(_ sender: Any) {
+    }
+    
+    
+    @IBAction func ad4Button(_ sender: Any) {
+    }
+    
+    
+    @IBAction func ad5Button(_ sender: Any) {
+    }
+    
+    
+    @IBAction func ad6Button(_ sender: Any) {
+    }
+    
+    
+    @IBAction func ad7Button(_ sender: Any) {
+    }
+    
+    
+    @IBAction func ad8Button(_ sender: Any) {
     }
     
     

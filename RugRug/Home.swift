@@ -42,7 +42,7 @@ class Home: UIViewController, UITextViewDelegate {
         super.viewDidLoad()
         
         RugRugComment.delegate = self
-        RugRugComment.layer.borderColor = UIColor.white.cgColor
+        RugRugComment.layer.borderColor = UIColor.lightGray.cgColor
         // 枠の幅
         RugRugComment.layer.borderWidth = 0.5
         // 枠を角丸にする場合

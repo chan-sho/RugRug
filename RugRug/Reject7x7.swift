@@ -78,7 +78,7 @@ class Reject7x7: UIViewController {
         
         let RejectUserFlag :String = userDefaults.string(forKey: "RejectUser7x7Flag")!
         if RejectUserFlag == "YES" {
-            AJAlertController.initialization().showAlert(aStrMessage: "今後、この投稿者の全ての7x7をブロックしますか？\n\nDo you block all 7x7s of this poster ?", aCancelBtnTitle: "キャンセル / Cancel", aOtherBtnTitle: "ブロック / Hide") { (index, title) in
+            AJAlertController.initialization().showAlert(aStrMessage: "今後、この投稿者の全ての7x7をブロックしますか？\n\nDo you block all 7x7s of this poster ?", aCancelBtnTitle: "キャンセル / Cancel", aOtherBtnTitle: "ブロック / Block") { (index, title) in
                 print(index,title)
             }
         }

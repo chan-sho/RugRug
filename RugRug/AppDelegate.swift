@@ -24,6 +24,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         //Facebookサインイン
         FBSDKApplicationDelegate.sharedInstance().application(application, didFinishLaunchingWithOptions: launchOptions)
         
+        // Initialize Google Mobile Ads SDK, application IDを設定
+        // *ID = ca-app-pub-1267337188810870~5966341420
+        GADMobileAds.configure(withApplicationID: "ca-app-pub-1267337188810870~5966341420")
+        
         //LaunchScreenの起動時間延長
         sleep(2)
         

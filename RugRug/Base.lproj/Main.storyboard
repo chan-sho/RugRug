@@ -3269,10 +3269,10 @@ RugRug管理人に報告します</string>
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="EuA-dB-0oh">
-                                        <rect key="frame" x="260" y="1120" width="40" height="30"/>
+                                        <rect key="frame" x="260" y="1090" width="40" height="20"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="40" id="Ym5-Az-RbJ"/>
-                                            <constraint firstAttribute="height" constant="30" id="uMU-Jy-zas"/>
+                                            <constraint firstAttribute="height" constant="20" id="uMU-Jy-zas"/>
                                         </constraints>
                                         <connections>
                                             <action selector="managerButton:" destination="pUW-0S-H89" eventType="touchUpInside" id="uMb-bG-OlF"/>
@@ -3350,7 +3350,7 @@ RugRug管理人に報告します</string>
                                         </subviews>
                                     </stackView>
                                     <stackView opaque="NO" contentMode="scaleToFill" distribution="equalSpacing" spacing="30" translatesAutoresizingMaskIntoConstraints="NO" id="ubX-UX-IFC">
-                                        <rect key="frame" x="35" y="1165" width="250" height="25"/>
+                                        <rect key="frame" x="35" y="1115" width="250" height="25"/>
                                         <subviews>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="leading" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" hasAttributedTitle="YES" translatesAutoresizingMaskIntoConstraints="NO" id="vTL-pF-lTp">
                                                 <rect key="frame" x="0.0" y="0.0" width="118" height="25"/>
@@ -3420,7 +3420,7 @@ RugRug管理人に報告します</string>
                                     <constraint firstItem="NLm-fA-xbl" firstAttribute="trailing" secondItem="1hE-O6-bFk" secondAttribute="trailing" id="DW7-Rz-HZw"/>
                                     <constraint firstItem="NLm-fA-xbl" firstAttribute="top" secondItem="1hE-O6-bFk" secondAttribute="top" id="FWw-Cv-SqS"/>
                                     <constraint firstItem="GLa-sb-pNK" firstAttribute="leading" secondItem="9Kd-RP-TfR" secondAttribute="leading" id="GkG-gA-Is8"/>
-                                    <constraint firstAttribute="bottom" secondItem="EuA-dB-0oh" secondAttribute="bottom" constant="50" id="I43-K3-2fl"/>
+                                    <constraint firstAttribute="bottom" secondItem="EuA-dB-0oh" secondAttribute="bottom" constant="90" id="I43-K3-2fl"/>
                                     <constraint firstAttribute="width" secondItem="taf-wy-l3c" secondAttribute="width" id="Ivc-mV-3k9"/>
                                     <constraint firstItem="S45-Yo-Z9p" firstAttribute="top" secondItem="Gdz-0v-U8o" secondAttribute="bottom" constant="7" id="Lfr-bb-ik3"/>
                                     <constraint firstItem="5fk-6c-fwB" firstAttribute="top" secondItem="atW-1Q-hMN" secondAttribute="bottom" constant="7" id="MYK-Il-Ch4"/>
@@ -3445,7 +3445,7 @@ RugRug管理人に報告します</string>
                                     <constraint firstItem="Gdz-0v-U8o" firstAttribute="leading" secondItem="9Kd-RP-TfR" secondAttribute="leading" id="kOk-If-S24"/>
                                     <constraint firstAttribute="trailing" secondItem="GLa-sb-pNK" secondAttribute="trailing" id="lRV-oy-15M"/>
                                     <constraint firstAttribute="trailing" secondItem="EuA-dB-0oh" secondAttribute="trailing" constant="20" id="llc-db-xOZ"/>
-                                    <constraint firstAttribute="bottom" secondItem="ubX-UX-IFC" secondAttribute="bottom" constant="10" id="lnv-vg-DeF"/>
+                                    <constraint firstAttribute="bottom" secondItem="ubX-UX-IFC" secondAttribute="bottom" constant="60" id="lnv-vg-DeF"/>
                                     <constraint firstItem="eAN-DJ-lwY" firstAttribute="top" secondItem="Iuk-lc-c6d" secondAttribute="bottom" constant="7" id="oea-vV-Q1g"/>
                                     <constraint firstItem="S45-Yo-Z9p" firstAttribute="centerX" secondItem="9Kd-RP-TfR" secondAttribute="centerX" id="oqP-qd-kVT"/>
                                     <constraint firstAttribute="trailing" secondItem="Gdz-0v-U8o" secondAttribute="trailing" id="pZP-3c-AXe"/>

@@ -11,6 +11,7 @@ import Firebase
 import FirebaseAuth
 import SVProgressHUD
 import ESTabBarController
+import GoogleMobileAds
 
 
 class Home: UIViewController, UITextViewDelegate {
@@ -180,6 +181,27 @@ class Home: UIViewController, UITextViewDelegate {
         // Dispose of any resources that can be recreated.
     }
     
+    
+    override func viewDidLayoutSubviews(){
+        //  広告インスタンス作成
+        var admobView = GADBannerView()
+        admobView = GADBannerView(adSize:kGADAdSizeBanner)
+        
+        //  広告位置設定
+        let safeArea = self.view.safeAreaInsets.bottom
+        admobView.frame.origin = CGPoint(x:0, y:self.view.frame.size.height - safeArea - admobView.frame.height - 2 )
+        admobView.frame.size = CGSize(width:self.view.frame.width, height:admobView.frame.height)
+        
+        //  広告ID設定
+        //  *広告ID = ca-app-pub-1267337188810870/3636401993
+        //  テスト広告ID = ca-app-pub-3940256099942544/2934735716
+        admobView.adUnitID = "ca-app-pub-1267337188810870/3636401993"
+        
+        //  広告表示
+        admobView.rootViewController = self
+        admobView.load(GADRequest())
+        self.view.addSubview(admobView)
+    }
     
     @IBAction func EULAButton(_ sender: Any) {
         //プライバシーポリシー・利用規約のページをSafariで開くアクション

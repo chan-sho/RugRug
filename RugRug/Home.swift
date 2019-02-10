@@ -36,6 +36,7 @@ class Home: UIViewController, UITextViewDelegate {
     @IBOutlet weak var ad6Photo: UIImageView!
     @IBOutlet weak var ad7Photo: UIImageView!
     @IBOutlet weak var ad8Photo: UIImageView!
+    @IBOutlet weak var ad9Photo: UIImageView!
     
     @IBOutlet weak var ad1Button: UIButton!
     @IBOutlet weak var ad2Button: UIButton!
@@ -45,6 +46,18 @@ class Home: UIViewController, UITextViewDelegate {
     @IBOutlet weak var ad6Button: UIButton!
     @IBOutlet weak var ad7Button: UIButton!
     @IBOutlet weak var ad8Button: UIButton!
+    @IBOutlet weak var ad9Button: UIButton!
+    
+    @IBOutlet weak var ad1Title: UILabel!
+    @IBOutlet weak var ad2Title: UILabel!
+    @IBOutlet weak var ad3Title: UILabel!
+    @IBOutlet weak var ad4Title: UILabel!
+    @IBOutlet weak var ad5Title: UILabel!
+    @IBOutlet weak var ad6Title: UILabel!
+    @IBOutlet weak var ad7Title: UILabel!
+    @IBOutlet weak var ad8Title: UILabel!
+    @IBOutlet weak var ad9Title: UILabel!
+    
     
     var news1URL: String?
     var news2URL: String?
@@ -70,14 +83,59 @@ class Home: UIViewController, UITextViewDelegate {
         super.viewDidLoad()
         
         RugRugComment.delegate = self
-        RugRugComment.layer.borderColor = UIColor.lightGray.cgColor
+        RugRugComment.layer.borderColor = UIColor.white.cgColor
         // 枠の幅
-        RugRugComment.layer.borderWidth = 0.5
+        RugRugComment.layer.borderWidth = 1.0
         // 枠を角丸にする場合
-        RugRugComment.layer.cornerRadius = 10.0
+        RugRugComment.layer.cornerRadius = 12.0
         RugRugComment.layer.masksToBounds = true
         
         news1Photo.isUserInteractionEnabled = true
+        
+        ad1Photo.clipsToBounds = true
+        ad1Photo.layer.cornerRadius = 105.0
+        ad1Photo.layer.borderColor = UIColor.gray.cgColor
+        ad1Photo.layer.borderWidth = 0.5
+        
+        ad2Photo.clipsToBounds = true
+        ad2Photo.layer.cornerRadius = 100.0
+        ad2Photo.layer.borderColor = UIColor.gray.cgColor
+        ad2Photo.layer.borderWidth = 0.5
+        
+        ad3Photo.clipsToBounds = true
+        ad3Photo.layer.cornerRadius = 55.0
+        ad3Photo.layer.borderColor = UIColor.gray.cgColor
+        ad3Photo.layer.borderWidth = 0.5
+        
+        ad4Photo.clipsToBounds = true
+        ad4Photo.layer.cornerRadius = 55.0
+        ad4Photo.layer.borderColor = UIColor.gray.cgColor
+        ad4Photo.layer.borderWidth = 0.5
+        
+        ad5Photo.clipsToBounds = true
+        ad5Photo.layer.cornerRadius = 60.0
+        ad5Photo.layer.borderColor = UIColor.gray.cgColor
+        ad5Photo.layer.borderWidth = 0.5
+        
+        ad6Photo.clipsToBounds = true
+        ad6Photo.layer.cornerRadius = 60.0
+        ad6Photo.layer.borderColor = UIColor.gray.cgColor
+        ad6Photo.layer.borderWidth = 0.5
+        
+        ad7Photo.clipsToBounds = true
+        ad7Photo.layer.cornerRadius = 45.0
+        ad7Photo.layer.borderColor = UIColor.gray.cgColor
+        ad7Photo.layer.borderWidth = 0.5
+        
+        ad8Photo.clipsToBounds = true
+        ad8Photo.layer.cornerRadius = 57.5
+        ad8Photo.layer.borderColor = UIColor.gray.cgColor
+        ad8Photo.layer.borderWidth = 0.5
+        
+        ad9Photo.clipsToBounds = true
+        ad9Photo.layer.cornerRadius = 57.5
+        ad9Photo.layer.borderColor = UIColor.gray.cgColor
+        ad9Photo.layer.borderWidth = 0.5
         
         //Newsの情報取得
         var refNews: DatabaseReference!
@@ -575,6 +633,10 @@ class Home: UIViewController, UITextViewDelegate {
                 }
             }
         }
+    }
+    
+    
+    @IBAction func ad9Button(_ sender: Any) {
     }
     
     

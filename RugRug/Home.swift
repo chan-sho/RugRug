@@ -74,6 +74,7 @@ class Home: UIViewController, UITextViewDelegate {
     var ad6URL: String?
     var ad7URL: String?
     var ad8URL: String?
+    var ad9URL: String?
     
     //user defaultsを使う準備
     let userDefaults:UserDefaults = UserDefaults.standard
@@ -198,6 +199,11 @@ class Home: UIViewController, UITextViewDelegate {
                     self.ad8Photo.image = UIImage(data: Data(base64Encoded: ad8PhotoString, options: .ignoreUnknownCharacters)!)
                 }
                 
+                let ad9PhotoString = "\(value!["Ad9Photo"] ?? "" as AnyObject)"
+                if ad9PhotoString != "" {
+                    self.ad9Photo.image = UIImage(data: Data(base64Encoded: ad9PhotoString, options: .ignoreUnknownCharacters)!)
+                }
+                
                 self.ad1URL = "\(value!["Ad1URL"] ?? "" as AnyObject)"
                 self.ad2URL = "\(value!["Ad2URL"] ?? "" as AnyObject)"
                 self.ad3URL = "\(value!["Ad3URL"] ?? "" as AnyObject)"
@@ -206,6 +212,17 @@ class Home: UIViewController, UITextViewDelegate {
                 self.ad6URL = "\(value!["Ad6URL"] ?? "" as AnyObject)"
                 self.ad7URL = "\(value!["Ad7URL"] ?? "" as AnyObject)"
                 self.ad8URL = "\(value!["Ad8URL"] ?? "" as AnyObject)"
+                self.ad9URL = "\(value!["Ad9URL"] ?? "" as AnyObject)"
+                
+                self.ad1Title.text = "\(value!["Ad1Title"] ?? "" as AnyObject)"
+                self.ad2Title.text = "\(value!["Ad2Title"] ?? "" as AnyObject)"
+                self.ad3Title.text = "\(value!["Ad3Title"] ?? "" as AnyObject)"
+                self.ad4Title.text = "\(value!["Ad4Title"] ?? "" as AnyObject)"
+                self.ad5Title.text = "\(value!["Ad5Title"] ?? "" as AnyObject)"
+                self.ad6Title.text = "\(value!["Ad6Title"] ?? "" as AnyObject)"
+                self.ad7Title.text = "\(value!["Ad7Title"] ?? "" as AnyObject)"
+                self.ad8Title.text = "\(value!["Ad8Title"] ?? "" as AnyObject)"
+                self.ad9Title.text = "\(value!["Ad9Title"] ?? "" as AnyObject)"
                 
             }
             else {
@@ -637,6 +654,19 @@ class Home: UIViewController, UITextViewDelegate {
     
     
     @IBAction func ad9Button(_ sender: Any) {
+        if ad9URL != nil {
+            ad9URL = ad9URL?.addingPercentEncoding(withAllowedCharacters: NSCharacterSet.urlQueryAllowed)
+            let url = URL(string: "\(ad9URL!)")
+            if url == nil {
+                print("NG")
+                return
+            }
+            else {
+                if UIApplication.shared.canOpenURL(url!) {
+                    UIApplication.shared.open(url!)
+                }
+            }
+        }
     }
     
     

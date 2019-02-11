@@ -309,6 +309,71 @@ class Home: UIViewController, UITextViewDelegate {
                 self.news1URL = "\(value!["News1URL"] ?? "" as AnyObject)"
                 self.news2URL = "\(value!["News2URL"] ?? "" as AnyObject)"
                 self.news3URL = "\(value!["News3URL"] ?? "" as AnyObject)"
+                
+                let ad1PhotoString = "\(value!["Ad1Photo"] ?? "" as AnyObject)"
+                if ad1PhotoString != "" {
+                    self.ad1Photo.image = UIImage(data: Data(base64Encoded: ad1PhotoString, options: .ignoreUnknownCharacters)!)
+                }
+                
+                let ad2PhotoString = "\(value!["Ad2Photo"] ?? "" as AnyObject)"
+                if ad2PhotoString != "" {
+                    self.ad2Photo.image = UIImage(data: Data(base64Encoded: ad2PhotoString, options: .ignoreUnknownCharacters)!)
+                }
+                
+                let ad3PhotoString = "\(value!["Ad3Photo"] ?? "" as AnyObject)"
+                if ad3PhotoString != "" {
+                    self.ad3Photo.image = UIImage(data: Data(base64Encoded: ad3PhotoString, options: .ignoreUnknownCharacters)!)
+                }
+                
+                let ad4PhotoString = "\(value!["Ad4Photo"] ?? "" as AnyObject)"
+                if ad4PhotoString != "" {
+                    self.ad4Photo.image = UIImage(data: Data(base64Encoded: ad4PhotoString, options: .ignoreUnknownCharacters)!)
+                }
+                
+                let ad5PhotoString = "\(value!["Ad5Photo"] ?? "" as AnyObject)"
+                if ad5PhotoString != "" {
+                    self.ad5Photo.image = UIImage(data: Data(base64Encoded: ad5PhotoString, options: .ignoreUnknownCharacters)!)
+                }
+                
+                let ad6PhotoString = "\(value!["Ad6Photo"] ?? "" as AnyObject)"
+                if ad6PhotoString != "" {
+                    self.ad6Photo.image = UIImage(data: Data(base64Encoded: ad6PhotoString, options: .ignoreUnknownCharacters)!)
+                }
+                
+                let ad7PhotoString = "\(value!["Ad7Photo"] ?? "" as AnyObject)"
+                if ad7PhotoString != "" {
+                    self.ad7Photo.image = UIImage(data: Data(base64Encoded: ad7PhotoString, options: .ignoreUnknownCharacters)!)
+                }
+                
+                let ad8PhotoString = "\(value!["Ad8Photo"] ?? "" as AnyObject)"
+                if ad8PhotoString != "" {
+                    self.ad8Photo.image = UIImage(data: Data(base64Encoded: ad8PhotoString, options: .ignoreUnknownCharacters)!)
+                }
+                
+                let ad9PhotoString = "\(value!["Ad9Photo"] ?? "" as AnyObject)"
+                if ad9PhotoString != "" {
+                    self.ad9Photo.image = UIImage(data: Data(base64Encoded: ad9PhotoString, options: .ignoreUnknownCharacters)!)
+                }
+                
+                self.ad1URL = "\(value!["Ad1URL"] ?? "" as AnyObject)"
+                self.ad2URL = "\(value!["Ad2URL"] ?? "" as AnyObject)"
+                self.ad3URL = "\(value!["Ad3URL"] ?? "" as AnyObject)"
+                self.ad4URL = "\(value!["Ad4URL"] ?? "" as AnyObject)"
+                self.ad5URL = "\(value!["Ad5URL"] ?? "" as AnyObject)"
+                self.ad6URL = "\(value!["Ad6URL"] ?? "" as AnyObject)"
+                self.ad7URL = "\(value!["Ad7URL"] ?? "" as AnyObject)"
+                self.ad8URL = "\(value!["Ad8URL"] ?? "" as AnyObject)"
+                self.ad9URL = "\(value!["Ad9URL"] ?? "" as AnyObject)"
+                
+                self.ad1Title.text = "\(value!["Ad1Title"] ?? "" as AnyObject)"
+                self.ad2Title.text = "\(value!["Ad2Title"] ?? "" as AnyObject)"
+                self.ad3Title.text = "\(value!["Ad3Title"] ?? "" as AnyObject)"
+                self.ad4Title.text = "\(value!["Ad4Title"] ?? "" as AnyObject)"
+                self.ad5Title.text = "\(value!["Ad5Title"] ?? "" as AnyObject)"
+                self.ad6Title.text = "\(value!["Ad6Title"] ?? "" as AnyObject)"
+                self.ad7Title.text = "\(value!["Ad7Title"] ?? "" as AnyObject)"
+                self.ad8Title.text = "\(value!["Ad8Title"] ?? "" as AnyObject)"
+                self.ad9Title.text = "\(value!["Ad9Title"] ?? "" as AnyObject)"
             }
             else {
                 SVProgressHUD.showError(withStatus: "申し訳ありません！\nホーム画面の読み込みにエラーが発生しました。\nお手数ですが、アプリの再起動をお願い致します。")

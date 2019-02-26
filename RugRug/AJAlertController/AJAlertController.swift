@@ -271,20 +271,6 @@ class AJAlertController: UIViewController {
         //投稿者プロフィール画像を押された上で、「Facebook検索」を選択した際のアクション
         let UserPhotoURLFlag :String = userDefaults.string(forKey: "UserPhotoURLFlag")!
         if UserPhotoURLFlag == "YES" {
-            let UserPhotoURL :String = userDefaults.string(forKey: "UserPhotoURL")!
-            
-            //Facebookの検索ページをSafariで開くアクション
-            let url = URL(string: "\(UserPhotoURL)")
-            if url == nil {
-                print("NG")
-                return
-            }
-            else {
-                if UIApplication.shared.canOpenURL(url!) {
-                    UIApplication.shared.open(url!)
-                }
-            }
-            
             //チェックFlagの再初期化
             userDefaults.set("NO", forKey: "UserPhotoURLFlag")
             userDefaults.synchronize()

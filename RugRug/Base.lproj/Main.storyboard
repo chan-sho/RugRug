@@ -3730,7 +3730,7 @@ RugRug管理人に報告します</string>
                                             <constraint firstAttribute="height" constant="1200" id="6xr-Aj-wLe"/>
                                         </constraints>
                                     </imageView>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="管理人が気になる投稿" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="H89-fh-bHY">
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="管理人が気になるニュース" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="H89-fh-bHY">
                                         <rect key="frame" x="0.0" y="80" width="320" height="30"/>
                                         <color key="backgroundColor" red="0.78431372549019607" green="0.98829740290000001" blue="0.96078431372549022" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <constraints>
@@ -3773,7 +3773,7 @@ RugRug管理人に報告します</string>
                                         </connections>
                                     </imageView>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="1位： ニュースタイトル" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1hE-O6-bFk">
-                                        <rect key="frame" x="10" y="115" width="300" height="21.5"/>
+                                        <rect key="frame" x="10" y="193.5" width="300" height="21.5"/>
                                         <color key="backgroundColor" red="0.99999600649999998" green="1" blue="1" alpha="0.7950824058219178" colorSpace="custom" customColorSpace="sRGB"/>
                                         <fontDescription key="fontDescription" type="system" weight="black" pointSize="18"/>
                                         <color key="textColor" red="0.26051741839999998" green="0.2605243921" blue="0.260520637" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -4222,7 +4222,7 @@ RugRug管理人に報告します</string>
                                     <constraint firstItem="p24-Xh-mcI" firstAttribute="trailing" secondItem="7Qi-hq-syS" secondAttribute="trailing" id="E9e-Ll-k17"/>
                                     <constraint firstItem="xFR-nF-lEr" firstAttribute="top" secondItem="Pu9-Ag-gPA" secondAttribute="top" id="EHW-RX-CNp"/>
                                     <constraint firstItem="3ys-3B-SRr" firstAttribute="trailing" secondItem="xFR-nF-lEr" secondAttribute="trailing" id="Ep2-cX-d3R"/>
-                                    <constraint firstItem="NLm-fA-xbl" firstAttribute="top" secondItem="1hE-O6-bFk" secondAttribute="top" id="FWw-Cv-SqS"/>
+                                    <constraint firstItem="NLm-fA-xbl" firstAttribute="bottom" secondItem="1hE-O6-bFk" secondAttribute="bottom" id="FWw-Cv-SqS"/>
                                     <constraint firstItem="dmI-CY-7uO" firstAttribute="trailing" secondItem="W56-b5-fmo" secondAttribute="trailing" id="GE6-2x-D2d"/>
                                     <constraint firstItem="p24-Xh-mcI" firstAttribute="top" secondItem="7Qi-hq-syS" secondAttribute="bottom" id="GXb-TB-6to"/>
                                     <constraint firstItem="GLa-sb-pNK" firstAttribute="leading" secondItem="9Kd-RP-TfR" secondAttribute="leading" id="GkG-gA-Is8"/>
@@ -4396,6 +4396,7 @@ RugRug管理人に報告します</string>
                         <outlet property="news3Title" destination="S45-Yo-Z9p" id="YfQ-Cy-hul"/>
                         <outlet property="postPickUp" destination="H89-fh-bHY" id="jRR-l5-WN2"/>
                         <segue destination="1FJ-sD-Cii" kind="show" identifier="toManager" id="JxJ-Zd-Iit"/>
+                        <segue destination="NGa-2B-nIw" kind="show" identifier="HomeToPost" id="DeN-5S-Rsq"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="HwX-ZP-HMQ" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -4415,7 +4416,7 @@ RugRug管理人に報告します</string>
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="news1Photo(0126)" translatesAutoresizingMaskIntoConstraints="NO" id="tKt-HE-Q03">
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="news1Photo(0226)" translatesAutoresizingMaskIntoConstraints="NO" id="tKt-HE-Q03">
                                 <rect key="frame" x="10" y="47" width="300" height="100"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="300" id="ddz-Cb-UWs"/>
@@ -4453,7 +4454,7 @@ RugRug管理人に報告します</string>
                                     <constraint firstAttribute="width" constant="200" id="rqz-1I-z2X"/>
                                 </constraints>
                             </imageView>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Ad8_R1" translatesAutoresizingMaskIntoConstraints="NO" id="fdz-Kd-qPc">
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Ad9" translatesAutoresizingMaskIntoConstraints="NO" id="fdz-Kd-qPc">
                                 <rect key="frame" x="110" y="397" width="100" height="100"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="100" id="TaE-Kj-WvU"/>
@@ -4496,7 +4497,7 @@ RugRug管理人に報告します</string>
     </scenes>
     <resources>
         <image name="Ad1_R1" width="193" height="191"/>
-        <image name="Ad8_R1" width="100" height="97.5"/>
+        <image name="Ad9" width="187" height="200"/>
         <image name="Btn2" width="300" height="40"/>
         <image name="Coming Soon" width="200" height="200"/>
         <image name="Facebook" width="75" height="75"/>
@@ -4513,7 +4514,7 @@ RugRug管理人に報告します</string>
         <image name="creative" width="127.5" height="127.5"/>
         <image name="creative2" width="127.5" height="127.5"/>
         <image name="creative3" width="136" height="136"/>
-        <image name="news1Photo(0126)" width="600" height="200"/>
+        <image name="news1Photo(0226)" width="600" height="200"/>
         <image name="エンジョイ" width="600" height="400"/>
         <image name="ビジネスマッチ" width="600" height="401"/>
         <image name="応援" width="600" height="400"/>
@@ -4523,6 +4524,6 @@ RugRug管理人に報告します</string>
     <inferredMetricsTieBreakers>
         <segue reference="uR1-jP-wWo"/>
         <segue reference="r1e-9y-xwy"/>
-        <segue reference="WWr-T3-WIw"/>
+        <segue reference="DeN-5S-Rsq"/>
     </inferredMetricsTieBreakers>
 </document>

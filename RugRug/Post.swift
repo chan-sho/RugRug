@@ -1235,14 +1235,14 @@ class Post: UIViewController, UITableViewDataSource, UITableViewDelegate, UISear
         
         let UserPhotoURLFlag :String = userDefaults.string(forKey: "UserPhotoURLFlag")!
         if UserPhotoURLFlag == "YES" {
-            AJAlertController.initialization().showAlert(aStrMessage: "今からFacebookでこのユーザーを検索します！\n\nコンタクトする事を事前に\n「通知」しておきますか？\n\n※通知を選択すると、貴方から後程コンタクトがある旨を\nこのユーザーにお知らせします。", aCancelBtnTitle: "まずは検索のみ", aOtherBtnTitle: "「通知」＋検索") { (index, title) in
+            AJAlertController.initialization().showAlert(aStrMessage: "今からFacebookでこのユーザーを検索します！\n\nLet's search this user on Facebook now !", aCancelBtnTitle: "いいえ / NO", aOtherBtnTitle: "はい / YES") { (index, title) in
                 print(index,title)
             }
         }
     }
     
     
-    //Infoで「この時チェックされた投稿」を押された際の処理
+    //Infoで「この時チェックされた投稿」を押された際の処理（※一旦使わない）
     func handleCheckedPost() {
         self.tableView.reloadData()
         self.textSearchBar.text = "【※抽出中】"

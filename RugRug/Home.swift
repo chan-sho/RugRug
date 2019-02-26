@@ -80,6 +80,13 @@ class Home: UIViewController, UITextViewDelegate {
     
     var GoogleAd: String?
     
+    var news1PostType: String?
+    var news2PostType: String?
+    var news3PostType: String?
+    var event1PostType: String?
+    var event2PostType: String?
+    var event3PostType: String?
+    
     //user defaultsを使う準備
     let userDefaults:UserDefaults = UserDefaults.standard
     
@@ -169,6 +176,10 @@ class Home: UIViewController, UITextViewDelegate {
                 self.news2URL = "\(value!["News2URL"] ?? "" as AnyObject)"
                 self.news3URL = "\(value!["News3URL"] ?? "" as AnyObject)"
                 
+                self.news1PostType = "\(value!["News1PostType"] ?? "" as AnyObject)"
+                self.news2PostType = "\(value!["News2PostType"] ?? "" as AnyObject)"
+                self.news3PostType = "\(value!["News3PostType"] ?? "" as AnyObject)"
+                
                 let ad1PhotoString = "\(value!["Ad1Photo"] ?? "" as AnyObject)"
                 if ad1PhotoString != "" {
                     self.ad1Photo.image = UIImage(data: Data(base64Encoded: ad1PhotoString, options: .ignoreUnknownCharacters)!)
@@ -257,6 +268,10 @@ class Home: UIViewController, UITextViewDelegate {
                 self.event1URL = "\(value!["Event1URL"] ?? "" as AnyObject)"
                 self.event2URL = "\(value!["Event2URL"] ?? "" as AnyObject)"
                 self.event3URL = "\(value!["Event3URL"] ?? "" as AnyObject)"
+                
+                self.event1PostType = "\(value!["Event1PostType"] ?? "" as AnyObject)"
+                self.event2PostType = "\(value!["Event2PostType"] ?? "" as AnyObject)"
+                self.event3PostType = "\(value!["Event3PostType"] ?? "" as AnyObject)"
             }
             else {
                 SVProgressHUD.showError(withStatus: "申し訳ありません！\nホーム画面の読み込みにエラーが発生しました。\nお手数ですが、アプリの再起動をお願い致します。")
@@ -329,6 +344,10 @@ class Home: UIViewController, UITextViewDelegate {
                 self.news2URL = "\(value!["News2URL"] ?? "" as AnyObject)"
                 self.news3URL = "\(value!["News3URL"] ?? "" as AnyObject)"
                 
+                self.news1PostType = "\(value!["News1PostType"] ?? "" as AnyObject)"
+                self.news2PostType = "\(value!["News2PostType"] ?? "" as AnyObject)"
+                self.news3PostType = "\(value!["News3PostType"] ?? "" as AnyObject)"
+                
                 let ad1PhotoString = "\(value!["Ad1Photo"] ?? "" as AnyObject)"
                 if ad1PhotoString != "" {
                     self.ad1Photo.image = UIImage(data: Data(base64Encoded: ad1PhotoString, options: .ignoreUnknownCharacters)!)
@@ -416,6 +435,10 @@ class Home: UIViewController, UITextViewDelegate {
                 self.event1URL = "\(value!["Event1URL"] ?? "" as AnyObject)"
                 self.event2URL = "\(value!["Event2URL"] ?? "" as AnyObject)"
                 self.event3URL = "\(value!["Event3URL"] ?? "" as AnyObject)"
+                
+                self.event1PostType = "\(value!["Event1PostType"] ?? "" as AnyObject)"
+                self.event2PostType = "\(value!["Event2PostType"] ?? "" as AnyObject)"
+                self.event3PostType = "\(value!["Event3PostType"] ?? "" as AnyObject)"
             }
             else {
                 SVProgressHUD.showError(withStatus: "申し訳ありません！\nホーム画面の読み込みにエラーが発生しました。\nお手数ですが、アプリの再起動をお願い致します。")
@@ -493,21 +516,16 @@ class Home: UIViewController, UITextViewDelegate {
     
     
     @IBAction func news1PhotoTapped(_ sender: Any) {
-        print("Tap!!")
-        //対象の投稿ID
-        let urlNews1 = news1URL
-        
-        if urlNews1 != "" {
-            userDefaults.set(urlNews1, forKey: "RequestedPostID")
-            userDefaults.synchronize()
-        
-            let tabBarController = parent as! ESTabBarController
-            tabBarController.setSelectedIndex(1, animated: false)
-            for viewController in tabBarController.children {
-                if viewController is Post {
-                    let post = viewController as! Post
-                    post.handleCheckedPost()
-                    break
+        if news1URL != nil {
+            news1URL = news1URL?.addingPercentEncoding(withAllowedCharacters: NSCharacterSet.urlQueryAllowed)
+            let url = URL(string: "\(news1URL!)")
+            if url == nil {
+                print("NG")
+                return
+            }
+            else {
+                if UIApplication.shared.canOpenURL(url!) {
+                    UIApplication.shared.open(url!)
                 }
             }
         }
@@ -515,19 +533,16 @@ class Home: UIViewController, UITextViewDelegate {
     
     
     @IBAction func news2Title(_ sender: Any) {
-        let urlNews2 = news2URL
-        
-        if urlNews2 != "" {
-            userDefaults.set(urlNews2, forKey: "RequestedPostID")
-            userDefaults.synchronize()
-            
-            let tabBarController = parent as! ESTabBarController
-            tabBarController.setSelectedIndex(1, animated: false)
-            for viewController in tabBarController.children {
-                if viewController is Post {
-                    let post = viewController as! Post
-                    post.handleCheckedPost()
-                    break
+        if news2URL != nil {
+            news2URL = news2URL?.addingPercentEncoding(withAllowedCharacters: NSCharacterSet.urlQueryAllowed)
+            let url = URL(string: "\(news2URL!)")
+            if url == nil {
+                print("NG")
+                return
+            }
+            else {
+                if UIApplication.shared.canOpenURL(url!) {
+                    UIApplication.shared.open(url!)
                 }
             }
         }
@@ -535,19 +550,16 @@ class Home: UIViewController, UITextViewDelegate {
     
     
     @IBAction func news3Title(_ sender: Any) {
-        let urlNews3 = news3URL
-        
-        if urlNews3 != "" {
-            userDefaults.set(urlNews3, forKey: "RequestedPostID")
-            userDefaults.synchronize()
-            
-            let tabBarController = parent as! ESTabBarController
-            tabBarController.setSelectedIndex(1, animated: false)
-            for viewController in tabBarController.children {
-                if viewController is Post {
-                    let post = viewController as! Post
-                    post.handleCheckedPost()
-                    break
+        if news3URL != nil {
+            news3URL = news3URL?.addingPercentEncoding(withAllowedCharacters: NSCharacterSet.urlQueryAllowed)
+            let url = URL(string: "\(news3URL!)")
+            if url == nil {
+                print("NG")
+                return
+            }
+            else {
+                if UIApplication.shared.canOpenURL(url!) {
+                    UIApplication.shared.open(url!)
                 }
             }
         }
@@ -555,19 +567,16 @@ class Home: UIViewController, UITextViewDelegate {
     
     
     @IBAction func event1Title(_ sender: Any) {
-        let urlEvent1 = event1URL
-        
-        if urlEvent1 != "" {
-            userDefaults.set(urlEvent1, forKey: "RequestedPostID")
-            userDefaults.synchronize()
-            
-            let tabBarController = parent as! ESTabBarController
-            tabBarController.setSelectedIndex(1, animated: false)
-            for viewController in tabBarController.children {
-                if viewController is Post {
-                    let post = viewController as! Post
-                    post.handleCheckedPost()
-                    break
+        if event1URL != nil {
+            event1URL = event1URL?.addingPercentEncoding(withAllowedCharacters: NSCharacterSet.urlQueryAllowed)
+            let url = URL(string: "\(event1URL!)")
+            if url == nil {
+                print("NG")
+                return
+            }
+            else {
+                if UIApplication.shared.canOpenURL(url!) {
+                    UIApplication.shared.open(url!)
                 }
             }
         }
@@ -575,19 +584,16 @@ class Home: UIViewController, UITextViewDelegate {
     
     
     @IBAction func event2Title(_ sender: Any) {
-        let urlEvent2 = event2URL
-        
-        if urlEvent2 != "" {
-            userDefaults.set(urlEvent2, forKey: "RequestedPostID")
-            userDefaults.synchronize()
-            
-            let tabBarController = parent as! ESTabBarController
-            tabBarController.setSelectedIndex(1, animated: false)
-            for viewController in tabBarController.children {
-                if viewController is Post {
-                    let post = viewController as! Post
-                    post.handleCheckedPost()
-                    break
+        if event2URL != nil {
+            event2URL = event2URL?.addingPercentEncoding(withAllowedCharacters: NSCharacterSet.urlQueryAllowed)
+            let url = URL(string: "\(event2URL!)")
+            if url == nil {
+                print("NG")
+                return
+            }
+            else {
+                if UIApplication.shared.canOpenURL(url!) {
+                    UIApplication.shared.open(url!)
                 }
             }
         }
@@ -595,19 +601,16 @@ class Home: UIViewController, UITextViewDelegate {
     
     
     @IBAction func event3Title(_ sender: Any) {
-        let urlEvent3 = event3URL
-        
-        if urlEvent3 != "" {
-            userDefaults.set(urlEvent3, forKey: "RequestedPostID")
-            userDefaults.synchronize()
-            
-            let tabBarController = parent as! ESTabBarController
-            tabBarController.setSelectedIndex(1, animated: false)
-            for viewController in tabBarController.children {
-                if viewController is Post {
-                    let post = viewController as! Post
-                    post.handleCheckedPost()
-                    break
+        if event3URL != nil {
+            event3URL = event3URL?.addingPercentEncoding(withAllowedCharacters: NSCharacterSet.urlQueryAllowed)
+            let url = URL(string: "\(event3URL!)")
+            if url == nil {
+                print("NG")
+                return
+            }
+            else {
+                if UIApplication.shared.canOpenURL(url!) {
+                    UIApplication.shared.open(url!)
                 }
             }
         }

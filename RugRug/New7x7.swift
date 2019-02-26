@@ -125,6 +125,8 @@ class New7x7: UIViewController, UITextFieldDelegate {
         T47.delegate = self
         T48.delegate = self
         
+        newPostButton.layer.cornerRadius = 30.0
+        
         //ログインユーザーのプロフィール画像をロード
         let currentUser = Auth.auth().currentUser
         
@@ -144,8 +146,8 @@ class New7x7: UIViewController, UITextFieldDelegate {
                         self.userPhoto.image = UIImage(data: data!)
                         self.userPhoto.clipsToBounds = true
                         self.userPhoto.layer.cornerRadius = 35.0
-                        self.userPhoto.layer.borderColor = UIColor.gray.cgColor
-                        self.userPhoto.layer.borderWidth = 0.5
+                        self.userPhoto.layer.borderColor = UIColor.white.cgColor
+                        self.userPhoto.layer.borderWidth = 1.0
                     }
                 }).resume()
             }
@@ -267,7 +269,7 @@ class New7x7: UIViewController, UITextFieldDelegate {
         let new7x7 = ["\(T0.text ?? "")","\(T1.text ?? "")","\(T2.text ?? "")","\(T3.text ?? "")","\(T4.text ?? "")","\(T5.text ?? "")","\(T6.text ?? "")","\(T7.text ?? "")","\(T8.text ?? "")","\(T9.text ?? "")","\(T10.text ?? "")","\(T11.text ?? "")","\(T12.text ?? "")","\(T13.text ?? "")","\(T14.text ?? "")","\(T15.text ?? "")","\(T16.text ?? "")","\(T17.text ?? "")","\(T18.text ?? "")","\(T19.text ?? "")","\(T20.text ?? "")","\(T21.text ?? "")","\(T22.text ?? "")","\(T23.text ?? "")","\(T24.text ?? "")","\(T25.text ?? "")","\(T26.text ?? "")","\(T27.text ?? "")","\(T28.text ?? "")","\(T29.text ?? "")","\(T30.text ?? "")","\(T31.text ?? "")","\(T32.text ?? "")","\(T33.text ?? "")","\(T34.text ?? "")","\(T35.text ?? "")","\(T36.text ?? "")","\(T37.text ?? "")","\(T38.text ?? "")","\(T39.text ?? "")","\(T40.text ?? "")","\(T41.text ?? "")","\(T42.text ?? "")","\(T43.text ?? "")","\(T44.text ?? "")","\(T45.text ?? "")","\(T46.text ?? "")","\(T47.text ?? "")","\(T48.text ?? "")"]
         
         if new7x7 == ["", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", ""] {
-            SVProgressHUD.showError(withStatus: "7×7の記載が空白です。ご確認下さい。\n\nYour new 7×7 is empty. Please check")
+            SVProgressHUD.showError(withStatus: "7×7の記載が空白です。\nご確認下さい。\n\nYour new 7×7 is empty. Please check")
         }
         else {
             // ImageViewから画像を取得する

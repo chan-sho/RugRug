@@ -34,13 +34,10 @@ class Post: UIViewController, UITableViewDataSource, UITableViewDelegate, UISear
 
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var textSearchBar: UISearchBar!
-    @IBOutlet weak var newPostButton: UIButton!
     @IBOutlet weak var newPostButton2: UIButton!
     
-    @IBOutlet weak var WCupButton1: UIButton!
-    @IBOutlet weak var WCupButton2: UIButton!
-    @IBOutlet weak var WCupButton3: UIButton!
-    
+    @IBOutlet weak var backButton: UIButton!
+    @IBOutlet weak var pageTitle: UILabel!
     
     var postArray: [PostData] = []
     var postArrayBySearch: [PostData] = []
@@ -67,8 +64,8 @@ class Post: UIViewController, UITableViewDataSource, UITableViewDelegate, UISear
         // テーブルセルのタップを【無効】にする
         tableView.allowsSelection = false
         
-        //separatorを左端始まりにして、黒色にする
-        tableView.separatorColor = UIColor.white
+        //separatorを左端始まりにして、色指定
+        tableView.separatorColor = UIColor(red: 33/255, green: 33/255, blue: 33/255, alpha: 1.0)
         tableView.separatorInset = .zero
         
         
@@ -80,9 +77,9 @@ class Post: UIViewController, UITableViewDataSource, UITableViewDelegate, UISear
         //searchBarの背景をカスタマイズ
         let barImageView = textSearchBar.value(forKey: "_background") as! UIImageView
         barImageView.removeFromSuperview()
-        textSearchBar.backgroundColor = UIColor.white
+        textSearchBar.backgroundColor = UIColor(red: 1.0, green: 1.0, blue: 1.0, alpha: 0.0)
         let textField = textSearchBar.value(forKey: "_searchField") as! UITextField
-        textField.backgroundColor = UIColor(red: 0.1, green: 0.1, blue: 0.1, alpha: 0.1)
+        textField.backgroundColor = UIColor.white
         
         let nib = UINib(nibName: "PostTableCell", bundle: nil)
         tableView.register(nib, forCellReuseIdentifier: "Cell")
@@ -99,16 +96,13 @@ class Post: UIViewController, UITableViewDataSource, UITableViewDelegate, UISear
         textSearchBar.inputAccessoryView = kbToolBar
         
         //ボタン同時押しによるアプリクラッシュを防ぐ
-        newPostButton.isExclusiveTouch = true
         newPostButton2.isExclusiveTouch = true
-        WCupButton1.isExclusiveTouch = true
-        WCupButton2.isExclusiveTouch = true
-        WCupButton3.isExclusiveTouch = true
+        backButton.isExclusiveTouch = true
         
         // テーブル行の高さをAutoLayoutで自動調整する
         tableView.rowHeight = UITableView.automaticDimension
         // テーブル行の高さの概算値を設定しておく
-        tableView.estimatedRowHeight = 300
+        tableView.estimatedRowHeight = 400
         
         //userDefaultsの初期値設定（念の為）
         userDefaults.register(defaults: ["RejectIdArray" : [], "UserPhotoURLFlag" : "NO", "RejectUserArray" : [], "ChatRequestFlag" : "NO"])

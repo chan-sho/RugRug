@@ -31,6 +31,10 @@ class Reject7x7: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        hideButton.layer.cornerRadius = 30.0
+        reportButton.layer.cornerRadius = 30.0
+        blockButton.layer.cornerRadius = 30.0
 
         //userDefaultsの初期値設定（念の為）
         userDefaults.register(defaults: ["Reject7x7Flag" : "NO", "Caution7x7Flag" : "NO", "RejectUser7x7Flag" : "NO"])

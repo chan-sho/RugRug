@@ -24,8 +24,8 @@ class ChatTableCell: UITableViewCell {
         
         self.userPhoto.clipsToBounds = true
         self.userPhoto.layer.cornerRadius = 35.0
-        self.userPhoto.layer.borderColor = UIColor.gray.cgColor
-        self.userPhoto.layer.borderWidth = 0.5
+        self.userPhoto.layer.borderColor = UIColor.white.cgColor
+        self.userPhoto.layer.borderWidth = 1.0
         
         //項目をクリツク可能に
         contents.isUserInteractionEnabled = true

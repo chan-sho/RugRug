@@ -25,6 +25,7 @@
 // 【UserDefaults管理】"RequestedPostID"= Info画面の「この時チェックされた投稿」ボタンに紐づく投稿ID
 // 【UserDefaults管理】"ChatDataId"= チャットをしたい対象の投稿ID
 // 【UserDefaults管理】"ChatRequestFlag"= コンタクト通知一覧で、投稿者プロフィール画像を押した事を確認するFlag
+// 【UserDefaults管理】"ChatRequestFlag"= コンタクト通知一覧で、投稿者プロフィール画像を押した事を確認するFlag
 
 
 import UIKit
@@ -63,6 +64,7 @@ class PostData: NSObject {
     var ChatRequest: String?
     var contentsURL: String?
     var new7x7: [String]?
+    var postType: String?
     
     
     init(snapshot: DataSnapshot, myId: String) {
@@ -101,6 +103,7 @@ class PostData: NSObject {
         self.RequestedPostID = valueDictionary["RequestedPostID"] as? String
         self.ChatRequest = valueDictionary["ChatRequest"] as? String
         self.new7x7 = valueDictionary["7×7"] as? [String]
+        self.postType = valueDictionary["postType"] as? String
         
         let time = valueDictionary["time"] as? String
         self.date = Date(timeIntervalSinceReferenceDate: TimeInterval(time!)!)

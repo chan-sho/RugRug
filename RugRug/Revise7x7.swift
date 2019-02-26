@@ -131,6 +131,9 @@ class Revise7x7: UIViewController, UITextFieldDelegate {
         T47.delegate = self
         T48.delegate = self
         
+        editButton.layer.cornerRadius = 30.0
+        deleteButton.layer.cornerRadius = 30.0
+        
         //ボタン同時押しによるアプリクラッシュを防ぐ
         editButton.isExclusiveTouch = true
         deleteButton.isExclusiveTouch = true

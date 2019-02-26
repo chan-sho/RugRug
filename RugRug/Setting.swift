@@ -18,6 +18,7 @@ import SVProgressHUD
 class Setting: UIViewController {
 
     
+    @IBOutlet weak var reportButton: UIButton!
     @IBOutlet weak var logOutButton: UIButton!
     @IBOutlet weak var acconutDeleteButton: UIButton!
     @IBOutlet weak var RugRugPhoto: UIImageView!
@@ -29,13 +30,13 @@ class Setting: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        self.RugRugPhoto.clipsToBounds = true
-        self.RugRugPhoto.layer.cornerRadius = 20.0
-        self.RugRugPhoto.layer.borderColor = UIColor.gray.cgColor
-        self.RugRugPhoto.layer.borderWidth = 0.5
+        
+        reportButton.layer.cornerRadius = 30.0
+        logOutButton.layer.cornerRadius = 30.0
+        acconutDeleteButton.layer.cornerRadius = 30.0
         
         //ボタン同時押しによるアプリクラッシュを防ぐ
+        reportButton.isExclusiveTouch = true
         logOutButton.isExclusiveTouch = true
         acconutDeleteButton.isExclusiveTouch = true
     }

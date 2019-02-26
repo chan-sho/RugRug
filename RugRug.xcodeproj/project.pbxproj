@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		31082E752222ED7A00A0FA6F /* PostType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31082E742222ED7A00A0FA6F /* PostType.swift */; };
+		31082E772222F39D00A0FA6F /* News.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31082E762222F39D00A0FA6F /* News.swift */; };
 		311F7A7321FEE9C20068868E /* WCup7x7.swift in Sources */ = {isa = PBXBuildFile; fileRef = 311F7A7221FEE9C10068868E /* WCup7x7.swift */; };
 		311F7A7521FEF4F00068868E /* New7x7.swift in Sources */ = {isa = PBXBuildFile; fileRef = 311F7A7421FEF4F00068868E /* New7x7.swift */; };
 		31280E9921AD3322008FDDEF /* AJAlertController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 31280E9521AD3321008FDDEF /* AJAlertController.xib */; };
@@ -56,6 +58,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		31082E742222ED7A00A0FA6F /* PostType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostType.swift; sourceTree = "<group>"; };
+		31082E762222F39D00A0FA6F /* News.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = News.swift; sourceTree = "<group>"; };
 		311F7A7221FEE9C10068868E /* WCup7x7.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WCup7x7.swift; sourceTree = "<group>"; };
 		311F7A7421FEF4F00068868E /* New7x7.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = New7x7.swift; sourceTree = "<group>"; };
 		31280E9521AD3321008FDDEF /* AJAlertController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AJAlertController.xib; sourceTree = "<group>"; };
@@ -158,6 +162,7 @@
 				31DB930221A8388800A2B6AF /* Initial.swift */,
 				31DB92FA21A7F64C00A2B6AF /* Login.swift */,
 				31DB92F821A7F62D00A2B6AF /* Home.swift */,
+				31082E742222ED7A00A0FA6F /* PostType.swift */,
 				31DB92FE21A7F6C800A2B6AF /* Post.swift */,
 				31DB930621A8DB4400A2B6AF /* PostTableCell.swift */,
 				31DB930721A8DB4400A2B6AF /* PostTableCell.xib */,
@@ -167,6 +172,7 @@
 				318F1CE121C245E100E53FD3 /* Chat.swift */,
 				317A096221C280E400C35DAE /* ChatTableCell.swift */,
 				317A096321C280E400C35DAE /* ChatTableCell.xib */,
+				31082E762222F39D00A0FA6F /* News.swift */,
 				311F7A7221FEE9C10068868E /* WCup7x7.swift */,
 				311F7A7421FEF4F00068868E /* New7x7.swift */,
 				31B13A5D2201461B003953C0 /* New7x7TableCell.swift */,
@@ -174,14 +180,14 @@
 				318639602201EDCF001968D3 /* Revise7x7.swift */,
 				318639622201EDEA001968D3 /* Reject7x7.swift */,
 				31494C0421FF17DC00EA4C85 /* Tips.swift */,
-				312A2DDA21BE2C8600C16EA1 /* Info.swift */,
-				312A2DDE21BE648E00C16EA1 /* InfoTableCell.swift */,
-				312A2DDF21BE648E00C16EA1 /* InfoTableCell.xib */,
+				31DB92FC21A7F66600A2B6AF /* Setting.swift */,
 				31DB930021A7F6EC00A2B6AF /* Request.swift */,
 				3169FE1521AE785C000E01A4 /* FAQ.swift */,
 				3169FE1721AE79E6000E01A4 /* FAQTableCell.swift */,
 				3169FE1821AE79E6000E01A4 /* FAQTableCell.xib */,
-				31DB92FC21A7F66600A2B6AF /* Setting.swift */,
+				312A2DDA21BE2C8600C16EA1 /* Info.swift */,
+				312A2DDE21BE648E00C16EA1 /* InfoTableCell.swift */,
+				312A2DDF21BE648E00C16EA1 /* InfoTableCell.xib */,
 				3169FE1C21AFBBBD000E01A4 /* Manager.swift */,
 				31DB930421A8D94900A2B6AF /* PostData.swift */,
 				31DB930A21A8E97500A2B6AF /* Const.swift */,
@@ -389,9 +395,11 @@
 				31DB930121A7F6EC00A2B6AF /* Request.swift in Sources */,
 				3169FE1621AE785C000E01A4 /* FAQ.swift in Sources */,
 				31DB92E521A7EC9000A2B6AF /* AppDelegate.swift in Sources */,
+				31082E772222F39D00A0FA6F /* News.swift in Sources */,
 				31DB92FB21A7F64C00A2B6AF /* Login.swift in Sources */,
 				3169FE1921AE79E6000E01A4 /* FAQTableCell.swift in Sources */,
 				3169FE1F21AFDB0E000E01A4 /* Const3.swift in Sources */,
+				31082E752222ED7A00A0FA6F /* PostType.swift in Sources */,
 				31DB930B21A8E97500A2B6AF /* Const.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

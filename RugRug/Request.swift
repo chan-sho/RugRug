@@ -24,6 +24,7 @@ class Request: UIViewController, UITextFieldDelegate, UITextViewDelegate  {
     @IBOutlet weak var submitButton: UIButton!
     @IBOutlet weak var referenceButton: UIButton!
     @IBOutlet weak var userName: UILabel!
+    @IBOutlet weak var backButton: UIButton!
     
     
     override func viewDidLoad() {
@@ -44,15 +45,17 @@ class Request: UIViewController, UITextFieldDelegate, UITextViewDelegate  {
         userMail.layer.cornerRadius = 10.0
         userMail.layer.masksToBounds = true
         
+        submitButton.layer.cornerRadius = 30.0
+        referenceButton.layer.cornerRadius = 30.0
+        
         //ボタン同時押しによるアプリクラッシュを防ぐ
         submitButton.isExclusiveTouch = true
         referenceButton.isExclusiveTouch = true
         
         self.RugRugPhoto.clipsToBounds = true
         self.RugRugPhoto.layer.cornerRadius = 35.0
-        self.RugRugPhoto.layer.borderColor = UIColor.gray.cgColor
-        self.RugRugPhoto.layer.borderWidth = 0.5
-        
+        self.RugRugPhoto.layer.borderColor = UIColor.lightGray.cgColor
+        self.RugRugPhoto.layer.borderWidth = 1.0
         
         
         //ログインユーザーのプロフィール画像をロード
@@ -74,8 +77,8 @@ class Request: UIViewController, UITextFieldDelegate, UITextViewDelegate  {
                         self.userPhoto.image = UIImage(data: data!)
                         self.userPhoto.clipsToBounds = true
                         self.userPhoto.layer.cornerRadius = 35.0
-                        self.userPhoto.layer.borderColor = UIColor.gray.cgColor
-                        self.userPhoto.layer.borderWidth = 0.5
+                        self.userPhoto.layer.borderColor = UIColor.white.cgColor
+                        self.userPhoto.layer.borderWidth = 1.0
                     }
                 }).resume()
             }

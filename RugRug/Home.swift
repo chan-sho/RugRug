@@ -58,6 +58,8 @@ class Home: UIViewController, UITextViewDelegate {
     @IBOutlet weak var ad8Title: UILabel!
     @IBOutlet weak var ad9Title: UILabel!
     
+    @IBOutlet weak var postPickUp: UILabel!
+    @IBOutlet weak var eventPickUp: UILabel!
     
     var news1URL: String?
     var news2URL: String?
@@ -76,6 +78,8 @@ class Home: UIViewController, UITextViewDelegate {
     var ad8URL: String?
     var ad9URL: String?
     
+    var GoogleAd: String?
+    
     //user defaultsを使う準備
     let userDefaults:UserDefaults = UserDefaults.standard
     
@@ -86,7 +90,7 @@ class Home: UIViewController, UITextViewDelegate {
         RugRugComment.delegate = self
         RugRugComment.layer.borderColor = UIColor.white.cgColor
         // 枠の幅
-        RugRugComment.layer.borderWidth = 1.0
+        RugRugComment.layer.borderWidth = 0.0
         // 枠を角丸にする場合
         RugRugComment.layer.cornerRadius = 12.0
         RugRugComment.layer.masksToBounds = true
@@ -137,6 +141,12 @@ class Home: UIViewController, UITextViewDelegate {
         ad9Photo.layer.cornerRadius = 57.5
         ad9Photo.layer.borderColor = UIColor.gray.cgColor
         ad9Photo.layer.borderWidth = 0.5
+        
+        postPickUp.layer.cornerRadius = 15.0
+        postPickUp.layer.masksToBounds = true
+        eventPickUp.layer.cornerRadius = 15.0
+        eventPickUp.layer.masksToBounds = true
+        
         
         //Newsの情報取得
         var refNews: DatabaseReference!
@@ -262,6 +272,15 @@ class Home: UIViewController, UITextViewDelegate {
         ref.observe(DataEventType.value, with: { (snapshot) in
             let value = snapshot.value as? String
             self.RugRugComment.text = value
+        })
+        
+        //GoogleAd掲載のYES/NO情報を取得
+        var refAd: DatabaseReference!
+        refAd = Database.database().reference().child("Ad(Google)")
+        //  Firebaseからobserveでデータ検索
+        refAd.observe(DataEventType.value, with: { (snapshot) in
+            let value = snapshot.value as? String
+            self.GoogleAd = value
         })
         
         
@@ -413,6 +432,16 @@ class Home: UIViewController, UITextViewDelegate {
             let value = snapshot.value as? String
             self.RugRugComment.text = value
         })
+        
+        //GoogleAd掲載のYES/NO情報を取得
+        var refAd: DatabaseReference!
+        refAd = Database.database().reference().child("Ad(Google)")
+        //  Firebaseからobserveでデータ検索
+        refAd.observe(DataEventType.value, with: { (snapshot) in
+            let value = snapshot.value as? String
+            self.GoogleAd = value
+        })
+        
     }
     
     override func didReceiveMemoryWarning() {
@@ -439,7 +468,10 @@ class Home: UIViewController, UITextViewDelegate {
         //  広告表示
         admobView.rootViewController = self
         admobView.load(GADRequest())
-        self.view.addSubview(admobView)
+        //  広告表示を管理
+        if GoogleAd == "YES" {
+            self.view.addSubview(admobView)
+        }
     }
     
     @IBAction func EULAButton(_ sender: Any) {

@@ -56,7 +56,7 @@ class WCup7x7: UIViewController, UITableViewDataSource, UITableViewDelegate {
         tableView.allowsSelection = false
         
         //separatorを左端始まりにして、黒色にする
-        tableView.separatorColor = UIColor.white
+        tableView.separatorColor = UIColor.darkGray
         tableView.separatorInset = .zero
         
         let nib = UINib(nibName: "New7x7TableCell", bundle: nil)

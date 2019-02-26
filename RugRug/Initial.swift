@@ -54,6 +54,10 @@ class Initial: UIViewController {
         label5.layer.cornerRadius = 10.0
         label5.layer.masksToBounds = true
         
+        goToLoginButton.layer.cornerRadius = 30.0
+        goToLoginButton.layer.borderColor = UIColor.blue.cgColor
+        goToLoginButton.layer.borderWidth = 0.0
+        
         //利用規約同意の判別要素
         EULAagreement = userDefaults.string(forKey: "EULAagreement")
         print("利用規約同意有無の確認＝\(String(describing: (EULAagreement)))")

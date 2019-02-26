@@ -24,8 +24,8 @@ class FAQTableCell: UITableViewCell {
         
         self.RugRugPhoto.clipsToBounds = true
         self.RugRugPhoto.layer.cornerRadius = 20.0
-        self.RugRugPhoto.layer.borderColor = UIColor.gray.cgColor
-        self.RugRugPhoto.layer.borderWidth = 0.5
+        self.RugRugPhoto.layer.borderColor = UIColor.black.cgColor
+        self.RugRugPhoto.layer.borderWidth = 1.0
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {

@@ -76,8 +76,8 @@ class New7x7TableCell: UITableViewCell, UITextFieldDelegate {
        
         self.userPhoto.clipsToBounds = true
         self.userPhoto.layer.cornerRadius = 35.0
-        self.userPhoto.layer.borderColor = UIColor.gray.cgColor
-        self.userPhoto.layer.borderWidth = 0.5
+        self.userPhoto.layer.borderColor = UIColor.white.cgColor
+        self.userPhoto.layer.borderWidth = 1.0
         
         //ボタン同時押しによるアプリクラッシュを防ぐ
         likeButton.isExclusiveTouch = true

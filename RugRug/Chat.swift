@@ -36,7 +36,7 @@ class Chat: UIViewController, UITextViewDelegate, UITableViewDataSource, UITable
 
         text.delegate = self
         // 枠のカラー
-        text.layer.borderColor = UIColor.gray.cgColor
+        text.layer.borderColor = UIColor.darkGray.cgColor
         // 枠の幅
         text.layer.borderWidth = 0.5
         
@@ -78,8 +78,8 @@ class Chat: UIViewController, UITextViewDelegate, UITableViewDataSource, UITable
                         self.userPhoto.image = UIImage(data: data!)
                         self.userPhoto.clipsToBounds = true
                         self.userPhoto.layer.cornerRadius = 35.0
-                        self.userPhoto.layer.borderColor = UIColor.gray.cgColor
-                        self.userPhoto.layer.borderWidth = 0.5
+                        self.userPhoto.layer.borderColor = UIColor.white.cgColor
+                        self.userPhoto.layer.borderWidth = 1.0
                     }
                 }).resume()
             }
@@ -92,7 +92,7 @@ class Chat: UIViewController, UITextViewDelegate, UITableViewDataSource, UITable
         tableView.allowsSelection = false
         
         //separatorを左端始まりにして、白色にする
-        tableView.separatorColor = UIColor.white
+        tableView.separatorColor = UIColor(red: 0.0, green: 0.0, blue: 0.0, alpha: 0.0)
         tableView.separatorInset = .zero
         
         let nib = UINib(nibName: "ChatTableCell", bundle: nil)

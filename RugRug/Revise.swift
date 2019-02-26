@@ -53,8 +53,12 @@ class Revise: UIViewController, UITextFieldDelegate, UITextViewDelegate {
         contentsURLRevised.layer.cornerRadius = 10.0
         contentsURLRevised.layer.masksToBounds = true
         
+        reviseDoneButton.layer.cornerRadius = 30.0
+        deleteButton.layer.cornerRadius = 30.0
+        
         //ボタン同時押しによるアプリクラッシュを防ぐ
         reviseDoneButton.isExclusiveTouch = true
+        deleteButton.isExclusiveTouch = true
         cancelButton.isExclusiveTouch = true
     }
 

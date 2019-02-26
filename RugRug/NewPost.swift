@@ -52,6 +52,8 @@ class NewPost: UIViewController, UITextFieldDelegate, UITextViewDelegate {
         contentsURL.layer.cornerRadius = 10.0
         contentsURL.layer.masksToBounds = true
         
+        newPostButton.layer.cornerRadius = 30.0
+        
         //ボタン同時押しによるアプリクラッシュを防ぐ
         newPostButton.isExclusiveTouch = true
         cancelButton.isExclusiveTouch = true
@@ -75,8 +77,8 @@ class NewPost: UIViewController, UITextFieldDelegate, UITextViewDelegate {
                         self.userPhoto.image = UIImage(data: data!)
                         self.userPhoto.clipsToBounds = true
                         self.userPhoto.layer.cornerRadius = 35.0
-                        self.userPhoto.layer.borderColor = UIColor.gray.cgColor
-                        self.userPhoto.layer.borderWidth = 0.5
+                        self.userPhoto.layer.borderColor = UIColor.white.cgColor
+                        self.userPhoto.layer.borderWidth = 1.0
                     }
                 }).resume()
             }

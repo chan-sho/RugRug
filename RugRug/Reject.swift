@@ -31,6 +31,15 @@ class Reject: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        rejectButton.layer.cornerRadius = 30.0
+        reportButton.layer.cornerRadius = 30.0
+        blockUserButton.layer.cornerRadius = 30.0
+        
+        //ボタン同時押しによるアプリクラッシュを防ぐ
+        rejectButton.isExclusiveTouch = true
+        reportButton.isExclusiveTouch = true
+        blockUserButton.isExclusiveTouch = true
 
         //userDefaultsの初期値設定（念の為）
         userDefaults.register(defaults: ["RejectDataFlag" : "NO", "CautionDataFlag" : "NO", "RejectUserFlag" : "NO"])

@@ -67,12 +67,12 @@ class ViewController: UIViewController {
     func setupTab() {
         
         // 画像のファイル名を指定してESTabBarControllerを作成する
-        let tabBarController: ESTabBarController! = ESTabBarController(tabIconNames: ["Home", "Post","Info", "Request", "Setting"])
+        let tabBarController: ESTabBarController! = ESTabBarController(tabIconNames: ["Home", "PostType", "News", "Setting"])
         
         // 背景色、選択時の色を設定する
-        tabBarController.selectedColor = UIColor(red: 0.0, green: 0.0, blue: 1.0, alpha:1.0)
-        tabBarController.buttonsBackgroundColor = UIColor(red: 0.1, green: 0.1, blue: 0.1, alpha: 0.1)
-        tabBarController.selectionIndicatorHeight = 2
+        tabBarController.selectedColor = UIColor(red: 1.0, green: 1.0, blue: 1.0, alpha:1.0)
+        tabBarController.buttonsBackgroundColor = UIColor(red: 90/255, green: 90/255, blue: 90/255, alpha: 0.9)
+        tabBarController.selectionIndicatorHeight = 0.0
         
         // 作成したESTabBarControllerを親のViewController（＝self）に追加する
         addChild(tabBarController)
@@ -90,16 +90,14 @@ class ViewController: UIViewController {
         
         // タブをタップした時に表示するViewControllerを設定する
         let Home = storyboard?.instantiateViewController(withIdentifier: "Home")
-        let Post = storyboard?.instantiateViewController(withIdentifier: "Post")
-        let Info = storyboard?.instantiateViewController(withIdentifier: "Info")
-        let Request = storyboard?.instantiateViewController(withIdentifier: "Request")
+        let PostType = storyboard?.instantiateViewController(withIdentifier: "PostType")
+        let News = storyboard?.instantiateViewController(withIdentifier: "News")
         let Setting = storyboard?.instantiateViewController(withIdentifier: "Setting")
         
         tabBarController.setView(Home, at: 0)
-        tabBarController.setView(Post, at: 1)
-        tabBarController.setView(Info, at: 2)
-        tabBarController.setView(Request, at: 3)
-        tabBarController.setView(Setting, at: 4)
+        tabBarController.setView(PostType, at: 1)
+        tabBarController.setView(News, at: 2)
+        tabBarController.setView(Setting, at: 3)
     }
 }
 

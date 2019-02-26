@@ -39,7 +39,7 @@ class FAQ: UIViewController, UITableViewDataSource, UITableViewDelegate, UISearc
         tableView.allowsSelection = false
         
         //separatorを左端始まりにして、黒色にする
-        tableView.separatorColor = UIColor.black
+        tableView.separatorColor = UIColor(red: 1.0, green: 1.0, blue: 1.0, alpha: 0.0)
         tableView.separatorInset = .zero
         
         searchBar.delegate = self
@@ -50,9 +50,9 @@ class FAQ: UIViewController, UITableViewDataSource, UITableViewDelegate, UISearc
         //searchBarの背景をカスタマイズ
         let barImageView = searchBar.value(forKey: "_background") as! UIImageView
         barImageView.removeFromSuperview()
-        searchBar.backgroundColor = UIColor.white
+        searchBar.backgroundColor = UIColor(red: 1.0, green: 1.0, blue: 1.0, alpha: 0.0)
         let textField = searchBar.value(forKey: "_searchField") as! UITextField
-        textField.backgroundColor = UIColor(red: 0.1, green: 0.1, blue: 0.1, alpha: 0.1)
+        textField.backgroundColor = UIColor.white
         
         let nib = UINib(nibName: "FAQTableCell", bundle: nil)
         tableView.register(nib, forCellReuseIdentifier: "Cell-2")

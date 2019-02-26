@@ -18,6 +18,7 @@
 // 【UserDefaults管理】"ContactRequestPost"= コンタクト通知をした対象の投稿ID
 // 【UserDefaults管理】"ContactRequestUserID"= コンタクト通知をした相手のユーザーID
 // 【UserDefaults管理】"ChatDataId"= チャットをしたい対象の投稿ID
+// 【UserDefaults管理】"PostType"= PostのTypeを判別するコード
 
 
 import UIKit
@@ -49,6 +50,8 @@ class Post: UIViewController, UITableViewDataSource, UITableViewDelegate, UISear
     
     //user defaultsを使う準備
     let userDefaults:UserDefaults = UserDefaults.standard
+    
+    var postType : String?
     
     
     override func viewDidLoad() {
@@ -107,6 +110,26 @@ class Post: UIViewController, UITableViewDataSource, UITableViewDelegate, UISear
         //userDefaultsの初期値設定（念の為）
         userDefaults.register(defaults: ["RejectIdArray" : [], "UserPhotoURLFlag" : "NO", "RejectUserArray" : [], "ChatRequestFlag" : "NO"])
         
+        //postTypeの更新
+        postType = userDefaults.string(forKey: "PostType")
+        
+        //pageTitleの更新
+        if postType == "1" {
+            pageTitle.text = "【本気でラグビーしたい】"
+        }
+        else if postType == "2" {
+            pageTitle.text = "【エンジョイレベルで楽しく】"
+        }
+        else if postType == "3" {
+            pageTitle.text = "【一緒に観戦しましょう】"
+        }
+        else if postType == "4" {
+            pageTitle.text = "【飲み会で盛り上がろう】"
+        }
+        else if postType == "5" {
+            pageTitle.text = "【ビジネスマッチング】"
+        }
+        
         // TableViewを再表示する
         self.tableView.reloadData()
     }
@@ -119,6 +142,27 @@ class Post: UIViewController, UITableViewDataSource, UITableViewDelegate, UISear
     
 
     override func viewWillAppear(_ animated: Bool) {
+        //postTypeの更新（念の為）
+        postType = userDefaults.string(forKey: "PostType")
+        print("PostTypeの確認＝\(String(describing: (postType)))")
+        
+        //pageTitleの更新
+        if postType == "1" {
+            pageTitle.text = "【本気でラグビーしたい】"
+        }
+        else if postType == "2" {
+            pageTitle.text = "【エンジョイレベルで楽しく】"
+        }
+        else if postType == "3" {
+            pageTitle.text = "【一緒に観戦しましょう】"
+        }
+        else if postType == "4" {
+            pageTitle.text = "【飲み会で盛り上がろう】"
+        }
+        else if postType == "5" {
+            pageTitle.text = "【ビジネスマッチング】"
+        }
+        
         // TableViewを再表示する（※superの前に入れておくのが大事！！）
         self.tableView.dataSource = self
         self.tableView.reloadData()
@@ -135,9 +179,12 @@ class Post: UIViewController, UITableViewDataSource, UITableViewDelegate, UISear
                     if let uid = Auth.auth().currentUser?.uid {
                         let postData = PostData(snapshot: snapshot, myId: uid)
                         
+                        // 始めのinsertの段階でpostTypeが異なる投稿データを除いておく
+                        if postData.postType == self.postType {
                         self.postArray.insert(postData, at: 0)
                         // 念のため同じデータをpostArrayAllに入れておく
                         self.postArrayAll.insert(postData, at: 0)
+                        }
                         
                         let rejectIdArray = self.userDefaults.array(forKey: "RejectIdArray") as! [String]
                         let rejectUserArray = self.userDefaults.array(forKey: "RejectUserArray") as! [String]

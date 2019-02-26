@@ -5,6 +5,8 @@
 //  Created by 高野翔 on 2018/11/24.
 //  Copyright © 2018 高野翔. All rights reserved.
 //
+// 【UserDefaults管理】"PostType"= PostのTypeを判別するコード
+
 
 import UIKit
 import ESTabBarController
@@ -24,6 +26,8 @@ class NewPost: UIViewController, UITextFieldDelegate, UITextViewDelegate {
     @IBOutlet weak var cancelButton: UIButton!
     
     @IBOutlet weak var userPhoto: UIImageView!
+    
+    var postType : String?
     
     //user defaultsを使う準備
     let userDefaults:UserDefaults = UserDefaults.standard
@@ -58,7 +62,9 @@ class NewPost: UIViewController, UITextFieldDelegate, UITextViewDelegate {
         newPostButton.isExclusiveTouch = true
         cancelButton.isExclusiveTouch = true
         
-        
+        //postTypeの更新
+        postType = userDefaults.string(forKey: "PostType")
+        print("PostTypeの確認＝\(String(describing: (postType)))")
         
         //ログインユーザーのプロフィール画像をロード
         let currentUser = Auth.auth().currentUser
@@ -83,6 +89,13 @@ class NewPost: UIViewController, UITextFieldDelegate, UITextViewDelegate {
                 }).resume()
             }
         }
+    }
+    
+    
+    override func viewWillAppear(_ animated: Bool) {
+        //postTypeの更新（念の為）
+        postType = userDefaults.string(forKey: "PostType")
+        print("PostTypeの確認＝\(String(describing: (postType)))")
     }
 
     
@@ -128,7 +141,7 @@ class NewPost: UIViewController, UITextFieldDelegate, UITextViewDelegate {
         
         // **重要** 辞書を作成してFirebaseに保存する
         let postRef = Database.database().reference().child(Const.PostPath)
-        let postDic = ["userID": Auth.auth().currentUser!.uid, "category": category.text!, "contents": contents.text!, "contentsURL": contentsURL.text!, "userPhoto": imageString, "time": String(time), "name": name!, "EULAagreement": EULAagreement] as [String : Any]
+            let postDic = ["userID": Auth.auth().currentUser!.uid, "category": category.text!, "contents": contents.text!, "contentsURL": contentsURL.text!, "userPhoto": imageString, "time": String(time), "name": name!, "EULAagreement": EULAagreement, "postType": postType!] as [String : Any]
         postRef.childByAutoId().setValue(postDic)
         
         // HUDで投稿完了を表示する

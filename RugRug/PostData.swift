@@ -25,7 +25,7 @@
 // 【UserDefaults管理】"RequestedPostID"= Info画面の「この時チェックされた投稿」ボタンに紐づく投稿ID
 // 【UserDefaults管理】"ChatDataId"= チャットをしたい対象の投稿ID
 // 【UserDefaults管理】"ChatRequestFlag"= コンタクト通知一覧で、投稿者プロフィール画像を押した事を確認するFlag
-// 【UserDefaults管理】"ChatRequestFlag"= コンタクト通知一覧で、投稿者プロフィール画像を押した事を確認するFlag
+// 【UserDefaults管理】"PostType"= PostのTypeを判別するコード
 
 
 import UIKit

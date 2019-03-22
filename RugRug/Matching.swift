@@ -7,24 +7,62 @@
 //
 
 import UIKit
+import SVProgressHUD
+
 
 class Matching: UIViewController {
-
+    
+    
+    @IBOutlet weak var initialSettingButton: UIButton!
+    @IBOutlet weak var swipeButton: UIButton!
+    @IBOutlet weak var contactButton: UIButton!
+    
+    //user defaultsを使う準備
+    let userDefaults:UserDefaults = UserDefaults.standard
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        // Do any additional setup after loading the view.
+        initialSettingButton.layer.cornerRadius = 30.0
+        swipeButton.layer.cornerRadius = 30.0
+        contactButton.layer.cornerRadius = 30.0
+        
+        //ボタン同時押しによるアプリクラッシュを防ぐ
+        initialSettingButton.isExclusiveTouch = true
+        swipeButton.isExclusiveTouch = true
+        contactButton.isExclusiveTouch = true
+        
+        //userDefaultsの初期値設定
+        userDefaults.register(defaults: ["MatchSettingFlag" : "NO"])
     }
     
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+    
+    @IBAction func swipeButton(_ sender: Any) {
+        let matchSettingFlag = userDefaults.string(forKey: "MatchSettingFlag")
+        if matchSettingFlag == "NO" {
+            SVProgressHUD.showError(withStatus: "まずは「初期設定」を\n完了して下さい。")
+        }
+        if matchSettingFlag == "YES" {
+            performSegue(withIdentifier: "toMatchSwipe", sender: nil)
+        }
     }
-    */
+    
+    
+    @IBAction func contactButton(_ sender: Any) {
+        let matchSettingFlag = userDefaults.string(forKey: "MatchSettingFlag")
+        if matchSettingFlag == "NO" {
+            SVProgressHUD.showError(withStatus: "まずは「初期設定」を\n完了して下さい。")
+        }
+        if matchSettingFlag == "YES" {
+            performSegue(withIdentifier: "toMatchContact", sender: nil)
+        }
+    }
+    
+    
+    @IBAction func unwind(_ segue: UIStoryboardSegue) {
+        // 他の画面から segue を使って戻ってきた時に呼ばれる
+    }
 
+    
 }

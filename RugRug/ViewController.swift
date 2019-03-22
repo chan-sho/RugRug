@@ -12,6 +12,7 @@
 // 【UserDefaults管理】"RejectDataFlag"= 「リジェクト／管理」ボタンを押した後の同意確認をするFlag
 // 【UserDefaults管理】"CautionDataFlag"= 報告ボタンを押した後の同意確認をするFlag
 // 【UserDefaults管理】"UserPhotoURLFlagof7x7"= 7x7でuserPhotoボタンを押した後の同意確認をするFlag
+// 【UserDefaults管理】"MatchSettingFlag"= Match-Settingが完了しているかどうかの判別Flag
 
 
 import UIKit
@@ -31,7 +32,7 @@ class ViewController: UIViewController {
         setupTab()
         
         //userDefaultsの初期値設定
-        userDefaults.register(defaults: ["InitialFlag" : "NO", "EULAagreement" : "NO", "EULACheckFlag" : "NO", "AccountDeleteFlag" : "NO", "RejectDataFlag" : "NO",  "RejectUserFlag" : "NO", "CautionDataFlag" : "NO", "RejectIdArray" : [], "UserPhotoURLFlag" : "NO", "RejectUserArray" : [], "ChatRequestFlag" : "NO", "UserPhotoURLFlagof7x7" : "NO", "Reject7x7Array" : [], "Reject7x7UserArray" : [], "Chat7x7Flag" : "NO", "Reject7x7Flag" : "NO", "Caution7x7Flag" : "NO", "RejectUser7x7Flag" : "NO"])
+        userDefaults.register(defaults: ["InitialFlag" : "NO", "EULAagreement" : "NO", "EULACheckFlag" : "NO", "AccountDeleteFlag" : "NO", "RejectDataFlag" : "NO",  "RejectUserFlag" : "NO", "CautionDataFlag" : "NO", "RejectIdArray" : [], "UserPhotoURLFlag" : "NO", "RejectUserArray" : [], "ChatRequestFlag" : "NO", "UserPhotoURLFlagof7x7" : "NO", "Reject7x7Array" : [], "Reject7x7UserArray" : [], "Chat7x7Flag" : "NO", "Reject7x7Flag" : "NO", "Caution7x7Flag" : "NO", "RejectUser7x7Flag" : "NO", "MatchSettingFlag" : "NO"])
     }
     
     

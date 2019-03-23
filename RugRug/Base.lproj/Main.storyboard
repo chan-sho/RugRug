@@ -178,9 +178,9 @@ Facebookで修正をお願いします。</string>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cfm-ya-1Dh">
-                                <rect key="frame" x="64.5" y="223" width="191" height="41"/>
+                                <rect key="frame" x="13" y="223" width="294.5" height="41"/>
                                 <string key="text">【STEP2】
-お勧めユーザーから選ぶ</string>
+ランダム抽出されたユーザーから選ぶ</string>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
@@ -441,6 +441,59 @@ Facebookで修正をお願いします。</string>
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="utF-p8-cqS">
+                                <rect key="frame" x="0.0" y="20" width="320" height="54"/>
+                                <color key="backgroundColor" red="0.3529411764705882" green="0.3529411764705882" blue="0.3529411764705882" alpha="0.90100599315068497" colorSpace="custom" customColorSpace="sRGB"/>
+                            </view>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="8fB-up-iFo">
+                                <rect key="frame" x="0.0" y="518" width="320" height="94"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="EC1-88-KwQ">
+                                        <rect key="frame" x="230" y="5" width="70" height="40"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="70" id="54o-jr-0UP"/>
+                                            <constraint firstAttribute="height" constant="40" id="n3U-SR-tfo"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" type="system" pointSize="23"/>
+                                        <state key="normal" title="YES">
+                                            <color key="titleColor" red="0.45098039215686275" green="0.9882352941176471" blue="0.83921568627450982" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="yesButton:" destination="QxT-Ek-bJ7" eventType="touchUpInside" id="794-10-KBw"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="eik-Fz-bih">
+                                        <rect key="frame" x="20" y="5" width="70" height="40"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="40" id="7m4-xz-Cgn"/>
+                                            <constraint firstAttribute="width" constant="70" id="eG5-vs-Wbf"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" type="system" pointSize="23"/>
+                                        <state key="normal" title="NO">
+                                            <color key="titleColor" red="1" green="0.5409764051" blue="0.84731429820000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="noButton:" destination="QxT-Ek-bJ7" eventType="touchUpInside" id="DpR-5b-Ol4"/>
+                                        </connections>
+                                    </button>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="マッチングを希望？" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pxJ-Ni-VYG">
+                                        <rect key="frame" x="91" y="16" width="138" height="18"/>
+                                        <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="15"/>
+                                        <color key="textColor" red="0.83741801979999997" green="0.83743780850000005" blue="0.83742713930000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                                <color key="backgroundColor" red="0.3529411764705882" green="0.3529411764705882" blue="0.3529411764705882" alpha="0.90000000000000002" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstItem="eik-Fz-bih" firstAttribute="top" secondItem="8fB-up-iFo" secondAttribute="top" constant="5" id="5jf-Fr-cJL"/>
+                                    <constraint firstAttribute="height" constant="94" id="GI7-hV-I4Y"/>
+                                    <constraint firstItem="eik-Fz-bih" firstAttribute="leading" secondItem="8fB-up-iFo" secondAttribute="leading" constant="20" id="IOq-PU-kGb"/>
+                                    <constraint firstItem="EC1-88-KwQ" firstAttribute="centerY" secondItem="pxJ-Ni-VYG" secondAttribute="centerY" id="IrK-cr-Z4O"/>
+                                    <constraint firstItem="pxJ-Ni-VYG" firstAttribute="centerX" secondItem="8fB-up-iFo" secondAttribute="centerX" id="PV0-4S-WhR"/>
+                                    <constraint firstItem="EC1-88-KwQ" firstAttribute="top" secondItem="8fB-up-iFo" secondAttribute="top" constant="5" id="XX0-Oj-FDB"/>
+                                    <constraint firstAttribute="trailing" secondItem="EC1-88-KwQ" secondAttribute="trailing" constant="20" id="vvh-jc-ZRY"/>
+                                </constraints>
+                            </view>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9z0-6w-oW3">
                                 <rect key="frame" x="0.0" y="20" width="50" height="44"/>
                                 <constraints>
@@ -454,14 +507,45 @@ Facebookで修正をお願いします。</string>
                                     <segue destination="SJO-P6-1d7" kind="unwind" unwindAction="unwind:" id="8co-Wr-dHy"/>
                                 </connections>
                             </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fSO-um-IBi">
+                                <rect key="frame" x="74" y="20" width="172" height="54"/>
+                                <string key="text">ランダム抽出された
+ユーザーが表示されます
+（※24時間毎にお一人）</string>
+                                <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="15"/>
+                                <color key="textColor" red="0.83741801979999997" green="0.83743780850000005" blue="0.83742713930000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="mnR-se-sfK">
+                                <rect key="frame" x="0.0" y="74" width="320" height="444"/>
+                                <color key="backgroundColor" red="0.12984204290000001" green="0.12984612579999999" blue="0.12984395030000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            </tableView>
                         </subviews>
                         <color key="backgroundColor" red="0.12984204290000001" green="0.12984612579999999" blue="0.12984395030000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
+                            <constraint firstItem="fSO-um-IBi" firstAttribute="centerX" secondItem="0nm-aW-6NT" secondAttribute="centerX" id="6Zi-O8-t4K"/>
+                            <constraint firstItem="utF-p8-cqS" firstAttribute="top" secondItem="M11-g4-dmV" secondAttribute="top" id="C3f-Sw-KS7"/>
+                            <constraint firstItem="fSO-um-IBi" firstAttribute="bottom" secondItem="utF-p8-cqS" secondAttribute="bottom" id="DKM-hm-7Kf"/>
+                            <constraint firstItem="utF-p8-cqS" firstAttribute="leading" secondItem="M11-g4-dmV" secondAttribute="leading" id="Lhk-Js-hrV"/>
+                            <constraint firstItem="mnR-se-sfK" firstAttribute="top" secondItem="utF-p8-cqS" secondAttribute="bottom" id="Otr-7h-IBU"/>
                             <constraint firstItem="9z0-6w-oW3" firstAttribute="leading" secondItem="M11-g4-dmV" secondAttribute="leading" id="Pus-Ui-lWD"/>
                             <constraint firstItem="9z0-6w-oW3" firstAttribute="top" secondItem="M11-g4-dmV" secondAttribute="top" id="PvE-vL-MUP"/>
+                            <constraint firstItem="M11-g4-dmV" firstAttribute="trailing" secondItem="mnR-se-sfK" secondAttribute="trailing" id="SpJ-Cz-lUY"/>
+                            <constraint firstItem="fSO-um-IBi" firstAttribute="top" secondItem="9z0-6w-oW3" secondAttribute="top" id="Uq0-Ic-oZt"/>
+                            <constraint firstItem="mnR-se-sfK" firstAttribute="leading" secondItem="M11-g4-dmV" secondAttribute="leading" id="aol-Wd-tl2"/>
+                            <constraint firstItem="8fB-up-iFo" firstAttribute="bottom" secondItem="M11-g4-dmV" secondAttribute="bottom" constant="44" id="esD-15-bna"/>
+                            <constraint firstItem="8fB-up-iFo" firstAttribute="leading" secondItem="M11-g4-dmV" secondAttribute="leading" id="k47-sT-sAT"/>
+                            <constraint firstItem="M11-g4-dmV" firstAttribute="trailing" secondItem="utF-p8-cqS" secondAttribute="trailing" id="lcL-6h-8WR"/>
+                            <constraint firstItem="M11-g4-dmV" firstAttribute="trailing" secondItem="8fB-up-iFo" secondAttribute="trailing" id="pdL-Aa-Pvk"/>
+                            <constraint firstItem="8fB-up-iFo" firstAttribute="top" secondItem="mnR-se-sfK" secondAttribute="bottom" id="y0l-bY-jrm"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="M11-g4-dmV"/>
                     </view>
+                    <connections>
+                        <outlet property="noButton" destination="eik-Fz-bih" id="bgs-dn-mBU"/>
+                        <outlet property="tableView" destination="mnR-se-sfK" id="phD-4e-2Ew"/>
+                        <outlet property="yesButton" destination="EC1-88-KwQ" id="cAQ-lk-rFc"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Vh4-NS-ykw" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <exit id="SJO-P6-1d7" userLabel="Exit" sceneMemberID="exit"/>

@@ -71,6 +71,10 @@ class PostData: NSObject {
     var contentsURL: String?
     var new7x7: [String]?
     var postType: String?
+    var Request: String?
+    var Interested: String?
+    var Position: Int?
+    var Detail: Int?
     
     
     init(snapshot: DataSnapshot, myId: String) {
@@ -110,6 +114,11 @@ class PostData: NSObject {
         self.ChatRequest = valueDictionary["ChatRequest"] as? String
         self.new7x7 = valueDictionary["7×7"] as? [String]
         self.postType = valueDictionary["postType"] as? String
+        
+        self.Request = valueDictionary["Request"] as? String
+        self.Interested = valueDictionary["Interested"] as? String
+        self.Position = valueDictionary["Position"] as? Int
+        self.Detail = valueDictionary["Detail"] as? Int
         
         let time = valueDictionary["time"] as? String
         self.date = Date(timeIntervalSinceReferenceDate: TimeInterval(time!)!)

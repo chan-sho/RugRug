@@ -143,7 +143,6 @@ class Revise7x7: UIViewController, UITextFieldDelegate {
     //念のため（※userDefaultsの更新タイミングが遅かった場合のために）
     override func viewWillAppear(_ animated: Bool) {
         reviseData = userDefaults.string(forKey: "revise7x7Id")
-        print("reviseData = \(reviseData!)")
         
         if reviseData == "" {
             SVProgressHUD.showError(withStatus: "エラーが発生しました！。\nお手数ですが、再度最初から手続きをお願いします。\n\nError! Please check")

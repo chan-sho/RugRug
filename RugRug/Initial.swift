@@ -60,7 +60,6 @@ class Initial: UIViewController {
         
         //利用規約同意の判別要素
         EULAagreement = userDefaults.string(forKey: "EULAagreement")
-        print("利用規約同意有無の確認＝\(String(describing: (EULAagreement)))")
         
         //ログイン後に「新メンバーオリエンテーションを再度見る」を押したユーザー向けの処理
         if EULAagreement == "YES" {

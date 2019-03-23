@@ -456,7 +456,7 @@ Facebookで修正をお願いします。</string>
                                         </constraints>
                                         <fontDescription key="fontDescription" type="system" pointSize="23"/>
                                         <state key="normal" title="YES">
-                                            <color key="titleColor" red="0.45098039215686275" green="0.9882352941176471" blue="0.83921568627450982" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                            <color key="titleColor" red="0.46202266219999999" green="0.83828371759999998" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         </state>
                                         <connections>
                                             <action selector="yesButton:" destination="QxT-Ek-bJ7" eventType="touchUpInside" id="794-10-KBw"/>

@@ -377,10 +377,9 @@ class WCup7x7: UIViewController, UITableViewDataSource, UITableViewDelegate {
             let userPhotoName = postData.name
             
             let userURL : String = "https://www.facebook.com/search/str/\(userPhotoName!)/keywords_search"
-            print("\(userURL)")
+            
             var userPhotoURL = userURL.replacingOccurrences(of: " ", with: "", options: .regularExpression)
             userPhotoURL = userPhotoURL.addingPercentEncoding(withAllowedCharacters: NSCharacterSet.urlQueryAllowed)!
-            print("\(userPhotoURL)")
             
             //userDefaultsに必要なデータを保存
             userDefaults.set("YES", forKey: "UserPhotoURLFlagof7x7")

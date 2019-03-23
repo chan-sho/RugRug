@@ -272,7 +272,6 @@ class Match_Setting: UIViewController, UITextFieldDelegate, UITextViewDelegate, 
             let postDic = ["userID": Auth.auth().currentUser!.uid, "Request": matchRequest.text!, "Interested": interestedContents.text!, "Position": selectedIndex, "Detail": selectedDetailIndex, "userPhoto": imageString, "time": String(time), "name": name!] as [String : Any]
             //autoIDのID
             let autoid =  postRef.key
-            print("\(autoid!)")
             postRef.setValue(postDic)
         
             userDefaults.set("\(autoid!)", forKey: "MatchID")

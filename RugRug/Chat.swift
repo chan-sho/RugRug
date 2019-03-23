@@ -55,7 +55,6 @@ class Chat: UIViewController, UITextViewDelegate, UITableViewDataSource, UITable
         
         //7x7でチャットボタンを押して画面遷移して来た際のsendButtonのテキスト変更
         let chat7x7Flag = userDefaults.string(forKey: "Chat7x7Flag")!
-        print("chat7x7Flag = \(chat7x7Flag)")
         
         if chat7x7Flag == "YES" {
             sendButton.setTitle("Send", for: .normal)
@@ -275,7 +274,7 @@ class Chat: UIViewController, UITextViewDelegate, UITableViewDataSource, UITable
         //Flagの再初期化
         userDefaults.set("NO", forKey: "Chat7x7Flag")
         userDefaults.synchronize()
-        print("再初期化：Chat7x7Flag = 「NO」")
+        
     }
     
 }

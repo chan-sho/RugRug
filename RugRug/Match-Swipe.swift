@@ -130,7 +130,17 @@ class Match_Swipe: UIViewController, UITableViewDataSource, UITableViewDelegate 
                             self.matchConfirm = self.postArray[0].id
                             self.userDefaults.set("\(self.matchConfirm!)", forKey: "MatchConfirmID")
                             self.userDefaults.synchronize()
-                            
+                        }
+                        else if self.postArray.count == 1 {
+                            //（配列要素が1個になったとき用）
+                            self.matchConfirm = self.postArray[0].id
+                            self.userDefaults.set("\(self.matchConfirm!)", forKey: "MatchConfirmID")
+                            self.userDefaults.synchronize()
+                        }
+                        else if self.postArray.count == 0 {
+                            //（配列要素が0個になったとき用）→ "MatchConfirmID"を""にしておく
+                            self.userDefaults.set("", forKey: "MatchConfirmID")
+                            self.userDefaults.synchronize()
                         }
                         
                         // TableViewを再表示する
@@ -237,13 +247,18 @@ class Match_Swipe: UIViewController, UITableViewDataSource, UITableViewDelegate 
     @IBAction func yesButton(_ sender: Any) {
         let matchConfirmID = userDefaults.string(forKey: "MatchConfirmID")!
         
+        //"MatchConfirmID"が""の場合にはこの時点でボタンのアクション終了！
+        if matchConfirmID == "" {
+            return
+        }
+        
         var matchYesArray = userDefaults.array(forKey: "MatchYesArray") as! [String]
         matchYesArray.append(matchConfirmID)
         
-        
+        print("matchConfirmID = \(matchConfirmID)")
         print("matchYesArray = \(matchYesArray)")
         
-        //*userDefaults.set(matchYesArray, forKey: "MatchYesArray")
+        userDefaults.set(matchYesArray, forKey: "MatchYesArray")
         userDefaults.synchronize()
         
         let idCheck = userDefaults.string(forKey: "MatchID")
@@ -263,13 +278,18 @@ class Match_Swipe: UIViewController, UITableViewDataSource, UITableViewDelegate 
     @IBAction func noButton(_ sender: Any) {
         let matchConfirmID = userDefaults.string(forKey: "MatchConfirmID")!
         
+        //"MatchConfirmID"が""の場合にはこの時点でボタンのアクション終了！
+        if matchConfirmID == "" {
+            return
+        }
+        
         var matchNoArray = userDefaults.array(forKey: "MatchNoArray") as! [String]
         matchNoArray.append(matchConfirmID)
         
         
         print("matchNoArray = \(matchNoArray)")
         
-        //*userDefaults.set(matchNoArray, forKey: "MatchNoArray")
+        userDefaults.set(matchNoArray, forKey: "MatchNoArray")
         userDefaults.synchronize()
         
         // HUDで投稿完了を表示する

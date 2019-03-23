@@ -31,7 +31,9 @@
 // 【UserDefaults管理】"MatchInterested"= Match-Settingで興味があるジャンルの内容
 // 【UserDefaults管理】"MatchPosition"= Match-Settingで設定したポジション
 // 【UserDefaults管理】"MatchDetail"= Match-Settingで設定したポジションの詳細
-// 【UserDefaults管理】"MatchID"= Match-SettingでFirebaseに投稿した際のID
+// 【UserDefaults管理】"MatchID"= Match-SettingでFirebaseに投稿した際の自身のID
+// 【UserDefaults管理】"MatchYESArray"= Match-SwipeでYESにした投稿ID
+// 【UserDefaults管理】"MatchNoArray"= Match-SwipeでNOにした投稿ID
 
 
 import UIKit

@@ -5,6 +5,10 @@
 //  Created by 高野翔 on 2019/03/19.
 //  Copyright © 2019 高野翔. All rights reserved.
 //
+// 【UserDefaults管理】"MatchID"= Match-SettingでFirebaseに投稿した際の自身のID
+// 【UserDefaults管理】"MatchYESArray"= Match-SwipeでYESにした投稿ID
+// 【UserDefaults管理】"MatchNoArray"= Match-SwipeでNOにした投稿ID
+
 
 import UIKit
 import Firebase
@@ -48,6 +52,9 @@ class Match_Swipe: UIViewController, UITableViewDataSource, UITableViewDelegate 
         yesButton.isExclusiveTouch = true
         noButton.isExclusiveTouch = true
         
+        //userDefaultsの初期値設定（念の為）
+        userDefaults.register(defaults: ["MatchYesArray" : [], "MatchNoArray" : []])
+        
         let nib = UINib(nibName: "MatchTableCell", bundle: nil)
         tableView.register(nib, forCellReuseIdentifier: "Cell-6")
         
@@ -82,59 +89,93 @@ class Match_Swipe: UIViewController, UITableViewDataSource, UITableViewDelegate 
                     if let uid = Auth.auth().currentUser?.uid {
                         let postData = PostData(snapshot: snapshot, myId: uid)
                         
+                        // 始めのinsertの段階で自分のMatchIDと一致するデータを除いておく
+                        let myselfMatchID = self.userDefaults.string(forKey: "MatchID")
+                        if postData.id != myselfMatchID {
                         self.postArray.insert(postData, at: 0)
-                        
-                        // TableViewを再表示する
-                        self.tableView.reloadData()
-                    }
-                })
-                // 要素が【変更】されたら該当のデータをpostArrayから一度削除した後に新しいデータを追加してTableViewを再表示する
-                postsRef.observe(.childChanged, with: { snapshot in
-                    
-                    if let uid = Auth.auth().currentUser?.uid {
-                        // PostDataクラスを生成して受け取ったデータを設定する
-                        let postData = PostData(snapshot: snapshot, myId: uid)
-                        
-                        // 保持している配列からidが同じものを探す
-                        var index: Int = 0
-                        for post in self.postArray {
-                            if post.id == postData.id {
-                                index = self.postArray.index(of: post)!
-                                break
-                            }
                         }
-                        // 差し替えるため一度削除する
-                        self.postArray.remove(at: index)
-                        // 削除したところに更新済みのデータを追加する
-                        self.postArray.insert(postData, at: index)
+                        
+                        let matchYesArray = self.userDefaults.array(forKey: "MatchYesArray") as! [String]
+                        let matchNoArray = self.userDefaults.array(forKey: "MatchNoArray") as! [String]
+                        // 【※追加アクション】matchYesArrayに含まれるリジェクト対象の投稿IDから該当のpostDataを削除する
+                        if matchYesArray != [] {
+                            // matchYesArrayの投稿IDを含まないデータのみpostArrayに入れ直す
+                            var matchYesArray1 = self.postArray
+                            for n in matchYesArray {
+                                //filterの後の「!」が結果を反転している→含まない！！！
+                                matchYesArray1 = matchYesArray1.filter({ (!($0.id?.localizedCaseInsensitiveContains(n))!) })
+                            }
+                            self.postArray = matchYesArray1
+                        }
+                        
+                        if matchNoArray != [] {
+                            // matchNoArrayの投稿IDを含まないデータのみpostArrayに入れ直す
+                            var matchNoArray1R = self.postArray
+                            for n in matchNoArray {
+                                //filterの後の「!」が結果を反転している→含まない！！！
+                                matchNoArray1R = matchNoArray1R.filter({ (!($0.id?.localizedCaseInsensitiveContains(n))!) })
+                            }
+                            self.postArray = matchNoArray1R
+                        }
+                        
+                        //postArrayの要素数が2つになると、必ずどちらかを削除する（繰り返す）→結果、要素数＝1
+                        if self.postArray.count == 2 {
+                            let randomNum = Int(arc4random_uniform(UInt32(2)))
+                            self.postArray.remove(at: randomNum)
+                        }
+                        
                         // TableViewを再表示する
                         self.tableView.reloadData()
                     }
                 })
                 
-                // 要素が【削除】されたら該当のデータをpostArrayから一度削除した後に新しいデータを追加してTableViewを再表示する
-                postsRef.observe(.childRemoved, with: { snapshot in
+                // 要素が【変更】されたら該当のデータをpostArrayから一度削除した後に新しいデータを追加してTableViewを再表示する
+                //postsRef.observe(.childChanged, with: { snapshot in
                     
-                    if let uid = Auth.auth().currentUser?.uid {
+                    //if let uid = Auth.auth().currentUser?.uid {
                         // PostDataクラスを生成して受け取ったデータを設定する
-                        let postData = PostData(snapshot: snapshot, myId: uid)
+                        //let postData = PostData(snapshot: snapshot, myId: uid)
                         
                         // 保持している配列からidが同じものを探す
-                        var index: Int = 0
-                        for post in self.postArray {
-                            if post.id == postData.id {
-                                index = self.postArray.index(of: post)!
-                                break
-                            }
-                        }
+                        //var index: Int = 0
+                        //for post in self.postArray {
+                            //if post.id == postData.id {
+                                //index = self.postArray.index(of: post)!
+                                //break
+                            //}
+                        //}
+                        // 差し替えるため一度削除する
+                        //self.postArray.remove(at: index)
+                        // 削除したところに更新済みのデータを追加する
+                        //self.postArray.insert(postData, at: index)
+                        // TableViewを再表示する
+                        //self.tableView.reloadData()
+                    //}
+                //})
+                
+                // 要素が【削除】されたら該当のデータをpostArrayから一度削除した後に新しいデータを追加してTableViewを再表示する
+                //postsRef.observe(.childRemoved, with: { snapshot in
+                    
+                    //if let uid = Auth.auth().currentUser?.uid {
+                        // PostDataクラスを生成して受け取ったデータを設定する
+                        //let postData = PostData(snapshot: snapshot, myId: uid)
+                        
+                        // 保持している配列からidが同じものを探す
+                        //var index: Int = 0
+                        //for post in self.postArray {
+                            //if post.id == postData.id {
+                                //index = self.postArray.index(of: post)!
+                                //break
+                            //}
+                        //}
                         
                         // 削除する
-                        self.postArray.remove(at: index)
+                        //self.postArray.remove(at: index)
                         
                         // TableViewを再表示する
-                        self.tableView.reloadData()
-                    }
-                })
+                        //self.tableView.reloadData()
+                    //}
+                //})
                 // DatabaseのobserveEventが上記コードにより登録されたため
                 // trueとする
                 observing = true

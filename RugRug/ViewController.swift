@@ -15,7 +15,9 @@
 // 【UserDefaults管理】"MatchSettingFlag"= Match-Settingが完了しているかどうかの判別Flag
 // 【UserDefaults管理】"MatchPosition"= Match-Settingで設定したポジション
 // 【UserDefaults管理】"MatchDetail"= Match-Settingで設定したポジションの詳細
-// 【UserDefaults管理】"MatchID"= Match-SettingでFirebaseに投稿した際のID
+// 【UserDefaults管理】"MatchID"= Match-SettingでFirebaseに投稿した際の自身のID
+// 【UserDefaults管理】"MatchYESArray"= Match-SwipeでYESにした投稿ID
+// 【UserDefaults管理】"MatchNoArray"= Match-SwipeでNOにした投稿ID
 
 
 import UIKit
@@ -35,7 +37,7 @@ class ViewController: UIViewController {
         setupTab()
         
         //userDefaultsの初期値設定
-        userDefaults.register(defaults: ["InitialFlag" : "NO", "EULAagreement" : "NO", "EULACheckFlag" : "NO", "AccountDeleteFlag" : "NO", "RejectDataFlag" : "NO",  "RejectUserFlag" : "NO", "CautionDataFlag" : "NO", "RejectIdArray" : [], "UserPhotoURLFlag" : "NO", "RejectUserArray" : [], "ChatRequestFlag" : "NO", "UserPhotoURLFlagof7x7" : "NO", "Reject7x7Array" : [], "Reject7x7UserArray" : [], "Chat7x7Flag" : "NO", "Reject7x7Flag" : "NO", "Caution7x7Flag" : "NO", "RejectUser7x7Flag" : "NO", "MatchSettingFlag" : "NO", "MatchPosition" : 0, "MatchDetail" : 0, "MatchID" : ""])
+        userDefaults.register(defaults: ["InitialFlag" : "NO", "EULAagreement" : "NO", "EULACheckFlag" : "NO", "AccountDeleteFlag" : "NO", "RejectDataFlag" : "NO",  "RejectUserFlag" : "NO", "CautionDataFlag" : "NO", "RejectIdArray" : [], "UserPhotoURLFlag" : "NO", "RejectUserArray" : [], "ChatRequestFlag" : "NO", "UserPhotoURLFlagof7x7" : "NO", "Reject7x7Array" : [], "Reject7x7UserArray" : [], "Chat7x7Flag" : "NO", "Reject7x7Flag" : "NO", "Caution7x7Flag" : "NO", "RejectUser7x7Flag" : "NO", "MatchSettingFlag" : "NO", "MatchPosition" : 0, "MatchDetail" : 0, "MatchID" : "", "MatchYesArray" : [], "MatchNoArray" : []])
     }
     
     

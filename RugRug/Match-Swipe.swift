@@ -6,8 +6,9 @@
 //  Copyright © 2019 高野翔. All rights reserved.
 //
 // 【UserDefaults管理】"MatchID"= Match-SettingでFirebaseに投稿した際の自身のID
-// 【UserDefaults管理】"MatchYESArray"= Match-SwipeでYESにした投稿ID
-// 【UserDefaults管理】"MatchNoArray"= Match-SwipeでNOにした投稿ID
+// 【UserDefaults管理】"MatchYESArray"= Match-SwipeでYESにした投稿IDのまとめ
+// 【UserDefaults管理】"MatchNoArray"= Match-SwipeでNOにした投稿IDのまとめ
+// 【UserDefaults管理】"MatchConfirmID"= Match-SwipeでMatchYesまたはMatchNoを判断するための対象投稿ID
 
 
 import UIKit
@@ -34,6 +35,8 @@ class Match_Swipe: UIViewController, UITableViewDataSource, UITableViewDelegate 
     
     //user defaultsを使う準備
     let userDefaults:UserDefaults = UserDefaults.standard
+    
+    var matchConfirm: String?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -122,6 +125,12 @@ class Match_Swipe: UIViewController, UITableViewDataSource, UITableViewDelegate 
                         if self.postArray.count == 2 {
                             let randomNum = Int(arc4random_uniform(UInt32(2)))
                             self.postArray.remove(at: randomNum)
+                            
+                            //MatchYesまたはMatchNoを判断するための対象投稿ID
+                            self.matchConfirm = self.postArray[0].id
+                            self.userDefaults.set("\(self.matchConfirm!)", forKey: "MatchConfirmID")
+                            self.userDefaults.synchronize()
+                            
                         }
                         
                         // TableViewを再表示する
@@ -226,10 +235,48 @@ class Match_Swipe: UIViewController, UITableViewDataSource, UITableViewDelegate 
     
 
     @IBAction func yesButton(_ sender: Any) {
+        let matchConfirmID = userDefaults.string(forKey: "MatchConfirmID")!
+        
+        var matchYesArray = userDefaults.array(forKey: "MatchYesArray") as! [String]
+        matchYesArray.append(matchConfirmID)
+        
+        
+        print("matchYesArray = \(matchYesArray)")
+        
+        //*userDefaults.set(matchYesArray, forKey: "MatchYesArray")
+        userDefaults.synchronize()
+        
+        let idCheck = userDefaults.string(forKey: "MatchID")
+        let data = ["Match-YES" : matchYesArray]
+        // **重要** 辞書を作成してFirebaseに保存する
+        let postRef = Database.database().reference().child("Match").child("\(idCheck!)")
+        postRef.updateChildValues(data)
+        
+        // HUDで投稿完了を表示する
+        SVProgressHUD.showSuccess(withStatus: "テェック完了！")
+        
+        // 画面を閉じてViewControllerに戻る
+        dismiss(animated: true, completion: nil)
     }
     
     
     @IBAction func noButton(_ sender: Any) {
+        let matchConfirmID = userDefaults.string(forKey: "MatchConfirmID")!
+        
+        var matchNoArray = userDefaults.array(forKey: "MatchNoArray") as! [String]
+        matchNoArray.append(matchConfirmID)
+        
+        
+        print("matchNoArray = \(matchNoArray)")
+        
+        //*userDefaults.set(matchNoArray, forKey: "MatchNoArray")
+        userDefaults.synchronize()
+        
+        // HUDで投稿完了を表示する
+        SVProgressHUD.showSuccess(withStatus: "テェック完了！")
+        
+        // 画面を閉じてViewControllerに戻る
+        dismiss(animated: true, completion: nil)
     }
     
     

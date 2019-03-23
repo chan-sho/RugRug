@@ -8,6 +8,7 @@
 // 【UserDefaults管理】"MatchSettingFlag"= Match-Settingが完了しているかどうかの判別Flag
 // 【UserDefaults管理】"MatchPosition"= Match-Settingで設定したポジション
 // 【UserDefaults管理】"MatchDetail"= Match-Settingで設定したポジションの詳細
+// 【UserDefaults管理】"MatchID"= Match-SettingでFirebaseに投稿した際のID
 
 
 import UIKit
@@ -38,7 +39,7 @@ class Matching: UIViewController {
         contactButton.isExclusiveTouch = true
         
         //userDefaultsの初期値設定
-        userDefaults.register(defaults: ["MatchSettingFlag" : "NO", "MatchPosition" : 0, "MatchDetail" : 0])
+        userDefaults.register(defaults: ["MatchSettingFlag" : "NO", "MatchPosition" : 0, "MatchDetail" : 0, "MatchID" : ""])
     }
     
     

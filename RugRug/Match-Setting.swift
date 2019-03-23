@@ -10,6 +10,7 @@
 // 【UserDefaults管理】"MatchInterested"= Match-Settingで興味があるジャンルの内容
 // 【UserDefaults管理】"MatchPosition"= Match-Settingで設定したポジション
 // 【UserDefaults管理】"MatchDetail"= Match-Settingで設定したポジションの詳細
+// 【UserDefaults管理】"MatchID"= Match-SettingでFirebaseに投稿した際のID
 
 import UIKit
 import Firebase
@@ -245,6 +246,9 @@ class Match_Setting: UIViewController, UITextFieldDelegate, UITextViewDelegate, 
             SVProgressHUD.showError(withStatus: "「必須」項目を、\n全て埋めて下さい。")
         }
         else {
+            let idCheck = userDefaults.string(forKey: "MatchID")
+            
+            if idCheck == "" {
             userDefaults.set("YES", forKey: "MatchSettingFlag")
             userDefaults.set("\(matchRequest.text!)", forKey: "MatchRequest")
             userDefaults.set("\(interestedContents.text!)", forKey: "MatchInterested")
@@ -255,12 +259,61 @@ class Match_Setting: UIViewController, UITextFieldDelegate, UITextViewDelegate, 
             userDefaults.set("\(selectedIndex)", forKey: "MatchPosition")
             userDefaults.set("\(selectedDetailIndex)", forKey: "MatchDetail")
             userDefaults.synchronize()
+            
+            // ImageViewから画像を取得する
+            let imageData = userPhoto.image!.jpegData(compressionQuality: 0.5)
+            let imageString = imageData!.base64EncodedString(options: .lineLength64Characters)
+            // postDataに必要な情報を取得しておく
+            let time = Date.timeIntervalSinceReferenceDate
+            let name = Auth.auth().currentUser?.displayName
+            
+            // **重要** 辞書を作成してFirebaseに保存する
+            let postRef = Database.database().reference().child(Const8.PostPath8).childByAutoId()
+            let postDic = ["userID": Auth.auth().currentUser!.uid, "Request": matchRequest.text!, "Interested": interestedContents.text!, "Position": selectedIndex, "Detail": selectedDetailIndex, "userPhoto": imageString, "time": String(time), "name": name!] as [String : Any]
+            //autoIDのID
+            let autoid =  postRef.key
+            print("\(autoid!)")
+            postRef.setValue(postDic)
         
+            userDefaults.set("\(autoid!)", forKey: "MatchID")
+            userDefaults.synchronize()
+            
             // HUDで投稿完了を表示する
             SVProgressHUD.showSuccess(withStatus: "初期設定が完了！")
         
             // 画面を閉じてViewControllerに戻る
             dismiss(animated: true, completion: nil)
+            }
+            else {
+                userDefaults.set("YES", forKey: "MatchSettingFlag")
+                userDefaults.set("\(matchRequest.text!)", forKey: "MatchRequest")
+                userDefaults.set("\(interestedContents.text!)", forKey: "MatchInterested")
+                
+                //選択されているセグメントのインデックス
+                let selectedIndex = positionSegment.selectedSegmentIndex
+                let selectedDetailIndex = detailSegment.selectedSegmentIndex
+                userDefaults.set("\(selectedIndex)", forKey: "MatchPosition")
+                userDefaults.set("\(selectedDetailIndex)", forKey: "MatchDetail")
+                userDefaults.synchronize()
+                
+                // ImageViewから画像を取得する
+                let imageData = userPhoto.image!.jpegData(compressionQuality: 0.5)
+                let imageString = imageData!.base64EncodedString(options: .lineLength64Characters)
+                // postDataに必要な情報を取得しておく
+                let time = Date.timeIntervalSinceReferenceDate
+                let name = Auth.auth().currentUser?.displayName
+                
+                // **重要** 辞書を作成してFirebaseに保存する
+                let postRef = Database.database().reference().child("Match").child("\(idCheck!)")
+                let postDic = ["userID": Auth.auth().currentUser!.uid, "Request": matchRequest.text!, "Interested": interestedContents.text!, "Position": selectedIndex, "Detail": selectedDetailIndex, "userPhoto": imageString, "time": String(time), "name": name!] as [String : Any]
+                postRef.updateChildValues(postDic)s
+                
+                // HUDで投稿完了を表示する
+                SVProgressHUD.showSuccess(withStatus: "初期設定が完了！")
+                
+                // 画面を閉じてViewControllerに戻る
+                dismiss(animated: true, completion: nil)
+            }
         }
     }
 }

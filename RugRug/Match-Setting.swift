@@ -6,7 +6,10 @@
 //  Copyright © 2019 高野翔. All rights reserved.
 //
 // 【UserDefaults管理】"MatchSettingFlag"= Match-Settingが完了しているかどうかの判別Flag
-
+// 【UserDefaults管理】"MatchRequest"= Match-Settingで繋がりたいユーザーの希望内容
+// 【UserDefaults管理】"MatchInterested"= Match-Settingで興味があるジャンルの内容
+// 【UserDefaults管理】"MatchPosition"= Match-Settingで設定したポジション
+// 【UserDefaults管理】"MatchDetail"= Match-Settingで設定したポジションの詳細
 
 import UIKit
 import Firebase
@@ -62,6 +65,53 @@ class Match_Setting: UIViewController, UITextFieldDelegate, UITextViewDelegate, 
         positionSegment.tintColor = UIColor(red: 115/255, green: 252/255, blue: 214/255, alpha: 1.0)
         detailSegment.tintColor = UIColor(red: 115/255, green: 252/255, blue: 214/255, alpha: 1.0)
 
+        //初期設定が完了している場合の各項目へのデータ反映
+        let check1 = userDefaults.string(forKey: "MatchRequest")
+        let check2 = userDefaults.string(forKey: "MatchInterested")
+        if check1 != "" {
+            self.matchRequest.text = userDefaults.string(forKey: "MatchRequest")
+        }
+        if check2 != "" {
+            self.interestedContents.text = userDefaults.string(forKey: "MatchInterested")
+        }
+        
+        //選択されているセグメントのインデックス
+        positionSegment.selectedSegmentIndex = userDefaults.integer(forKey: "MatchPosition")
+        detailSegment.selectedSegmentIndex = userDefaults.integer(forKey: "MatchDetail")
+        
+        //選択されているセグメントのインデックス
+        let selectedIndex = positionSegment.selectedSegmentIndex
+        
+        if selectedIndex == 0 {
+            detailSegment.setTitle("PR", forSegmentAt: 0)
+            detailSegment.setTitle("HO", forSegmentAt: 1)
+            detailSegment.setTitle("LO", forSegmentAt: 2)
+            detailSegment.setTitle("FL", forSegmentAt: 3)
+            detailSegment.setTitle("8", forSegmentAt: 4)
+        }
+        else if selectedIndex == 1 {
+            detailSegment.setTitle("SH", forSegmentAt: 0)
+            detailSegment.setTitle("SO", forSegmentAt: 1)
+            detailSegment.setTitle("CTB", forSegmentAt: 2)
+            detailSegment.setTitle("WTB", forSegmentAt: 3)
+            detailSegment.setTitle("FB", forSegmentAt: 4)
+        }
+        else if selectedIndex == 2 {
+            detailSegment.setTitle("監督", forSegmentAt: 0)
+            detailSegment.setTitle("コーチ", forSegmentAt: 1)
+            detailSegment.setTitle("マネ", forSegmentAt: 2)
+            detailSegment.setTitle("庶務", forSegmentAt: 3)
+            detailSegment.setTitle("分析", forSegmentAt: 4)
+            
+        }
+        else if selectedIndex == 3 {
+            detailSegment.setTitle("やる派", forSegmentAt: 0)
+            detailSegment.setTitle("観る派", forSegmentAt: 1)
+            detailSegment.setTitle("飲み派", forSegmentAt: 2)
+            detailSegment.setTitle("熱狂的", forSegmentAt: 3)
+            detailSegment.setTitle("にわか", forSegmentAt: 4)
+        }
+        
         //ログインユーザーのプロフィール画像をロード
         let currentUser = Auth.auth().currentUser
         
@@ -196,6 +246,14 @@ class Match_Setting: UIViewController, UITextFieldDelegate, UITextViewDelegate, 
         }
         else {
             userDefaults.set("YES", forKey: "MatchSettingFlag")
+            userDefaults.set("\(matchRequest.text!)", forKey: "MatchRequest")
+            userDefaults.set("\(interestedContents.text!)", forKey: "MatchInterested")
+            
+            //選択されているセグメントのインデックス
+            let selectedIndex = positionSegment.selectedSegmentIndex
+            let selectedDetailIndex = detailSegment.selectedSegmentIndex
+            userDefaults.set("\(selectedIndex)", forKey: "MatchPosition")
+            userDefaults.set("\(selectedDetailIndex)", forKey: "MatchDetail")
             userDefaults.synchronize()
         
             // HUDで投稿完了を表示する

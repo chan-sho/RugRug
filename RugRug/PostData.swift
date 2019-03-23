@@ -26,6 +26,11 @@
 // 【UserDefaults管理】"ChatDataId"= チャットをしたい対象の投稿ID
 // 【UserDefaults管理】"ChatRequestFlag"= コンタクト通知一覧で、投稿者プロフィール画像を押した事を確認するFlag
 // 【UserDefaults管理】"PostType"= PostのTypeを判別するコード
+// 【UserDefaults管理】"MatchSettingFlag"= Match-Settingが完了しているかどうかの判別Flag
+// 【UserDefaults管理】"MatchRequest"= Match-Settingで繋がりたいユーザーの希望内容
+// 【UserDefaults管理】"MatchInterested"= Match-Settingで興味があるジャンルの内容
+// 【UserDefaults管理】"MatchPosition"= Match-Settingで設定したポジション
+// 【UserDefaults管理】"MatchDetail"= Match-Settingで設定したポジションの詳細
 
 
 import UIKit

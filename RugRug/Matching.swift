@@ -5,6 +5,10 @@
 //  Created by 高野翔 on 2019/03/19.
 //  Copyright © 2019 高野翔. All rights reserved.
 //
+// 【UserDefaults管理】"MatchSettingFlag"= Match-Settingが完了しているかどうかの判別Flag
+// 【UserDefaults管理】"MatchPosition"= Match-Settingで設定したポジション
+// 【UserDefaults管理】"MatchDetail"= Match-Settingで設定したポジションの詳細
+
 
 import UIKit
 import SVProgressHUD
@@ -34,7 +38,7 @@ class Matching: UIViewController {
         contactButton.isExclusiveTouch = true
         
         //userDefaultsの初期値設定
-        userDefaults.register(defaults: ["MatchSettingFlag" : "NO"])
+        userDefaults.register(defaults: ["MatchSettingFlag" : "NO", "MatchPosition" : 0, "MatchDetail" : 0])
     }
     
     

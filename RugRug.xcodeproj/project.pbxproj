@@ -11,6 +11,7 @@
 		31082E772222F39D00A0FA6F /* News.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31082E762222F39D00A0FA6F /* News.swift */; };
 		311F7A7321FEE9C20068868E /* WCup7x7.swift in Sources */ = {isa = PBXBuildFile; fileRef = 311F7A7221FEE9C10068868E /* WCup7x7.swift */; };
 		311F7A7521FEF4F00068868E /* New7x7.swift in Sources */ = {isa = PBXBuildFile; fileRef = 311F7A7421FEF4F00068868E /* New7x7.swift */; };
+		3124FD622245C45900565CB5 /* Const8.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3124FD612245C45900565CB5 /* Const8.swift */; };
 		31280E9921AD3322008FDDEF /* AJAlertController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 31280E9521AD3321008FDDEF /* AJAlertController.xib */; };
 		31280E9C21AD3322008FDDEF /* AJAlertController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31280E9821AD3321008FDDEF /* AJAlertController.swift */; };
 		312A2DDB21BE2C8600C16EA1 /* Info.swift in Sources */ = {isa = PBXBuildFile; fileRef = 312A2DDA21BE2C8600C16EA1 /* Info.swift */; };
@@ -66,6 +67,7 @@
 		31082E762222F39D00A0FA6F /* News.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = News.swift; sourceTree = "<group>"; };
 		311F7A7221FEE9C10068868E /* WCup7x7.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WCup7x7.swift; sourceTree = "<group>"; };
 		311F7A7421FEF4F00068868E /* New7x7.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = New7x7.swift; sourceTree = "<group>"; };
+		3124FD612245C45900565CB5 /* Const8.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Const8.swift; sourceTree = "<group>"; };
 		31280E9521AD3321008FDDEF /* AJAlertController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AJAlertController.xib; sourceTree = "<group>"; };
 		31280E9821AD3321008FDDEF /* AJAlertController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AJAlertController.swift; sourceTree = "<group>"; };
 		312A2DDA21BE2C8600C16EA1 /* Info.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Info.swift; sourceTree = "<group>"; };
@@ -209,6 +211,7 @@
 				312A2DDC21BE38C900C16EA1 /* Const5.swift */,
 				317A096621C2830F00C35DAE /* Const6.swift */,
 				31B13A5B22013DE4003953C0 /* Const7.swift */,
+				3124FD612245C45900565CB5 /* Const8.swift */,
 				3169FE1B21AF5CD9000E01A4 /* RugRug-Bridging-Header.h */,
 				31280E9421AD3321008FDDEF /* AJAlertController */,
 				31DB931221A916A100A2B6AF /* Assets.xcassets */,
@@ -403,6 +406,7 @@
 				3169FE1D21AFBBBD000E01A4 /* Manager.swift in Sources */,
 				31DB92E721A7EC9000A2B6AF /* ViewController.swift in Sources */,
 				3193D6E62240C3FA00256006 /* Matching.swift in Sources */,
+				3124FD622245C45900565CB5 /* Const8.swift in Sources */,
 				31DB930321A8388800A2B6AF /* Initial.swift in Sources */,
 				31DB92F921A7F62D00A2B6AF /* Home.swift in Sources */,
 				31DB70832240ECF50017C59B /* Match-Swipe.swift in Sources */,

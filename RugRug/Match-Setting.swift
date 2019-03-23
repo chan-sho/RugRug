@@ -306,7 +306,7 @@ class Match_Setting: UIViewController, UITextFieldDelegate, UITextViewDelegate, 
                 // **重要** 辞書を作成してFirebaseに保存する
                 let postRef = Database.database().reference().child("Match").child("\(idCheck!)")
                 let postDic = ["userID": Auth.auth().currentUser!.uid, "Request": matchRequest.text!, "Interested": interestedContents.text!, "Position": selectedIndex, "Detail": selectedDetailIndex, "userPhoto": imageString, "time": String(time), "name": name!] as [String : Any]
-                postRef.updateChildValues(postDic)s
+                postRef.updateChildValues(postDic)
                 
                 // HUDで投稿完了を表示する
                 SVProgressHUD.showSuccess(withStatus: "初期設定が完了！")

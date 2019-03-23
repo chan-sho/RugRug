@@ -27,7 +27,6 @@ class MatchTableCell: UITableViewCell {
         self.userPhoto.layer.borderColor = UIColor.white.cgColor
         self.userPhoto.layer.borderWidth = 1.0
         
-        
     }
 
     
@@ -37,7 +36,7 @@ class MatchTableCell: UITableViewCell {
     }
     
     
-    func setPostData5(_ postData: PostData) {
+    func setPostData6(_ postData: PostData) {
         
         self.userName.text = "\(postData.name!)さん"
         self.userPhoto.image = postData.userPhoto

@@ -32,8 +32,10 @@
 // 【UserDefaults管理】"MatchPosition"= Match-Settingで設定したポジション
 // 【UserDefaults管理】"MatchDetail"= Match-Settingで設定したポジションの詳細
 // 【UserDefaults管理】"MatchID"= Match-SettingでFirebaseに投稿した際の自身のID
-// 【UserDefaults管理】"MatchYESArray"= Match-SwipeでYESにした投稿ID
-// 【UserDefaults管理】"MatchNoArray"= Match-SwipeでNOにした投稿ID
+// 【UserDefaults管理】"MatchYESArray"= Match-SwipeでYESにした投稿IDのまとめ
+// 【UserDefaults管理】"MatchNoArray"= Match-SwipeでNOにした投稿IDのまとめ
+// 【UserDefaults管理】"MatchConfirmID"= Match-SwipeでMatchYesまたはMatchNoを判断するための対象投稿ID
+// 【UserDefaults管理】"MatchNextTime"= 次回Match-Swipeが利用可能になる時刻
 
 
 import UIKit

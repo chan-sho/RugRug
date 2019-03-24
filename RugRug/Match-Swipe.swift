@@ -9,6 +9,7 @@
 // 【UserDefaults管理】"MatchYESArray"= Match-SwipeでYESにした投稿IDのまとめ
 // 【UserDefaults管理】"MatchNoArray"= Match-SwipeでNOにした投稿IDのまとめ
 // 【UserDefaults管理】"MatchConfirmID"= Match-SwipeでMatchYesまたはMatchNoを判断するための対象投稿ID
+// 【UserDefaults管理】"MatchNextTime"= 次回Match-Swipeが利用可能になる時刻
 
 
 import UIKit
@@ -43,7 +44,7 @@ class Match_Swipe: UIViewController, UITableViewDataSource, UITableViewDelegate 
 
         // HUDで投稿完了を表示する
         SVProgressHUD.show(withStatus: "データ読み込み中です。")
-        SVProgressHUD.dismiss(withDelay: 2.0)
+        SVProgressHUD.dismiss(withDelay: 1.0)
         
         tableView.delegate = self
         tableView.dataSource = self
@@ -56,7 +57,7 @@ class Match_Swipe: UIViewController, UITableViewDataSource, UITableViewDelegate 
         noButton.isExclusiveTouch = true
         
         //userDefaultsの初期値設定（念の為）
-        userDefaults.register(defaults: ["MatchYesArray" : [], "MatchNoArray" : []])
+        userDefaults.register(defaults: ["MatchYesArray" : [], "MatchNoArray" : [], "MatchNextTime" : ""])
         
         let nib = UINib(nibName: "MatchTableCell", bundle: nil)
         tableView.register(nib, forCellReuseIdentifier: "Cell-6")
@@ -247,6 +248,9 @@ class Match_Swipe: UIViewController, UITableViewDataSource, UITableViewDelegate 
     @IBAction func yesButton(_ sender: Any) {
         let matchConfirmID = userDefaults.string(forKey: "MatchConfirmID")!
         
+        //※"MatchYesArray"を初期化[]するときのコード
+        //userDefaults.set([], forKey: "MatchYesArray")
+        
         //"MatchConfirmID"が""の場合にはこの時点でボタンのアクション終了！
         if matchConfirmID == "" {
             return
@@ -255,10 +259,22 @@ class Match_Swipe: UIViewController, UITableViewDataSource, UITableViewDelegate 
         var matchYesArray = userDefaults.array(forKey: "MatchYesArray") as! [String]
         matchYesArray.append(matchConfirmID)
         
-        print("matchConfirmID = \(matchConfirmID)")
-        print("matchYesArray = \(matchYesArray)")
-        
         userDefaults.set(matchYesArray, forKey: "MatchYesArray")
+        userDefaults.synchronize()
+        
+        //*次回Match-Swipeが利用可能になる時刻
+        let now = Date()
+        let nextTime = Date(timeInterval: 60*1, since: now)
+        //let nextTime = Date(timeInterval: 60*60*24*1, since: now)
+        
+        let dateFormatter = DateFormatter()
+        dateFormatter.locale = Locale(identifier: "en_US_POSIX")
+        dateFormatter.dateFormat = "yyyy/MM/dd HH:mm"
+        dateFormatter.timeZone = TimeZone(identifier: "Asia/Tokyo")
+        let matchNextTime = dateFormatter.string(from: nextTime)
+        
+        print("matchNextTime = \(matchNextTime)")
+        userDefaults.set(matchNextTime, forKey: "MatchNextTime")
         userDefaults.synchronize()
         
         let idCheck = userDefaults.string(forKey: "MatchID")
@@ -278,6 +294,9 @@ class Match_Swipe: UIViewController, UITableViewDataSource, UITableViewDelegate 
     @IBAction func noButton(_ sender: Any) {
         let matchConfirmID = userDefaults.string(forKey: "MatchConfirmID")!
         
+        //※"MatchNoArray"を初期化[]するときのコード
+        //userDefaults.set([], forKey: "MatchNoArray")
+        
         //"MatchConfirmID"が""の場合にはこの時点でボタンのアクション終了！
         if matchConfirmID == "" {
             return
@@ -286,10 +305,22 @@ class Match_Swipe: UIViewController, UITableViewDataSource, UITableViewDelegate 
         var matchNoArray = userDefaults.array(forKey: "MatchNoArray") as! [String]
         matchNoArray.append(matchConfirmID)
         
-        
-        print("matchNoArray = \(matchNoArray)")
-        
         userDefaults.set(matchNoArray, forKey: "MatchNoArray")
+        userDefaults.synchronize()
+        
+        //*次回Match-Swipeが利用可能になる時刻
+        let now = Date()
+        let nextTime = Date(timeInterval: 60*1, since: now)
+        //let nextTime = Date(timeInterval: 60*60*24*1, since: now)
+        
+        let dateFormatter = DateFormatter()
+        dateFormatter.locale = Locale(identifier: "en_US_POSIX")
+        dateFormatter.dateFormat = "yyyy/MM/dd HH:mm"
+        dateFormatter.timeZone = TimeZone(identifier: "Asia/Tokyo")
+        let matchNextTime = dateFormatter.string(from: nextTime)
+        
+        print("matchNextTime = \(matchNextTime)")
+        userDefaults.set(matchNextTime, forKey: "MatchNextTime")
         userDefaults.synchronize()
         
         // HUDで投稿完了を表示する

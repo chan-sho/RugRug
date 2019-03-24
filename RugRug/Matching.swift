@@ -39,11 +39,40 @@ class Matching: UIViewController {
         contactButton.isExclusiveTouch = true
         
         //userDefaultsの初期値設定
-        userDefaults.register(defaults: ["MatchSettingFlag" : "NO", "MatchPosition" : 0, "MatchDetail" : 0, "MatchID" : ""])
+        userDefaults.register(defaults: ["MatchSettingFlag" : "NO", "MatchPosition" : 0, "MatchDetail" : 0, "MatchID" : "", "MatchNextTime" : ""])
     }
     
     
     @IBAction func swipeButton(_ sender: Any) {
+        
+        //次回Match-Swipeが利用可能になる時刻の確認作業
+        let nextTime = userDefaults.string(forKey: "MatchNextTime")
+        print("nextTime = \(nextTime)")
+        
+        if nextTime != "" {
+            let dateFormatter = DateFormatter()
+            dateFormatter.locale = Locale(identifier: "en_US_POSIX")
+            dateFormatter.dateFormat = "yyyy/MM/dd HH:mm"
+            dateFormatter.timeZone = TimeZone(identifier: "Asia/Tokyo")
+            let matchNextTime = dateFormatter.date(from: nextTime!)!
+            
+            //*現時刻との比較
+            let now = Date()
+            if now > matchNextTime {
+                performSegue(withIdentifier: "toMatchSwipe", sender: nil)
+            }
+            else {
+                let dateFormatter = DateFormatter()
+                dateFormatter.locale = Locale(identifier: "en_US_POSIX")
+                dateFormatter.dateFormat = "yyyy/MM/dd HH:mm"
+                dateFormatter.timeZone = TimeZone(identifier: "Asia/Tokyo")
+                let announceTime = dateFormatter.string(from: matchNextTime)
+                SVProgressHUD.showError(withStatus: "次回のご利用は、\n\n\(announceTime)\n（日本標準時刻）\n\n以降より可能です。")
+                return
+            }
+        }
+
+        
         let matchSettingFlag = userDefaults.string(forKey: "MatchSettingFlag")
         if matchSettingFlag == "NO" {
             SVProgressHUD.showError(withStatus: "まずは「初期設定」を\n完了して下さい。")

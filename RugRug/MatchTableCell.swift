@@ -38,7 +38,7 @@ class MatchTableCell: UITableViewCell {
     
     func setPostData6(_ postData: PostData) {
         
-        self.userName.text = "\(postData.name!)さん"
+        self.userName.text = "\(postData.name!)"
         self.userPhoto.image = postData.userPhoto
         self.request.text = "\(postData.Request!)"
         self.interested.text = "\(postData.Interested!)"

@@ -508,9 +508,9 @@ Facebookで修正をお願いします。</string>
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fSO-um-IBi">
-                                <rect key="frame" x="60.5" y="20" width="199" height="44"/>
+                                <rect key="frame" x="55" y="20" width="210" height="44"/>
                                 <string key="text">ランダム選定されたユーザー
-（※頻度＝1人／1日）</string>
+（※24時間毎に1人選べます）</string>
                                 <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="15"/>
                                 <color key="textColor" red="0.83741801979999997" green="0.83743780850000005" blue="0.83742713930000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
@@ -560,6 +560,21 @@ Facebookで修正をお願いします。</string>
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="0kf-r8-qwV">
+                                <rect key="frame" x="0.0" y="20" width="320" height="44"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="【マッチングしたユーザー】" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7HL-iP-1HS">
+                                        <rect key="frame" x="34" y="10.5" width="252" height="23"/>
+                                        <fontDescription key="fontDescription" type="system" weight="black" pointSize="19"/>
+                                        <color key="textColor" red="0.45085787770000002" green="0.98829740290000001" blue="0.83763033149999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                                <color key="backgroundColor" red="0.3529411764705882" green="0.3529411764705882" blue="0.3529411764705882" alpha="0.90483197773972601" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstItem="7HL-iP-1HS" firstAttribute="centerX" secondItem="0kf-r8-qwV" secondAttribute="centerX" id="Iga-UU-E3g"/>
+                                </constraints>
+                            </view>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="au3-lb-r8H">
                                 <rect key="frame" x="0.0" y="20" width="50" height="44"/>
                                 <constraints>
@@ -573,19 +588,36 @@ Facebookで修正をお願いします。</string>
                                     <segue destination="0ir-Hh-Pr7" kind="unwind" unwindAction="unwind:" id="QJx-KM-Pa3"/>
                                 </connections>
                             </button>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="c3m-4S-end">
+                                <rect key="frame" x="0.0" y="64" width="320" height="504"/>
+                                <color key="backgroundColor" red="0.12984204290000001" green="0.12984612579999999" blue="0.12984395030000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            </tableView>
                         </subviews>
                         <color key="backgroundColor" red="0.12984204290000001" green="0.12984612579999999" blue="0.12984395030000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="au3-lb-r8H" firstAttribute="leading" secondItem="hPr-0R-Zcm" secondAttribute="leading" id="3yS-KC-mlo"/>
+                            <constraint firstItem="7HL-iP-1HS" firstAttribute="centerY" secondItem="au3-lb-r8H" secondAttribute="centerY" id="4cH-ED-Wh4"/>
+                            <constraint firstItem="au3-lb-r8H" firstAttribute="top" secondItem="0kf-r8-qwV" secondAttribute="top" id="9C1-8p-9j9"/>
+                            <constraint firstItem="c3m-4S-end" firstAttribute="top" secondItem="0kf-r8-qwV" secondAttribute="bottom" id="K8f-ec-WFs"/>
+                            <constraint firstItem="c3m-4S-end" firstAttribute="leading" secondItem="hPr-0R-Zcm" secondAttribute="leading" id="NOH-BM-j1F"/>
+                            <constraint firstItem="au3-lb-r8H" firstAttribute="bottom" secondItem="0kf-r8-qwV" secondAttribute="bottom" id="P3C-TZ-oY8"/>
+                            <constraint firstItem="0kf-r8-qwV" firstAttribute="leading" secondItem="hPr-0R-Zcm" secondAttribute="leading" id="cTh-bc-L9Z"/>
                             <constraint firstItem="au3-lb-r8H" firstAttribute="top" secondItem="hPr-0R-Zcm" secondAttribute="top" id="eVj-wM-dQ4"/>
+                            <constraint firstItem="hPr-0R-Zcm" firstAttribute="bottom" secondItem="c3m-4S-end" secondAttribute="bottom" id="fQ8-lX-pvn"/>
+                            <constraint firstItem="0kf-r8-qwV" firstAttribute="trailing" secondItem="hPr-0R-Zcm" secondAttribute="trailing" id="kXn-Hr-Qvx"/>
+                            <constraint firstItem="hPr-0R-Zcm" firstAttribute="trailing" secondItem="c3m-4S-end" secondAttribute="trailing" id="uuD-Xb-ERg"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="hPr-0R-Zcm"/>
                     </view>
+                    <connections>
+                        <outlet property="backButton" destination="au3-lb-r8H" id="vkC-zT-f7O"/>
+                        <outlet property="tableView" destination="c3m-4S-end" id="C6e-7H-2Gz"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="YP3-LE-YQ7" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <exit id="0ir-Hh-Pr7" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
-            <point key="canvasLocation" x="3450" y="-266"/>
+            <point key="canvasLocation" x="3450" y="-266.19718309859155"/>
         </scene>
         <!--Post Type-->
         <scene sceneID="D3w-Aq-puv">

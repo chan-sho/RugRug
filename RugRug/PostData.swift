@@ -79,6 +79,7 @@ class PostData: NSObject {
     var Interested: String?
     var Position: Int?
     var Detail: Int?
+    var MatchYes: [String] = []
     
     
     init(snapshot: DataSnapshot, myId: String) {
@@ -123,6 +124,7 @@ class PostData: NSObject {
         self.Interested = valueDictionary["Interested"] as? String
         self.Position = valueDictionary["Position"] as? Int
         self.Detail = valueDictionary["Detail"] as? Int
+        self.MatchYes = valueDictionary["Match-YES"] as? [String] ?? []
         
         let time = valueDictionary["time"] as? String
         self.date = Date(timeIntervalSinceReferenceDate: TimeInterval(time!)!)

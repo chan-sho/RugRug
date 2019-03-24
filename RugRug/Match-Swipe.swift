@@ -241,7 +241,52 @@ class Match_Swipe: UIViewController, UITableViewDataSource, UITableViewDelegate 
         let cell = tableView.dequeueReusableCell(withIdentifier: "Cell-6", for: indexPath) as! MatchTableCell
         cell.setPostData6(postArray[indexPath.row])
         
+        // セル内のボタンのアクションをソースコードで設定する
+        cell.contactButton.addTarget(self, action:#selector(handleContactButton(_:forEvent:)), for: .touchUpInside)
+        
         return cell
+    }
+    
+    
+    // セル内のcontactボタンがタップされた時に呼ばれるメソッド
+    @objc func handleContactButton(_ sender: UIButton, forEvent event: UIEvent) {
+        // タップされたセルのインデックスを求める
+        let touch = event.allTouches?.first
+        let point = touch!.location(in: self.tableView)
+        let indexPath = tableView.indexPathForRow(at: point)
+        
+        let postData : PostData
+        
+        // 配列からタップされたインデックスのデータを取り出す
+        postData = postArray[indexPath!.row]
+        
+        //タップを検知されたpostDataからnameを抽出する
+        let userPhotoName = postData.name
+        
+        let userURL : String = "https://www.facebook.com/search/str/\(userPhotoName!)/keywords_search"
+        
+        var userPhotoURL = userURL.replacingOccurrences(of: " ", with: "", options: .regularExpression)
+        userPhotoURL = userPhotoURL.addingPercentEncoding(withAllowedCharacters: NSCharacterSet.urlQueryAllowed)!
+        
+        //userDefaultsに必要なデータを保存（7×7からの使い回し）
+        userDefaults.set("YES", forKey: "UserPhotoURLFlagof7x7")
+        userDefaults.set(userPhotoName, forKey: "UserPhotoName")
+        userDefaults.set(userPhotoURL, forKey: "UserPhotoURL")
+        userDefaults.synchronize()
+        showAlertWithVC()
+        return
+    }
+    
+    
+    //最終確認ポップアップページを出す
+    func showAlertWithVC(){
+        
+        let UserPhotoURLFlagof7x7 :String = userDefaults.string(forKey: "UserPhotoURLFlagof7x7")!
+        if UserPhotoURLFlagof7x7 == "YES" {
+            AJAlertController.initialization().showAlert(aStrMessage: "今からFacebookでこのユーザーを検索しますか？", aCancelBtnTitle: "いいえ", aOtherBtnTitle: "はい") { (index, title) in
+                print(index,title)
+            }
+        }
     }
     
 

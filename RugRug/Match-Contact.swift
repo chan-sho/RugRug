@@ -22,8 +22,8 @@ class Match_Contact: UIViewController, UITableViewDataSource, UITableViewDelegat
     @IBOutlet weak var tableView: UITableView!
     
     var postArray: [PostData] = []
-    var CheckArray1: [String] = []
-    var CheckArray2: [String] = []
+    var twoIDArray: [String] = []
+    var twoMatchIDArray: [String] = []
     
     // DatabaseのobserveEventの登録状態を表す
     var observing = false
@@ -57,7 +57,7 @@ class Match_Contact: UIViewController, UITableViewDataSource, UITableViewDelegat
         tableView.estimatedRowHeight = 280
         
         //separatorを左端始まりにして、色指定
-        tableView.separatorColor = UIColor(red: 90/255, green: 90/255, blue: 90/255, alpha: 0.9)
+        tableView.separatorColor = UIColor(red: 33/255, green: 33/255, blue: 33/255, alpha: 1.0)
         tableView.separatorInset = .zero
         
         // TableViewを再表示する
@@ -86,18 +86,9 @@ class Match_Contact: UIViewController, UITableViewDataSource, UITableViewDelegat
                         let matchYesArray = self.userDefaults.array(forKey: "MatchYesArray") as! [String]
                         self.userDefaults.synchronize()
                         
-                        print("idCheck = \(idCheck)")
-                        print("matchYesArray = \(matchYesArray)")
-                        print("postData.MatchYes = \(postData.MatchYes)")
-                        
                         // 始めのinsertの段階で"Match-YES"にidCheckを含むデータのみ抽出する
                         if postData.MatchYes.contains(idCheck) && matchYesArray.contains(postData.id!) {
                             self.postArray.insert(postData, at: 0)
-                            
-                            print("postArray = \(self.postArray)")
-                        }
-                        else {
-                            print("postArray初回*NG = \(self.postArray)")
                         }
                         
                         // TableViewを再表示する
@@ -200,6 +191,9 @@ class Match_Contact: UIViewController, UITableViewDataSource, UITableViewDelegat
         // セル内のボタンのアクションをソースコードで設定する
         cell.userPhotoButton.addTarget(self, action:#selector(handleUserPhotoButton(_:forEvent:)), for: .touchUpInside)
         
+        // セル内のeditボタンを追加で管理
+        cell.chatButton.addTarget(self, action:#selector(handleChatButton(_:forEvent:)), for: .touchUpInside)
+        
         return cell
     }
 
@@ -233,6 +227,49 @@ class Match_Contact: UIViewController, UITableViewDataSource, UITableViewDelegat
         return
     }
     
+    
+    //セル内のチャットボタンが押された時に呼ばれるメソッド
+    @objc func handleChatButton(_ sender: UIButton, forEvent event: UIEvent) {
+        
+        // タップされたセルのインデックスを求める
+        let touch = event.allTouches?.first
+        let point = touch!.location(in: self.tableView)
+        let indexPath = tableView.indexPathForRow(at: point)
+        
+        let postData : PostData
+        
+        // 配列からタップされたインデックスのデータを取り出す
+        postData = postArray[indexPath!.row]
+        
+        //タップを検知されたpostDataから投稿ナンバーを抽出する
+        let chatDataId = postData.id
+        //自身の投稿ナンバー(MatchID)を抽出する
+        let myselfMatchID = userDefaults.string(forKey: "MatchID")
+        
+        //上記2つのIDを配列に入れる
+        twoIDArray.append("\(chatDataId!)")
+        twoIDArray.append("\(myselfMatchID!)")
+        print("twoIDArray = \(twoIDArray)")
+        
+        //配列の要素を昇順にならべかえる
+        twoMatchIDArray = twoIDArray.sorted(by: <)
+        print("twoMatchIDArray = \(twoMatchIDArray)")
+        
+        //配列の要素を連結する
+        let twoMatchIDs = twoMatchIDArray.joined(separator: "+")
+        print("twoMatchIDs = \(twoMatchIDs)")
+        
+        userDefaults.set(twoMatchIDs, forKey: "ChatDataId")
+        userDefaults.synchronize()
+        
+        //全配列の初期化
+        twoIDArray = []
+        twoMatchIDArray = []
+        
+        //Chatに移動
+        self.performSegue(withIdentifier: "toChatMatch", sender: nil)
+    }
+    
 
     //最終確認ポップアップページを出す
     func showAlertWithVC(){
@@ -243,6 +280,11 @@ class Match_Contact: UIViewController, UITableViewDataSource, UITableViewDelegat
                 print(index,title)
             }
         }
+    }
+    
+    
+    @IBAction func unwind(_ segue: UIStoryboardSegue) {
+        // 他の画面から segue を使って戻ってきた時に呼ばれる
     }
     
 }

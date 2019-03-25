@@ -593,23 +593,7 @@ class AJAlertController: UIViewController {
         //投稿者プロフィール画像を押された上で、「通知＋Facebook検索」を選択した際のアクション
         let UserPhotoURLFlag :String = userDefaults.string(forKey: "UserPhotoURLFlag")!
         if UserPhotoURLFlag == "YES" {
-            let UserPhotoName :String = userDefaults.string(forKey: "UserPhotoName")!
             let UserPhotoURL :String = userDefaults.string(forKey: "UserPhotoURL")!
-            let ContactRequestPost :String = userDefaults.string(forKey: "ContactRequestPost")!
-            let ContactRequestUserID :String = userDefaults.string(forKey: "ContactRequestUserID")!
-            
-            //FireBase上に辞書型データで残す処理
-            //postDataに必要な情報を取得しておく
-            let time = Date.timeIntervalSinceReferenceDate
-            let name = Auth.auth().currentUser?.displayName
-            
-            //ログインユーザーのプロフィール画像をロード
-            let UserProfileURL = (Auth.auth().currentUser?.photoURL?.absoluteString)! + "?width=140&height=140"
-            
-            //**重要** 辞書を作成してFirebaseに保存する
-            let postRef = Database.database().reference().child(Const5.PostPath5)
-            let postDic = ["AskUserID": Auth.auth().currentUser!.uid, "time": String(time), "AskUserName": name!, "AskUserURL": UserProfileURL, "RequestedUserID": ContactRequestUserID, "RequestedUserName": UserPhotoName, "RequestedPostID": ContactRequestPost,"checkFlag": "", "ChatRequest": ""] as [String : Any]
-            postRef.childByAutoId().setValue(postDic)
             
             //Facebookの検索ページをSafariで開くアクション
             let url = URL(string: "\(UserPhotoURL)")
@@ -635,22 +619,6 @@ class AJAlertController: UIViewController {
         //投稿者プロフィール画像を押された上で、「チャット依頼」を選択した際のアクション
         let ChatRequestFlag :String = userDefaults.string(forKey: "ChatRequestFlag")!
         if ChatRequestFlag == "YES" {
-            let UserPhotoName :String = userDefaults.string(forKey: "UserPhotoName")!
-            let ContactRequestPost :String = userDefaults.string(forKey: "ContactRequestPost")!
-            let ContactRequestUserID :String = userDefaults.string(forKey: "ContactRequestUserID")!
-            
-            //FireBase上に辞書型データで残す処理
-            //postDataに必要な情報を取得しておく
-            let time = Date.timeIntervalSinceReferenceDate
-            let name = Auth.auth().currentUser?.displayName
-            
-            //ログインユーザーのプロフィール画像をロード
-            let UserProfileURL = (Auth.auth().currentUser?.photoURL?.absoluteString)! + "?width=140&height=140"
-            
-            //**重要** 辞書を作成してFirebaseに保存する
-            let postRef = Database.database().reference().child(Const5.PostPath5)
-            let postDic = ["AskUserID": Auth.auth().currentUser!.uid, "time": String(time), "AskUserName": name!, "AskUserURL": UserProfileURL, "RequestedUserID": ContactRequestUserID, "RequestedUserName": UserPhotoName, "RequestedPostID": ContactRequestPost,"checkFlag": "", "ChatRequest": "【貴方のコンタクト通知に返信】\n  まずはチャットしませんか？↓click"] as [String : Any]
-            postRef.childByAutoId().setValue(postDic)
             
             //チェックFlagの再初期化
             userDefaults.set("NO", forKey: "ChatRequestFlag")

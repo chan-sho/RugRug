@@ -309,8 +309,7 @@ class Match_Swipe: UIViewController, UITableViewDataSource, UITableViewDelegate 
         
         //*次回Match-Swipeが利用可能になる時刻
         let now = Date()
-        let nextTime = Date(timeInterval: 60*1, since: now)
-        //let nextTime = Date(timeInterval: 60*60*24*1, since: now)
+        let nextTime = Date(timeInterval: 60*60*24*1, since: now)
         
         let dateFormatter = DateFormatter()
         dateFormatter.locale = Locale(identifier: "en_US_POSIX")
@@ -355,8 +354,7 @@ class Match_Swipe: UIViewController, UITableViewDataSource, UITableViewDelegate 
         
         //*次回Match-Swipeが利用可能になる時刻
         let now = Date()
-        let nextTime = Date(timeInterval: 60*1, since: now)
-        //let nextTime = Date(timeInterval: 60*60*24*1, since: now)
+        let nextTime = Date(timeInterval: 60*60*24*1, since: now)
         
         let dateFormatter = DateFormatter()
         dateFormatter.locale = Locale(identifier: "en_US_POSIX")

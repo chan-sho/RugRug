@@ -13,9 +13,9 @@ import FirebaseAuth
 
 class Manager: UIViewController {
 
-    @IBOutlet weak var news1Photo: UIImageView!
-    @IBOutlet weak var adBigPhoto: UIImageView!
-    @IBOutlet weak var adSmallPhoto: UIImageView!
+    @IBOutlet weak var adBigPhoto1: UIImageView!
+    @IBOutlet weak var adBigPhoto2: UIImageView!
+    @IBOutlet weak var adSmallPhoto1: UIImageView!
     
     @IBOutlet weak var submitButton: UIButton!
     @IBOutlet weak var backButton: UIButton!
@@ -35,18 +35,19 @@ class Manager: UIViewController {
 
     @IBAction func submitButton(_ sender: Any) {
         // ImageViewから画像を取得する
-        let imageData = news1Photo.image!.jpegData(compressionQuality: 0.5)
-        let imageString = imageData!.base64EncodedString(options: .lineLength64Characters)
+        let imageAdBig1 = adBigPhoto1.image!.jpegData(compressionQuality: 0.5)
+        let imageStringAdBig1 = imageAdBig1!.base64EncodedString(options: .lineLength64Characters)
         
-        let imageAdBig = adBigPhoto.image!.jpegData(compressionQuality: 0.5)
-        let imageStringAdBig = imageAdBig!.base64EncodedString(options: .lineLength64Characters)
+        let imageAdBig2 = adBigPhoto2.image!.jpegData(compressionQuality: 0.5)
+        let imageStringAdBig2 = imageAdBig2!.base64EncodedString(options: .lineLength64Characters)
         
-        let imageAdSmall = adSmallPhoto.image!.jpegData(compressionQuality: 0.5)
-        let imageStringAdSmall = imageAdSmall!.base64EncodedString(options: .lineLength64Characters)
+        let imageAdSmall1 = adSmallPhoto1.image!.jpegData(compressionQuality: 0.5)
+        let imageStringAdSmall1 = imageAdSmall1!.base64EncodedString(options: .lineLength64Characters)
+        
         
         // **重要** 辞書を作成してFirebaseに保存する
         let postRef = Database.database().reference().child(Const3.PostPath3)
-        let postDic = ["News1Photo": imageString, "AdBigPhoto": imageStringAdBig,  "AdSmallPhoto": imageStringAdSmall] as [String : Any]
+        let postDic = ["BigPhoto1": imageStringAdBig1, "BigPhoto2": imageStringAdBig2,  "SmallPhoto1": imageStringAdSmall1] as [String : Any]
         postRef.childByAutoId().setValue(postDic)
     }
     

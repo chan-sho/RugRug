@@ -58,8 +58,7 @@ class Home: UIViewController, UITextViewDelegate {
     @IBOutlet weak var ad8Title: UILabel!
     @IBOutlet weak var ad9Title: UILabel!
     
-    @IBOutlet weak var postPickUp: UILabel!
-    @IBOutlet weak var eventPickUp: UILabel!
+    @IBOutlet weak var tableView: UITableView!
     
     var news1URL: String?
     var news2URL: String?
@@ -105,55 +104,41 @@ class Home: UIViewController, UITextViewDelegate {
         news1Photo.isUserInteractionEnabled = true
         
         ad1Photo.clipsToBounds = true
-        ad1Photo.layer.cornerRadius = 105.0
-        ad1Photo.layer.borderColor = UIColor.gray.cgColor
-        ad1Photo.layer.borderWidth = 0.5
+        ad1Photo.layer.cornerRadius = 5.0
+        //* ad1Photo.layer.borderColor = UIColor.gray.cgColor
+        //* ad1Photo.layer.borderWidth = 0.5
         
         ad2Photo.clipsToBounds = true
-        ad2Photo.layer.cornerRadius = 100.0
-        ad2Photo.layer.borderColor = UIColor.gray.cgColor
-        ad2Photo.layer.borderWidth = 0.5
+        ad2Photo.layer.cornerRadius = 5.0
         
         ad3Photo.clipsToBounds = true
-        ad3Photo.layer.cornerRadius = 55.0
-        ad3Photo.layer.borderColor = UIColor.gray.cgColor
-        ad3Photo.layer.borderWidth = 0.5
+        ad3Photo.layer.cornerRadius = 5.0
         
         ad4Photo.clipsToBounds = true
-        ad4Photo.layer.cornerRadius = 55.0
-        ad4Photo.layer.borderColor = UIColor.gray.cgColor
-        ad4Photo.layer.borderWidth = 0.5
+        ad4Photo.layer.cornerRadius = 5.0
         
         ad5Photo.clipsToBounds = true
-        ad5Photo.layer.cornerRadius = 60.0
-        ad5Photo.layer.borderColor = UIColor.gray.cgColor
-        ad5Photo.layer.borderWidth = 0.5
+        ad5Photo.layer.cornerRadius = 5.0
         
         ad6Photo.clipsToBounds = true
-        ad6Photo.layer.cornerRadius = 60.0
-        ad6Photo.layer.borderColor = UIColor.gray.cgColor
-        ad6Photo.layer.borderWidth = 0.5
+        ad6Photo.layer.cornerRadius = 5.0
         
         ad7Photo.clipsToBounds = true
-        ad7Photo.layer.cornerRadius = 45.0
-        ad7Photo.layer.borderColor = UIColor.gray.cgColor
-        ad7Photo.layer.borderWidth = 0.5
+        ad7Photo.layer.cornerRadius = 5.0
         
         ad8Photo.clipsToBounds = true
-        ad8Photo.layer.cornerRadius = 57.5
-        ad8Photo.layer.borderColor = UIColor.gray.cgColor
-        ad8Photo.layer.borderWidth = 0.5
+        ad8Photo.layer.cornerRadius = 5.0
         
         ad9Photo.clipsToBounds = true
-        ad9Photo.layer.cornerRadius = 57.5
-        ad9Photo.layer.borderColor = UIColor.gray.cgColor
-        ad9Photo.layer.borderWidth = 0.5
+        ad9Photo.layer.cornerRadius = 5.0
         
-        postPickUp.layer.cornerRadius = 15.0
-        postPickUp.layer.masksToBounds = true
-        eventPickUp.layer.cornerRadius = 15.0
-        eventPickUp.layer.masksToBounds = true
         
+        //separatorを左端始まりにして、色指定
+        tableView.separatorColor = UIColor(red: 33/255, green: 33/255, blue: 33/255, alpha: 1.0)
+        tableView.separatorInset = .zero
+        
+        // TableViewを再表示する
+        self.tableView.reloadData()
         
         //Newsの情報取得
         var refNews: DatabaseReference!

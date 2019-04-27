@@ -73,7 +73,8 @@ class ViewController: UIViewController {
     func setupTab() {
         
         // 画像のファイル名を指定してESTabBarControllerを作成する
-        let tabBarController: ESTabBarController! = ESTabBarController(tabIconNames: ["Home", "matching", "PostType", "News", "Setting"])
+        // 一旦"News"のページを閉鎖（ver 3.2以降）
+        let tabBarController: ESTabBarController! = ESTabBarController(tabIconNames: ["Home", "matching", "PostType", "Setting"])
         
         // 背景色、選択時の色を設定する
         tabBarController.selectedColor = UIColor(red: 1.0, green: 1.0, blue: 1.0, alpha:1.0)
@@ -98,14 +99,14 @@ class ViewController: UIViewController {
         let Home = storyboard?.instantiateViewController(withIdentifier: "Home")
         let Matching = storyboard?.instantiateViewController(withIdentifier: "Matching")
         let PostType = storyboard?.instantiateViewController(withIdentifier: "PostType")
-        let News = storyboard?.instantiateViewController(withIdentifier: "News")
+        //* let News = storyboard?.instantiateViewController(withIdentifier: "News")
         let Setting = storyboard?.instantiateViewController(withIdentifier: "Setting")
         
         tabBarController.setView(Home, at: 0)
         tabBarController.setView(Matching, at: 1)
         tabBarController.setView(PostType, at: 2)
-        tabBarController.setView(News, at: 3)
-        tabBarController.setView(Setting, at: 4)
+        //* tabBarController.setView(News, at: 3)
+        tabBarController.setView(Setting, at: 3)
     }
 }
 

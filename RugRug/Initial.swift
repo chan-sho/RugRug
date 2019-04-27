@@ -76,7 +76,7 @@ class Initial: UIViewController {
     
     //EULA同意画面のポップアップページを出す
     func showAlertWithVC(){
-        AJAlertController.initialization().showAlert(aStrMessage: "RugRugをダウンロード頂き、\n本当にありがとうございます！\n\nご利用頂くにあたり必ず以下リンクから「プライバシーポリシー」「利用規約」をご確認下さい。\n皆様の大切な個人情報に関する記載がございますのでどうかよろしくお願い致します。\n\n内容をご確認の上で、\n以下選択ください。", aCancelBtnTitle: "リンク", aOtherBtnTitle: "同意する") { (index, title) in
+        AJAlertController.initialization().showAlert(aStrMessage: "RugRugをダウンロード頂き、\n本当にありがとうございます！\n\nご利用頂くにあたり必ず【規約を確認】から「プライバシーポリシー」「利用規約」をご確認下さい。\n皆様の大切な個人情報に関する記載がございますのでどうかよろしくお願い致します。\n\n内容をご確認の上で、\n以下選択ください。", aCancelBtnTitle: "規約を確認", aOtherBtnTitle: "同意する") { (index, title) in
             print(index,title)
         }
     }

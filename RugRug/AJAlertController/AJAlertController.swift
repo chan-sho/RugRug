@@ -660,8 +660,19 @@ class AJAlertController: UIViewController {
         
         let EULACheckFlag :String = userDefaults.string(forKey: "EULACheckFlag")!
         if EULACheckFlag == "NO" {
-            SVProgressHUD.showError(withStatus: "【ご注意・お願い】\n\nリンクから内容を必ずご確認頂いた上で、同意するかどうかご判断ください。\n\nユーザー様の大切な個人情報を扱わせて頂くアプリですので、ご理解をお願い致します！")
-            return
+            //一旦、必ず規約を踏ませるフローを止める（ver 3.2以降）
+            //* SVProgressHUD.showError(withStatus: "【ご注意・お願い】\n\nリンクから内容を必ずご確認頂いた上で、同意するかどうかご判断ください。\n\nユーザー様の大切な個人情報を扱わせて頂くアプリですので、ご理解をお願い致します！")
+            //* return
+            
+            //利用規約同意済みのYESをUserDefaultsに保存する
+            userDefaults.set("YES", forKey: "EULACheckFlag")
+            userDefaults.set("YES", forKey: "EULAagreement")
+            userDefaults.set("YES", forKey: "InitialFlag")
+            userDefaults.synchronize()
+            hide()
+            
+            // 画面を閉じてViewControllerに戻る
+            self.dismiss(animated: false, completion: nil)
         }
         else {
             //利用規約同意済みのYESをUserDefaultsに保存する
@@ -675,6 +686,7 @@ class AJAlertController: UIViewController {
         }
         
     }
+    
     
     @IBAction func btnOkTapped(sender: UIButton) 
     {

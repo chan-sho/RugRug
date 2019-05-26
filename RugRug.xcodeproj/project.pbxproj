@@ -62,6 +62,8 @@
 		31DB930F21A903DB00A2B6AF /* NewPost.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31DB930E21A903DB00A2B6AF /* NewPost.swift */; };
 		31DB931321A916A100A2B6AF /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 31DB931221A916A100A2B6AF /* Assets.xcassets */; };
 		31DB931521A916B400A2B6AF /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 31DB931421A916B300A2B6AF /* Images.xcassets */; };
+		31E3536E229A76F3000601CF /* Home-TableCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31E3536C229A76F3000601CF /* Home-TableCell.swift */; };
+		31E3536F229A76F3000601CF /* Home-TableCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 31E3536D229A76F3000601CF /* Home-TableCell.xib */; };
 		31EC171321AE43A70033E1F1 /* Const2.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31EC171221AE43A70033E1F1 /* Const2.swift */; };
 		9ED7BC96C7D7B2B31556E273 /* Pods_RugRug.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B622C86550B85A948A5E0674 /* Pods_RugRug.framework */; };
 /* End PBXBuildFile section */
@@ -125,6 +127,8 @@
 		31DB930E21A903DB00A2B6AF /* NewPost.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewPost.swift; sourceTree = "<group>"; };
 		31DB931221A916A100A2B6AF /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		31DB931421A916B300A2B6AF /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
+		31E3536C229A76F3000601CF /* Home-TableCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Home-TableCell.swift"; sourceTree = "<group>"; };
+		31E3536D229A76F3000601CF /* Home-TableCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = "Home-TableCell.xib"; sourceTree = "<group>"; };
 		31EC171221AE43A70033E1F1 /* Const2.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Const2.swift; sourceTree = "<group>"; };
 		9748BEB0414ED82A1AF84D38 /* Pods-RugRug.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RugRug.debug.xcconfig"; path = "Pods/Target Support Files/Pods-RugRug/Pods-RugRug.debug.xcconfig"; sourceTree = "<group>"; };
 		B622C86550B85A948A5E0674 /* Pods_RugRug.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_RugRug.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -180,6 +184,8 @@
 				31DB930221A8388800A2B6AF /* Initial.swift */,
 				31DB92FA21A7F64C00A2B6AF /* Login.swift */,
 				31DB92F821A7F62D00A2B6AF /* Home.swift */,
+				31E3536C229A76F3000601CF /* Home-TableCell.swift */,
+				31E3536D229A76F3000601CF /* Home-TableCell.xib */,
 				3193D6E52240C3FA00256006 /* Matching.swift */,
 				31DB70802240ECD00017C59B /* Match-Setting.swift */,
 				31DB70822240ECF50017C59B /* Match-Swipe.swift */,
@@ -317,6 +323,7 @@
 				31DB92EF21A7EC9200A2B6AF /* LaunchScreen.storyboard in Resources */,
 				3169FE1A21AE79E6000E01A4 /* FAQTableCell.xib in Resources */,
 				317A096521C280E400C35DAE /* ChatTableCell.xib in Resources */,
+				31E3536F229A76F3000601CF /* Home-TableCell.xib in Resources */,
 				31DB92F721A7F23C00A2B6AF /* GoogleService-Info.plist in Resources */,
 				31DB92EA21A7EC9000A2B6AF /* Main.storyboard in Resources */,
 				312A2DE121BE648E00C16EA1 /* InfoTableCell.xib in Resources */,
@@ -415,6 +422,7 @@
 				31DB70812240ECD00017C59B /* Match-Setting.swift in Sources */,
 				312A2DDD21BE38C900C16EA1 /* Const5.swift in Sources */,
 				31DB930F21A903DB00A2B6AF /* NewPost.swift in Sources */,
+				31E3536E229A76F3000601CF /* Home-TableCell.swift in Sources */,
 				312A2DE021BE648E00C16EA1 /* InfoTableCell.swift in Sources */,
 				31DB930521A8D94900A2B6AF /* PostData.swift in Sources */,
 				311F7A7521FEF4F00068868E /* New7x7.swift in Sources */,

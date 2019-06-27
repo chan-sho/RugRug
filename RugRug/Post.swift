@@ -1121,7 +1121,11 @@ class Post: UIViewController, UITableViewDataSource, UITableViewDelegate, UISear
             //タップを検知されたpostDataからnameを抽出する
             let userPhotoName = postData.name
             
-            let userURL : String = "https://www.facebook.com/search/str/\(userPhotoName!)/keywords_search"
+            //クリップボードにuserNameを保存する
+            let pasteboard: UIPasteboard = UIPasteboard.general
+            pasteboard.string = "\(userPhotoName!)"
+            
+            let userURL : String = "https://www.facebook.com"
             var userPhotoURL = userURL.replacingOccurrences(of: " ", with: "", options: .regularExpression)
             userPhotoURL = userPhotoURL.addingPercentEncoding(withAllowedCharacters: NSCharacterSet.urlQueryAllowed)!
             
@@ -1233,7 +1237,7 @@ class Post: UIViewController, UITableViewDataSource, UITableViewDelegate, UISear
         
         let UserPhotoURLFlag :String = userDefaults.string(forKey: "UserPhotoURLFlag")!
         if UserPhotoURLFlag == "YES" {
-            AJAlertController.initialization().showAlert(aStrMessage: "今からFacebookでこのユーザーを検索します！\n\nLet's search this user on Facebook now !", aCancelBtnTitle: "いいえ / NO", aOtherBtnTitle: "はい / YES") { (index, title) in
+            AJAlertController.initialization().showAlert(aStrMessage: "このユーザーを検索する為に、\n「ユーザー名」をコピーし、\nFacebookに移動します。\n\n(※ペーストして検索が出来ます)", aCancelBtnTitle: "いいえ", aOtherBtnTitle: "はい") { (index, title) in
                 print(index,title)
             }
         }

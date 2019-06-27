@@ -263,7 +263,11 @@ class Match_Swipe: UIViewController, UITableViewDataSource, UITableViewDelegate 
         //タップを検知されたpostDataからnameを抽出する
         let userPhotoName = postData.name
         
-        let userURL : String = "https://www.facebook.com/search/str/\(userPhotoName!)/keywords_search"
+        //クリップボードにuserNameを保存する
+        let pasteboard: UIPasteboard = UIPasteboard.general
+        pasteboard.string = "\(userPhotoName!)"
+        
+        let userURL : String = "https://www.facebook.com"
         
         var userPhotoURL = userURL.replacingOccurrences(of: " ", with: "", options: .regularExpression)
         userPhotoURL = userPhotoURL.addingPercentEncoding(withAllowedCharacters: NSCharacterSet.urlQueryAllowed)!
@@ -283,7 +287,7 @@ class Match_Swipe: UIViewController, UITableViewDataSource, UITableViewDelegate 
         
         let UserPhotoURLFlagof7x7 :String = userDefaults.string(forKey: "UserPhotoURLFlagof7x7")!
         if UserPhotoURLFlagof7x7 == "YES" {
-            AJAlertController.initialization().showAlert(aStrMessage: "今からFacebookでこのユーザーを検索しますか？", aCancelBtnTitle: "いいえ", aOtherBtnTitle: "はい") { (index, title) in
+            AJAlertController.initialization().showAlert(aStrMessage: "このユーザーを検索する為に、\n「ユーザー名」をコピーし、\nFacebookに移動します。\n\n(※ペーストして検索が出来ます)", aCancelBtnTitle: "いいえ", aOtherBtnTitle: "はい") { (index, title) in
                 print(index,title)
             }
         }

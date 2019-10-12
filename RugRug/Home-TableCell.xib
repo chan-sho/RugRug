@@ -44,17 +44,24 @@
                         <color key="textColor" red="0.66422420739999999" green="0.66424006219999998" blue="0.66423153879999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <nil key="highlightedColor"/>
                     </label>
+                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7Mv-LK-qFv">
+                        <rect key="frame" x="10" y="10" width="70" height="70"/>
+                    </button>
                 </subviews>
                 <constraints>
                     <constraint firstAttribute="bottom" secondItem="PCx-dA-Bto" secondAttribute="bottom" constant="22.5" id="7gt-Fk-F0D"/>
                     <constraint firstItem="gK2-Xf-uJV" firstAttribute="leading" secondItem="PCx-dA-Bto" secondAttribute="trailing" constant="10" id="8Md-OK-hfT"/>
+                    <constraint firstItem="7Mv-LK-qFv" firstAttribute="bottom" secondItem="PCx-dA-Bto" secondAttribute="bottom" id="9WW-EX-Yak"/>
                     <constraint firstItem="PCx-dA-Bto" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="10" id="Zgg-dM-l4k"/>
                     <constraint firstItem="5Je-45-09C" firstAttribute="leading" secondItem="PCx-dA-Bto" secondAttribute="trailing" constant="25" id="dXl-c1-mGO"/>
                     <constraint firstItem="gK2-Xf-uJV" firstAttribute="top" secondItem="PCx-dA-Bto" secondAttribute="top" id="deK-zz-iua"/>
                     <constraint firstItem="CX6-J2-sdH" firstAttribute="bottom" secondItem="PCx-dA-Bto" secondAttribute="bottom" id="fYk-hU-BfS"/>
                     <constraint firstItem="CX6-J2-sdH" firstAttribute="leading" secondItem="PCx-dA-Bto" secondAttribute="trailing" constant="25" id="g7H-fd-gGh"/>
+                    <constraint firstItem="7Mv-LK-qFv" firstAttribute="leading" secondItem="PCx-dA-Bto" secondAttribute="leading" id="gO8-Ls-SCU"/>
+                    <constraint firstItem="7Mv-LK-qFv" firstAttribute="top" secondItem="PCx-dA-Bto" secondAttribute="top" id="jbU-Kv-Fka"/>
                     <constraint firstItem="PCx-dA-Bto" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="10" id="xDx-DA-1yh"/>
                     <constraint firstItem="CX6-J2-sdH" firstAttribute="top" secondItem="5Je-45-09C" secondAttribute="bottom" constant="5" id="xXt-lk-PC3"/>
+                    <constraint firstItem="7Mv-LK-qFv" firstAttribute="trailing" secondItem="PCx-dA-Bto" secondAttribute="trailing" id="yeu-61-hTk"/>
                 </constraints>
             </tableViewCellContentView>
             <color key="backgroundColor" red="0.12984204290000001" green="0.12984612579999999" blue="0.12984395030000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -62,6 +69,7 @@
             <connections>
                 <outlet property="category" destination="5Je-45-09C" id="N48-hK-euE"/>
                 <outlet property="position" destination="CX6-J2-sdH" id="ax0-gw-gFX"/>
+                <outlet property="userButton" destination="7Mv-LK-qFv" id="fSM-0H-rJo"/>
                 <outlet property="userName" destination="gK2-Xf-uJV" id="oAs-gC-9zK"/>
                 <outlet property="userPhoto" destination="PCx-dA-Bto" id="Ofr-cX-idJ"/>
             </connections>

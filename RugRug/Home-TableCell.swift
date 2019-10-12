@@ -15,6 +15,7 @@ class Home_TableCell: UITableViewCell {
     @IBOutlet weak var userName: UILabel!
     @IBOutlet weak var category: UILabel!
     @IBOutlet weak var position: UILabel!
+    @IBOutlet weak var userButton: UIButton!
     
     
     override func awakeFromNib() {

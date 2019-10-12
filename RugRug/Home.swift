@@ -627,6 +627,9 @@ class Home: UIViewController, UITextViewDelegate, UITableViewDataSource, UITable
         let cell = tableView.dequeueReusableCell(withIdentifier: "Cell-8", for: indexPath) as! Home_TableCell
         cell.setPostData7(postArray[indexPath.row])
         
+        // セル内のボタンのアクションをソースコードで設定する
+        cell.userButton.addTarget(self, action:#selector(handleUserButton(_:forEvent:)), for: .touchUpInside)
+        
         return cell
     }
 
@@ -648,6 +651,11 @@ class Home: UIViewController, UITextViewDelegate, UITableViewDataSource, UITable
         }
     }
     
+    
+    // セル内のlikeボタンがタップされた時に呼ばれるメソッド
+    @objc func handleUserButton(_ sender: UIButton, forEvent event: UIEvent) {
+        performSegue(withIdentifier: "toMatchContact", sender: nil)
+    }
     
     @IBAction func news1PhotoTapped(_ sender: Any) {
         if news1URL != nil {

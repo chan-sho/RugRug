@@ -186,8 +186,8 @@
 				31DB92F821A7F62D00A2B6AF /* Home.swift */,
 				31E3536C229A76F3000601CF /* Home-TableCell.swift */,
 				31E3536D229A76F3000601CF /* Home-TableCell.xib */,
-				3193D6E52240C3FA00256006 /* Matching.swift */,
 				31DB70802240ECD00017C59B /* Match-Setting.swift */,
+				3193D6E52240C3FA00256006 /* Matching.swift */,
 				31DB70822240ECF50017C59B /* Match-Swipe.swift */,
 				3156C0D8224622BE001F0CEB /* MatchTableCell.swift */,
 				3156C0D9224622BE001F0CEB /* MatchTableCell.xib */,
@@ -593,7 +593,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 75X3T7895K;
 				INFOPLIST_FILE = RugRug/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 11.4;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -615,7 +615,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 75X3T7895K;
 				INFOPLIST_FILE = RugRug/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 11.4;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",

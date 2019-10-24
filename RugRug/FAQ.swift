@@ -48,11 +48,16 @@ class FAQ: UIViewController, UITableViewDataSource, UITableViewDelegate, UISearc
         searchBar.enablesReturnKeyAutomatically = false
         
         //searchBarの背景をカスタマイズ
-        let barImageView = searchBar.value(forKey: "_background") as! UIImageView
-        barImageView.removeFromSuperview()
-        searchBar.backgroundColor = UIColor(red: 1.0, green: 1.0, blue: 1.0, alpha: 0.0)
-        let textField = searchBar.value(forKey: "_searchField") as! UITextField
-        textField.backgroundColor = UIColor.white
+        if #available(iOS 13.0, *) {
+            //searchBarのカスタマイズをしない・・・
+        }
+        else{
+            let barImageView = searchBar.value(forKey: "_background") as! UIImageView
+            barImageView.removeFromSuperview()
+            searchBar.backgroundColor = UIColor(red: 1.0, green: 1.0, blue: 1.0, alpha: 0.0)
+            let textField = searchBar.value(forKey: "_searchField") as! UITextField
+            textField.backgroundColor = UIColor.white
+        }
         
         let nib = UINib(nibName: "FAQTableCell", bundle: nil)
         tableView.register(nib, forCellReuseIdentifier: "Cell-2")

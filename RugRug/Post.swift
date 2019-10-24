@@ -77,12 +77,17 @@ class Post: UIViewController, UITableViewDataSource, UITableViewDelegate, UISear
         //何も入力されていなくてもReturnキーを押せるようにする。
         textSearchBar.enablesReturnKeyAutomatically = false
         
-        //searchBarの背景をカスタマイズ
-        let barImageView = textSearchBar.value(forKey: "_background") as! UIImageView
-        barImageView.removeFromSuperview()
-        textSearchBar.backgroundColor = UIColor(red: 1.0, green: 1.0, blue: 1.0, alpha: 0.0)
-        let textField = textSearchBar.value(forKey: "_searchField") as! UITextField
-        textField.backgroundColor = UIColor.white
+        //searchBarの背景をカスタマイズ(※暫定対応：iOS12までの設定）
+        if #available(iOS 13.0, *) {
+            //searchBarのカスタマイズをしない・・・
+        }
+        else{
+            let barImageView = textSearchBar.value(forKey: "_background") as! UIImageView
+            barImageView.removeFromSuperview()
+            textSearchBar.backgroundColor = UIColor(red: 1.0, green: 1.0, blue: 1.0, alpha: 0.0)
+            let textField = textSearchBar.value(forKey: "_searchField") as! UITextField
+            textField.backgroundColor = UIColor.white
+        }
         
         let nib = UINib(nibName: "PostTableCell", bundle: nil)
         tableView.register(nib, forCellReuseIdentifier: "Cell")

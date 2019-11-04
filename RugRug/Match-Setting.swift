@@ -31,7 +31,7 @@ class Match_Setting: UIViewController, UITextFieldDelegate, UITextViewDelegate, 
     
     // categoryTextにPickerを実装する準備
     var pickerView: UIPickerView = UIPickerView()
-    let list = ["(選択してください)", "本気でラグビーしたい", "エンジョイレベルで楽しく", "一緒に観戦したい", "飲み会で盛り上がりたい", "ビジネスマッチング"]
+    let list = ["(選択してください / Pls choose)", "本気でラグビーしたい(Serious)", "エンジョイレベルで楽しく(Enjoy)", "一緒に観戦したい(Watch)", "飲み会で盛り上がりたい(Drink)", "ビジネスマッチング(Business)"]
     
     //user defaultsを使う準備
     let userDefaults:UserDefaults = UserDefaults.standard
@@ -242,8 +242,8 @@ class Match_Setting: UIViewController, UITextFieldDelegate, UITextViewDelegate, 
     
     
     @IBAction func setButton(_ sender: Any) {
-        if matchRequest.text == "" || interestedContents.text == "" || interestedContents.text == "(選択してください)" {
-            SVProgressHUD.showError(withStatus: "「必須」項目を、\n全て埋めて下さい。")
+        if matchRequest.text == "" || interestedContents.text == "" || interestedContents.text == "(選択してください / Pls choose)" {
+            SVProgressHUD.showError(withStatus: "「必須」項目を全て埋めて下さい。\n\nPlease fill in yellow colored mandatory parts")
         }
         else {
             let idCheck = userDefaults.string(forKey: "MatchID")
@@ -278,7 +278,7 @@ class Match_Setting: UIViewController, UITextFieldDelegate, UITextViewDelegate, 
             userDefaults.synchronize()
             
             // HUDで投稿完了を表示する
-            SVProgressHUD.showSuccess(withStatus: "初期設定が完了！")
+            SVProgressHUD.showSuccess(withStatus: "初期設定が完了！\n\nInitial Setting completed !")
         
             // 画面を閉じてViewControllerに戻る
             dismiss(animated: true, completion: nil)
@@ -308,7 +308,7 @@ class Match_Setting: UIViewController, UITextFieldDelegate, UITextViewDelegate, 
                 postRef.updateChildValues(postDic)
                 
                 // HUDで投稿完了を表示する
-                SVProgressHUD.showSuccess(withStatus: "初期設定が完了！")
+                SVProgressHUD.showSuccess(withStatus: "初期設定が完了！\n\nInitial Setting completed !")
                 
                 // 画面を閉じてViewControllerに戻る
                 dismiss(animated: true, completion: nil)

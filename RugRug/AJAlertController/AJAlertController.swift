@@ -34,7 +34,7 @@ class AJAlertController: UIViewController {
     // MARK:- Private Properties
     // MARK:-
 
-    private var strAlertTitle = "【同意確認】"
+    private var strAlertTitle = "【同意確認 / Confirmation】"
     private var strAlertText = String()
     private var btnCancelTitle:String?
     private var btnOtherTitle:String?
@@ -377,10 +377,10 @@ class AJAlertController: UIViewController {
             user?.delete { error in
                 if let error = error {
                     print("DEBUG_PRINT: " + error.localizedDescription)
-                    SVProgressHUD.showError(withStatus: "【エラーが発生しました】\n\nアカウント削除を希望される場合は、お手数ですが再度お試し下さい。\n\n何度もエラーが発生する場合には、お手数ですがHRugRug管理人にご連絡をお願いします。")
+                    SVProgressHUD.showError(withStatus: "【エラーが発生しました】\n\nアカウント削除を希望される場合は、お手数ですが再度お試し下さい。\n\n何度もエラーが発生する場合には、お手数ですがHRugRug管理人にご連絡をお願いします。\n\n【Error】\nPlease try again. ")
                     return
                 } else {
-                    SVProgressHUD.showSuccess(withStatus: "【アカウント削除完了】\n\nRugRugをご愛顧頂き、\nありがとうございました！\n\nご希望・ご期待に添えず、\n大変申し訣ありませんでした。\n\nまたご利用頂ける際には、\n是非よろしくお願い致します。")
+                    SVProgressHUD.showSuccess(withStatus: "【アカウント削除完了】\n\nRugRugをご愛顧頂き、\nありがとうございました！\n\nご希望・ご期待に添えず、\n大変申し訣ありませんでした。\n\nまたご利用頂ける際には、\n是非よろしくお願い致します。\n\n【Delete Account Completed】\nThank you so much for using RugRug.")
                     
                     // ログアウトする
                     try! Auth.auth().signOut()
@@ -421,7 +421,7 @@ class AJAlertController: UIViewController {
             userDefaults.synchronize()
             print("再初期化：RejectDataFlag = 「NO」")
             
-            SVProgressHUD.showSuccess(withStatus: "対象の投稿は、貴方の投稿一覧に表示されなくなりました。")
+            SVProgressHUD.showSuccess(withStatus: "対象の投稿は、貴方の投稿一覧に表示されなくなりました。\n\nThe contribution is never shown in your table")
             
             // 画面を閉じてViewControllerに戻る
             self.dismiss(animated: false, completion: nil)
@@ -449,7 +449,7 @@ class AJAlertController: UIViewController {
             userDefaults.synchronize()
             print("再初期化：CautionDataFlag = 「NO」")
             
-            SVProgressHUD.showSuccess(withStatus: "\(name!)さん\n\n好ましくない投稿のご報告、ありがとうございました！\n24時間以内に精査し、適切な処置（削除／警告）をします。")
+            SVProgressHUD.showSuccess(withStatus: "\(name!)さん\n\n好ましくない投稿のご報告、ありがとうございました！\n24時間以内に精査し、適切な処置（削除／警告）をします。\n\nThank yo u so much for your report !\nRugRug manager takes appropriate action within 24hrs.")
             
             // 画面を閉じてViewControllerに戻る
             self.dismiss(animated: false, completion: nil)
@@ -485,7 +485,7 @@ class AJAlertController: UIViewController {
             userDefaults.synchronize()
             print("再初期化：RejectUserFlag = 「NO」")
             
-            SVProgressHUD.showSuccess(withStatus: "この投稿者の全ての投稿が、今後は貴方の投稿一覧に表示されなくなりました。")
+            SVProgressHUD.showSuccess(withStatus: "この投稿者の全ての投稿が、今後は貴方の投稿一覧に表示されなくなりました。\n\nThis contributor's all contents are never shown in your table.")
             
             // 画面を閉じてViewControllerに戻る
             self.dismiss(animated: false, completion: nil)

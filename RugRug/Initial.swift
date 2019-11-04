@@ -57,13 +57,15 @@ class Initial: UIViewController {
         goToLoginButton.layer.cornerRadius = 30.0
         goToLoginButton.layer.borderColor = UIColor.blue.cgColor
         goToLoginButton.layer.borderWidth = 0.0
+        goToLoginButton.titleLabel?.numberOfLines = 0
+        goToLoginButton.contentHorizontalAlignment = .center
         
         //利用規約同意の判別要素
         EULAagreement = userDefaults.string(forKey: "EULAagreement")
         
         //ログイン後に「新メンバーオリエンテーションを再度見る」を押したユーザー向けの処理
         if EULAagreement == "YES" {
-            goToLoginButton.setTitle("「ホーム画面」に戻る", for: .normal)
+            goToLoginButton.setTitle("「ホーム画面」に戻る\nBack to Home page", for: .normal)
         }
         
     }
@@ -76,7 +78,7 @@ class Initial: UIViewController {
     
     //EULA同意画面のポップアップページを出す
     func showAlertWithVC(){
-        AJAlertController.initialization().showAlert(aStrMessage: "RugRugをダウンロード頂き、\n本当にありがとうございます！\n\nご利用頂くにあたり必ず【規約を確認】から「プライバシーポリシー」「利用規約」をご確認下さい。\n皆様の大切な個人情報に関する記載がございますのでどうかよろしくお願い致します。\n\n内容をご確認の上で、\n以下選択ください。", aCancelBtnTitle: "規約を確認", aOtherBtnTitle: "同意する") { (index, title) in
+        AJAlertController.initialization().showAlert(aStrMessage: "RugRugをダウンロード頂き、\n本当にありがとうございます！\n\nご利用頂くにあたり必ず【規約を確認】から「プライバシーポリシー」「利用規約」をご確認下さい。\n皆様の大切な個人情報に関する記載がございますのでどうかよろしくお願い致します。\n\n内容をご確認の上で、\n以下選択ください。\n\nThank you so much for downloading RugRug !! \nBefore login please check and agree TOS", aCancelBtnTitle: "規約を確認(TOS)", aOtherBtnTitle: "同意する(agree)") { (index, title) in
             print(index,title)
         }
     }

@@ -67,7 +67,7 @@ class Matching: UIViewController {
                 dateFormatter.dateFormat = "yyyy/MM/dd HH:mm"
                 dateFormatter.timeZone = TimeZone(identifier: "Asia/Tokyo")
                 let announceTime = dateFormatter.string(from: matchNextTime)
-                SVProgressHUD.showError(withStatus: "次回のチェックは、\n\n\(announceTime)\n（日本標準時刻）\n\n以降に可能となります。")
+                SVProgressHUD.showError(withStatus: "次回のチェックは、\n\(announceTime)\n（日本標準時刻）\n以降に可能となります。\n\nNext match-check will be available at\n\(announceTime)\n（*Japan Local Time）")
                 return
             }
         }
@@ -75,7 +75,7 @@ class Matching: UIViewController {
         
         let matchSettingFlag = userDefaults.string(forKey: "MatchSettingFlag")
         if matchSettingFlag == "NO" {
-            SVProgressHUD.showError(withStatus: "まずは「初期設定」を\n完了して下さい。")
+            SVProgressHUD.showError(withStatus: "まずは「初期設定」を\n完了して下さい。\n\nPlease complete STEP1 (Initial Setting) firstly.")
         }
         if matchSettingFlag == "YES" {
             performSegue(withIdentifier: "toMatchSwipe", sender: nil)
@@ -86,7 +86,7 @@ class Matching: UIViewController {
     @IBAction func contactButton(_ sender: Any) {
         let matchSettingFlag = userDefaults.string(forKey: "MatchSettingFlag")
         if matchSettingFlag == "NO" {
-            SVProgressHUD.showError(withStatus: "まずは「初期設定」を\n完了して下さい。")
+            SVProgressHUD.showError(withStatus: "まずは「初期設定」を\n完了して下さい。\n\nPlease complete STEP1 (Initial Setting) firstly.")
         }
         if matchSettingFlag == "YES" {
             performSegue(withIdentifier: "toMatchContact", sender: nil)

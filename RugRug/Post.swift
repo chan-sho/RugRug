@@ -71,6 +71,8 @@ class Post: UIViewController, UITableViewDataSource, UITableViewDelegate, UISear
         tableView.separatorColor = UIColor(red: 33/255, green: 33/255, blue: 33/255, alpha: 1.0)
         tableView.separatorInset = .zero
         
+        newPostButton2.titleLabel?.numberOfLines = 0
+        newPostButton2.contentHorizontalAlignment = .center
         
         textSearchBar.delegate = self
         textSearchBar.placeholder = "キーワードで検索"

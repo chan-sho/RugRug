@@ -49,12 +49,12 @@ class Login: UIViewController, FBSDKLoginButtonDelegate {
     func loginButton(_ loginButton: FBSDKLoginButton!, didCompleteWith result: FBSDKLoginManagerLoginResult!, error: Error?) {
         if let error = error {
             print("DEBUG_PRINT: " + error.localizedDescription)
-            SVProgressHUD.showError(withStatus: "facebookサインインに\n失敗しました。")
+            SVProgressHUD.showError(withStatus: "facebookサインインに\n失敗しました。\n\nfacebook sign in Failed.")
             return
         }
         
         if result.isCancelled {
-            SVProgressHUD.showError(withStatus: "facebookサインインを\nキャンセルしました。")
+            SVProgressHUD.showError(withStatus: "facebookサインインを\nキャンセルしました。\n\nfacebook sign in Canceled.")
             return
         }
         
@@ -63,7 +63,7 @@ class Login: UIViewController, FBSDKLoginButtonDelegate {
         Auth.auth().signInAndRetrieveData(with: credential) { (user, error) in
             if let error = error {
                 print("DEBUG_PRINT: " + error.localizedDescription)
-                SVProgressHUD.showError(withStatus: "facebookサインインに\n失敗しました。")
+                SVProgressHUD.showError(withStatus: "facebookサインインに\n失敗しました。\n\nfacebook sign in Failed.")
                 return
             }
             // HUDを消す

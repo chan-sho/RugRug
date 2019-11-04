@@ -59,70 +59,70 @@ class MatchDoneTableCell: UITableViewCell {
         
         if positionCheck == 0 {
             if detailCheck == 0 {
-                self.position.text = "   FW / PR   "
+                self.position.text = "  FW / PR  "
             }
             else if detailCheck == 1 {
-                self.position.text = "   FW / HO   "
+                self.position.text = "  FW / HO  "
             }
             else if detailCheck == 2 {
-                self.position.text = "   FW / LO   "
+                self.position.text = "  FW / LO  "
             }
             else if detailCheck == 3 {
-                self.position.text = "   FW / FL   "
+                self.position.text = "  FW / FL  "
             }
             else if detailCheck == 4 {
-                self.position.text = "   FW / 8   "
+                self.position.text = "  FW / 8  "
             }
         }
         else if positionCheck == 1 {
             if detailCheck == 0 {
-                self.position.text = "   BK / SH   "
+                self.position.text = "  BK / SH  "
             }
             else if detailCheck == 1 {
-                self.position.text = "   BK / SO   "
+                self.position.text = "  BK / SO  "
             }
             else if detailCheck == 2 {
-                self.position.text = "   BK / CTB   "
+                self.position.text = "  BK / CTB  "
             }
             else if detailCheck == 3 {
-                self.position.text = "   BK / WTB   "
+                self.position.text = "  BK / WTB  "
             }
             else if detailCheck == 4 {
-                self.position.text = "   BK / FB   "
+                self.position.text = "  BK / FB  "
             }
         }
         else if positionCheck == 2 {
             if detailCheck == 0 {
-                self.position.text = "   運営 / 監督   "
+                self.position.text = "  運営(Op.) / 監督(Director)  "
             }
             else if detailCheck == 1 {
-                self.position.text = "   運営 / コーチ   "
+                self.position.text = "  運営(Op.) / コーチ(Coach)  "
             }
             else if detailCheck == 2 {
-                self.position.text = "   運営 / マネ   "
+                self.position.text = "  運営(Op.) / マネ(Assistant)  "
             }
             else if detailCheck == 3 {
-                self.position.text = "   運営 / 庶務   "
+                self.position.text = "  運営(Op.) / 庶務(Back Office)  "
             }
             else if detailCheck == 4 {
-                self.position.text = "   運営 / 分析   "
+                self.position.text = "  運営(Op.) / 分析(Analyst)  "
             }
         }
         else if positionCheck == 3 {
             if detailCheck == 0 {
-                self.position.text = "   ファン / やる派   "
+                self.position.text = "  Fan / やる派(Player)  "
             }
             else if detailCheck == 1 {
-                self.position.text = "   ファン / 観る派   "
+                self.position.text = "  Fan / 観る派(Watch)  "
             }
             else if detailCheck == 2 {
-                self.position.text = "   ファン / 飲み派   "
+                self.position.text = "  Fan / 飲み派(Drink)  "
             }
             else if detailCheck == 3 {
-                self.position.text = "   ファン / 熱狂的   "
+                self.position.text = "  Fan / 熱狂的(Enthusiastic)  "
             }
             else if detailCheck == 4 {
-                self.position.text = "   ファン / にわか   "
+                self.position.text = "  Fan / にわか(Bandwagon)  "
             }
         }
     }

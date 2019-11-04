@@ -83,39 +83,39 @@ class MatchTableCell: UITableViewCell {
             }
         }
         else if positionCheck == 2 {
-            self.position.text = "運営"
+            self.position.text = "運営(Op.)"
             if detailCheck == 0 {
-                self.positionDetail.text = "監督"
+                self.positionDetail.text = "監督(Director)"
             }
             else if detailCheck == 1 {
-                self.positionDetail.text = "コーチ"
+                self.positionDetail.text = "コーチ(Coach)"
             }
             else if detailCheck == 2 {
-                self.positionDetail.text = "マネ"
+                self.positionDetail.text = "マネ(Assistant)"
             }
             else if detailCheck == 3 {
-                self.positionDetail.text = "庶務"
+                self.positionDetail.text = "庶務(Back Office)"
             }
             else if detailCheck == 4 {
-                self.positionDetail.text = "分析"
+                self.positionDetail.text = "分析(Analyst)"
             }
         }
         else if positionCheck == 3 {
-            self.position.text = "ファン"
+            self.position.text = "Fan"
             if detailCheck == 0 {
-                self.positionDetail.text = "やる派"
+                self.positionDetail.text = "やる派(Player)"
             }
             else if detailCheck == 1 {
-                self.positionDetail.text = "観る派"
+                self.positionDetail.text = "観る派(Watch)"
             }
             else if detailCheck == 2 {
-                self.positionDetail.text = "飲み派"
+                self.positionDetail.text = "飲み派(Drink)"
             }
             else if detailCheck == 3 {
-                self.positionDetail.text = "熱狂的"
+                self.positionDetail.text = "熱狂的(Enthusiastic)"
             }
             else if detailCheck == 4 {
-                self.positionDetail.text = "にわか"
+                self.positionDetail.text = "にわか(Bandwagon)"
             }
         }
     }

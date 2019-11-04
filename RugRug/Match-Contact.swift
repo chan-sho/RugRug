@@ -36,7 +36,7 @@ class Match_Contact: UIViewController, UITableViewDataSource, UITableViewDelegat
         super.viewDidLoad()
         
         // HUDで投稿完了を表示する
-        SVProgressHUD.show(withStatus: "データ読み込み中です。")
+        SVProgressHUD.show(withStatus: "データ読み込み中です。\nData Roading.")
         SVProgressHUD.dismiss(withDelay: 1.0)
         
         tableView.delegate = self
@@ -280,7 +280,7 @@ class Match_Contact: UIViewController, UITableViewDataSource, UITableViewDelegat
         
         let UserPhotoURLFlagof7x7 :String = userDefaults.string(forKey: "UserPhotoURLFlagof7x7")!
         if UserPhotoURLFlagof7x7 == "YES" {
-            AJAlertController.initialization().showAlert(aStrMessage: "このユーザーを検索する為に、\n「ユーザー名」をコピーし、\nFacebookに移動します。\n\n(※ペーストして検索が出来ます)", aCancelBtnTitle: "いいえ", aOtherBtnTitle: "はい") { (index, title) in
+            AJAlertController.initialization().showAlert(aStrMessage: "このユーザーを検索する為に、\n「ユーザー名」をコピーし、\nFacebookに移動します。\n\n(※ペーストして検索が出来ます)\n\nWould you search this user via Facebook ?\n*You can paste this user's name in search bar.", aCancelBtnTitle: "いいえ/NO", aOtherBtnTitle: "はい/YES") { (index, title) in
                 print(index,title)
             }
         }

@@ -259,7 +259,7 @@ class Home: UIViewController, UITextViewDelegate, UITableViewDataSource, UITable
                 
             }
             else {
-                SVProgressHUD.showError(withStatus: "申し訳ありません！\nホーム画面の読み込みにエラーが発生しました。\nお手数ですが、アプリの再起動をお願い致します。")
+                SVProgressHUD.showError(withStatus: "申し訳ありません！\nホーム画面の読み込みにエラーが発生しました。\nお手数ですが、アプリの再起動をお願い致します。\n\nThere was an error loading your home screen. \nPlease reboot RugRug app.")
                 return
             }
         })
@@ -286,7 +286,7 @@ class Home: UIViewController, UITextViewDelegate, UITableViewDataSource, UITable
                 self.event3PostType = "\(value!["Event3PostType"] ?? "" as AnyObject)"
             }
             else {
-                SVProgressHUD.showError(withStatus: "申し訳ありません！\nホーム画面の読み込みにエラーが発生しました。\nお手数ですが、アプリの再起動をお願い致します。")
+                SVProgressHUD.showError(withStatus: "申し訳ありません！\nホーム画面の読み込みにエラーが発生しました。\nお手数ですが、アプリの再起動をお願い致します。\n\nThere was an error loading your home screen. \nPlease reboot RugRug app.")
                 return
             }
         })
@@ -432,7 +432,7 @@ class Home: UIViewController, UITextViewDelegate, UITableViewDataSource, UITable
                 self.ad9Title.text = "\(value!["Ad9Title"] ?? "" as AnyObject)"
             }
             else {
-                SVProgressHUD.showError(withStatus: "申し訳ありません！\nホーム画面の読み込みにエラーが発生しました。\nお手数ですが、アプリの再起動をお願い致します。")
+                SVProgressHUD.showError(withStatus: "申し訳ありません！\nホーム画面の読み込みにエラーが発生しました。\nお手数ですが、アプリの再起動をお願い致します。\n\nThere was an error loading your home screen. \nPlease reboot RugRug app.")
                 return
             }
         })
@@ -459,7 +459,7 @@ class Home: UIViewController, UITextViewDelegate, UITableViewDataSource, UITable
                 self.event3PostType = "\(value!["Event3PostType"] ?? "" as AnyObject)"
             }
             else {
-                SVProgressHUD.showError(withStatus: "申し訳ありません！\nホーム画面の読み込みにエラーが発生しました。\nお手数ですが、アプリの再起動をお願い致します。")
+                SVProgressHUD.showError(withStatus: "申し訳ありません！\nホーム画面の読み込みにエラーが発生しました。\nお手数ですが、アプリの再起動をお願い致します。\n\nThere was an error loading your home screen. \nPlease reboot RugRug app.")
                 return
             }
         })

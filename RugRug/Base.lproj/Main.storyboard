@@ -516,11 +516,9 @@ want to connect  ?</string>
                                     <segue destination="SJO-P6-1d7" kind="unwind" unwindAction="unwind:" id="8co-Wr-dHy"/>
                                 </connections>
                             </button>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fSO-um-IBi">
-                                <rect key="frame" x="58.5" y="20" width="203" height="44"/>
-                                <string key="text">ランダム選定ユーザー
-Random Selected User</string>
-                                <fontDescription key="fontDescription" type="system" weight="black" pointSize="18"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="【Random Selected】" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fSO-um-IBi">
+                                <rect key="frame" x="50.5" y="20" width="219" height="44"/>
+                                <fontDescription key="fontDescription" type="system" weight="black" pointSize="20"/>
                                 <color key="textColor" red="0.83741801979999997" green="0.83743780850000005" blue="0.83742713930000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
@@ -572,11 +570,9 @@ Random Selected User</string>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="0kf-r8-qwV">
                                 <rect key="frame" x="0.0" y="20" width="320" height="44"/>
                                 <subviews>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7HL-iP-1HS">
-                                        <rect key="frame" x="59" y="0.5" width="202" height="43"/>
-                                        <string key="text">マッチングしたユーザー
-Connected Users</string>
-                                        <fontDescription key="fontDescription" type="system" weight="black" pointSize="18"/>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="【Matching Results】" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7HL-iP-1HS">
+                                        <rect key="frame" x="51.5" y="10" width="217.5" height="24"/>
+                                        <fontDescription key="fontDescription" type="system" weight="black" pointSize="20"/>
                                         <color key="textColor" red="0.46202266219999999" green="0.83828371759999998" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
@@ -681,8 +677,8 @@ Connected Users</string>
                                                             <segue destination="NGa-2B-nIw" kind="show" id="WWr-T3-WIw"/>
                                                         </connections>
                                                     </button>
-                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="ラグビー(Serious)" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="XJi-eK-qVt">
-                                                        <rect key="frame" x="0.0" y="48" width="135.5" height="19.5"/>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="　(Serious Play)" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="XJi-eK-qVt">
+                                                        <rect key="frame" x="0.0" y="48" width="122" height="19.5"/>
                                                         <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="16"/>
                                                         <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         <nil key="highlightedColor"/>
@@ -4253,17 +4249,15 @@ EVERYBODY who likes Rugby !</string>
                                             </textView>
                                         </subviews>
                                     </stackView>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="BMf-zl-2pY">
-                                        <rect key="frame" x="0.0" y="200" width="320" height="60"/>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text=" Matching Results" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="BMf-zl-2pY">
+                                        <rect key="frame" x="0.0" y="200" width="320" height="31.5"/>
                                         <color key="backgroundColor" white="1" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                        <string key="text"> マッチング履歴
- Matching Results</string>
-                                        <fontDescription key="fontDescription" type="system" weight="black" pointSize="25"/>
+                                        <fontDescription key="fontDescription" type="system" weight="black" pointSize="26"/>
                                         <color key="textColor" red="0.66422420739999999" green="0.66424006219999998" blue="0.66423153879999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Iuk-lc-c6d">
-                                        <rect key="frame" x="0.0" y="261" width="320" height="3"/>
+                                        <rect key="frame" x="0.0" y="232.5" width="320" height="3"/>
                                         <color key="backgroundColor" red="0.26051741839999998" green="0.2605243921" blue="0.260520637" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="3" id="tpp-vA-yZr"/>
@@ -4273,29 +4267,27 @@ EVERYBODY who likes Rugby !</string>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="matching(グレー)" translatesAutoresizingMaskIntoConstraints="NO" id="CkU-41-azA">
-                                        <rect key="frame" x="230" y="210" width="40" height="40"/>
+                                        <rect key="frame" x="240" y="198.5" width="35" height="35"/>
                                         <constraints>
-                                            <constraint firstAttribute="height" constant="40" id="Y9O-yl-7Zt"/>
-                                            <constraint firstAttribute="width" constant="40" id="fP7-cA-xOR"/>
+                                            <constraint firstAttribute="height" constant="35" id="Y9O-yl-7Zt"/>
+                                            <constraint firstAttribute="width" constant="35" id="fP7-cA-xOR"/>
                                         </constraints>
                                     </imageView>
                                     <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="302-TA-VTI">
-                                        <rect key="frame" x="0.0" y="265" width="320" height="280"/>
+                                        <rect key="frame" x="0.0" y="236.5" width="320" height="280"/>
                                         <color key="backgroundColor" red="0.12984204290000001" green="0.12984612579999999" blue="0.12984395030000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="280" id="9RA-hL-iiH"/>
                                         </constraints>
                                     </tableView>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="OL8-ZT-8kp">
-                                        <rect key="frame" x="0.0" y="605" width="320" height="60"/>
-                                        <string key="text"> ラグビーニュース
- Rugby News</string>
-                                        <fontDescription key="fontDescription" type="system" weight="black" pointSize="25"/>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text=" Rugby News" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="OL8-ZT-8kp">
+                                        <rect key="frame" x="0.0" y="576.5" width="320" height="31.5"/>
+                                        <fontDescription key="fontDescription" type="system" weight="black" pointSize="26"/>
                                         <color key="textColor" red="0.66422420739999999" green="0.66424006219999998" blue="0.66423153879999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="H89-fh-bHY">
-                                        <rect key="frame" x="0.0" y="666" width="320" height="3"/>
+                                        <rect key="frame" x="0.0" y="609" width="320" height="3"/>
                                         <color key="backgroundColor" red="0.26051741839999998" green="0.2605243921" blue="0.260520637" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="3" id="Euf-vO-c4m"/>
@@ -4305,14 +4297,14 @@ EVERYBODY who likes Rugby !</string>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="News(グレー)" translatesAutoresizingMaskIntoConstraints="NO" id="CqC-FX-6lO">
-                                        <rect key="frame" x="220" y="615" width="40" height="40"/>
+                                        <rect key="frame" x="180" y="575" width="35" height="35"/>
                                         <constraints>
-                                            <constraint firstAttribute="height" constant="40" id="Nou-iL-NZ8"/>
-                                            <constraint firstAttribute="width" constant="40" id="uzn-re-Gca"/>
+                                            <constraint firstAttribute="height" constant="35" id="Nou-iL-NZ8"/>
+                                            <constraint firstAttribute="width" constant="35" id="uzn-re-Gca"/>
                                         </constraints>
                                     </imageView>
                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="NLm-fA-xbl">
-                                        <rect key="frame" x="5" y="684" width="310" height="150"/>
+                                        <rect key="frame" x="5" y="627" width="310" height="150"/>
                                         <gestureRecognizers/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="150" id="Dfz-yy-Vy4"/>
@@ -4322,14 +4314,14 @@ EVERYBODY who likes Rugby !</string>
                                         </connections>
                                     </imageView>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="1位： ニュースタイトル" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1hE-O6-bFk">
-                                        <rect key="frame" x="5" y="810" width="310" height="24"/>
+                                        <rect key="frame" x="5" y="753" width="310" height="24"/>
                                         <color key="backgroundColor" red="0.99999600649999998" green="1" blue="1" alpha="0.7950824058219178" colorSpace="custom" customColorSpace="sRGB"/>
                                         <fontDescription key="fontDescription" type="boldSystem" pointSize="20"/>
                                         <color key="textColor" red="0.26051741839999998" green="0.2605243921" blue="0.260520637" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="eAN-DJ-lwY">
-                                        <rect key="frame" x="5" y="864" width="310" height="34"/>
+                                        <rect key="frame" x="5" y="807" width="310" height="34"/>
                                         <fontDescription key="fontDescription" type="boldSystem" pointSize="18"/>
                                         <state key="normal" title="2位： ニュースタイトル">
                                             <color key="titleColor" red="0.99999600649999998" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -4339,7 +4331,7 @@ EVERYBODY who likes Rugby !</string>
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="S45-Yo-Z9p">
-                                        <rect key="frame" x="5" y="918" width="310" height="34"/>
+                                        <rect key="frame" x="5" y="861" width="310" height="34"/>
                                         <fontDescription key="fontDescription" type="boldSystem" pointSize="18"/>
                                         <state key="normal" title="3位： ニュースタイトル">
                                             <color key="titleColor" red="0.99999600649999998" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -4349,7 +4341,7 @@ EVERYBODY who likes Rugby !</string>
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="atW-1Q-hMN">
-                                        <rect key="frame" x="5" y="972" width="310" height="34"/>
+                                        <rect key="frame" x="5" y="915" width="310" height="34"/>
                                         <fontDescription key="fontDescription" type="boldSystem" pointSize="18"/>
                                         <state key="normal" title="1位： イベントタイトル">
                                             <color key="titleColor" red="0.99999600649999998" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -4359,7 +4351,7 @@ EVERYBODY who likes Rugby !</string>
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="DYG-14-zR6">
-                                        <rect key="frame" x="5" y="1026" width="310" height="34"/>
+                                        <rect key="frame" x="5" y="969" width="310" height="34"/>
                                         <fontDescription key="fontDescription" type="boldSystem" pointSize="18"/>
                                         <state key="normal" title="2位： イベントタイトル">
                                             <color key="titleColor" red="0.99999600649999998" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -4369,7 +4361,7 @@ EVERYBODY who likes Rugby !</string>
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="BZQ-t9-1ig">
-                                        <rect key="frame" x="5" y="1080" width="310" height="34"/>
+                                        <rect key="frame" x="5" y="1023" width="310" height="34"/>
                                         <fontDescription key="fontDescription" type="boldSystem" pointSize="18"/>
                                         <state key="normal" title="3位： イベントタイトル">
                                             <color key="titleColor" red="0.99999600649999998" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -4378,16 +4370,14 @@ EVERYBODY who likes Rugby !</string>
                                             <action selector="event3Title:" destination="pUW-0S-H89" eventType="touchUpInside" id="6JQ-7e-iJb"/>
                                         </connections>
                                     </button>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QAa-A4-5y5">
-                                        <rect key="frame" x="0.0" y="1174" width="320" height="60"/>
-                                        <string key="text"> 協賛＆応援
- Cooperation</string>
-                                        <fontDescription key="fontDescription" type="system" weight="black" pointSize="25"/>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text=" Cooperation" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QAa-A4-5y5">
+                                        <rect key="frame" x="0.0" y="1117" width="320" height="31.5"/>
+                                        <fontDescription key="fontDescription" type="system" weight="black" pointSize="26"/>
                                         <color key="textColor" red="0.66422420739999999" green="0.66424006219999998" blue="0.66423153879999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="EQc-Ea-eq0">
-                                        <rect key="frame" x="0.0" y="1235" width="320" height="3"/>
+                                        <rect key="frame" x="0.0" y="1149.5" width="320" height="3"/>
                                         <color key="backgroundColor" red="0.26051741839999998" green="0.2605243921" blue="0.260520637" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="3" id="Cc0-9a-diO"/>
@@ -4397,20 +4387,20 @@ EVERYBODY who likes Rugby !</string>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="8xX-NN-YxZ">
-                                        <rect key="frame" x="5" y="1253" width="310" height="150"/>
+                                        <rect key="frame" x="5" y="1167.5" width="310" height="150"/>
                                         <color key="backgroundColor" red="0.92143100499999997" green="0.92145264149999995" blue="0.92144101860000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="150" id="onv-o7-UZ1"/>
                                         </constraints>
                                     </imageView>
                                     <button opaque="NO" clipsSubviews="YES" contentMode="scaleAspectFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Zdx-vh-z8E">
-                                        <rect key="frame" x="5" y="1253" width="310" height="150"/>
+                                        <rect key="frame" x="5" y="1167.5" width="310" height="150"/>
                                         <connections>
                                             <action selector="ad1Button:" destination="pUW-0S-H89" eventType="touchUpInside" id="2ng-0V-tJJ"/>
                                         </connections>
                                     </button>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xI3-R5-jas">
-                                        <rect key="frame" x="5" y="1413" width="310" height="60"/>
+                                        <rect key="frame" x="5" y="1327.5" width="310" height="60"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="60" id="y8O-WW-s00"/>
                                         </constraints>
@@ -4419,20 +4409,20 @@ EVERYBODY who likes Rugby !</string>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="xFR-nF-lEr">
-                                        <rect key="frame" x="5" y="1513" width="310" height="150"/>
+                                        <rect key="frame" x="5" y="1427.5" width="310" height="150"/>
                                         <color key="backgroundColor" red="0.92143100499999997" green="0.92145264149999995" blue="0.92144101860000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="150" id="PR5-Jq-X3K"/>
                                         </constraints>
                                     </imageView>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Pu9-Ag-gPA">
-                                        <rect key="frame" x="5" y="1513" width="310" height="150"/>
+                                        <rect key="frame" x="5" y="1427.5" width="310" height="150"/>
                                         <connections>
                                             <action selector="ad2Button:" destination="pUW-0S-H89" eventType="touchUpInside" id="tF3-Wm-uFe"/>
                                         </connections>
                                     </button>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3ys-3B-SRr">
-                                        <rect key="frame" x="5" y="1673" width="310" height="60"/>
+                                        <rect key="frame" x="5" y="1587.5" width="310" height="60"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="60" id="Bjb-nR-iJp"/>
                                         </constraints>
@@ -4441,20 +4431,20 @@ EVERYBODY who likes Rugby !</string>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="W56-b5-fmo">
-                                        <rect key="frame" x="5" y="1773" width="310" height="150"/>
+                                        <rect key="frame" x="5" y="1687.5" width="310" height="150"/>
                                         <color key="backgroundColor" red="0.92143100499999997" green="0.92145264149999995" blue="0.92144101860000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="150" id="czt-SG-a9O"/>
                                         </constraints>
                                     </imageView>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ofj-QG-shH">
-                                        <rect key="frame" x="5" y="1773" width="310" height="150"/>
+                                        <rect key="frame" x="5" y="1687.5" width="310" height="150"/>
                                         <connections>
                                             <action selector="ad3Button:" destination="pUW-0S-H89" eventType="touchUpInside" id="vMb-IF-jgV"/>
                                         </connections>
                                     </button>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dmI-CY-7uO">
-                                        <rect key="frame" x="5" y="1933" width="310" height="60"/>
+                                        <rect key="frame" x="5" y="1847.5" width="310" height="60"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="60" id="inu-u6-2qt"/>
                                         </constraints>
@@ -4463,20 +4453,20 @@ EVERYBODY who likes Rugby !</string>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="7Qi-hq-syS">
-                                        <rect key="frame" x="5" y="2033" width="310" height="150"/>
+                                        <rect key="frame" x="5" y="1947.5" width="310" height="150"/>
                                         <color key="backgroundColor" red="0.92143100499999997" green="0.92145264149999995" blue="0.92144101860000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="150" id="C1G-bN-Ifw"/>
                                         </constraints>
                                     </imageView>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="UGd-CX-4Fw">
-                                        <rect key="frame" x="5" y="2033" width="310" height="150"/>
+                                        <rect key="frame" x="5" y="1947.5" width="310" height="150"/>
                                         <connections>
                                             <action selector="ad4Button:" destination="pUW-0S-H89" eventType="touchUpInside" id="3N9-gt-d7a"/>
                                         </connections>
                                     </button>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="p24-Xh-mcI">
-                                        <rect key="frame" x="5" y="2193" width="310" height="60"/>
+                                        <rect key="frame" x="5" y="2107.5" width="310" height="60"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="60" id="K5r-n6-CkK"/>
                                         </constraints>
@@ -4485,20 +4475,20 @@ EVERYBODY who likes Rugby !</string>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="vnr-7C-Nmm">
-                                        <rect key="frame" x="5" y="2293" width="310" height="150"/>
+                                        <rect key="frame" x="5" y="2207.5" width="310" height="150"/>
                                         <color key="backgroundColor" red="0.92143100499999997" green="0.92145264149999995" blue="0.92144101860000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="150" id="21h-ph-AqR"/>
                                         </constraints>
                                     </imageView>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="WVv-cG-nBb">
-                                        <rect key="frame" x="5" y="2293" width="310" height="150"/>
+                                        <rect key="frame" x="5" y="2207.5" width="310" height="150"/>
                                         <connections>
                                             <action selector="ad5Button:" destination="pUW-0S-H89" eventType="touchUpInside" id="j2S-Qk-rTG"/>
                                         </connections>
                                     </button>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ywA-Ib-jSd">
-                                        <rect key="frame" x="5" y="2453" width="310" height="60"/>
+                                        <rect key="frame" x="5" y="2367.5" width="310" height="60"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="60" id="j6e-Kg-FpT"/>
                                         </constraints>
@@ -4507,20 +4497,20 @@ EVERYBODY who likes Rugby !</string>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="24c-3w-Asc">
-                                        <rect key="frame" x="5" y="2553" width="310" height="150"/>
+                                        <rect key="frame" x="5" y="2467.5" width="310" height="150"/>
                                         <color key="backgroundColor" red="0.92143100499999997" green="0.92145264149999995" blue="0.92144101860000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="150" id="jfk-sc-e9d"/>
                                         </constraints>
                                     </imageView>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ruN-YK-ymj">
-                                        <rect key="frame" x="5" y="2553" width="310" height="150"/>
+                                        <rect key="frame" x="5" y="2467.5" width="310" height="150"/>
                                         <connections>
                                             <action selector="ad6Button:" destination="pUW-0S-H89" eventType="touchUpInside" id="mOU-am-pIL"/>
                                         </connections>
                                     </button>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="C3l-oE-b4b">
-                                        <rect key="frame" x="5" y="2713" width="310" height="60"/>
+                                        <rect key="frame" x="5" y="2627.5" width="310" height="60"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="60" id="EYF-oH-90d"/>
                                         </constraints>
@@ -4529,20 +4519,20 @@ EVERYBODY who likes Rugby !</string>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="l75-3c-nDs">
-                                        <rect key="frame" x="5" y="2813" width="310" height="150"/>
+                                        <rect key="frame" x="5" y="2727.5" width="310" height="150"/>
                                         <color key="backgroundColor" red="0.92143100499999997" green="0.92145264149999995" blue="0.92144101860000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="150" id="XiR-Td-qh2"/>
                                         </constraints>
                                     </imageView>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="sa1-Uj-uC4">
-                                        <rect key="frame" x="5" y="2813" width="310" height="150"/>
+                                        <rect key="frame" x="5" y="2727.5" width="310" height="150"/>
                                         <connections>
                                             <action selector="ad7Button:" destination="pUW-0S-H89" eventType="touchUpInside" id="o6P-rl-WSy"/>
                                         </connections>
                                     </button>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xTX-ru-T6Y">
-                                        <rect key="frame" x="5" y="2973" width="310" height="60"/>
+                                        <rect key="frame" x="5" y="2887.5" width="310" height="60"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="60" id="uxj-un-qQx"/>
                                         </constraints>
@@ -4551,20 +4541,20 @@ EVERYBODY who likes Rugby !</string>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Oha-kx-khz">
-                                        <rect key="frame" x="5" y="3073" width="310" height="150"/>
+                                        <rect key="frame" x="5" y="2987.5" width="310" height="150"/>
                                         <color key="backgroundColor" red="0.92143100499999997" green="0.92145264149999995" blue="0.92144101860000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="150" id="7Zn-CM-dv3"/>
                                         </constraints>
                                     </imageView>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="TeG-40-u48">
-                                        <rect key="frame" x="5" y="3073" width="310" height="150"/>
+                                        <rect key="frame" x="5" y="2987.5" width="310" height="150"/>
                                         <connections>
                                             <action selector="ad8Button:" destination="pUW-0S-H89" eventType="touchUpInside" id="vTW-RE-9mG"/>
                                         </connections>
                                     </button>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="TmC-16-eNI">
-                                        <rect key="frame" x="5" y="3233" width="310" height="60"/>
+                                        <rect key="frame" x="5" y="3147.5" width="310" height="60"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="60" id="pwA-z8-TJW"/>
                                         </constraints>
@@ -4573,20 +4563,20 @@ EVERYBODY who likes Rugby !</string>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="XJT-tj-vtd">
-                                        <rect key="frame" x="5" y="3333" width="310" height="150"/>
+                                        <rect key="frame" x="5" y="3247.5" width="310" height="150"/>
                                         <color key="backgroundColor" red="0.92143100499999997" green="0.92145264149999995" blue="0.92144101860000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="150" id="Cma-zz-8Xd"/>
                                         </constraints>
                                     </imageView>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9mM-KY-YNV">
-                                        <rect key="frame" x="5" y="3333" width="310" height="150"/>
+                                        <rect key="frame" x="5" y="3247.5" width="310" height="150"/>
                                         <connections>
                                             <action selector="ad9Button:" destination="pUW-0S-H89" eventType="touchUpInside" id="deQ-P1-jsy"/>
                                         </connections>
                                     </button>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4Nx-we-ueN">
-                                        <rect key="frame" x="5" y="3493" width="310" height="60"/>
+                                        <rect key="frame" x="5" y="3407.5" width="310" height="60"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="60" id="fdN-iE-eGS"/>
                                         </constraints>
@@ -4655,7 +4645,7 @@ EVERYBODY who likes Rugby !</string>
                                     <constraint firstItem="C3l-oE-b4b" firstAttribute="leading" secondItem="9Kd-RP-TfR" secondAttribute="leading" constant="5" id="1qg-Zg-CyJ"/>
                                     <constraint firstItem="l75-3c-nDs" firstAttribute="leading" secondItem="9Kd-RP-TfR" secondAttribute="leading" constant="5" id="3DH-fw-tli"/>
                                     <constraint firstItem="4Nx-we-ueN" firstAttribute="top" secondItem="XJT-tj-vtd" secondAttribute="bottom" constant="10" id="3LV-vX-d1D"/>
-                                    <constraint firstItem="CkU-41-azA" firstAttribute="leading" secondItem="9Kd-RP-TfR" secondAttribute="leading" constant="230" id="4C8-cv-mtH"/>
+                                    <constraint firstItem="CkU-41-azA" firstAttribute="leading" secondItem="9Kd-RP-TfR" secondAttribute="leading" constant="240" id="4C8-cv-mtH"/>
                                     <constraint firstItem="TmC-16-eNI" firstAttribute="leading" secondItem="9Kd-RP-TfR" secondAttribute="leading" constant="5" id="4fZ-p0-B1r"/>
                                     <constraint firstItem="S45-Yo-Z9p" firstAttribute="leading" secondItem="9Kd-RP-TfR" secondAttribute="leading" constant="5" id="4wm-KQ-aHf"/>
                                     <constraint firstItem="S45-Yo-Z9p" firstAttribute="top" secondItem="eAN-DJ-lwY" secondAttribute="bottom" constant="20" id="5cW-jH-cnk"/>
@@ -4749,7 +4739,7 @@ EVERYBODY who likes Rugby !</string>
                                     <constraint firstAttribute="trailing" secondItem="H89-fh-bHY" secondAttribute="trailing" id="dtV-YV-a78"/>
                                     <constraint firstItem="Oha-kx-khz" firstAttribute="leading" secondItem="9Kd-RP-TfR" secondAttribute="leading" constant="5" id="eR8-FS-uYX"/>
                                     <constraint firstAttribute="trailing" secondItem="W56-b5-fmo" secondAttribute="trailing" constant="5" id="evg-p9-wdV"/>
-                                    <constraint firstItem="CqC-FX-6lO" firstAttribute="leading" secondItem="9Kd-RP-TfR" secondAttribute="leading" constant="220" id="fRd-BN-epN"/>
+                                    <constraint firstItem="CqC-FX-6lO" firstAttribute="leading" secondItem="9Kd-RP-TfR" secondAttribute="leading" constant="180" id="fRd-BN-epN"/>
                                     <constraint firstItem="7Qi-hq-syS" firstAttribute="top" secondItem="dmI-CY-7uO" secondAttribute="bottom" constant="40" id="fw7-c8-3OQ"/>
                                     <constraint firstItem="Pu9-Ag-gPA" firstAttribute="bottom" secondItem="xFR-nF-lEr" secondAttribute="bottom" id="hoK-Ik-B5s"/>
                                     <constraint firstItem="UGd-CX-4Fw" firstAttribute="top" secondItem="7Qi-hq-syS" secondAttribute="top" id="i5i-KM-DB6"/>
@@ -4986,9 +4976,9 @@ EVERYBODY who likes Rugby !</string>
         <image name="飲み会" width="600" height="399"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="uR1-jP-wWo"/>
+        <segue reference="Csg-to-CJB"/>
         <segue reference="r1e-9y-xwy"/>
         <segue reference="DeN-5S-Rsq"/>
-        <segue reference="bRY-gL-UaA"/>
+        <segue reference="PVS-4C-ICK"/>
     </inferredMetricsTieBreakers>
 </document>

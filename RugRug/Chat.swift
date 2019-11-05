@@ -246,7 +246,7 @@ class Chat: UIViewController, UITextViewDelegate, UITableViewDataSource, UITable
                 SVProgressHUD.showError(withStatus: "チャット内容の記載が空白です。\nご確認下さい。\n\nChat text is empty.\nPlease check.")
             }
             else {
-                SVProgressHUD.showError(withStatus: "チャット内容の記載が空白です。\nご確認下さい。")
+                SVProgressHUD.showError(withStatus: "チャット内容の記載が空白です。\nご確認下さい。\n\nChat text is empty.\nPlease check.")
             }
         }
         else {

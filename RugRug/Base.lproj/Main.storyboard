@@ -53,7 +53,7 @@
                                     <constraint firstAttribute="height" constant="60" id="BAX-Lb-WXC"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="21"/>
-                                <state key="normal" title="ログアウト">
+                                <state key="normal" title="ログアウト / Log Out">
                                     <color key="titleColor" red="0.26051741839999998" green="0.2605243921" blue="0.260520637" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 </state>
                                 <connections>
@@ -67,7 +67,7 @@
                                     <constraint firstAttribute="height" constant="60" id="NYc-9U-4JH"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="21"/>
-                                <state key="normal" title="アカウントを削除">
+                                <state key="normal" title="退会 / Delete Account">
                                     <color key="titleColor" red="0.58081901069999997" green="0.088427625600000004" blue="0.31863921880000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 </state>
                                 <connections>
@@ -75,15 +75,16 @@
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rjb-cY-bvi">
-                                <rect key="frame" x="30" y="115.5" width="260" height="38.5"/>
+                                <rect key="frame" x="30" y="97.5" width="260" height="76.5"/>
                                 <string key="text">プロフィール(名前・写真)の変更は
-Facebookで修正をお願いします。</string>
+Facebookで修正をお願いします。
+Please edit your profile (Name and Photo) in Facebook page.</string>
                                 <fontDescription key="fontDescription" type="system" pointSize="16"/>
                                 <color key="textColor" red="0.45085787770000002" green="0.98829740290000001" blue="0.83763033149999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Logo(White)" translatesAutoresizingMaskIntoConstraints="NO" id="2cS-yK-fHY">
-                                <rect key="frame" x="125" y="45.5" width="70" height="70"/>
+                                <rect key="frame" x="125" y="27.5" width="70" height="70"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="70" id="a6c-j6-dqd"/>
                                     <constraint firstAttribute="width" constant="70" id="bln-FH-KcP"/>
@@ -96,7 +97,7 @@ Facebookで修正をお願いします。</string>
                                     <constraint firstAttribute="height" constant="60" id="BUV-Qf-554"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="21"/>
-                                <state key="normal" title="管理人にお願い">
+                                <state key="normal" title="管理人にお願い / Request">
                                     <color key="titleColor" red="0.26051741839999998" green="0.2605243921" blue="0.260520637" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 </state>
                                 <connections>
@@ -120,7 +121,7 @@ Facebookで修正をお願いします。</string>
                             <constraint firstItem="NKd-9w-zGw" firstAttribute="leading" secondItem="eM9-8t-Z2L" secondAttribute="leading" constant="30" id="RwB-3z-cxW"/>
                             <constraint firstItem="eM9-8t-Z2L" firstAttribute="bottom" secondItem="nj2-Cj-tPP" secondAttribute="bottom" id="UXx-9o-mfp"/>
                             <constraint firstItem="nj2-Cj-tPP" firstAttribute="leading" secondItem="eM9-8t-Z2L" secondAttribute="leading" id="ZDL-vZ-aFt"/>
-                            <constraint firstItem="NKd-9w-zGw" firstAttribute="top" secondItem="rjb-cY-bvi" secondAttribute="bottom" constant="60" id="b5Y-FQ-GNj"/>
+                            <constraint firstItem="NKd-9w-zGw" firstAttribute="top" secondItem="rjb-cY-bvi" secondAttribute="bottom" constant="40" id="b5Y-FQ-GNj"/>
                             <constraint firstItem="2cS-yK-fHY" firstAttribute="centerX" secondItem="M2K-dI-xPN" secondAttribute="centerX" id="cxx-lF-wfV"/>
                             <constraint firstItem="axW-CV-t4O" firstAttribute="top" secondItem="eM9-8t-Z2L" secondAttribute="top" constant="-44" id="dV3-z9-Z3J"/>
                             <constraint firstItem="rjb-cY-bvi" firstAttribute="top" secondItem="2cS-yK-fHY" secondAttribute="bottom" id="feq-zN-J8m"/>
@@ -456,12 +457,12 @@ Genre you are most interested in :</string>
                                 <rect key="frame" x="0.0" y="518" width="320" height="94"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="EC1-88-KwQ">
-                                        <rect key="frame" x="230" y="5" width="70" height="40"/>
+                                        <rect key="frame" x="240" y="5" width="70" height="40"/>
                                         <constraints>
                                             <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="70" id="54o-jr-0UP"/>
                                             <constraint firstAttribute="height" constant="40" id="n3U-SR-tfo"/>
                                         </constraints>
-                                        <fontDescription key="fontDescription" type="system" pointSize="24"/>
+                                        <fontDescription key="fontDescription" type="system" weight="black" pointSize="24"/>
                                         <state key="normal" title="YES">
                                             <color key="titleColor" red="0.46202266219999999" green="0.83828371759999998" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         </state>
@@ -470,12 +471,12 @@ Genre you are most interested in :</string>
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="eik-Fz-bih">
-                                        <rect key="frame" x="20" y="5" width="70" height="40"/>
+                                        <rect key="frame" x="10" y="5" width="70" height="40"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="40" id="7m4-xz-Cgn"/>
                                             <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="70" id="eG5-vs-Wbf"/>
                                         </constraints>
-                                        <fontDescription key="fontDescription" type="system" pointSize="24"/>
+                                        <fontDescription key="fontDescription" type="system" weight="black" pointSize="24"/>
                                         <state key="normal" title="NO">
                                             <color key="titleColor" red="1" green="0.49327188729999999" blue="0.47399842739999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         </state>
@@ -484,10 +485,10 @@ Genre you are most interested in :</string>
                                         </connections>
                                     </button>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pxJ-Ni-VYG">
-                                        <rect key="frame" x="91" y="7" width="138" height="36"/>
+                                        <rect key="frame" x="86.5" y="6" width="147" height="38.5"/>
                                         <string key="text">マッチングを希望？
 want to connect  ?</string>
-                                        <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="15"/>
+                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="16"/>
                                         <color key="textColor" red="0.83741801979999997" green="0.83743780850000005" blue="0.83742713930000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
@@ -496,11 +497,11 @@ want to connect  ?</string>
                                 <constraints>
                                     <constraint firstItem="eik-Fz-bih" firstAttribute="top" secondItem="8fB-up-iFo" secondAttribute="top" constant="5" id="5jf-Fr-cJL"/>
                                     <constraint firstAttribute="height" constant="94" id="GI7-hV-I4Y"/>
-                                    <constraint firstItem="eik-Fz-bih" firstAttribute="leading" secondItem="8fB-up-iFo" secondAttribute="leading" constant="20" id="IOq-PU-kGb"/>
+                                    <constraint firstItem="eik-Fz-bih" firstAttribute="leading" secondItem="8fB-up-iFo" secondAttribute="leading" constant="10" id="IOq-PU-kGb"/>
                                     <constraint firstItem="EC1-88-KwQ" firstAttribute="centerY" secondItem="pxJ-Ni-VYG" secondAttribute="centerY" id="IrK-cr-Z4O"/>
                                     <constraint firstItem="pxJ-Ni-VYG" firstAttribute="centerX" secondItem="8fB-up-iFo" secondAttribute="centerX" id="PV0-4S-WhR"/>
                                     <constraint firstItem="EC1-88-KwQ" firstAttribute="top" secondItem="8fB-up-iFo" secondAttribute="top" constant="5" id="XX0-Oj-FDB"/>
-                                    <constraint firstAttribute="trailing" secondItem="EC1-88-KwQ" secondAttribute="trailing" constant="20" id="vvh-jc-ZRY"/>
+                                    <constraint firstAttribute="trailing" secondItem="EC1-88-KwQ" secondAttribute="trailing" constant="10" id="vvh-jc-ZRY"/>
                                 </constraints>
                             </view>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9z0-6w-oW3">
@@ -517,8 +518,8 @@ want to connect  ?</string>
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="【Random Selected】" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fSO-um-IBi">
-                                <rect key="frame" x="50.5" y="20" width="219" height="44"/>
-                                <fontDescription key="fontDescription" type="system" weight="black" pointSize="20"/>
+                                <rect key="frame" x="35" y="20" width="250.5" height="44"/>
+                                <fontDescription key="fontDescription" type="system" weight="black" pointSize="23"/>
                                 <color key="textColor" red="0.83741801979999997" green="0.83743780850000005" blue="0.83742713930000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
@@ -571,8 +572,8 @@ want to connect  ?</string>
                                 <rect key="frame" x="0.0" y="20" width="320" height="44"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="【Matching Results】" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7HL-iP-1HS">
-                                        <rect key="frame" x="51.5" y="10" width="217.5" height="24"/>
-                                        <fontDescription key="fontDescription" type="system" weight="black" pointSize="20"/>
+                                        <rect key="frame" x="35.5" y="8.5" width="249" height="27.5"/>
+                                        <fontDescription key="fontDescription" type="system" weight="black" pointSize="23"/>
                                         <color key="textColor" red="0.46202266219999999" green="0.83828371759999998" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
@@ -664,7 +665,7 @@ want to connect  ?</string>
                                                 </connections>
                                             </button>
                                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillProportionally" alignment="top" translatesAutoresizingMaskIntoConstraints="NO" id="WQN-E4-Sln">
-                                                <rect key="frame" x="160" y="0.0" width="140" height="67.5"/>
+                                                <rect key="frame" x="160" y="0.0" width="140" height="68.5"/>
                                                 <subviews>
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0xc-Cr-WnR">
                                                         <rect key="frame" x="0.0" y="0.0" width="91" height="48"/>
@@ -677,9 +678,9 @@ want to connect  ?</string>
                                                             <segue destination="NGa-2B-nIw" kind="show" id="WWr-T3-WIw"/>
                                                         </connections>
                                                     </button>
-                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="　(Serious Play)" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="XJi-eK-qVt">
-                                                        <rect key="frame" x="0.0" y="48" width="122" height="19.5"/>
-                                                        <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="16"/>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="(Play Seriously)" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="XJi-eK-qVt">
+                                                        <rect key="frame" x="0.0" y="48" width="125.5" height="20.5"/>
+                                                        <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="17"/>
                                                         <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
@@ -705,7 +706,7 @@ want to connect  ?</string>
                                                 </connections>
                                             </button>
                                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillProportionally" translatesAutoresizingMaskIntoConstraints="NO" id="zUf-Dp-HHM">
-                                                <rect key="frame" x="160" y="0.0" width="140" height="64.5"/>
+                                                <rect key="frame" x="160" y="0.0" width="140" height="65.5"/>
                                                 <subviews>
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4bX-OK-xRr">
                                                         <rect key="frame" x="0.0" y="0.0" width="140" height="45"/>
@@ -718,9 +719,9 @@ want to connect  ?</string>
                                                             <segue destination="NGa-2B-nIw" kind="show" id="Mma-wl-Hqf"/>
                                                         </connections>
                                                     </button>
-                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="　(Enjoy Play)" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="b5M-7L-5wV">
-                                                        <rect key="frame" x="0.0" y="45" width="140" height="19.5"/>
-                                                        <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="16"/>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="(Enjoy Play)" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="b5M-7L-5wV">
+                                                        <rect key="frame" x="0.0" y="45" width="140" height="20.5"/>
+                                                        <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="17"/>
                                                         <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
@@ -746,7 +747,7 @@ want to connect  ?</string>
                                                 </connections>
                                             </button>
                                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="BKT-0O-gC2">
-                                                <rect key="frame" x="160" y="0.0" width="140" height="64.5"/>
+                                                <rect key="frame" x="160" y="0.0" width="140" height="65.5"/>
                                                 <subviews>
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="lcC-TA-inc">
                                                         <rect key="frame" x="0.0" y="0.0" width="140" height="45"/>
@@ -759,9 +760,9 @@ want to connect  ?</string>
                                                             <segue destination="NGa-2B-nIw" kind="show" id="cBE-sA-Jdu"/>
                                                         </connections>
                                                     </button>
-                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="　(Watch Game)" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fgi-VV-Z1n">
-                                                        <rect key="frame" x="0.0" y="45" width="140" height="19.5"/>
-                                                        <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="16"/>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="(Watch Game)" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fgi-VV-Z1n">
+                                                        <rect key="frame" x="0.0" y="45" width="140" height="20.5"/>
+                                                        <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="17"/>
                                                         <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
@@ -787,7 +788,7 @@ want to connect  ?</string>
                                                 </connections>
                                             </button>
                                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="7gW-5g-ven">
-                                                <rect key="frame" x="160" y="0.0" width="140" height="64.5"/>
+                                                <rect key="frame" x="160" y="0.0" width="140" height="65.5"/>
                                                 <subviews>
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="INQ-F0-5QD">
                                                         <rect key="frame" x="0.0" y="0.0" width="140" height="45"/>
@@ -800,9 +801,9 @@ want to connect  ?</string>
                                                             <segue destination="NGa-2B-nIw" kind="show" id="xBS-df-HOe"/>
                                                         </connections>
                                                     </button>
-                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="　(Drinking Party)" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="MuZ-yv-GEN">
-                                                        <rect key="frame" x="0.0" y="45" width="140" height="19.5"/>
-                                                        <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="16"/>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="(Drinking Party)" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="MuZ-yv-GEN">
+                                                        <rect key="frame" x="0.0" y="45" width="140" height="20.5"/>
+                                                        <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="17"/>
                                                         <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
@@ -3045,7 +3046,7 @@ Block all 7x7s of this poster</string>
                                     <constraint firstAttribute="height" constant="60" id="jeE-oV-0MD"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="21"/>
-                                <state key="normal" title="【修正 / Edit】">
+                                <state key="normal" title="修正する / Edit">
                                     <color key="titleColor" red="0.0" green="0.56284224989999998" blue="0.31881666180000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 </state>
                                 <connections>
@@ -3059,7 +3060,7 @@ Block all 7x7s of this poster</string>
                                     <constraint firstAttribute="height" constant="60" id="AcQ-Gk-U6R"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="21"/>
-                                <state key="normal" title="【削除 / Delete】">
+                                <state key="normal" title="削除する / Delete">
                                     <color key="titleColor" red="0.58081901069999997" green="0.088427625600000004" blue="0.31863921880000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 </state>
                                 <connections>
@@ -3176,8 +3177,8 @@ Block all 7x7s of this poster</string>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="60" id="1OX-lo-xsf"/>
                                 </constraints>
-                                <fontDescription key="fontDescription" type="boldSystem" pointSize="20"/>
-                                <state key="normal" title="この投稿を【報告】">
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="21"/>
+                                <state key="normal" title="報告する/ Report">
                                     <color key="titleColor" red="0.26051741839999998" green="0.2605243921" blue="0.260520637" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 </state>
                                 <connections>
@@ -3185,13 +3186,13 @@ Block all 7x7s of this poster</string>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2cV-Ap-dur">
-                                <rect key="frame" x="30" y="404" width="260" height="60"/>
+                                <rect key="frame" x="30" y="419" width="260" height="60"/>
                                 <color key="backgroundColor" red="1" green="0.73971356263424659" blue="0.85654482046027403" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="60" id="THW-L8-8DW"/>
                                 </constraints>
-                                <fontDescription key="fontDescription" type="boldSystem" pointSize="20"/>
-                                <state key="normal" title="この投稿者を【ブロック】">
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="21"/>
+                                <state key="normal" title="ブロックする / Block">
                                     <color key="titleColor" red="0.58081901069999997" green="0.088427625600000004" blue="0.31863921880000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 </state>
                                 <connections>
@@ -3199,37 +3200,40 @@ Block all 7x7s of this poster</string>
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Q5P-cl-waO">
-                                <rect key="frame" x="30" y="169" width="260" height="31.5"/>
+                                <rect key="frame" x="30" y="154" width="260" height="47"/>
                                 <string key="text">この投稿が貴方の投稿一覧に
-表示されなくなります</string>
+表示されなくなります。
+Hide this contribution in your table.</string>
                                 <fontDescription key="fontDescription" type="system" weight="medium" pointSize="13"/>
                                 <color key="textColor" red="0.66422420739999999" green="0.66424006219999998" blue="0.66423153879999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="NKL-2J-jwM">
-                                <rect key="frame" x="30" y="319" width="260" height="31.5"/>
+                                <rect key="frame" x="30" y="319" width="260" height="62.5"/>
                                 <string key="text">好ましくない内容を含む事を
-RugRug管理人に報告します</string>
+RugRug管理人に報告します。
+Report this contribution to RugRug app manager.</string>
                                 <fontDescription key="fontDescription" type="system" weight="medium" pointSize="13"/>
                                 <color key="textColor" red="0.66422420739999999" green="0.66424006219999998" blue="0.66423153879999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5ba-Cd-fDI">
-                                <rect key="frame" x="30" y="469" width="260" height="31.5"/>
+                                <rect key="frame" x="30" y="484" width="260" height="62.5"/>
                                 <string key="text">今後、この投稿者の全ての投稿
-をブロックします</string>
+をブロックします。
+Block this contributor and all contents are never shown in your table.</string>
                                 <fontDescription key="fontDescription" type="system" weight="medium" pointSize="13"/>
                                 <color key="textColor" red="1" green="0.5409764051" blue="0.84731429820000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="WhI-yR-OEb">
-                                <rect key="frame" x="30" y="104" width="260" height="60"/>
+                                <rect key="frame" x="30" y="89" width="260" height="60"/>
                                 <color key="backgroundColor" red="0.99999600649999998" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="60" id="W9Q-vq-qY1"/>
                                 </constraints>
-                                <fontDescription key="fontDescription" type="boldSystem" pointSize="20"/>
-                                <state key="normal" title="この投稿を【非表示】">
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="21"/>
+                                <state key="normal" title="非表示にする / Hide">
                                     <color key="titleColor" red="0.26051741839999998" green="0.2605243921" blue="0.260520637" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 </state>
                                 <connections>
@@ -3254,7 +3258,7 @@ RugRug管理人に報告します</string>
                             <constraint firstItem="t6S-YY-io5" firstAttribute="trailing" secondItem="WhI-yR-OEb" secondAttribute="trailing" constant="30" id="Hxc-9a-aF1"/>
                             <constraint firstItem="yMl-SX-5rC" firstAttribute="top" secondItem="t6S-YY-io5" secondAttribute="top" id="S8s-DR-0vp"/>
                             <constraint firstItem="2b8-fR-ANy" firstAttribute="top" secondItem="t6S-YY-io5" secondAttribute="top" id="Tcn-P6-GaQ"/>
-                            <constraint firstItem="hIq-FJ-RJv" firstAttribute="top" secondItem="WhI-yR-OEb" secondAttribute="bottom" constant="90" id="VXy-Ug-cqG"/>
+                            <constraint firstItem="hIq-FJ-RJv" firstAttribute="top" secondItem="WhI-yR-OEb" secondAttribute="bottom" constant="105" id="VXy-Ug-cqG"/>
                             <constraint firstItem="Q5P-cl-waO" firstAttribute="top" secondItem="WhI-yR-OEb" secondAttribute="bottom" constant="5" id="XFz-TF-84T"/>
                             <constraint firstItem="t6S-YY-io5" firstAttribute="trailing" secondItem="hIq-FJ-RJv" secondAttribute="trailing" constant="30" id="aXp-Iq-VV1"/>
                             <constraint firstItem="2cV-Ap-dur" firstAttribute="centerX" secondItem="VcB-qd-SBS" secondAttribute="centerX" id="asp-Wa-c1v"/>
@@ -3265,7 +3269,7 @@ RugRug管理人に報告します</string>
                             <constraint firstItem="t6S-YY-io5" firstAttribute="trailing" secondItem="5ba-Cd-fDI" secondAttribute="trailing" constant="30" id="jbl-8R-Zgi"/>
                             <constraint firstItem="5ba-Cd-fDI" firstAttribute="top" secondItem="2cV-Ap-dur" secondAttribute="bottom" constant="5" id="pwm-6V-DsA"/>
                             <constraint firstItem="5ba-Cd-fDI" firstAttribute="centerX" secondItem="VcB-qd-SBS" secondAttribute="centerX" id="s37-fJ-M1u"/>
-                            <constraint firstItem="2cV-Ap-dur" firstAttribute="top" secondItem="hIq-FJ-RJv" secondAttribute="bottom" constant="90" id="s8T-8R-kHP"/>
+                            <constraint firstItem="2cV-Ap-dur" firstAttribute="top" secondItem="hIq-FJ-RJv" secondAttribute="bottom" constant="105" id="s8T-8R-kHP"/>
                             <constraint firstItem="Q5P-cl-waO" firstAttribute="leading" secondItem="t6S-YY-io5" secondAttribute="leading" constant="30" id="up2-IR-xAB"/>
                             <constraint firstItem="5ba-Cd-fDI" firstAttribute="leading" secondItem="t6S-YY-io5" secondAttribute="leading" constant="30" id="vDk-UH-GbE"/>
                             <constraint firstItem="WhI-yR-OEb" firstAttribute="centerX" secondItem="VcB-qd-SBS" secondAttribute="centerX" id="z30-3s-UdK"/>
@@ -3328,7 +3332,7 @@ RugRug管理人に報告します</string>
                                     <constraint firstAttribute="height" constant="80" id="LbB-WD-vRB"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" weight="medium" pointSize="15"/>
-                                <state key="normal" title="送信">
+                                <state key="normal" title="Send">
                                     <color key="titleColor" red="0.99999600649999998" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 </state>
                                 <connections>
@@ -3391,7 +3395,7 @@ RugRug管理人に報告します</string>
                                 <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
-                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="返信先メールアドレス(※任意)" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="xTd-d4-Xdj">
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="返信先メール(※任意) / e-mail(*opt.)" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="xTd-d4-Xdj">
                                 <rect key="frame" x="30" y="228" width="260" height="30"/>
                                 <color key="textColor" red="0.0" green="0.58980089430000004" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="15"/>
@@ -3404,7 +3408,7 @@ RugRug管理人に報告します</string>
                                     <constraint firstAttribute="height" constant="60" id="ZC9-0d-edE"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="21"/>
-                                <state key="normal" title="管理人に送信">
+                                <state key="normal" title="管理人に送信 / Send">
                                     <color key="titleColor" red="0.0" green="0.56284224989999998" blue="0.31881666180000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 </state>
                                 <connections>
@@ -3417,8 +3421,8 @@ RugRug管理人に報告します</string>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="60" id="8PV-Es-IdL"/>
                                 </constraints>
-                                <fontDescription key="fontDescription" type="boldSystem" pointSize="16"/>
-                                <state key="normal" title="※過去に頂戴しているご意見例">
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="21"/>
+                                <state key="normal" title="ご意見例 / Reference">
                                     <color key="titleColor" red="0.0" green="0.32852089410000002" blue="0.57488495110000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 </state>
                                 <connections>
@@ -3453,8 +3457,8 @@ RugRug管理人に報告します</string>
                                     <constraint firstAttribute="width" constant="70" id="QAx-cV-kLE"/>
                                 </constraints>
                             </imageView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="管理人" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pzX-cU-mO4">
-                                <rect key="frame" x="211" y="108" width="43" height="17"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="管理人(RugRug Mgr)" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pzX-cU-mO4">
+                                <rect key="frame" x="166" y="108" width="133.5" height="17"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <color key="textColor" red="0.99999600649999998" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
@@ -4297,7 +4301,7 @@ EVERYBODY who likes Rugby !</string>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="News(グレー)" translatesAutoresizingMaskIntoConstraints="NO" id="CqC-FX-6lO">
-                                        <rect key="frame" x="180" y="575" width="35" height="35"/>
+                                        <rect key="frame" x="175" y="575" width="35" height="35"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="35" id="Nou-iL-NZ8"/>
                                             <constraint firstAttribute="width" constant="35" id="uzn-re-Gca"/>
@@ -4739,7 +4743,7 @@ EVERYBODY who likes Rugby !</string>
                                     <constraint firstAttribute="trailing" secondItem="H89-fh-bHY" secondAttribute="trailing" id="dtV-YV-a78"/>
                                     <constraint firstItem="Oha-kx-khz" firstAttribute="leading" secondItem="9Kd-RP-TfR" secondAttribute="leading" constant="5" id="eR8-FS-uYX"/>
                                     <constraint firstAttribute="trailing" secondItem="W56-b5-fmo" secondAttribute="trailing" constant="5" id="evg-p9-wdV"/>
-                                    <constraint firstItem="CqC-FX-6lO" firstAttribute="leading" secondItem="9Kd-RP-TfR" secondAttribute="leading" constant="180" id="fRd-BN-epN"/>
+                                    <constraint firstItem="CqC-FX-6lO" firstAttribute="leading" secondItem="9Kd-RP-TfR" secondAttribute="leading" constant="175" id="fRd-BN-epN"/>
                                     <constraint firstItem="7Qi-hq-syS" firstAttribute="top" secondItem="dmI-CY-7uO" secondAttribute="bottom" constant="40" id="fw7-c8-3OQ"/>
                                     <constraint firstItem="Pu9-Ag-gPA" firstAttribute="bottom" secondItem="xFR-nF-lEr" secondAttribute="bottom" id="hoK-Ik-B5s"/>
                                     <constraint firstItem="UGd-CX-4Fw" firstAttribute="top" secondItem="7Qi-hq-syS" secondAttribute="top" id="i5i-KM-DB6"/>
@@ -4976,9 +4980,9 @@ EVERYBODY who likes Rugby !</string>
         <image name="飲み会" width="600" height="399"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="Csg-to-CJB"/>
+        <segue reference="uR1-jP-wWo"/>
         <segue reference="r1e-9y-xwy"/>
-        <segue reference="DeN-5S-Rsq"/>
-        <segue reference="PVS-4C-ICK"/>
+        <segue reference="xBS-df-HOe"/>
+        <segue reference="bRY-gL-UaA"/>
     </inferredMetricsTieBreakers>
 </document>

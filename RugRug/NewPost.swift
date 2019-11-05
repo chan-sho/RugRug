@@ -124,7 +124,7 @@ class NewPost: UIViewController, UITextFieldDelegate, UITextViewDelegate {
     @IBAction func newPostButton(_ sender: Any) {
         
         if contents.text == "" {
-            SVProgressHUD.showError(withStatus: "投稿内容の記載が空白です。\nご確認下さい。")
+            SVProgressHUD.showError(withStatus: "投稿内容の記載が空白です。\nご確認下さい。\n\nContent is Blank")
         }
         else {
         // ImageViewから画像を取得する
@@ -145,7 +145,7 @@ class NewPost: UIViewController, UITextFieldDelegate, UITextViewDelegate {
         postRef.childByAutoId().setValue(postDic)
         
         // HUDで投稿完了を表示する
-        SVProgressHUD.showSuccess(withStatus: "投稿しました！")
+        SVProgressHUD.showSuccess(withStatus: "投稿しました！\nCompleted !")
         
         // 画面を閉じてViewControllerに戻る
         dismiss(animated: true, completion: nil)

@@ -31,7 +31,7 @@ class Match_Setting: UIViewController, UITextFieldDelegate, UITextViewDelegate, 
     
     // categoryTextにPickerを実装する準備
     var pickerView: UIPickerView = UIPickerView()
-    let list = ["(選択してください / Pls choose)", "本気でラグビーしたい(Serious)", "エンジョイレベルで楽しく(Enjoy)", "一緒に観戦したい(Watch)", "飲み会で盛り上がりたい(Drink)", "ビジネスマッチング(Business)"]
+    let list = ["(選択してください / Pls choose)", "本気でラグビー(Play Seriously)", "エンジョイレベル(Enjoy Play)", "一緒に観戦(Watch Game)", "飲み会で盛り上がりたい(Drink)", "ビジネスマッチング(Business)"]
     
     //user defaultsを使う準備
     let userDefaults:UserDefaults = UserDefaults.standard

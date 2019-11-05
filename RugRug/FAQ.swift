@@ -43,7 +43,7 @@ class FAQ: UIViewController, UITableViewDataSource, UITableViewDelegate, UISearc
         tableView.separatorInset = .zero
         
         searchBar.delegate = self
-        searchBar.placeholder = "キーワードで検索"
+        //searchBar.placeholder = "キーワードで検索"
         //何も入力されていなくてもReturnキーを押せるようにする。
         searchBar.enablesReturnKeyAutomatically = false
         

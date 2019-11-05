@@ -49,7 +49,7 @@ class Setting: UIViewController {
     
     //アカウント削除確認画面のポップアップページを出す
     func showAlertWithVC(){
-        AJAlertController.initialization().showAlert(aStrMessage: "RugRugをご愛顧頂き、\n本当にありがとうございます！\n\nアカウント削除が完了すると投稿データを含む全てのデータを変更できません。残したくない投稿データはご自身で必ず削除をお願い致します。\n\n（※同一のFacebookアカウントで再登録頂きましてもデータは復元致しません。）\n\n上記内容をご確認の上で、\n以下選択ください。", aCancelBtnTitle: "キャンセル", aOtherBtnTitle: "アカウント削除") { (index, title) in
+        AJAlertController.initialization().showAlert(aStrMessage: "RugRugをご愛顧頂き、\n本当にありがとうございます！\n\nアカウント削除が完了すると投稿データを含む全てのデータを変更できません。残したくない投稿データはご自身で必ず削除をお願い致します。\n\n（※同一のFacebookアカウントで再登録頂きましてもデータは復元致しません。）\n\n上記内容をご確認の上で、\n以下選択ください。\n\nOnce delete your account, every data will be deleted immediately from data server.\nAre you OK ?", aCancelBtnTitle: "キャンセル/Cancel", aOtherBtnTitle: "退会/Delete") { (index, title) in
             print(index,title)
         }
     }

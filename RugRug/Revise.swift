@@ -73,7 +73,7 @@ class Revise: UIViewController, UITextFieldDelegate, UITextViewDelegate {
         reviseData = userDefaults.string(forKey: "reviseDataId")
         
         if reviseData == "" {
-            SVProgressHUD.showError(withStatus: "エラーが発生しました！。\nお手数ですが、再度最初から手続きをお願いします。")
+            SVProgressHUD.showError(withStatus: "エラーが発生しました！。\nお手数ですが、再度最初から手続きをお願いします。\n\nErorr ! Please try again.")
             return
         }
         //reviseDataに対象の投稿ナンバーが入っている場合
@@ -99,13 +99,13 @@ class Revise: UIViewController, UITextFieldDelegate, UITextViewDelegate {
                     })
                 }
                 else {
-                    SVProgressHUD.showError(withStatus: "エラーが発生しました！\nお手数ですが、再度最初から手続きをお願いします。")
+                    SVProgressHUD.showError(withStatus: "エラーが発生しました！\nお手数ですが、再度最初から手続きをお願いします。\n\nErorr ! Please try again.")
                     return
                 }
                 
             }) { (error) in
                 print(error.localizedDescription)
-                SVProgressHUD.showError(withStatus: "エラーが発生しました！\nお手数ですが、再度最初から手続きをお願いします。")
+                SVProgressHUD.showError(withStatus: "エラーが発生しました！\nお手数ですが、再度最初から手続きをお願いします。\n\nErorr ! Please try again.")
                 return
             }
         }
@@ -159,7 +159,7 @@ class Revise: UIViewController, UITextFieldDelegate, UITextViewDelegate {
         let refOfDelete = Database.database().reference().child("posts").child("\(self.reviseData!)")
         refOfDelete.removeValue()
                     
-        SVProgressHUD.showSuccess(withStatus: "対象の投稿が削除されました")
+        SVProgressHUD.showSuccess(withStatus: "対象の投稿が削除されました\nDelete Completed.")
                     
         // 画面を閉じてViewControllerに戻る
         dismiss(animated: true, completion: nil)

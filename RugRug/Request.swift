@@ -107,7 +107,7 @@ class Request: UIViewController, UITextFieldDelegate, UITextViewDelegate  {
 
     @IBAction func submitButton(_ sender: Any) {
         if contents.text == "" {
-            SVProgressHUD.showError(withStatus: "ご意見・ご要望の記載が空白です。\nご確認下さい。")
+            SVProgressHUD.showError(withStatus: "ご意見・ご要望の記載が空白です。\nご確認下さい。\n\nContent is blank.\nPlease check.")
         }
         else {
             //FireBase上に辞書型データで残す処理
@@ -129,7 +129,7 @@ class Request: UIViewController, UITextFieldDelegate, UITextViewDelegate  {
             contents.text = ""
             userMail.text = ""
             
-            SVProgressHUD.showSuccess(withStatus: "\(name!)さん\n\n貴重なご意見、本当にありがとうございました！\nこれからも頑張ってより良いRugRugにしていきますので、どうか宜しくお願い致します！")
+            SVProgressHUD.showSuccess(withStatus: "\(name!)さん\n\n貴重なご意見、本当にありがとうございました！\nこれからも頑張ってより良いRugRugにしていきますので、どうか宜しくお願い致します！\n\nTHANK YOU SO MUCH for your request & feedback !!")
         }
     }
     

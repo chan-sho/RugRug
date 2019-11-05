@@ -58,7 +58,7 @@ class Post: UIViewController, UITableViewDataSource, UITableViewDelegate, UISear
         super.viewDidLoad()
 
         // HUDで投稿完了を表示する
-        SVProgressHUD.show(withStatus: "データ読み込み中です。\n※一番最初のデータ読み込みには時間がかかる事があります。")
+        SVProgressHUD.show(withStatus: "データ読み込み中です。\n※一番最初のデータ読み込みには時間がかかる事があります。\n\nData Roading...")
         SVProgressHUD.dismiss(withDelay: 2.0)
         
         tableView.delegate = self
@@ -75,7 +75,7 @@ class Post: UIViewController, UITableViewDataSource, UITableViewDelegate, UISear
         newPostButton2.contentHorizontalAlignment = .center
         
         textSearchBar.delegate = self
-        textSearchBar.placeholder = "キーワードで検索"
+        //textSearchBar.placeholder = "キーワードで検索"
         //何も入力されていなくてもReturnキーを押せるようにする。
         textSearchBar.enablesReturnKeyAutomatically = false
         
@@ -101,7 +101,7 @@ class Post: UIViewController, UITableViewDataSource, UITableViewDelegate, UISear
         // スペーサー
         let spacer = UIBarButtonItem(barButtonSystemItem: UIBarButtonItem.SystemItem.flexibleSpace, target: self, action: nil)
         // 閉じるボタン
-        let commitButton = UIBarButtonItem(title: "キーボードを閉じる", style: .done, target: self, action: #selector(self.commitButtonTapped))
+        let commitButton = UIBarButtonItem(title: "キーボードを閉じる / Close Keyboard", style: .done, target: self, action: #selector(self.commitButtonTapped))
         kbToolBar.items = [spacer, commitButton]
         textSearchBar.inputAccessoryView = kbToolBar
         
@@ -122,19 +122,19 @@ class Post: UIViewController, UITableViewDataSource, UITableViewDelegate, UISear
         
         //pageTitleの更新
         if postType == "1" {
-            pageTitle.text = "【本気でラグビーしたい】"
+            pageTitle.text = "【本気で / Play Seriously】"
         }
         else if postType == "2" {
-            pageTitle.text = "【エンジョイレベルで楽しく】"
+            pageTitle.text = "【エンジョイ / Enjoy Play】"
         }
         else if postType == "3" {
-            pageTitle.text = "【一緒に観戦しましょう】"
+            pageTitle.text = "【一緒に観戦 / Watch Game】"
         }
         else if postType == "4" {
-            pageTitle.text = "【飲み会で盛り上がろう】"
+            pageTitle.text = "【飲み会 / Drinking Party】"
         }
         else if postType == "5" {
-            pageTitle.text = "【ビジネスマッチング】"
+            pageTitle.text = "【ビジネスマッチ / Business】"
         }
         
         // TableViewを再表示する
@@ -155,19 +155,19 @@ class Post: UIViewController, UITableViewDataSource, UITableViewDelegate, UISear
         
         //pageTitleの更新
         if postType == "1" {
-            pageTitle.text = "【本気でラグビーしたい】"
+            pageTitle.text = "【本気で / Play Seriously】"
         }
         else if postType == "2" {
-            pageTitle.text = "【エンジョイレベルで楽しく】"
+            pageTitle.text = "【エンジョイ / Enjoy Play】"
         }
         else if postType == "3" {
-            pageTitle.text = "【一緒に観戦しましょう】"
+            pageTitle.text = "【一緒に観戦 / Watch Game】"
         }
         else if postType == "4" {
-            pageTitle.text = "【飲み会で盛り上がろう】"
+            pageTitle.text = "【飲み会 / Drinking Party】"
         }
         else if postType == "5" {
-            pageTitle.text = "【ビジネスマッチング】"
+            pageTitle.text = "【ビジネスマッチ / Business】"
         }
         
         // TableViewを再表示する（※superの前に入れておくのが大事！！）
@@ -1244,7 +1244,7 @@ class Post: UIViewController, UITableViewDataSource, UITableViewDelegate, UISear
         
         let UserPhotoURLFlag :String = userDefaults.string(forKey: "UserPhotoURLFlag")!
         if UserPhotoURLFlag == "YES" {
-            AJAlertController.initialization().showAlert(aStrMessage: "このユーザーを検索する為に、\n「ユーザー名」をコピーし、\nFacebookに移動します。\n\n(※ペーストして検索が出来ます)", aCancelBtnTitle: "いいえ", aOtherBtnTitle: "はい") { (index, title) in
+            AJAlertController.initialization().showAlert(aStrMessage: "このユーザーを検索する為に、\n「ユーザー名」をコピーし、\nFacebookに移動します。\n\n(※ペーストして検索が出来ます)\n\nWould you search this user via Facebook ?\n*You can paste this user's name in search bar.", aCancelBtnTitle: "いいえ/NO", aOtherBtnTitle: "はい/YES") { (index, title) in
                 print(index,title)
             }
         }

@@ -72,7 +72,7 @@ class Reject: UIViewController {
         
         let CautionFlag :String = userDefaults.string(forKey: "CautionDataFlag")!
         if CautionFlag == "YES" {
-            AJAlertController.initialization().showAlert(aStrMessage: "この投稿が好ましくない内容を含む事を管理人に報告しますか？", aCancelBtnTitle: "キャンセル", aOtherBtnTitle: "管理人に報告") { (index, title) in
+            AJAlertController.initialization().showAlert(aStrMessage: "この投稿が好ましくない内容を含む事を管理人に報告しますか？\n\nWould you report this contribution to RugRug manager ?", aCancelBtnTitle: "キャンセル/Cancel", aOtherBtnTitle: "報告/Report") { (index, title) in
                 print(index,title)
                 
             }
@@ -80,14 +80,14 @@ class Reject: UIViewController {
         
         let RejectFlag :String = userDefaults.string(forKey: "RejectDataFlag")!
         if RejectFlag == "YES" {
-            AJAlertController.initialization().showAlert(aStrMessage: "今後、この投稿を貴方の投稿一覧に表示しない様にしますか？", aCancelBtnTitle: "キャンセル", aOtherBtnTitle: "今後表示しない") { (index, title) in
+            AJAlertController.initialization().showAlert(aStrMessage: "今後、この投稿を貴方の投稿一覧に表示しない様にしますか？\n\nWould you hide this contribution from your table ?", aCancelBtnTitle: "キャンセル/Cancel", aOtherBtnTitle: "非表示/Hide") { (index, title) in
                 print(index,title)
             }
         }
         
         let RejectUserFlag :String = userDefaults.string(forKey: "RejectUserFlag")!
         if RejectUserFlag == "YES" {
-            AJAlertController.initialization().showAlert(aStrMessage: "今後、この投稿者の全ての投稿をブロックしますか？\n（＝この投稿者をブロック）", aCancelBtnTitle: "キャンセル", aOtherBtnTitle: "投稿者ブロック") { (index, title) in
+            AJAlertController.initialization().showAlert(aStrMessage: "今後、この投稿者の全ての投稿をブロックしますか？\n（＝この投稿者をブロック）\n\nWould you block this contributor ?", aCancelBtnTitle: "キャンセル/Cancel", aOtherBtnTitle: "ブロック/Block") { (index, title) in
                 print(index,title)
             }
         }

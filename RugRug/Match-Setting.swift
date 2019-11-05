@@ -19,7 +19,7 @@ import FirebaseAuth
 import SVProgressHUD
 
 
-class Match_Setting: UIViewController, UITextFieldDelegate, UITextViewDelegate, UIPickerViewDelegate, UIPickerViewDataSource {
+class Match_Setting: UIViewController, UITextFieldDelegate, UITextViewDelegate, UIPickerViewDelegate, UIPickerViewDataSource, UIPopoverPresentationControllerDelegate {
 
     
     @IBOutlet weak var userPhoto: UIImageView!
@@ -28,6 +28,7 @@ class Match_Setting: UIViewController, UITextFieldDelegate, UITextViewDelegate, 
     @IBOutlet weak var positionSegment: UISegmentedControl!
     @IBOutlet weak var detailSegment: UISegmentedControl!
     @IBOutlet weak var setButton: UIButton!
+    @IBOutlet weak var popOverButton: UIButton!
     
     // categoryTextにPickerを実装する準備
     var pickerView: UIPickerView = UIPickerView()
@@ -56,6 +57,9 @@ class Match_Setting: UIViewController, UITextFieldDelegate, UITextViewDelegate, 
         interestedContents.layer.masksToBounds = true
         
         setButton.layer.cornerRadius = 30.0
+        popOverButton.layer.cornerRadius = 30/2
+        popOverButton.layer.borderColor = UIColor.blue.cgColor
+        popOverButton.layer.borderWidth = 1.0
         
         self.positionSegment.setTitleTextAttributes([
             NSAttributedString.Key.font: UIFont.systemFont(ofSize: 16.0, weight: .semibold)],
@@ -238,6 +242,26 @@ class Match_Setting: UIViewController, UITextFieldDelegate, UITextViewDelegate, 
             detailSegment.setTitle("熱狂的", forSegmentAt: 3)
             detailSegment.setTitle("にわか", forSegmentAt: 4)
         }
+    }
+    
+    
+    // Popoverの前準備
+    override func prepare (for segue: UIStoryboardSegue, sender: Any?) {
+        // セグエのポップオーバー接続先を取得
+        let popoverCtrl = segue.destination.popoverPresentationController
+        // 呼び出し元がUIButtonの場合
+        if sender is UIButton {
+            // タップされたボタンの領域を取得
+            popoverCtrl?.sourceRect = (sender as! UIButton).bounds
+        }
+        // デリゲートを自分自身に設定
+        popoverCtrl?.delegate = self
+    }
+    
+    // 表示スタイルの設定
+    func adaptivePresentationStyle(for controller: UIPresentationController, traitCollection: UITraitCollection) -> UIModalPresentationStyle {
+        // .noneを設定することで、設定したサイズでポップオーバーされる
+        return .none
     }
     
     

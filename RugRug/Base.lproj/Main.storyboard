@@ -389,6 +389,22 @@ Genre you are most interested in :</string>
                                     <constraint firstAttribute="width" constant="70" id="NOM-sc-i3P"/>
                                 </constraints>
                             </imageView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="YkZ-gD-Gpq">
+                                <rect key="frame" x="260" y="345" width="30" height="30"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="30" id="N7q-Zz-wXP"/>
+                                    <constraint firstAttribute="height" constant="30" id="jeh-Wf-3vf"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="22"/>
+                                <state key="normal" title="?">
+                                    <color key="titleColor" red="0.0" green="0.58980089430000004" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                </state>
+                                <connections>
+                                    <segue destination="3rz-vc-rBD" kind="popoverPresentation" popoverAnchorView="YkZ-gD-Gpq" id="c1B-eP-Bo8">
+                                        <popoverArrowDirection key="popoverArrowDirection" up="YES" down="YES" left="YES" right="YES"/>
+                                    </segue>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" red="0.12984204290000001" green="0.12984612579999999" blue="0.12984395030000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
@@ -402,7 +418,9 @@ Genre you are most interested in :</string>
                             <constraint firstItem="0HM-gc-iHG" firstAttribute="top" secondItem="H41-iU-Xdi" secondAttribute="top" constant="10" id="BAG-ge-zOm"/>
                             <constraint firstItem="H41-iU-Xdi" firstAttribute="trailing" secondItem="kfJ-lC-pJR" secondAttribute="trailing" constant="20" id="DGu-Xq-QXQ"/>
                             <constraint firstItem="Ree-sZ-1b3" firstAttribute="leading" secondItem="H41-iU-Xdi" secondAttribute="leading" id="GBD-hi-bs9"/>
+                            <constraint firstItem="YkZ-gD-Gpq" firstAttribute="centerY" secondItem="AHL-tn-Wss" secondAttribute="centerY" constant="-5" id="I2m-Wk-UmD"/>
                             <constraint firstItem="ptu-6N-RgK" firstAttribute="top" secondItem="ULl-Sn-Kpv" secondAttribute="bottom" constant="15" id="Lcr-g8-iI7"/>
+                            <constraint firstItem="H41-iU-Xdi" firstAttribute="trailing" secondItem="YkZ-gD-Gpq" secondAttribute="trailing" constant="30" id="Oya-2F-fdj"/>
                             <constraint firstItem="M9C-34-bti" firstAttribute="leading" secondItem="H41-iU-Xdi" secondAttribute="leading" constant="20" id="Pdo-XX-yc4"/>
                             <constraint firstItem="H41-iU-Xdi" firstAttribute="trailing" secondItem="ULl-Sn-Kpv" secondAttribute="trailing" constant="20" id="W4O-u9-zrv"/>
                             <constraint firstItem="H41-iU-Xdi" firstAttribute="trailing" secondItem="ptu-6N-RgK" secondAttribute="trailing" constant="20" id="WIJ-K8-UBO"/>
@@ -431,6 +449,7 @@ Genre you are most interested in :</string>
                         <outlet property="detailSegment" destination="gdY-Hp-2eR" id="8Ax-dP-7Jp"/>
                         <outlet property="interestedContents" destination="M9C-34-bti" id="E1d-Mm-RGa"/>
                         <outlet property="matchRequest" destination="ULl-Sn-Kpv" id="au8-el-TDp"/>
+                        <outlet property="popOverButton" destination="YkZ-gD-Gpq" id="7zX-KI-WFt"/>
                         <outlet property="positionSegment" destination="4Kx-CJ-8IY" id="zwx-hq-bae"/>
                         <outlet property="setButton" destination="BTG-pe-h0y" id="Hsz-zR-0Yb"/>
                         <outlet property="userPhoto" destination="0HM-gc-iHG" id="H7Q-1w-fvm"/>
@@ -627,6 +646,75 @@ want to connect  ?</string>
                 <exit id="0ir-Hh-Pr7" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
             <point key="canvasLocation" x="3450" y="-266.19718309859155"/>
+        </scene>
+        <!--Popover-->
+        <scene sceneID="e0x-ah-64B">
+            <objects>
+                <viewController id="3rz-vc-rBD" customClass="Popover" customModule="RugRug" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="I2K-JH-3nj">
+                        <rect key="frame" x="0.0" y="0.0" width="210" height="270"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="運営(Operation Team)" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="WoK-9G-2Wb">
+                                <rect key="frame" x="10" y="5" width="184.5" height="21.5"/>
+                                <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="18"/>
+                                <color key="textColor" red="0.016804177310000001" green="0.19835099580000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="htg-Gn-xdY">
+                                <rect key="frame" x="25" y="31.5" width="155" height="95.5"/>
+                                <string key="text">監督 :       Director
+コーチ :   Coach
+マネ :       Assistant
+庶務 :       Back Office
+分析 :       Analyst</string>
+                                <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                <color key="textColor" red="0.016804177310000001" green="0.19835099580000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Fan" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="RIw-OK-VMM">
+                                <rect key="frame" x="10" y="137" width="30.5" height="22"/>
+                                <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="18"/>
+                                <color key="textColor" red="0.016804177310000001" green="0.19835099580000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lbg-QM-Psx">
+                                <rect key="frame" x="20" y="164" width="167.5" height="95.5"/>
+                                <string key="text">やる派 :    Player
+観る派 :    Watch Game
+飲み派 :    Drink
+熱狂的 :    Enthusiastic
+にわか :    Bandwagon</string>
+                                <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                <color key="textColor" red="0.016804177310000001" green="0.19835099580000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" red="0.83741801979999997" green="0.83743780850000005" blue="0.83742713930000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="RIw-OK-VMM" firstAttribute="leading" secondItem="vcP-pJ-dBp" secondAttribute="leading" constant="10" id="0iI-xD-9cu"/>
+                            <constraint firstItem="htg-Gn-xdY" firstAttribute="leading" secondItem="vcP-pJ-dBp" secondAttribute="leading" constant="25" id="Kag-c0-NQR"/>
+                            <constraint firstItem="RIw-OK-VMM" firstAttribute="top" secondItem="htg-Gn-xdY" secondAttribute="bottom" constant="10" id="KzQ-BP-W2W"/>
+                            <constraint firstItem="htg-Gn-xdY" firstAttribute="top" secondItem="WoK-9G-2Wb" secondAttribute="bottom" constant="5" id="OlN-va-9f1"/>
+                            <constraint firstItem="lbg-QM-Psx" firstAttribute="top" secondItem="RIw-OK-VMM" secondAttribute="bottom" constant="5" id="RBx-Mb-bec"/>
+                            <constraint firstItem="lbg-QM-Psx" firstAttribute="leading" secondItem="vcP-pJ-dBp" secondAttribute="leading" constant="20" id="dbb-eI-auF"/>
+                            <constraint firstItem="WoK-9G-2Wb" firstAttribute="leading" secondItem="vcP-pJ-dBp" secondAttribute="leading" constant="10" id="oqM-iv-8ah"/>
+                            <constraint firstItem="WoK-9G-2Wb" firstAttribute="top" secondItem="vcP-pJ-dBp" secondAttribute="top" constant="5" id="qeP-Tt-Xcm"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="vcP-pJ-dBp"/>
+                    </view>
+                    <value key="contentSizeForViewInPopover" type="size" width="210" height="270"/>
+                    <size key="freeformSize" width="210" height="270"/>
+                    <connections>
+                        <outlet property="label1" destination="WoK-9G-2Wb" id="7HT-s3-nZo"/>
+                        <outlet property="label2" destination="htg-Gn-xdY" id="PCh-ue-3gH"/>
+                        <outlet property="label3" destination="RIw-OK-VMM" id="Gx5-qY-d3q"/>
+                        <outlet property="label4" destination="lbg-QM-Psx" id="Qmd-Bq-MJI"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="izV-CR-7k4" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="4327.5" y="-266.19718309859155"/>
         </scene>
         <!--Post Type-->
         <scene sceneID="D3w-Aq-puv">
@@ -4980,7 +5068,7 @@ EVERYBODY who likes Rugby !</string>
         <image name="飲み会" width="600" height="399"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="uR1-jP-wWo"/>
+        <segue reference="Csg-to-CJB"/>
         <segue reference="r1e-9y-xwy"/>
         <segue reference="xBS-df-HOe"/>
         <segue reference="bRY-gL-UaA"/>

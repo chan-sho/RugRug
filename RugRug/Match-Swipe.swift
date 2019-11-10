@@ -43,7 +43,7 @@ class Match_Swipe: UIViewController, UITableViewDataSource, UITableViewDelegate 
         super.viewDidLoad()
 
         // HUDで投稿完了を表示する
-        SVProgressHUD.show(withStatus: "データ読み込み中です。\nData Roading")
+        SVProgressHUD.show(withStatus: "データ読み込み中です。\nData Loading")
         SVProgressHUD.dismiss(withDelay: 1.0)
         
         tableView.delegate = self
@@ -313,7 +313,7 @@ class Match_Swipe: UIViewController, UITableViewDataSource, UITableViewDelegate 
         
         //*次回Match-Swipeが利用可能になる時刻
         let now = Date()
-        let nextTime = Date(timeInterval: 60*60*24*1, since: now)
+        let nextTime = Date(timeInterval: 60*60*3*1, since: now)
         
         let dateFormatter = DateFormatter()
         dateFormatter.locale = Locale(identifier: "en_US_POSIX")
@@ -358,7 +358,7 @@ class Match_Swipe: UIViewController, UITableViewDataSource, UITableViewDelegate 
         
         //*次回Match-Swipeが利用可能になる時刻
         let now = Date()
-        let nextTime = Date(timeInterval: 60*60*24*1, since: now)
+        let nextTime = Date(timeInterval: 60*60*3*1, since: now)
         
         let dateFormatter = DateFormatter()
         dateFormatter.locale = Locale(identifier: "en_US_POSIX")

@@ -36,7 +36,7 @@ class Match_Contact: UIViewController, UITableViewDataSource, UITableViewDelegat
         super.viewDidLoad()
         
         // HUDで投稿完了を表示する
-        SVProgressHUD.show(withStatus: "データ読み込み中です。\nData Roading.")
+        SVProgressHUD.show(withStatus: "データ読み込み中です。\nData Loading.")
         SVProgressHUD.dismiss(withDelay: 1.0)
         
         tableView.delegate = self

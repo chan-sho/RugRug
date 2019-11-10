@@ -179,11 +179,11 @@ Initial setting for "User Matching"</string>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cfm-ya-1Dh">
-                                <rect key="frame" x="16.5" y="207.5" width="287.5" height="76.5"/>
+                                <rect key="frame" x="21" y="207.5" width="278" height="76.5"/>
                                 <string key="text">【STEP2】
 ランダム選定されたユーザーから選ぶ
-（※チェックは24時間毎に1人まで可）
-Random user matching every 24 hrs</string>
+（※チェックは3時間毎に1人まで可）
+Random user matching every 3 hrs</string>
                                 <fontDescription key="fontDescription" type="system" pointSize="16"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
@@ -4965,7 +4965,7 @@ EVERYBODY who likes Rugby !</string>
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="news1Photo(1027)" translatesAutoresizingMaskIntoConstraints="NO" id="tKt-HE-Q03">
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="news1Photo(1106)" translatesAutoresizingMaskIntoConstraints="NO" id="tKt-HE-Q03">
                                 <rect key="frame" x="10" y="60" width="300" height="150"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="300" id="ddz-Cb-UWs"/>
@@ -4993,14 +4993,14 @@ EVERYBODY who likes Rugby !</string>
                                     <segue destination="6tz-0H-mzS" kind="unwind" unwindAction="unwind:" id="5TZ-ZU-vD9"/>
                                 </connections>
                             </button>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ほぼ日×ラグビー" translatesAutoresizingMaskIntoConstraints="NO" id="G7O-zx-P7K">
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="news1Photo(1106)②" translatesAutoresizingMaskIntoConstraints="NO" id="G7O-zx-P7K">
                                 <rect key="frame" x="10" y="211" width="300" height="150"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="150" id="kqn-ZK-Tzo"/>
                                     <constraint firstAttribute="width" constant="300" id="rqz-1I-z2X"/>
                                 </constraints>
                             </imageView>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="楕円球LOVE" translatesAutoresizingMaskIntoConstraints="NO" id="fdz-Kd-qPc">
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="トップリーグ観に行こう" translatesAutoresizingMaskIntoConstraints="NO" id="fdz-Kd-qPc">
                                 <rect key="frame" x="10" y="366" width="300" height="150"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="150" id="aiH-Ip-ZC9"/>
@@ -5058,13 +5058,13 @@ EVERYBODY who likes Rugby !</string>
         <image name="creative2" width="127.5" height="127.5"/>
         <image name="creative3" width="136" height="136"/>
         <image name="matching(グレー)" width="60" height="60"/>
-        <image name="news1Photo(1027)" width="240" height="146.39999389648438"/>
-        <image name="ほぼ日×ラグビー" width="1198" height="628"/>
+        <image name="news1Photo(1106)" width="720" height="360"/>
+        <image name="news1Photo(1106)②" width="960" height="480"/>
         <image name="エンジョイ" width="600" height="400"/>
+        <image name="トップリーグ観に行こう" width="1000" height="500"/>
         <image name="ビジネスマッチ" width="600" height="401"/>
         <image name="応援" width="600" height="400"/>
         <image name="本気でラグビー" width="144" height="98.400001525878906"/>
-        <image name="楕円球LOVE" width="530.25" height="243.75"/>
         <image name="飲み会" width="600" height="399"/>
     </resources>
     <inferredMetricsTieBreakers>

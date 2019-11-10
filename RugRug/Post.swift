@@ -58,7 +58,7 @@ class Post: UIViewController, UITableViewDataSource, UITableViewDelegate, UISear
         super.viewDidLoad()
 
         // HUDで投稿完了を表示する
-        SVProgressHUD.show(withStatus: "データ読み込み中です。\n※一番最初のデータ読み込みには時間がかかる事があります。\n\nData Roading...")
+        SVProgressHUD.show(withStatus: "データ読み込み中です。\n※一番最初のデータ読み込みには時間がかかる事があります。\n\nData Loading...")
         SVProgressHUD.dismiss(withDelay: 2.0)
         
         tableView.delegate = self
